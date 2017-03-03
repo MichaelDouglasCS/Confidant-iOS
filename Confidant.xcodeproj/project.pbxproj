@@ -172,6 +172,7 @@
 				6184857D1E68633B00854092 /* Models */,
 				6184857B1E68631200854092 /* Authentication */,
 				618485791E6862FE00854092 /* Networking */,
+				61EA4A001E68F3C600E76C54 /* Extensions */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -203,6 +204,13 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		61EA4A001E68F3C600E76C54 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
