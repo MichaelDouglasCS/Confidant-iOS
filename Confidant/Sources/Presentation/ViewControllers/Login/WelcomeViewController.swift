@@ -33,6 +33,22 @@ class WelcomeViewController: UIViewController {
     //*************************************************
     
     //*************************************************
+    // MARK: - Setup Design Properties
+    //*************************************************
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    //*************************************************
     // MARK: - Override Public Methods
     //*************************************************
     
@@ -45,9 +61,5 @@ class WelcomeViewController: UIViewController {
     // MARK: - Setup Methods
     //*************************************************
     
-    private func setupStatusBarColor(color: UIColor) -> Void {
-        
-    }
-
 
 }
