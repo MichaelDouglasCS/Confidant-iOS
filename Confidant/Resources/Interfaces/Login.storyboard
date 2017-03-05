@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -32,63 +33,104 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-welcome" translatesAutoresizingMaskIntoConstraints="NO" id="rqg-dq-mT7" userLabel="LogoNameImageView">
                                 <rect key="frame" x="33" y="50" width="308" height="95"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLr-x2-vyf" userLabel="LoginButton">
-                                <rect key="frame" x="0.0" y="615" width="188" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="login-welcome"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Tm-qV-bh3" userLabel="SigninButton">
-                                <rect key="frame" x="187" y="615" width="188" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="signup-welcome"/>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-Rc-nva" userLabel="PageView">
-                                <rect key="frame" x="0.0" y="477" width="375" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ob-Am-cVj" userLabel="PageTitle" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="101" y="1" width="172" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="22"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
-                                                <real key="value" value="-0.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign up for free music on your phone, tablet and computer." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6md-zC-Hfh" userLabel="PageText" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="26" width="359" height="42"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="lineSpace">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                </subviews>
-                            </view>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="QPx-JJ-pRK" userLabel="PageControl">
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="QPx-JJ-pRK" userLabel="PageControl">
                                 <rect key="frame" x="97" y="554" width="180" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pageControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WI-tj-6Po" userLabel="ButtonView">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLr-x2-vyf" userLabel="LoginButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="189" height="50"/>
+                                        <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="17"/>
+                                        <state key="normal" title="LOG IN" backgroundImage="login-welcome"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Tm-qV-bh3" userLabel="SigninButton">
+                                        <rect key="frame" x="188" y="0.0" width="187" height="50"/>
+                                        <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="17"/>
+                                        <state key="normal" title="SIGN UP" backgroundImage="signup-welcome"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="JLr-x2-vyf" secondAttribute="bottom" id="2bv-wv-dl3"/>
+                                    <constraint firstItem="JLr-x2-vyf" firstAttribute="top" secondItem="8Tm-qV-bh3" secondAttribute="top" id="QTm-oG-snH"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Tm-qV-bh3" secondAttribute="trailing" id="hqN-CO-ByM"/>
+                                    <constraint firstItem="JLr-x2-vyf" firstAttribute="top" secondItem="1WI-tj-6Po" secondAttribute="top" id="pb3-88-o5d"/>
+                                    <constraint firstItem="JLr-x2-vyf" firstAttribute="leading" secondItem="1WI-tj-6Po" secondAttribute="leading" id="vOn-na-Npf"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Src-Cq-e53" userLabel="PageScrollView">
+                                <rect key="frame" x="0.0" y="478" width="375" height="68"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-Rc-nva" userLabel="PageView">
+                                        <rect key="frame" x="15" y="0.0" width="345" height="68"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ob-Am-cVj" userLabel="PageTitle" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
+                                                <rect key="frame" x="86" y="0.0" width="172" height="20"/>
+                                                <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="22"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                                        <real key="value" value="-0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Sign up for free music on your phone, tablet and computer." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6md-zC-Hfh" userLabel="PageText" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="25" width="345" height="43"/>
+                                                <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineSpace">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="8Ob-Am-cVj" firstAttribute="top" secondItem="ddu-Rc-nva" secondAttribute="top" id="1Pp-Sz-Re5"/>
+                                            <constraint firstAttribute="bottom" secondItem="6md-zC-Hfh" secondAttribute="bottom" id="Iy7-2g-Uju"/>
+                                            <constraint firstItem="6md-zC-Hfh" firstAttribute="leading" secondItem="ddu-Rc-nva" secondAttribute="leading" id="S71-sF-3bt"/>
+                                            <constraint firstAttribute="trailing" secondItem="8Ob-Am-cVj" secondAttribute="trailing" constant="87" id="h0s-fJ-2Hz"/>
+                                            <constraint firstItem="6md-zC-Hfh" firstAttribute="top" secondItem="8Ob-Am-cVj" secondAttribute="bottom" constant="5" id="oQR-A2-NRN"/>
+                                            <constraint firstItem="8Ob-Am-cVj" firstAttribute="leading" secondItem="ddu-Rc-nva" secondAttribute="leading" constant="86" id="oki-L4-QCZ"/>
+                                            <constraint firstAttribute="height" constant="68" id="rfJ-Kr-9Yc"/>
+                                            <constraint firstAttribute="trailing" secondItem="6md-zC-Hfh" secondAttribute="trailing" id="teX-z7-a45"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="0gQ-D9-AUz"/>
+                                    <constraint firstItem="ddu-Rc-nva" firstAttribute="leading" secondItem="Src-Cq-e53" secondAttribute="leading" constant="15" id="EFi-kT-UuT"/>
+                                    <constraint firstItem="ddu-Rc-nva" firstAttribute="centerY" secondItem="Src-Cq-e53" secondAttribute="centerY" id="kKt-TL-CFE"/>
+                                    <constraint firstItem="ddu-Rc-nva" firstAttribute="centerX" secondItem="Src-Cq-e53" secondAttribute="centerX" id="lUQ-f0-SMC"/>
+                                    <constraint firstAttribute="bottom" secondItem="ddu-Rc-nva" secondAttribute="bottom" id="sDi-TZ-UqY"/>
+                                    <constraint firstAttribute="trailing" secondItem="ddu-Rc-nva" secondAttribute="trailing" constant="15" id="x3P-aJ-T8s"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="vlE-fh-E07" secondAttribute="bottom" id="1Bf-LQ-XPV"/>
                             <constraint firstItem="vlE-fh-E07" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4Sa-Bp-4tf"/>
+                            <constraint firstAttribute="trailing" secondItem="Src-Cq-e53" secondAttribute="trailing" id="CcD-bu-4OJ"/>
                             <constraint firstAttribute="trailing" secondItem="rqg-dq-mT7" secondAttribute="trailing" constant="34" id="ChT-X5-aIH"/>
+                            <constraint firstAttribute="bottom" secondItem="Src-Cq-e53" secondAttribute="bottom" constant="121" id="LW6-xe-oxz"/>
+                            <constraint firstItem="Src-Cq-e53" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MZw-wi-r3h"/>
+                            <constraint firstItem="Src-Cq-e53" firstAttribute="trailing" secondItem="1WI-tj-6Po" secondAttribute="trailing" id="TnP-nr-ErV"/>
+                            <constraint firstItem="QPx-JJ-pRK" firstAttribute="top" secondItem="Src-Cq-e53" secondAttribute="bottom" constant="8" symbolic="YES" id="ZUn-ob-VNI"/>
                             <constraint firstItem="rqg-dq-mT7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="aSN-T0-9Ti"/>
+                            <constraint firstItem="Src-Cq-e53" firstAttribute="leading" secondItem="1WI-tj-6Po" secondAttribute="leading" id="dUh-2o-c9T"/>
+                            <constraint firstItem="QPx-JJ-pRK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="81" id="mDs-QJ-gFN"/>
+                            <constraint firstItem="1WI-tj-6Po" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="mGB-d3-kUd"/>
                             <constraint firstAttribute="trailing" secondItem="vlE-fh-E07" secondAttribute="trailing" id="pg6-m9-2sl"/>
                             <constraint firstItem="vlE-fh-E07" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qOt-2j-xxi"/>
+                            <constraint firstItem="Src-Cq-e53" firstAttribute="centerX" secondItem="QPx-JJ-pRK" secondAttribute="centerX" id="rqb-Zd-AGC"/>
                             <constraint firstItem="rqg-dq-mT7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="33" id="zn7-T7-aLJ"/>
                         </constraints>
                     </view>
