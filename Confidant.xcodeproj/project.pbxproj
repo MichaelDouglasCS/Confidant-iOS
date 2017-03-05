@@ -47,6 +47,8 @@
 		61790F031E6A0A520095482F /* Gotham-XLightItalic(1).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61790EE11E6A0A520095482F /* Gotham-XLightItalic(1).ttf */; };
 		61A2BFE31E686DD900414A4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A2BFE11E686DD900414A4C /* LaunchScreen.storyboard */; };
 		61A2BFE41E686DD900414A4C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A2BFE21E686DD900414A4C /* Login.storyboard */; };
+		61B09E7B1E6C9ED8008962E8 /* WelcomeMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B09E7A1E6C9ED8008962E8 /* WelcomeMessageView.xib */; };
+		61B09E7D1E6C9F7F008962E8 /* WelcomeMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B09E7C1E6C9F7F008962E8 /* WelcomeMessageView.swift */; };
 		61BDD9B41E69F3BB00FA0410 /* IBDesignableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDD9B31E69F3BB00FA0410 /* IBDesignableClass.swift */; };
 		61F5CE8C1E68FA1C001261C1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F5CE8B1E68FA1C001261C1 /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -115,6 +117,8 @@
 		61790EE11E6A0A520095482F /* Gotham-XLightItalic(1).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLightItalic(1).ttf"; sourceTree = "<group>"; };
 		61A2BFE11E686DD900414A4C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61A2BFE21E686DD900414A4C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		61B09E7A1E6C9ED8008962E8 /* WelcomeMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeMessageView.xib; sourceTree = "<group>"; };
+		61B09E7C1E6C9F7F008962E8 /* WelcomeMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeMessageView.swift; sourceTree = "<group>"; };
 		61BDD9B31E69F3BB00FA0410 /* IBDesignableClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignableClass.swift; sourceTree = "<group>"; };
 		61F5CE8B1E68FA1C001261C1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,6 +260,7 @@
 			children = (
 				61A2BFE21E686DD900414A4C /* Login.storyboard */,
 				61A2BFE11E686DD900414A4C /* LaunchScreen.storyboard */,
+				619616ED1E6C6B74007548AC /* XIBs */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -319,6 +324,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		619616ED1E6C6B74007548AC /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				61B09E7A1E6C9ED8008962E8 /* WelcomeMessageView.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
 		61BDD9AC1E699CE300FA0410 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				61F5CE8B1E68FA1C001261C1 /* WelcomeViewController.swift */,
+				61B09E7C1E6C9F7F008962E8 /* WelcomeMessageView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -483,6 +497,7 @@
 				61790EF11E6A0A520095482F /* Gotham-Light(1).ttf in Resources */,
 				61790F011E6A0A520095482F /* Gotham-XLight(1).ttf in Resources */,
 				61790EFF1E6A0A520095482F /* Gotham-UltraItalic(1).ttf in Resources */,
+				61B09E7B1E6C9ED8008962E8 /* WelcomeMessageView.xib in Resources */,
 				61790EFB1E6A0A520095482F /* Gotham-ThinItalic(1).ttf in Resources */,
 				61A2BFE31E686DD900414A4C /* LaunchScreen.storyboard in Resources */,
 				61790EF91E6A0A520095482F /* Gotham-Thin(1).ttf in Resources */,
@@ -524,6 +539,7 @@
 				61F5CE8C1E68FA1C001261C1 /* WelcomeViewController.swift in Sources */,
 				61494DFA1E685AB400D4DF13 /* AppDelegate.swift in Sources */,
 				61BDD9B41E69F3BB00FA0410 /* IBDesignableClass.swift in Sources */,
+				61B09E7D1E6C9F7F008962E8 /* WelcomeMessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
