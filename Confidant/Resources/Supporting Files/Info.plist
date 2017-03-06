@@ -2,6 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>GOTHAM-BLACK.TTF</string>
+		<string>GOTHAM-BLACKITALIC.TTF</string>
+		<string>GOTHAM-BOLD_0.OTF</string>
+		<string>GOTHAM-BOLD.TTF</string>
+		<string>GOTHAM-BOLDITALIC.TTF</string>
+		<string>GOTHAM-BOOKITALIC_0.OTF</string>
+		<string>GOTHAM-LIGHT_0.OTF</string>
+		<string>GOTHAM-LIGHT.TTF</string>
+		<string>GOTHAM-LIGHTITALIC.TTF</string>
+		<string>GOTHAM-MEDIUM.TTF</string>
+		<string>GOTHAM-MEDIUMITALIC.TTF</string>
+		<string>GOTHAM-THIN.TTF</string>
+		<string>GOTHAM-THINITALIC.TTF</string>
+		<string>GOTHAM-ULTRA.TTF</string>
+		<string>GOTHAM-ULTRAITALIC.TTF</string>
+		<string>GOTHAM-XLIGHT.TTF</string>
+		<string>GOTHAM-XLIGHTITALIC.TTF</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
