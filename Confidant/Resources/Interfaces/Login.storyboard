@@ -33,7 +33,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-welcome" translatesAutoresizingMaskIntoConstraints="NO" id="rqg-dq-mT7" userLabel="LogoNameImageView">
                                 <rect key="frame" x="33" y="50" width="308" height="95"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P76-oI-xE8" userLabel="MessageScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P76-oI-xE8" userLabel="MessageScrollView">
                                 <rect key="frame" x="0.0" y="478" width="375" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="wZL-eT-iiu"/>
