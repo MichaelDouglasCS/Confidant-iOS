@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613A8B471E6F1159000DD11D /* UIView+AddSubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A8B461E6F1159000DD11D /* UIView+AddSubViews.swift */; };
 		61494DFA1E685AB400D4DF13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61494DF91E685AB400D4DF13 /* AppDelegate.swift */; };
 		61494E011E685AB400D4DF13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61494E001E685AB400D4DF13 /* Assets.xcassets */; };
 		61494E0F1E685AB400D4DF13 /* ConfidantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61494E0E1E685AB400D4DF13 /* ConfidantTests.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		613A8B461E6F1159000DD11D /* UIView+AddSubViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubViews.swift"; sourceTree = "<group>"; };
 		61494DF61E685AB400D4DF13 /* Confidant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Confidant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61494DF91E685AB400D4DF13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61494E001E685AB400D4DF13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				61EB01941E6ED79200DC269B /* UILabel+WelcomeMessageFormat.swift */,
+				613A8B461E6F1159000DD11D /* UIView+AddSubViews.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61EB01951E6ED79200DC269B /* UILabel+WelcomeMessageFormat.swift in Sources */,
+				613A8B471E6F1159000DD11D /* UIView+AddSubViews.swift in Sources */,
 				61F5CE8C1E68FA1C001261C1 /* WelcomeViewController.swift in Sources */,
 				61494DFA1E685AB400D4DF13 /* AppDelegate.swift in Sources */,
 				61BDD9B41E69F3BB00FA0410 /* IBDesignableClass.swift in Sources */,
