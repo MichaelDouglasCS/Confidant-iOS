@@ -78,6 +78,7 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - Properties
     //*************************************************
     
+    private var timer = Timer()
     private var numberOfPages: Int {
         get {
             return WelcomeMessages().getMessages().count
@@ -98,24 +99,32 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
+        self.startTimer()
     }
     
     //*************************************************
     // MARK: - Public Methods
     //*************************************************
     
+    internal func swipeTimer() {
+        self.view.isUserInteractionEnabled = false
+        self.messageScrollView.setContentOffset(CGPoint(x: self.messageScrollView.contentOffset.x + self.messageScrollView.frame.size.width, y: 0), animated: true)
+    }
+    
     internal func swipeRecognizer(_ gesture: UISwipeGestureRecognizer) {
+        self.view.isUserInteractionEnabled = false
+        self.resetTimer()
         switch gesture.direction {
         case UISwipeGestureRecognizerDirection.right:
             self.messageScrollView.setContentOffset(CGPoint(x: self.messageScrollView.contentOffset.x - self.messageScrollView.frame.size.width, y: 0), animated: true)
         case UISwipeGestureRecognizerDirection.left:
-                self.messageScrollView.setContentOffset(CGPoint(x: self.messageScrollView.contentOffset.x + self.messageScrollView.frame.size.width, y: 0), animated: true)
+            self.messageScrollView.setContentOffset(CGPoint(x: self.messageScrollView.contentOffset.x + self.messageScrollView.frame.size.width, y: 0), animated: true)
         default: break
         }
     }
     
     //*************************************************
-    // MARK: - Private Methods
+    // MARK: - Welcome Messages Methods
     //*************************************************
     
     private func loadWelcomeMessages() {
@@ -173,6 +182,10 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    //*************************************************
+    // MARK: - ScrollView Methods
+    //*************************************************
+    
     internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (scrollView.contentOffset.x == (-self.view.frame.size.width)) {
             self.messageScrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x + scrollView.frame.size.width * CGFloat(self.numberOfPages), y: 0), animated: false)
@@ -181,6 +194,23 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
         }
         let page = scrollView.contentOffset.x / scrollView.frame.size.width
         self.messagePageControl.currentPage = Int(page)
+    }
+    
+    internal func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        self.view.isUserInteractionEnabled = true
+    }
+    
+    //*************************************************
+    // MARK: - Timer Methods
+    //*************************************************
+    
+    private func startTimer() {
+        self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.swipeTimer), userInfo: nil, repeats: true)
+    }
+    
+    private func resetTimer() {
+        self.timer.invalidate()
+        self.startTimer()
     }
     
 }
