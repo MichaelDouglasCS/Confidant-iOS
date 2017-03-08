@@ -211,3 +211,27 @@ import UIKit
     }
     
 }
+
+//*************************************************
+// MARK: - UINavigationBar
+//*************************************************
+
+@IBDesignable public class IBDesignableNavigationBar: UINavigationBar {
+    
+    //**************************************************
+    // MARK: - Properties
+    //**************************************************
+    
+    @IBInspectable var navigationHeigh: CGFloat = 44 {
+        didSet {
+            self.frame.size.height = navigationHeigh
+        }
+    }
+    
+    @IBInspectable var backgroundImage: UIImage? {
+        didSet{
+            self.setBackgroundImage(backgroundImage, for: .default)
+        }
+    }
+    
+}

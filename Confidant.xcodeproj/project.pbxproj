@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6110E1801E6F6D360005A419 /* CustomWelcomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6110E17F1E6F6D360005A419 /* CustomWelcomeNavigationController.swift */; };
+		6110E1821E6F72340005A419 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6110E1811E6F72340005A419 /* LoginViewController.swift */; };
 		613A8B471E6F1159000DD11D /* UIView+AddSubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A8B461E6F1159000DD11D /* UIView+AddSubViews.swift */; };
 		61494DFA1E685AB400D4DF13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61494DF91E685AB400D4DF13 /* AppDelegate.swift */; };
 		61494E011E685AB400D4DF13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61494E001E685AB400D4DF13 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		6110E17F1E6F6D360005A419 /* CustomWelcomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWelcomeNavigationController.swift; sourceTree = "<group>"; };
+		6110E1811E6F72340005A419 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		613A8B461E6F1159000DD11D /* UIView+AddSubViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubViews.swift"; sourceTree = "<group>"; };
 		61494DF61E685AB400D4DF13 /* Confidant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Confidant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61494DF91E685AB400D4DF13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			children = (
 				6110E17F1E6F6D360005A419 /* CustomWelcomeNavigationController.swift */,
 				61F5CE8B1E68FA1C001261C1 /* WelcomeViewController.swift */,
+				6110E1811E6F72340005A419 /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6110E1821E6F72340005A419 /* LoginViewController.swift in Sources */,
 				61EB01951E6ED79200DC269B /* UILabel+WelcomeMessageFormat.swift in Sources */,
 				613A8B471E6F1159000DD11D /* UIView+AddSubViews.swift in Sources */,
 				61F5CE8C1E68FA1C001261C1 /* WelcomeViewController.swift in Sources */,
