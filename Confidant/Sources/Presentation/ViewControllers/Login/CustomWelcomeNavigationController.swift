@@ -41,7 +41,7 @@ class CustomWelcomeNavigationController: UINavigationController {
     }
     
     //*************************************************
-    // MARK: - Constructors
+    // MARK: - Override Public Methods
     //*************************************************
     
     override func viewDidLoad() {

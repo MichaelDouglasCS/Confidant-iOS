@@ -29,8 +29,13 @@ import UIKit
 class LoginViewController: UIViewController {
     
     //*************************************************
-    // MARK: - Properties
+    // MARK: - IBOutlets
     //*************************************************
+    
+    @IBOutlet weak var userNameOrEmailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var logInButton: UIButton!
+    
     
     //*************************************************
     // MARK: - Constructors
@@ -42,7 +47,21 @@ class LoginViewController: UIViewController {
     }
     
     //*************************************************
-    // MARK: - Setup Methods
+    // MARK: - IBActions
     //*************************************************
+    
+    @IBAction func logInWithFacebook(_ sender: UIButton) {
+        print("Facebook")
+    }
+    
+    @IBAction func logInWithUserAndPassword(_ sender: UIButton) {
+        print("Log In")
+    }
+
+    @IBAction func forgotPassword(_ sender: UIButton) {
+        print("Forgot Password")
+    }
+    
+    
     
 }

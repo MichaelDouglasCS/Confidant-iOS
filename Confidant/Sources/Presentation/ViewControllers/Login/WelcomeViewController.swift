@@ -75,6 +75,7 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupNavigationBarItem()
         self.loadWelcomeMessages()
         self.messagePageControl.numberOfPages = self.numberOfPages
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
@@ -96,10 +97,12 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "loginSegue" {
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        }
+    //*************************************************
+    // MARK: - Setup Methods
+    //*************************************************
+    
+    private func setupNavigationBarItem() {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     //*************************************************
@@ -128,28 +131,39 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     //*************************************************
     
     private func loadWelcomeMessages() {
+        
         let welcomeMessages = WelcomeMessages().getMessages()
+        
         self.messageScrollView.contentSize = CGSize(width: self.view.bounds.size.width * (CGFloat(welcomeMessages.count) + 2), height: self.messageScrollView.frame.size.height)
+        
         for (index, message) in welcomeMessages.enumerated() {
+            
             //Setup Size and Position MessageView, Title and Text
             let messageView = UIView(frame: CGRect(x: 0, y: 0, width: CGFloat(self.messageScrollView.bounds.size.width), height: CGFloat(self.messageScrollView.bounds.size.height)))
+            
             let messageTitle = UILabel(frame: CGRect(x: CGFloat(messageView.frame.size.width - 345) / 2, y: 0, width: 345, height: 25))
+            
             let messageText = UILabel(frame: CGRect(x: CGFloat(messageView.frame.size.width - 345) / 2, y: CGFloat(messageTitle.frame.size.height + 3), width: 345, height: 40))
+            
             //Configure MessageView Background
             messageView.backgroundColor = UIColor.clear
-            
+
             if index == welcomeMessages.startIndex {
+                
                 let firstView = UIView(frame: messageView.frame)
                 let firstTitle = UILabel(frame: messageTitle.frame)
                 let firstText = UILabel(frame: messageText.frame)
+                
                 if let title = welcomeMessages[welcomeMessages.endIndex-1]["title"] {
                     firstTitle.getMessageTitleFormat(title: title)
                 }
                 if let text = welcomeMessages[welcomeMessages.endIndex-1]["text"] {
                     firstText.getMessageTextFormat(text: text)
                 }
+                
                 firstView.addSubViews(views: [firstTitle, firstText])
                 firstView.frame.origin.x = CGFloat(index-1) * self.messageScrollView.frame.size.width
+                
                 self.messageScrollView.addSubview(firstView)
             }
             
@@ -163,6 +177,7 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
             
             messageView.addSubViews(views: [messageTitle, messageText])
             messageView.frame.origin.x = CGFloat(index) * self.messageScrollView.frame.size.width
+            
             self.messageScrollView.addSubview(messageView)
             
             if index == welcomeMessages.endIndex - 1 {
@@ -178,6 +193,7 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
                 lastView.addSubViews(views: [lastTitle, lastText])
                 lastView.frame.origin.x = CGFloat(index+1) * self.messageScrollView.frame.size.width
                 self.messageScrollView.addSubview(lastView)
+                
             }
         }
     }

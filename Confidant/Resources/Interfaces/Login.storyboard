@@ -128,6 +128,9 @@
                                         <real key="value" value="23"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logInWithFacebook:" destination="Z3h-2O-sy4" eventType="touchUpInside" id="yoM-C4-rdg"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NP3-mv-fo4">
                                 <rect key="frame" x="179" y="80" width="17" height="12"/>
@@ -144,7 +147,7 @@
                                         <rect key="frame" x="10" y="9" width="21" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username or email" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Xcz-tz-Mlv" userLabel="UsernameField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username or email" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Xcz-tz-Mlv" userLabel="UsernameOrEmailField">
                                         <rect key="frame" x="41" y="5" width="278" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -206,29 +209,41 @@
                                         <real key="value" value="23"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logInWithUserAndPassword:" destination="Z3h-2O-sy4" eventType="touchUpInside" id="bJt-QS-fMM"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Forgot your password?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyo-Ka-mLu">
-                                <rect key="frame" x="126" y="290" width="122" height="19"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-aK-ogj" userLabel="Forgot your password?">
+                                <rect key="frame" x="126" y="285" width="123" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="10"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Forgot your password?">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="forgotPassword:" destination="Z3h-2O-sy4" eventType="touchUpInside" id="phY-sb-vrA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="LOG IN" id="eV3-Y4-Hm8"/>
+                    <connections>
+                        <outlet property="logInButton" destination="Ln8-Xc-m6n" id="Pxh-M4-E6I"/>
+                        <outlet property="passwordTextField" destination="aKC-Pf-sH9" id="bec-2D-Jla"/>
+                        <outlet property="userNameOrEmailTextField" destination="Xcz-tz-Mlv" id="RNS-B5-k3t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nk6-eC-osl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1615" y="36"/>
+            <point key="canvasLocation" x="1613.5999999999999" y="35.532233883058474"/>
         </scene>
         <!--Custom Welcome Navigation Controller-->
         <scene sceneID="yjd-iQ-jVb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QU8-uW-fYb" customClass="CustomWelcomeNavigationController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="FOt-cQ-22d">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="FOt-cQ-22d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
