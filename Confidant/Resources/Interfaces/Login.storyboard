@@ -51,8 +51,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WI-tj-6Po" userLabel="ButtonView">
                                 <rect key="frame" x="0.0" y="553" width="375" height="50"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqh-aP-GHI">
+                                        <rect key="frame" x="186" y="0.0" width="2" height="50"/>
+                                        <color key="backgroundColor" red="0.84302508009999999" green="0.2642250948" blue="0.79832135579999997" alpha="0.72999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="5hQ-Hp-hVL"/>
+                                            <constraint firstAttribute="width" constant="2" id="XEj-bL-6BH"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLr-x2-vyf" userLabel="LoginButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="189" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
                                         <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="17"/>
                                         <state key="normal" title="LOG IN" backgroundImage="login-welcome"/>
                                         <connections>
@@ -60,7 +68,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Tm-qV-bh3" userLabel="SigninButton">
-                                        <rect key="frame" x="188" y="0.0" width="187" height="50"/>
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
                                         <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="17"/>
                                         <state key="normal" title="SIGN UP" backgroundImage="signup-welcome"/>
                                     </button>
@@ -68,10 +76,16 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="JLr-x2-vyf" secondAttribute="bottom" id="2bv-wv-dl3"/>
+                                    <constraint firstItem="JLr-x2-vyf" firstAttribute="leading" secondItem="1WI-tj-6Po" secondAttribute="leading" id="8Kl-mr-tM5"/>
+                                    <constraint firstItem="8Tm-qV-bh3" firstAttribute="leading" secondItem="dqh-aP-GHI" secondAttribute="trailing" constant="-1" id="E9A-wY-qgw"/>
                                     <constraint firstItem="JLr-x2-vyf" firstAttribute="top" secondItem="8Tm-qV-bh3" secondAttribute="top" id="QTm-oG-snH"/>
+                                    <constraint firstItem="dqh-aP-GHI" firstAttribute="centerX" secondItem="1WI-tj-6Po" secondAttribute="centerX" id="Wf0-uc-WlC"/>
+                                    <constraint firstAttribute="bottom" secondItem="8Tm-qV-bh3" secondAttribute="bottom" id="bpv-ZC-2ed"/>
                                     <constraint firstAttribute="trailing" secondItem="8Tm-qV-bh3" secondAttribute="trailing" id="hqN-CO-ByM"/>
+                                    <constraint firstAttribute="bottom" secondItem="JLr-x2-vyf" secondAttribute="bottom" id="mbS-fB-GeJ"/>
                                     <constraint firstItem="JLr-x2-vyf" firstAttribute="top" secondItem="1WI-tj-6Po" secondAttribute="top" id="pb3-88-o5d"/>
-                                    <constraint firstItem="JLr-x2-vyf" firstAttribute="leading" secondItem="1WI-tj-6Po" secondAttribute="leading" id="vOn-na-Npf"/>
+                                    <constraint firstItem="JLr-x2-vyf" firstAttribute="width" secondItem="8Tm-qV-bh3" secondAttribute="width" id="ri8-Cn-8Fn"/>
+                                    <constraint firstAttribute="bottom" secondItem="dqh-aP-GHI" secondAttribute="bottom" id="ww4-hJ-oBh"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -102,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="842" y="36"/>
+            <point key="canvasLocation" x="840.79999999999995" y="35.532233883058474"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="hP4-R5-Z91">
