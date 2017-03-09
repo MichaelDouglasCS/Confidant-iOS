@@ -59,14 +59,6 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var messagePageControl: UIPageControl!
     
     //*************************************************
-    // MARK: - Setup Design Properties
-    //*************************************************
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    //*************************************************
     // MARK: - Properties
     //*************************************************
     
@@ -102,6 +94,12 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loginSegue" {
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
     }
     
     //*************************************************

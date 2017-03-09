@@ -47,7 +47,6 @@ class CustomWelcomeNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavigationBar()
-        // Do any additional setup after loading the view.
     }
     
     //*************************************************
@@ -56,8 +55,20 @@ class CustomWelcomeNavigationController: UINavigationController {
     
     private func setupNavigationBar() {
         self.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "navigationBar-image"), for: .default)
+        self.navigationBar.tintColor = UIColor.white
         self.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "backButton")
         self.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "backButton")
+        self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "GothamMedium", size: 14)!, NSForegroundColorAttributeName: UIColor.white]
     }
+    
+//    func printFonts() {
+//        let fontFamilyNames = UIFont.familyNames
+//        for familyName in fontFamilyNames {
+//            print("------------------------------")
+//            print("Font Family Name = [\(familyName)]")
+//            let names = UIFont.fontNames(forFamilyName: familyName as! String)
+//            print("Font Names = [\(names)]")
+//        }
+//    }
 
 }

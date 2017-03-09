@@ -12,9 +12,6 @@
         <array key="GOTHAM-BOLD.TTF">
             <string>GothamBold</string>
         </array>
-        <array key="GOTHAM-BOLD_0.OTF">
-            <string>Gotham-Bold</string>
-        </array>
         <array key="GOTHAM-MEDIUM.TTF">
             <string>GothamMedium</string>
         </array>
@@ -59,7 +56,7 @@
                                         <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="17"/>
                                         <state key="normal" title="LOG IN" backgroundImage="login-welcome"/>
                                         <connections>
-                                            <segue destination="Z3h-2O-sy4" kind="show" id="6rr-VM-BUh"/>
+                                            <segue destination="Z3h-2O-sy4" kind="show" identifier="loginSegue" id="6rr-VM-BUh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Tm-qV-bh3" userLabel="SigninButton">
@@ -107,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="842" y="36"/>
         </scene>
-        <!--LOG IN-->
+        <!--LoginViewController-->
         <scene sceneID="hP4-R5-Z91">
             <objects>
-                <viewController id="Z3h-2O-sy4" customClass="LoginViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Z3h-2O-sy4" userLabel="LoginViewController" customClass="LoginViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xq4-lH-hgQ"/>
                         <viewControllerLayoutGuide type="bottom" id="hnK-Sc-Vaw"/>
@@ -119,10 +116,10 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyH-s9-Ewm" userLabel="LoginFacebookButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyH-s9-Ewm" userLabel="LoginFacebookButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                 <rect key="frame" x="53" y="15" width="269" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="13"/>
                                 <state key="normal" title="LOG IN WITH FACEBOOK" backgroundImage="backgroundFacebook">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -197,10 +194,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln8-Xc-m6n" userLabel="LoginFacebookButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln8-Xc-m6n" userLabel="LoginFacebookButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                 <rect key="frame" x="91" y="225" width="193" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="15"/>
                                 <state key="normal" title="LOG IN" backgroundImage="login-background">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -220,18 +217,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="LOG IN" id="DQX-4G-j6h"/>
+                    <navigationItem key="navigationItem" title="LOG IN" id="eV3-Y4-Hm8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nk6-eC-osl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1600.8" y="36.431784107946029"/>
+            <point key="canvasLocation" x="1615" y="36"/>
         </scene>
         <!--Custom Welcome Navigation Controller-->
         <scene sceneID="yjd-iQ-jVb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QU8-uW-fYb" customClass="CustomWelcomeNavigationController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="FOt-cQ-22d">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="FOt-cQ-22d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">

@@ -32,18 +32,17 @@ class LoginViewController: UIViewController {
     // MARK: - Properties
     //*************************************************
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     //*************************************************
     // MARK: - Constructors
     //*************************************************
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-
+    
+    //*************************************************
+    // MARK: - Setup Methods
+    //*************************************************
+    
 }
