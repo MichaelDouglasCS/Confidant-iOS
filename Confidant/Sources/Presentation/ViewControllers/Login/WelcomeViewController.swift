@@ -132,6 +132,9 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     
     private func loadWelcomeMessages() {
         
+        //Actualize MessageScrollView with the same frame of Super View
+        self.messageScrollView.frame = self.view.frame
+        
         let welcomeMessages = WelcomeMessages().getMessages()
         
         self.messageScrollView.contentSize = CGSize(width: self.view.bounds.size.width * (CGFloat(welcomeMessages.count) + 2), height: self.messageScrollView.frame.size.height)
@@ -141,9 +144,9 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
             //Setup Size and Position MessageView, Title and Text
             let messageView = UIView(frame: CGRect(x: 0, y: 0, width: CGFloat(self.messageScrollView.bounds.size.width), height: CGFloat(self.messageScrollView.bounds.size.height)))
             
-            let messageTitle = UILabel(frame: CGRect(x: CGFloat(messageView.frame.size.width - 345) / 2, y: 0, width: 345, height: 25))
+            let messageTitle = UILabel(frame: CGRect(x: CGFloat(messageView.frame.size.width - 300) / 2, y: 0, width: 300, height: 25))
             
-            let messageText = UILabel(frame: CGRect(x: CGFloat(messageView.frame.size.width - 345) / 2, y: CGFloat(messageTitle.frame.size.height + 3), width: 345, height: 40))
+            let messageText = UILabel(frame: CGRect(x: CGFloat(messageView.frame.size.width - 300) / 2, y: CGFloat(messageTitle.frame.size.height + 3), width: 300, height: 40))
             
             //Configure MessageView Background
             messageView.backgroundColor = UIColor.clear
