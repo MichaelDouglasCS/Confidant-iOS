@@ -21,12 +21,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="3Lf-CM-zCf">
-                                <rect key="frame" x="81" y="227" width="212" height="212"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="3Lf-CM-zCf">
+                                <rect key="frame" x="82" y="228" width="211" height="211"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="211" id="75A-NO-gMA"/>
+                                    <constraint firstAttribute="width" constant="211" id="NM9-cI-mqN"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3Lf-CM-zCf" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="EzK-rb-CM3"/>
+                            <constraint firstItem="3Lf-CM-zCf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zPG-xd-ymK"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
