@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  LogInViewController.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 07/03/17.
@@ -26,7 +26,7 @@ import UIKit
 //
 //**************************************************************************************************
 
-class LoginViewController: UIViewController {
+class LogInViewController: UIViewController {
     
     //*************************************************
     // MARK: - IBOutlets
@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var logInButton: UIButton!
     
     //*************************************************
-    // MARK: - Constructors
+    // MARK: - UIViewController's Lifecycle Methods
     //*************************************************
     
     override func viewDidLoad() {
@@ -74,7 +74,7 @@ class LoginViewController: UIViewController {
         var info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
         let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
-
+        
         self.loginScrollView.contentInset = contentInsets
         self.loginScrollView.scrollIndicatorInsets = contentInsets
         
@@ -109,7 +109,7 @@ class LoginViewController: UIViewController {
     @IBAction func logInWithUserAndPassword(_ sender: UIButton) {
         print("Log In")
     }
-
+    
     @IBAction func forgotPassword(_ sender: UIButton) {
         print("Forgot Password")
     }
@@ -122,7 +122,7 @@ class LoginViewController: UIViewController {
 //
 //**************************************************************************************************
 
-extension LoginViewController: UITextFieldDelegate {
+extension LogInViewController: UITextFieldDelegate {
     
     //*************************************************
     // MARK: - TextField Methods
@@ -154,7 +154,7 @@ extension LoginViewController: UITextFieldDelegate {
             if self.userNameOrEmailTextField.text?.isEmpty == true {
                 self.userNameOrEmailTextField.becomeFirstResponder()
             } else if self.passwordTextField.text?.isEmpty == true {
-               return false
+                return false
             } else {
                 self.passwordTextField.resignFirstResponder()
                 print("Log In")

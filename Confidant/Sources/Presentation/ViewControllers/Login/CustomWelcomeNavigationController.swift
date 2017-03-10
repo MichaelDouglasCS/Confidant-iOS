@@ -41,7 +41,7 @@ class CustomWelcomeNavigationController: UINavigationController {
     }
     
     //*************************************************
-    // MARK: - Override Public Methods
+    // MARK: - UIViewController's Lifecycle Methods
     //*************************************************
     
     override func viewDidLoad() {
@@ -60,6 +60,8 @@ class CustomWelcomeNavigationController: UINavigationController {
         self.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "backButton")
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "GothamMedium", size: 14)!, NSForegroundColorAttributeName: UIColor.white]
     }
+    
+    //PRINT FONTS EXISTENTS
     
 //    func printFonts() {
 //        let fontFamilyNames = UIFont.familyNames

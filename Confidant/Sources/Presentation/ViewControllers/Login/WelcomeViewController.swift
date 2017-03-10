@@ -70,7 +70,7 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     }
     
     //*************************************************
-    // MARK: - Override Public Methods
+    // MARK: - UIViewController's Lifecycle Methods
     //*************************************************
     
     override func viewDidLoad() {
