@@ -122,10 +122,10 @@
             </objects>
             <point key="canvasLocation" x="575" y="36"/>
         </scene>
-        <!--SIGN IN-->
+        <!--SignInViewController-->
         <scene sceneID="wBK-8x-eU4">
             <objects>
-                <viewController id="13q-1x-OyM" sceneMemberID="viewController">
+                <viewController id="13q-1x-OyM" userLabel="SignInViewController" customClass="SignInViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fkY-NM-19l"/>
                         <viewControllerLayoutGuide type="bottom" id="jMt-T1-JaQ"/>
@@ -133,7 +133,18 @@
                     <view key="view" contentMode="scaleToFill" id="gdj-1r-Aqt">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vz7-AZ-5gq" userLabel="SigninScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="leading" secondItem="gdj-1r-Aqt" secondAttribute="leading" id="Ap1-11-mqQ"/>
+                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="top" secondItem="gdj-1r-Aqt" secondAttribute="top" id="E1k-jK-1bB"/>
+                            <constraint firstAttribute="trailing" secondItem="vz7-AZ-5gq" secondAttribute="trailing" id="Lcy-0q-ZFY"/>
+                            <constraint firstAttribute="bottom" secondItem="vz7-AZ-5gq" secondAttribute="bottom" id="cQD-FI-PjF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SIGN IN" id="UNS-Tc-3Uf"/>
                 </viewController>
@@ -141,10 +152,10 @@
             </objects>
             <point key="canvasLocation" x="1374" y="37"/>
         </scene>
-        <!--LoginViewController-->
+        <!--LogInViewController-->
         <scene sceneID="hP4-R5-Z91">
             <objects>
-                <viewController id="Z3h-2O-sy4" userLabel="LoginViewController" customClass="LoginViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Z3h-2O-sy4" userLabel="LogInViewController" customClass="LogInViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xq4-lH-hgQ"/>
                         <viewControllerLayoutGuide type="bottom" id="hnK-Sc-Vaw"/>
