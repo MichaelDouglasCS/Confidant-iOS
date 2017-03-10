@@ -106,7 +106,7 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     }
     
     //*************************************************
-    // MARK: - Public Methods
+    // MARK: - Internal Methods
     //*************************************************
     
     internal func swipeTimer() {

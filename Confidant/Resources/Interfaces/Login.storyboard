@@ -131,11 +131,15 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OmL-JK-fhZ">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmL-JK-fhZ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyH-s9-Ewm" userLabel="LoginFacebookButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="53" y="15" width="269" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="Ju4-0l-NdI"/>
+                                            <constraint firstAttribute="width" constant="269" id="U01-p9-eGc"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="13"/>
                                         <state key="normal" title="LOG IN WITH FACEBOOK" backgroundImage="backgroundFacebook">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,7 +169,10 @@
                                                 <rect key="frame" x="41" y="5" width="278" height="30"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Z3h-2O-sy4" id="bgP-8p-5PK"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
@@ -203,7 +210,10 @@
                                                 <rect key="frame" x="41" y="5" width="278" height="30"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Z3h-2O-sy4" id="VwG-hz-rZu"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -228,24 +238,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln8-Xc-m6n" userLabel="LoginFacebookButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="94" y="226" width="187" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="Rb1-dT-2No"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="15"/>
-                                        <state key="normal" title="LOG IN" backgroundImage="login-background">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="23"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="logInWithUserAndPassword:" destination="Z3h-2O-sy4" eventType="touchUpInside" id="bJt-QS-fMM"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-aK-ogj" userLabel="Forgot your password?">
                                         <rect key="frame" x="126" y="281" width="123" height="29"/>
                                         <constraints>
@@ -260,23 +252,42 @@
                                             <action selector="forgotPassword:" destination="Z3h-2O-sy4" eventType="touchUpInside" id="phY-sb-vrA"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln8-Xc-m6n" userLabel="LoginFacebookButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
+                                        <rect key="frame" x="91" y="226" width="193" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="Rb1-dT-2No"/>
+                                            <constraint firstAttribute="width" constant="193" id="g5f-3F-UhP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="15"/>
+                                        <state key="normal" title="LOG IN" backgroundImage="login-background">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="23"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="logInWithUserAndPassword:" destination="Z3h-2O-sy4" eventType="touchUpInside" id="bJt-QS-fMM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="NP3-mv-fo4" firstAttribute="top" secondItem="GyH-s9-Ewm" secondAttribute="bottom" constant="20" id="0ua-Wr-Jp3"/>
-                                    <constraint firstItem="GyH-s9-Ewm" firstAttribute="top" secondItem="OmL-JK-fhZ" secondAttribute="top" constant="15" id="2KK-7L-Puj"/>
-                                    <constraint firstItem="rgt-wu-RAT" firstAttribute="leading" secondItem="OmL-JK-fhZ" secondAttribute="leading" constant="24" id="33i-Jb-BaJ"/>
+                                    <constraint firstItem="rgt-wu-RAT" firstAttribute="leading" secondItem="OmL-JK-fhZ" secondAttribute="leading" constant="24" id="3mc-Ge-ahn"/>
                                     <constraint firstItem="Ln8-Xc-m6n" firstAttribute="centerX" secondItem="5ke-aK-ogj" secondAttribute="centerX" id="5eL-Lg-jNf"/>
                                     <constraint firstItem="Ln8-Xc-m6n" firstAttribute="top" secondItem="mSH-vO-l7a" secondAttribute="bottom" constant="20" id="61R-F8-m8o"/>
                                     <constraint firstItem="rgt-wu-RAT" firstAttribute="trailing" secondItem="mSH-vO-l7a" secondAttribute="trailing" id="BoB-o9-BLn"/>
                                     <constraint firstItem="rgt-wu-RAT" firstAttribute="leading" secondItem="mSH-vO-l7a" secondAttribute="leading" id="D75-wr-Rjb"/>
-                                    <constraint firstItem="GyH-s9-Ewm" firstAttribute="centerX" secondItem="OmL-JK-fhZ" secondAttribute="centerX" id="E2m-jV-8KN"/>
-                                    <constraint firstAttribute="trailing" secondItem="rgt-wu-RAT" secondAttribute="trailing" constant="24" id="NVo-zk-1dR"/>
+                                    <constraint firstItem="GyH-s9-Ewm" firstAttribute="centerX" secondItem="OmL-JK-fhZ" secondAttribute="centerX" id="LQS-mR-V3o"/>
                                     <constraint firstItem="mSH-vO-l7a" firstAttribute="centerX" secondItem="Ln8-Xc-m6n" secondAttribute="centerX" id="Scp-oU-axA"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ln8-Xc-m6n" secondAttribute="bottom" constant="20" id="VKe-8m-Luh"/>
                                     <constraint firstItem="5ke-aK-ogj" firstAttribute="top" secondItem="Ln8-Xc-m6n" secondAttribute="bottom" constant="10" id="YYO-af-yX1"/>
                                     <constraint firstItem="mSH-vO-l7a" firstAttribute="top" secondItem="rgt-wu-RAT" secondAttribute="bottom" constant="15" id="aXq-hw-Llu"/>
+                                    <constraint firstItem="GyH-s9-Ewm" firstAttribute="top" secondItem="OmL-JK-fhZ" secondAttribute="top" constant="15" id="iwR-0v-o3g"/>
                                     <constraint firstItem="rgt-wu-RAT" firstAttribute="top" secondItem="NP3-mv-fo4" secondAttribute="bottom" constant="20" id="lyf-7A-Sed"/>
                                     <constraint firstItem="GyH-s9-Ewm" firstAttribute="centerX" secondItem="NP3-mv-fo4" secondAttribute="centerX" id="sOq-lt-SMW"/>
-                                    <constraint firstAttribute="bottom" secondItem="5ke-aK-ogj" secondAttribute="bottom" constant="293" id="tad-kJ-cIR"/>
+                                    <constraint firstAttribute="trailing" secondItem="rgt-wu-RAT" secondAttribute="trailing" constant="24" id="szg-jq-mOP"/>
                                     <constraint firstItem="NP3-mv-fo4" firstAttribute="centerX" secondItem="rgt-wu-RAT" secondAttribute="centerX" id="wcO-7d-7HS"/>
                                 </constraints>
                             </scrollView>
@@ -286,6 +297,7 @@
                             <constraint firstItem="OmL-JK-fhZ" firstAttribute="bottom" secondItem="hnK-Sc-Vaw" secondAttribute="top" id="32t-Mf-s8S"/>
                             <constraint firstItem="OmL-JK-fhZ" firstAttribute="leading" secondItem="Ag6-ez-dBn" secondAttribute="leading" id="IUv-AI-jhA"/>
                             <constraint firstItem="OmL-JK-fhZ" firstAttribute="top" secondItem="xq4-lH-hgQ" secondAttribute="bottom" id="VSh-Rd-Hnw"/>
+                            <constraint firstItem="hnK-Sc-Vaw" firstAttribute="top" secondItem="OmL-JK-fhZ" secondAttribute="bottom" id="YpD-mg-ZCo"/>
                             <constraint firstAttribute="trailing" secondItem="OmL-JK-fhZ" secondAttribute="trailing" id="qfc-cK-mSu"/>
                         </constraints>
                     </view>

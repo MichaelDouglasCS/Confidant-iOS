@@ -36,6 +36,7 @@
 		61BDD9B41E69F3BB00FA0410 /* IBDesignableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDD9B31E69F3BB00FA0410 /* IBDesignableClass.swift */; };
 		61EB01951E6ED79200DC269B /* UILabel+WelcomeMessageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EB01941E6ED79200DC269B /* UILabel+WelcomeMessageFormat.swift */; };
 		61F5CE8C1E68FA1C001261C1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F5CE8B1E68FA1C001261C1 /* WelcomeViewController.swift */; };
+		61F6D26F1E725F1800754866 /* UIViewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F6D26E1E725F1800754866 /* UIViewController+HideKeyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		61BDD9B31E69F3BB00FA0410 /* IBDesignableClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignableClass.swift; sourceTree = "<group>"; };
 		61EB01941E6ED79200DC269B /* UILabel+WelcomeMessageFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+WelcomeMessageFormat.swift"; sourceTree = "<group>"; };
 		61F5CE8B1E68FA1C001261C1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		61F6D26E1E725F1800754866 /* UIViewController+HideKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboard.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 			children = (
 				61EB01941E6ED79200DC269B /* UILabel+WelcomeMessageFormat.swift */,
 				613A8B461E6F1159000DD11D /* UIView+AddSubViews.swift */,
+				61F6D26E1E725F1800754866 /* UIViewController+HideKeyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6110E1821E6F72340005A419 /* LoginViewController.swift in Sources */,
+				61F6D26F1E725F1800754866 /* UIViewController+HideKeyboard.swift in Sources */,
 				61EB01951E6ED79200DC269B /* UILabel+WelcomeMessageFormat.swift in Sources */,
 				613A8B471E6F1159000DD11D /* UIView+AddSubViews.swift in Sources */,
 				61F5CE8C1E68FA1C001261C1 /* WelcomeViewController.swift in Sources */,
@@ -614,7 +618,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4Q582659G6;
 				INFOPLIST_FILE = "$(SRCROOT)/Confidant/Resources/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.watermelon.Confidant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -628,7 +632,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4Q582659G6;
 				INFOPLIST_FILE = "$(SRCROOT)/Confidant/Resources/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.watermelon.Confidant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
