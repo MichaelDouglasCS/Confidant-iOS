@@ -32,6 +32,7 @@ class LoginViewController: UIViewController {
     // MARK: - IBOutlets
     //*************************************************
     
+    @IBOutlet weak var loginScrollView: UIScrollView!
     @IBOutlet weak var userNameOrEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
