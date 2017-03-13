@@ -103,7 +103,7 @@ class LogInViewController: UIViewController {
     //*************************************************
     
     @IBAction func logInWithFacebook(_ sender: UIButton) {
-        print("Facebook")
+        print("Login Facebook")
     }
     
     @IBAction func logInWithUserAndPassword(_ sender: UIButton) {
