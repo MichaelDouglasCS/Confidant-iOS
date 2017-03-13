@@ -134,13 +134,15 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vz7-AZ-5gq" userLabel="SigninScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vz7-AZ-5gq" userLabel="SigninScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3T-9K-MKi" userLabel="SignUpButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3T-9K-MKi" userLabel="SignUpButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="53" y="15" width="269" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="6AU-mc-OLU"/>
+                                            <constraint firstAttribute="width" constant="269" id="hFV-tE-5Av"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="13"/>
                                         <state key="normal" title="SIGN UP WITH FACEBOOK" backgroundImage="backgroundFacebook"/>
                                         <userDefinedRuntimeAttributes>
@@ -149,30 +151,39 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or with e-mail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Lb-7zC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or with e-mail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Lb-7zC">
                                         <rect key="frame" x="145" y="80" width="85" height="11"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="85" id="X8p-3B-ASS"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="12"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-E8-nS4" userLabel="EmailView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-E8-nS4" userLabel="EmailView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="24" y="111" width="327" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mail-icon" translatesAutoresizingMaskIntoConstraints="NO" id="0X5-UE-Rcy" userLabel="email-icon">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mail-icon" translatesAutoresizingMaskIntoConstraints="NO" id="0X5-UE-Rcy" userLabel="email-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="rOj-UW-Br4" userLabel="EmailTextField">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="rOj-UW-Br4" userLabel="EmailTextField">
                                                 <rect key="frame" x="41" y="5" width="278" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="0X5-UE-Rcy" firstAttribute="centerY" secondItem="rOj-UW-Br4" secondAttribute="centerY" id="7PE-1T-cAU"/>
+                                            <constraint firstItem="rOj-UW-Br4" firstAttribute="leading" secondItem="0X5-UE-Rcy" secondAttribute="trailing" constant="10" id="A3e-tQ-Miz"/>
+                                            <constraint firstItem="0X5-UE-Rcy" firstAttribute="centerY" secondItem="ONL-E8-nS4" secondAttribute="centerY" id="E4a-FB-8ey"/>
+                                            <constraint firstItem="0X5-UE-Rcy" firstAttribute="leading" secondItem="ONL-E8-nS4" secondAttribute="leading" constant="10" id="Eih-fL-GPH"/>
+                                            <constraint firstAttribute="height" constant="40" id="FIJ-Bn-LN7"/>
+                                            <constraint firstItem="0X5-UE-Rcy" firstAttribute="top" secondItem="ONL-E8-nS4" secondAttribute="top" constant="9" id="qZg-S3-QDp"/>
+                                            <constraint firstItem="rOj-UW-Br4" firstAttribute="top" secondItem="ONL-E8-nS4" secondAttribute="top" constant="5" id="saX-rR-3CP"/>
+                                            <constraint firstItem="rOj-UW-Br4" firstAttribute="trailing" secondItem="ONL-E8-nS4" secondAttribute="trailingMargin" id="ub7-cP-Kvm"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="5"/>
@@ -185,23 +196,30 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FAZ-Aj-ZZg" userLabel="NameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAZ-Aj-ZZg" userLabel="NameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="24" y="166" width="327" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="name-icon" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-zj-KYx" userLabel="name-icon">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="name-icon" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-zj-KYx" userLabel="name-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="unK-aq-Wct" userLabel="NameTextField">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="unK-aq-Wct" userLabel="NameTextField">
                                                 <rect key="frame" x="41" y="5" width="278" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="unK-aq-Wct" firstAttribute="leading" secondItem="gGb-zj-KYx" secondAttribute="trailing" constant="10" id="33R-96-fcj"/>
+                                            <constraint firstItem="gGb-zj-KYx" firstAttribute="centerY" secondItem="unK-aq-Wct" secondAttribute="centerY" id="AUu-IA-eKd"/>
+                                            <constraint firstItem="unK-aq-Wct" firstAttribute="trailing" secondItem="FAZ-Aj-ZZg" secondAttribute="trailingMargin" id="O27-ib-dfe"/>
+                                            <constraint firstItem="gGb-zj-KYx" firstAttribute="leading" secondItem="FAZ-Aj-ZZg" secondAttribute="leading" constant="10" id="P0Z-z3-PQW"/>
+                                            <constraint firstItem="gGb-zj-KYx" firstAttribute="top" secondItem="FAZ-Aj-ZZg" secondAttribute="top" constant="9" id="Ugl-UL-H2C"/>
+                                            <constraint firstAttribute="height" constant="40" id="fz9-ac-dDm"/>
+                                            <constraint firstItem="gGb-zj-KYx" firstAttribute="centerY" secondItem="FAZ-Aj-ZZg" secondAttribute="centerY" id="tvN-6g-3uI"/>
+                                            <constraint firstItem="unK-aq-Wct" firstAttribute="top" secondItem="FAZ-Aj-ZZg" secondAttribute="top" constant="5" id="xag-a9-pT6"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="5"/>
@@ -214,23 +232,32 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OUk-jZ-lPK" userLabel="ChoosePasswordView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUk-jZ-lPK" userLabel="ChoosePasswordView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="24" y="221" width="327" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="password-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ftd-Ze-IVK" userLabel="password-icon">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ftd-Ze-IVK" userLabel="password-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="21" id="bgE-kG-vEp"/>
+                                                </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose password" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Lof-w4-WPc" userLabel="ChoosePasswordTextField">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose password" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Lof-w4-WPc" userLabel="ChoosePasswordTextField">
                                                 <rect key="frame" x="41" y="5" width="278" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="ftd-Ze-IVK" firstAttribute="centerY" secondItem="OUk-jZ-lPK" secondAttribute="centerY" id="62H-LW-pMK"/>
+                                            <constraint firstItem="Lof-w4-WPc" firstAttribute="trailing" secondItem="OUk-jZ-lPK" secondAttribute="trailingMargin" id="7VA-sU-em2"/>
+                                            <constraint firstItem="ftd-Ze-IVK" firstAttribute="top" secondItem="OUk-jZ-lPK" secondAttribute="top" constant="9" id="965-1V-q2Y"/>
+                                            <constraint firstItem="ftd-Ze-IVK" firstAttribute="leading" secondItem="OUk-jZ-lPK" secondAttribute="leading" constant="10" id="VC3-Cj-o2x"/>
+                                            <constraint firstItem="Lof-w4-WPc" firstAttribute="leading" secondItem="ftd-Ze-IVK" secondAttribute="trailing" constant="10" id="VL7-xx-yOH"/>
+                                            <constraint firstItem="Lof-w4-WPc" firstAttribute="top" secondItem="OUk-jZ-lPK" secondAttribute="top" constant="5" id="kID-Bf-mbS"/>
+                                            <constraint firstItem="ftd-Ze-IVK" firstAttribute="centerY" secondItem="Lof-w4-WPc" secondAttribute="centerY" id="yey-7G-aXR"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="5"/>
@@ -243,23 +270,29 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRn-PT-leR" userLabel="ChooseUsernameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRn-PT-leR" userLabel="ChooseUsernameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="24" y="276" width="327" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-icon" translatesAutoresizingMaskIntoConstraints="NO" id="rT2-t6-mw3">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-icon" translatesAutoresizingMaskIntoConstraints="NO" id="rT2-t6-mw3">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose username" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="eNB-Wp-ybm" userLabel="ChooseUsernameOrEmailField">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose username" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="eNB-Wp-ybm" userLabel="ChooseUsernameOrEmailField">
                                                 <rect key="frame" x="41" y="5" width="278" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="rT2-t6-mw3" firstAttribute="centerY" secondItem="eNB-Wp-ybm" secondAttribute="centerY" id="3U4-Gd-7Ye"/>
+                                            <constraint firstItem="eNB-Wp-ybm" firstAttribute="top" secondItem="KRn-PT-leR" secondAttribute="top" constant="5" id="6Gc-Fv-kQh"/>
+                                            <constraint firstItem="rT2-t6-mw3" firstAttribute="top" secondItem="KRn-PT-leR" secondAttribute="top" constant="9" id="HXx-qB-R7x"/>
+                                            <constraint firstItem="eNB-Wp-ybm" firstAttribute="leading" secondItem="rT2-t6-mw3" secondAttribute="trailing" constant="10" id="IGI-Ax-jKq"/>
+                                            <constraint firstItem="rT2-t6-mw3" firstAttribute="centerY" secondItem="KRn-PT-leR" secondAttribute="centerY" id="emu-S3-kCn"/>
+                                            <constraint firstItem="rT2-t6-mw3" firstAttribute="leading" secondItem="KRn-PT-leR" secondAttribute="leading" constant="10" id="fap-vz-UAo"/>
+                                            <constraint firstItem="eNB-Wp-ybm" firstAttribute="trailing" secondItem="KRn-PT-leR" secondAttribute="trailingMargin" id="jkh-jN-au7"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="5"/>
@@ -272,23 +305,29 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X4x-Px-um3" userLabel="DateOfBirthView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4x-Px-um3" userLabel="DateOfBirthView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="24" y="331" width="327" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="calendar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-Iw-zVS" userLabel="date-icon">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-Iw-zVS" userLabel="date-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of birth" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="vaU-y0-8sj" userLabel="DateOfBirthTextField">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of birth" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="vaU-y0-8sj" userLabel="DateOfBirthTextField">
                                                 <rect key="frame" x="41" y="5" width="278" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="FZz-Iw-zVS" firstAttribute="leading" secondItem="X4x-Px-um3" secondAttribute="leading" constant="10" id="6bI-kW-eTY"/>
+                                            <constraint firstItem="vaU-y0-8sj" firstAttribute="trailing" secondItem="X4x-Px-um3" secondAttribute="trailingMargin" id="ArR-3B-2qF"/>
+                                            <constraint firstItem="FZz-Iw-zVS" firstAttribute="top" secondItem="X4x-Px-um3" secondAttribute="top" constant="9" id="FNv-AN-9jh"/>
+                                            <constraint firstItem="FZz-Iw-zVS" firstAttribute="centerY" secondItem="vaU-y0-8sj" secondAttribute="centerY" id="Ll2-Vn-mv4"/>
+                                            <constraint firstItem="FZz-Iw-zVS" firstAttribute="centerY" secondItem="X4x-Px-um3" secondAttribute="centerY" id="TVb-R1-2a0"/>
+                                            <constraint firstItem="vaU-y0-8sj" firstAttribute="leading" secondItem="FZz-Iw-zVS" secondAttribute="trailing" constant="10" id="UQT-GC-jvQ"/>
+                                            <constraint firstItem="vaU-y0-8sj" firstAttribute="top" secondItem="X4x-Px-um3" secondAttribute="top" constant="5" id="cbH-TI-ppd"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="5"/>
@@ -301,23 +340,30 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvx-wy-gN9" userLabel="GenderView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvx-wy-gN9" userLabel="GenderView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="24" y="386" width="327" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="genders-icon" translatesAutoresizingMaskIntoConstraints="NO" id="YpX-ZL-Pzb" userLabel="gender-icon">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genders-icon" translatesAutoresizingMaskIntoConstraints="NO" id="YpX-ZL-Pzb" userLabel="gender-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="BUi-85-pya" userLabel="GenderTextField">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="BUi-85-pya" userLabel="GenderTextField">
                                                 <rect key="frame" x="41" y="5" width="278" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="YpX-ZL-Pzb" firstAttribute="centerY" secondItem="bvx-wy-gN9" secondAttribute="centerY" id="BfG-yC-nKl"/>
+                                            <constraint firstItem="BUi-85-pya" firstAttribute="leading" secondItem="YpX-ZL-Pzb" secondAttribute="trailing" constant="10" id="Ih2-qw-Pec"/>
+                                            <constraint firstItem="BUi-85-pya" firstAttribute="top" secondItem="bvx-wy-gN9" secondAttribute="top" constant="5" id="hsp-Yx-RCw"/>
+                                            <constraint firstAttribute="height" constant="40" id="lJJ-fr-zry"/>
+                                            <constraint firstItem="YpX-ZL-Pzb" firstAttribute="centerY" secondItem="BUi-85-pya" secondAttribute="centerY" id="lYG-xV-mOC"/>
+                                            <constraint firstItem="BUi-85-pya" firstAttribute="trailing" secondItem="bvx-wy-gN9" secondAttribute="trailingMargin" id="mTR-Km-b93"/>
+                                            <constraint firstItem="YpX-ZL-Pzb" firstAttribute="leading" secondItem="bvx-wy-gN9" secondAttribute="leading" constant="10" id="xFU-rN-B31"/>
+                                            <constraint firstItem="YpX-ZL-Pzb" firstAttribute="top" secondItem="bvx-wy-gN9" secondAttribute="top" constant="9" id="z7g-IH-Uph"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="5"/>
@@ -330,9 +376,12 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIT-ql-UbD" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="91" y="446" width="193" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIT-ql-UbD" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
+                                        <rect key="frame" x="94" y="446" width="187" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="187" id="FkV-xY-bsK"/>
+                                            <constraint firstAttribute="height" constant="45" id="fNE-WU-a0D"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="15"/>
                                         <state key="normal" title="LOG IN" backgroundImage="login-background">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -343,13 +392,11 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C5l-Zc-GSu" userLabel="TermsView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5l-Zc-GSu" userLabel="TermsView">
                                         <rect key="frame" x="8" y="501" width="359" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="By signing up, you agree to Confidant’s Terms and conditions of Use and Privacy Policy." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="et3-wL-y4e" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up, you agree to Confidant’s Terms and conditions of Use and Privacy Policy." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="et3-wL-y4e" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="38"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="10"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -361,11 +408,55 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="et3-wL-y4e" firstAttribute="leading" secondItem="C5l-Zc-GSu" secondAttribute="leading" id="GSX-3W-DbO"/>
+                                            <constraint firstAttribute="height" constant="38" id="It4-aa-KHg"/>
+                                            <constraint firstAttribute="bottom" secondItem="et3-wL-y4e" secondAttribute="bottom" id="Ras-N6-YUz"/>
+                                            <constraint firstAttribute="trailing" secondItem="et3-wL-y4e" secondAttribute="trailing" id="Uii-OU-gia"/>
+                                            <constraint firstItem="et3-wL-y4e" firstAttribute="top" secondItem="C5l-Zc-GSu" secondAttribute="top" id="g7c-77-59U"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="X3T-9K-MKi" firstAttribute="top" secondItem="vz7-AZ-5gq" secondAttribute="top" constant="15" id="0EU-uj-cSp"/>
+                                    <constraint firstItem="GBf-Lb-7zC" firstAttribute="top" secondItem="X3T-9K-MKi" secondAttribute="bottom" constant="20" id="1gM-Js-C0Q"/>
+                                    <constraint firstItem="FIT-ql-UbD" firstAttribute="top" secondItem="bvx-wy-gN9" secondAttribute="bottom" constant="20" id="2Nl-qA-dcZ"/>
+                                    <constraint firstItem="GBf-Lb-7zC" firstAttribute="centerX" secondItem="ONL-E8-nS4" secondAttribute="centerX" id="58O-di-2Pe"/>
+                                    <constraint firstItem="ONL-E8-nS4" firstAttribute="leading" secondItem="FAZ-Aj-ZZg" secondAttribute="leading" id="9Mz-hi-Ha5"/>
+                                    <constraint firstItem="KRn-PT-leR" firstAttribute="trailing" secondItem="X4x-Px-um3" secondAttribute="trailing" id="9vc-aH-cVE"/>
+                                    <constraint firstItem="FIT-ql-UbD" firstAttribute="centerX" secondItem="C5l-Zc-GSu" secondAttribute="centerX" id="B0N-1D-LHp"/>
+                                    <constraint firstItem="X3T-9K-MKi" firstAttribute="centerX" secondItem="vz7-AZ-5gq" secondAttribute="centerX" id="CIR-Zz-Ytc"/>
+                                    <constraint firstItem="X4x-Px-um3" firstAttribute="leading" secondItem="bvx-wy-gN9" secondAttribute="leading" id="DaI-wA-YBs"/>
+                                    <constraint firstItem="X3T-9K-MKi" firstAttribute="centerX" secondItem="GBf-Lb-7zC" secondAttribute="centerX" id="EdK-CV-xmI"/>
+                                    <constraint firstItem="KRn-PT-leR" firstAttribute="top" secondItem="OUk-jZ-lPK" secondAttribute="bottom" constant="15" id="FOm-fx-xbC"/>
+                                    <constraint firstItem="X4x-Px-um3" firstAttribute="top" secondItem="KRn-PT-leR" secondAttribute="bottom" constant="15" id="IZj-f6-gwq"/>
+                                    <constraint firstItem="X4x-Px-um3" firstAttribute="trailing" secondItem="bvx-wy-gN9" secondAttribute="trailing" id="JJL-Y1-x9F"/>
+                                    <constraint firstItem="C5l-Zc-GSu" firstAttribute="leading" secondItem="vz7-AZ-5gq" secondAttribute="leadingMargin" id="L2M-ub-OIX"/>
+                                    <constraint firstItem="OUk-jZ-lPK" firstAttribute="top" secondItem="FAZ-Aj-ZZg" secondAttribute="bottom" constant="15" id="NM2-cd-5WL"/>
+                                    <constraint firstItem="OUk-jZ-lPK" firstAttribute="leading" secondItem="KRn-PT-leR" secondAttribute="leading" id="RQG-my-BIU"/>
+                                    <constraint firstItem="FAZ-Aj-ZZg" firstAttribute="top" secondItem="ONL-E8-nS4" secondAttribute="bottom" constant="15" id="UYi-Yh-dc2"/>
+                                    <constraint firstItem="ONL-E8-nS4" firstAttribute="trailing" secondItem="FAZ-Aj-ZZg" secondAttribute="trailing" id="WqI-5k-TPI"/>
+                                    <constraint firstItem="ONL-E8-nS4" firstAttribute="top" secondItem="GBf-Lb-7zC" secondAttribute="bottom" constant="20" id="Wzt-Gf-a88"/>
+                                    <constraint firstItem="bvx-wy-gN9" firstAttribute="top" secondItem="X4x-Px-um3" secondAttribute="bottom" constant="15" id="YPe-If-JTY"/>
+                                    <constraint firstItem="FAZ-Aj-ZZg" firstAttribute="trailing" secondItem="OUk-jZ-lPK" secondAttribute="trailing" id="eXk-Bz-Ip2"/>
+                                    <constraint firstItem="OUk-jZ-lPK" firstAttribute="trailing" secondItem="KRn-PT-leR" secondAttribute="trailing" id="gDz-pz-qhP"/>
+                                    <constraint firstItem="KRn-PT-leR" firstAttribute="leading" secondItem="X4x-Px-um3" secondAttribute="leading" id="gRu-7r-Phg"/>
+                                    <constraint firstItem="C5l-Zc-GSu" firstAttribute="trailing" secondItem="vz7-AZ-5gq" secondAttribute="trailingMargin" id="i3v-ut-qx5"/>
+                                    <constraint firstItem="FAZ-Aj-ZZg" firstAttribute="leading" secondItem="OUk-jZ-lPK" secondAttribute="leading" id="jqn-Ud-6Xa"/>
+                                    <constraint firstAttribute="bottom" secondItem="C5l-Zc-GSu" secondAttribute="bottom" constant="64" id="o1D-sx-nEJ"/>
+                                    <constraint firstItem="ONL-E8-nS4" firstAttribute="leading" secondItem="vz7-AZ-5gq" secondAttribute="leading" constant="24" id="o1m-w7-5sB"/>
+                                    <constraint firstItem="bvx-wy-gN9" firstAttribute="centerX" secondItem="FIT-ql-UbD" secondAttribute="centerX" id="pJq-6s-t4K"/>
+                                    <constraint firstItem="C5l-Zc-GSu" firstAttribute="top" secondItem="FIT-ql-UbD" secondAttribute="bottom" constant="10" id="ra0-4S-Bs8"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="top" secondItem="fkY-NM-19l" secondAttribute="bottom" id="Cde-Bl-46q"/>
+                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="leading" secondItem="gdj-1r-Aqt" secondAttribute="leading" id="IK0-2c-CCp"/>
+                            <constraint firstAttribute="trailing" secondItem="vz7-AZ-5gq" secondAttribute="trailing" id="P3b-9v-ycD"/>
+                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="bottom" secondItem="jMt-T1-JaQ" secondAttribute="top" id="cSU-bk-TXj"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SIGN IN" id="UNS-Tc-3Uf"/>
                 </viewController>
