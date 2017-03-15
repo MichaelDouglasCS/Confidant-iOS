@@ -90,12 +90,9 @@ class LogInViewController: UIViewController {
     
     internal func keyboardWillBeHidden(notification: NSNotification){
         //Once keyboard disappears, restore original positions
-        var info = notification.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
         self.loginScrollView.contentInset = contentInsets
         self.loginScrollView.scrollIndicatorInsets = contentInsets
-        self.view.endEditing(true)
     }
     
     //*************************************************

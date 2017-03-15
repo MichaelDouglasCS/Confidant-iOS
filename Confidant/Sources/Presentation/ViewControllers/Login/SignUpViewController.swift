@@ -49,7 +49,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var dateOfBirthTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var termsAndConditionsLabel: UILabel!
+    @IBOutlet weak var termsAndConditionsTextView: UITextView!
+    
+    //*************************************************
+    // MARK: - Properties
+    //*************************************************
+    
     
     //*************************************************
     // MARK: - UIViewController's Lifecycle Methods
@@ -73,9 +78,15 @@ class SignUpViewController: UIViewController {
     //*************************************************
     
     private func setupTermsAndConditionsHyperLink() {
-//        let attributedString = NSMutableAttributedString(string: self.termsAndConditionsLabel.text!)
-//        attributedString.addAttribute(NSLinkAttributeName, value: "https://www.google.com.br/", range:(attributedString.string as NSString).range(of: "Terms and conditions of Use"))
-//        self.termsAndConditionsLabel.attributedText = attributedString
+        let attributedString = NSMutableAttributedString()
+        attributedString.setAttributedString(self.termsAndConditionsTextView.attributedText)
+        attributedString.addAttribute(NSLinkAttributeName, value: "", range:(attributedString.string as NSString).range(of: "Terms and conditions of Use"))
+        attributedString.addAttribute(NSLinkAttributeName, value: "", range:(attributedString.string as NSString).range(of: "Privacy Policy"))
+        let linkAttributes: [String : Any] = [
+            NSForegroundColorAttributeName: UIColor.black,
+            NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
+        self.termsAndConditionsTextView.linkTextAttributes = linkAttributes
+        self.termsAndConditionsTextView.attributedText = attributedString
     }
     
     //*************************************************
@@ -99,28 +110,15 @@ class SignUpViewController: UIViewController {
         var info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
         let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
-        
         self.signInScrollView.contentInset = contentInsets
         self.signInScrollView.scrollIndicatorInsets = contentInsets
-        
-        var aRect : CGRect = self.view.frame
-        aRect.size.height -= keyboardSize!.height
-        
-        if (!aRect.contains(self.signUpButton.frame)){
-            let spaceOfButtonToKeyboard = CGRect(x: self.signUpButton.frame.origin.x, y: self.signUpButton.frame.origin.y, width: self.signUpButton.frame.width, height: self.signUpButton.frame.height)
-            self.signInScrollView.scrollRectToVisible(spaceOfButtonToKeyboard, animated: true)
-        }
-        
     }
     
     internal func keyboardWillBeHidden(notification: NSNotification){
         //Once keyboard disappears, restore original positions
-        var info = notification.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
         self.signInScrollView.contentInset = contentInsets
         self.signInScrollView.scrollIndicatorInsets = contentInsets
-        self.view.endEditing(true)
     }
     
     //*************************************************
@@ -139,7 +137,7 @@ class SignUpViewController: UIViewController {
 
 //**************************************************************************************************
 //
-// MARK: - Extension -
+// MARK: - Extension - SignUpViewController - UITextFieldDelegate
 //
 //**************************************************************************************************
 
