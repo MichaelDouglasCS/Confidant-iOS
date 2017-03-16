@@ -20,7 +20,7 @@ import UIKit
 //
 //**************************************************************************************************
 
-fileprivate enum SignUpTextFields: Int {
+fileprivate enum SignUpTextFieldsTag: Int {
     case Email = 1
     case Name = 2
     case ChoosePassword = 3
@@ -52,9 +52,22 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var termsAndConditionsTextView: UITextView!
     
     //*************************************************
+    // MARK: - IBActions
+    //*************************************************
+    
+    @IBAction func signUpWithFacebook(_ sender: UIButton) {
+        print("Sign Up Facebook")
+    }
+    
+    @IBAction func signUpWithEmail(_ sender: UIButton) {
+        print("Sign Up Email")
+    }
+    
+    //*************************************************
     // MARK: - Properties
     //*************************************************
     
+    internal let pickerViewGender = ["Female", "Male"]
     
     //*************************************************
     // MARK: - UIViewController's Lifecycle Methods
@@ -62,6 +75,7 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setDatePickerAndPickerViewKeyboard()
         self.setupTermsAndConditionsHyperLink()
         self.addHideKeyboardWhenTappedAround()
         self.registerForKeyboardNotifications()
@@ -74,19 +88,55 @@ class SignUpViewController: UIViewController {
     }
     
     //*************************************************
-    // MARK: - Setup Terms And Conditions Label
+    // MARK: - Custom Keyboard Methods
     //*************************************************
     
-    private func setupTermsAndConditionsHyperLink() {
-        let attributedString = NSMutableAttributedString()
-        attributedString.setAttributedString(self.termsAndConditionsTextView.attributedText)
-        attributedString.addAttribute(NSLinkAttributeName, value: "", range:(attributedString.string as NSString).range(of: "Terms and conditions of Use"))
-        attributedString.addAttribute(NSLinkAttributeName, value: "", range:(attributedString.string as NSString).range(of: "Privacy Policy"))
-        let linkAttributes: [String : Any] = [
-            NSForegroundColorAttributeName: UIColor.black,
-            NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
-        self.termsAndConditionsTextView.linkTextAttributes = linkAttributes
-        self.termsAndConditionsTextView.attributedText = attributedString
+    private func setDatePickerAndPickerViewKeyboard() {
+        
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButton(barButton:)))
+        
+        let titleAttributes = [NSFontAttributeName: UIFont(name: "GothamMedium", size: 15),
+                               NSForegroundColorAttributeName: UIColor.black]
+        
+        doneButton.setTitleTextAttributes(titleAttributes, for: .normal)
+        toolBar.setItems([flexibleSpace, doneButton], animated: false)
+        
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        self.dateOfBirthTextField.inputView = datePicker
+        self.dateOfBirthTextField.inputAccessoryView = toolBar
+        datePicker.addTarget(self, action: #selector(self.datePickerChanged(datePicker:)), for: UIControlEvents.valueChanged)
+        
+        
+        let pickerView = UIPickerView()
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        self.genderTextField.inputView = pickerView
+        self.genderTextField.inputAccessoryView = toolBar
+        
+    }
+    
+    internal func datePickerChanged(datePicker: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        self.dateOfBirthTextField.text = formatter.string(from: datePicker.date)
+    }
+    
+    internal func doneButton(barButton: UIBarButtonItem) {
+        if self.dateOfBirthTextField.isEditing {
+            if (self.genderTextField.text?.isEmpty)! {
+                self.genderTextField.becomeFirstResponder()
+            } else {
+                self.view.endEditing(true)
+            }
+        } else if self.genderTextField.isEditing {
+            self.view.endEditing(true)
+        }
     }
     
     //*************************************************
@@ -122,15 +172,19 @@ class SignUpViewController: UIViewController {
     }
     
     //*************************************************
-    // MARK: - IBActions
+    // MARK: - Setup Terms And Conditions Label
     //*************************************************
     
-    @IBAction func signUpWithFacebook(_ sender: UIButton) {
-        print("Sign Up Facebook")
-    }
-    
-    @IBAction func signUpWithEmail(_ sender: UIButton) {
-        print("Sign Up Email")
+    private func setupTermsAndConditionsHyperLink() {
+        let attributedString = NSMutableAttributedString()
+        attributedString.setAttributedString(self.termsAndConditionsTextView.attributedText)
+        attributedString.addAttribute(NSLinkAttributeName, value: "", range:(attributedString.string as NSString).range(of: "Terms and conditions of Use"))
+        attributedString.addAttribute(NSLinkAttributeName, value: "", range:(attributedString.string as NSString).range(of: "Privacy Policy"))
+        let linkAttributes: [String : Any] = [
+            NSForegroundColorAttributeName: UIColor.black,
+            NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
+        self.termsAndConditionsTextView.linkTextAttributes = linkAttributes
+        self.termsAndConditionsTextView.attributedText = attributedString
     }
     
 }
@@ -144,43 +198,43 @@ class SignUpViewController: UIViewController {
 extension SignUpViewController: UITextFieldDelegate {
     
     //*************************************************
-    // MARK: - TextField Methods
+    // MARK: - TextField Delegates
     //*************************************************
     
     internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         switch textField.tag {
-        case SignUpTextFields.Email.rawValue:
+        case SignUpTextFieldsTag.Email.rawValue:
             if (!textFill.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.choosePasswordTextField.text!.isEmpty && !self.chooseUserNameTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
-        case SignUpTextFields.Name.rawValue:
+        case SignUpTextFieldsTag.Name.rawValue:
             if (!self.emailTextField.text!.isEmpty) && (!textFill.isEmpty && !self.choosePasswordTextField.text!.isEmpty && !self.chooseUserNameTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
-        case SignUpTextFields.ChoosePassword.rawValue:
+        case SignUpTextFieldsTag.ChoosePassword.rawValue:
             if (!self.emailTextField.text!.isEmpty) && (!self.nameTextField.text!.isEmpty && !textFill.isEmpty && !self.chooseUserNameTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
-        case SignUpTextFields.ChooseUsername.rawValue:
+        case SignUpTextFieldsTag.ChooseUsername.rawValue:
             if (!self.emailTextField.text!.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.choosePasswordTextField.text!.isEmpty && !textFill.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
-        case SignUpTextFields.DateOfBirth.rawValue:
+        case SignUpTextFieldsTag.DateOfBirth.rawValue:
             if (!self.emailTextField.text!.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.choosePasswordTextField.text!.isEmpty && !self.chooseUserNameTextField.text!.isEmpty && !textFill.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
-        case SignUpTextFields.Gender.rawValue:
+        case SignUpTextFieldsTag.Gender.rawValue:
             if (!self.emailTextField.text!.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.choosePasswordTextField.text!.isEmpty && !self.chooseUserNameTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !textFill.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
@@ -191,23 +245,66 @@ extension SignUpViewController: UITextFieldDelegate {
         return true
     }
     
+    internal func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField.tag {
+        case SignUpTextFieldsTag.DateOfBirth.rawValue:
+            let datePickerView = self.dateOfBirthTextField.inputView as! UIDatePicker
+            let formatter = DateFormatter()
+            formatter.dateStyle = .long
+            self.dateOfBirthTextField.text = formatter.string(from: datePickerView.date)
+            break
+        case SignUpTextFieldsTag.Gender.rawValue:
+            let genderPickerView = self.genderTextField.inputView as! UIPickerView
+            let selectedRow = genderPickerView.selectedRow(inComponent: 0)
+            let selectedText = genderPickerView.delegate?.pickerView!(genderPickerView, titleForRow: selectedRow, forComponent: 0)
+            self.genderTextField.text = selectedText
+        default: break
+        }
+    }
+    
     internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField.tag {
-        case SignUpTextFields.Email.rawValue:
+        case SignUpTextFieldsTag.Email.rawValue:
             self.nameTextField.becomeFirstResponder()
-        case SignUpTextFields.Name.rawValue:
+        case SignUpTextFieldsTag.Name.rawValue:
             self.choosePasswordTextField.becomeFirstResponder()
-        case SignUpTextFields.ChoosePassword.rawValue:
+        case SignUpTextFieldsTag.ChoosePassword.rawValue:
             self.chooseUserNameTextField.becomeFirstResponder()
-        case SignUpTextFields.ChooseUsername.rawValue:
+        case SignUpTextFieldsTag.ChooseUsername.rawValue:
             self.dateOfBirthTextField.becomeFirstResponder()
-        case SignUpTextFields.DateOfBirth.rawValue:
-            self.genderTextField.becomeFirstResponder()
-        case SignUpTextFields.Gender.rawValue:
-            self.emailTextField.becomeFirstResponder()
         default: break
         }
         return true
+    }
+    
+}
+
+//**************************************************************************************************
+//
+// MARK: - Extension - SignUpViewController - UIPickerViewDataSource + UIPickerViewDelegate
+//
+//**************************************************************************************************
+
+extension SignUpViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    //*************************************************
+    // MARK: - UIPickerView Methods
+    //*************************************************
+    
+    internal func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    internal func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.pickerViewGender.count
+    }
+    
+    internal func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.pickerViewGender[row]
+    }
+    
+    internal func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.genderTextField.text = self.pickerViewGender[row]
     }
     
 }

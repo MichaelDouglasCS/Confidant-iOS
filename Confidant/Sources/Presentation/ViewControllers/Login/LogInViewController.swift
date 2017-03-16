@@ -38,6 +38,22 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var logInButton: UIButton!
     
     //*************************************************
+    // MARK: - IBActions
+    //*************************************************
+    
+    @IBAction func logInWithFacebook(_ sender: UIButton) {
+        print("Login Facebook")
+    }
+    
+    @IBAction func logInWithUserAndPassword(_ sender: UIButton) {
+        print("Log In")
+    }
+    
+    @IBAction func forgotPassword(_ sender: UIButton) {
+        print("Forgot Password")
+    }
+    
+    //*************************************************
     // MARK: - UIViewController's Lifecycle Methods
     //*************************************************
     
@@ -95,22 +111,6 @@ class LogInViewController: UIViewController {
         self.loginScrollView.scrollIndicatorInsets = contentInsets
     }
     
-    //*************************************************
-    // MARK: - IBActions
-    //*************************************************
-    
-    @IBAction func logInWithFacebook(_ sender: UIButton) {
-        print("Login Facebook")
-    }
-    
-    @IBAction func logInWithUserAndPassword(_ sender: UIButton) {
-        print("Log In")
-    }
-    
-    @IBAction func forgotPassword(_ sender: UIButton) {
-        print("Forgot Password")
-    }
-    
 }
 
 //**************************************************************************************************
@@ -122,7 +122,7 @@ class LogInViewController: UIViewController {
 extension LogInViewController: UITextFieldDelegate {
     
     //*************************************************
-    // MARK: - TextField Methods
+    // MARK: - TextField Delegates
     //*************************************************
     
     internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

@@ -49,7 +49,7 @@ fileprivate struct WelcomeMessages {
 //
 //**************************************************************************************************
 
-class WelcomeViewController: UIViewController, UIScrollViewDelegate {
+class WelcomeViewController: UIViewController {
     
     //*************************************************
     // MARK: - IBOutlets
@@ -63,7 +63,7 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     //*************************************************
     
     private var timer = Timer()
-    private var numberOfPages: Int {
+    fileprivate var numberOfPages: Int {
         get {
             return WelcomeMessages().getMessages().count
         }
@@ -196,13 +196,36 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
                 lastView.addSubViews(views: [lastTitle, lastText])
                 lastView.frame.origin.x = CGFloat(index+1) * self.messageScrollView.frame.size.width
                 self.messageScrollView.addSubview(lastView)
-                
+
             }
         }
     }
     
     //*************************************************
-    // MARK: - ScrollView Methods
+    // MARK: - Timer Methods
+    //*************************************************
+    
+    private func startTimer() {
+        self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.swipeTimer), userInfo: nil, repeats: true)
+    }
+    
+    private func resetTimer() {
+        self.timer.invalidate()
+        self.startTimer()
+    }
+    
+}
+
+//**************************************************************************************************
+//
+// MARK: - Extension - WelcomeViewController - UIScrollViewDelegate
+//
+//**************************************************************************************************
+
+extension WelcomeViewController: UIScrollViewDelegate {
+    
+    //*************************************************
+    // MARK: - ScrollView Delegates
     //*************************************************
     
     internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -217,19 +240,6 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     
     internal func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         self.view.isUserInteractionEnabled = true
-    }
-    
-    //*************************************************
-    // MARK: - Timer Methods
-    //*************************************************
-    
-    private func startTimer() {
-        self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.swipeTimer), userInfo: nil, repeats: true)
-    }
-    
-    private func resetTimer() {
-        self.timer.invalidate()
-        self.startTimer()
     }
     
 }

@@ -471,7 +471,7 @@
                     <connections>
                         <outlet property="choosePasswordTextField" destination="Lof-w4-WPc" id="Shb-Ug-w8F"/>
                         <outlet property="chooseUserNameTextField" destination="eNB-Wp-ybm" id="ijM-ix-pDp"/>
-                        <outlet property="dateOfBirthTextField" destination="vaU-y0-8sj" id="2K5-51-mIy"/>
+                        <outlet property="dateOfBirthTextField" destination="vaU-y0-8sj" id="eer-Af-uBh"/>
                         <outlet property="emailTextField" destination="rOj-UW-Br4" id="ZMm-gk-RvE"/>
                         <outlet property="genderTextField" destination="BUi-85-pya" id="cCT-bn-Qqd"/>
                         <outlet property="nameTextField" destination="unK-aq-Wct" id="iNP-vb-Wa5"/>

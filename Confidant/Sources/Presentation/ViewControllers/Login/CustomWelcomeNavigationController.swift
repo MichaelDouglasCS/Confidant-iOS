@@ -47,6 +47,7 @@ class CustomWelcomeNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavigationBar()
+//        self.printFonts()
     }
     
     //*************************************************
