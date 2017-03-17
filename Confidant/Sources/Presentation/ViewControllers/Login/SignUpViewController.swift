@@ -104,7 +104,7 @@ class SignUpViewController: UIViewController {
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButton(barButton:)))
         
-        let titleAttributes = [NSFontAttributeName: UIFont(name: "GothamMedium", size: 15),
+        let titleAttributes: [String: Any] = [NSFontAttributeName: UIFont(name: "GothamMedium", size: 15)!,
                                NSForegroundColorAttributeName: UIColor.black]
         
         doneButton.setTitleTextAttributes(titleAttributes, for: .normal)
@@ -184,7 +184,7 @@ class SignUpViewController: UIViewController {
         attributedString.setAttributedString(self.termsAndConditionsTextView.attributedText)
         attributedString.addAttribute(NSLinkAttributeName, value: "", range:(attributedString.string as NSString).range(of: "Terms and conditions of Use"))
         attributedString.addAttribute(NSLinkAttributeName, value: "", range:(attributedString.string as NSString).range(of: "Privacy Policy"))
-        let linkAttributes: [String : Any] = [
+        let linkAttributes: [String: Any] = [
             NSForegroundColorAttributeName: UIColor.black,
             NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
         self.termsAndConditionsTextView.linkTextAttributes = linkAttributes
