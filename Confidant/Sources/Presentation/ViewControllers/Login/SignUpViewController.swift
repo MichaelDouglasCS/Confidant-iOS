@@ -69,9 +69,9 @@ class SignUpViewController: UIViewController {
     
     internal let pickerViewGender = ["Female", "Male"]
     
-    //*************************************************
-    // MARK: - UIViewController's Lifecycle Methods
-    //*************************************************
+//*************************************************
+// MARK: - Override Public Methods
+//*************************************************
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +86,10 @@ class SignUpViewController: UIViewController {
         self.deregisterFromKeyboardNotifications()
         self.removeAllGestureRecognizers()
     }
+    
+//*************************************************
+// MARK: - Private Methods
+//*************************************************
     
     //*************************************************
     // MARK: - Custom Keyboard Methods
@@ -121,13 +125,13 @@ class SignUpViewController: UIViewController {
         
     }
     
-    internal func datePickerChanged(datePicker: UIDatePicker) {
+    @objc private func datePickerChanged(datePicker: UIDatePicker) {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         self.dateOfBirthTextField.text = formatter.string(from: datePicker.date)
     }
     
-    internal func doneButton(barButton: UIBarButtonItem) {
+    @objc private func doneButton(barButton: UIBarButtonItem) {
         if self.dateOfBirthTextField.isEditing {
             if (self.genderTextField.text?.isEmpty)! {
                 self.genderTextField.becomeFirstResponder()
@@ -155,7 +159,7 @@ class SignUpViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    internal func keyboardWasShown(notification: NSNotification){
+    @objc private func keyboardWasShown(notification: NSNotification){
         //Need to calculate keyboard exact size due to Apple suggestions
         var info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
@@ -164,7 +168,7 @@ class SignUpViewController: UIViewController {
         self.signInScrollView.scrollIndicatorInsets = contentInsets
     }
     
-    internal func keyboardWillBeHidden(notification: NSNotification){
+    @objc private func keyboardWillBeHidden(notification: NSNotification){
         //Once keyboard disappears, restore original positions
         let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
         self.signInScrollView.contentInset = contentInsets

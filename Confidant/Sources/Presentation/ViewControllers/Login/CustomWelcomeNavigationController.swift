@@ -40,9 +40,9 @@ class CustomWelcomeNavigationController: UINavigationController {
         return .portrait
     }
     
-    //*************************************************
-    // MARK: - UIViewController's Lifecycle Methods
-    //*************************************************
+//*************************************************
+// MARK: - Override Public Methods
+//*************************************************
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,10 +51,10 @@ class CustomWelcomeNavigationController: UINavigationController {
     }
     
     //*************************************************
-    // MARK: - Setup
+    // MARK: - Setup UI
     //*************************************************
     
-    private func setupNavigationBar() {
+    internal func setupNavigationBar() {
         self.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "navigationBar-image"), for: .default)
         self.navigationBar.tintColor = UIColor.white
         self.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "backButton")

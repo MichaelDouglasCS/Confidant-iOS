@@ -69,21 +69,16 @@ class WelcomeViewController: UIViewController {
         }
     }
     
-    //*************************************************
-    // MARK: - UIViewController's Lifecycle Methods
-    //*************************************************
+//*************************************************
+// MARK: - Override Public Methods
+//*************************************************
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNavigationBarItem()
+        self.setupNavigationBar()
         self.loadWelcomeMessages()
         self.messagePageControl.numberOfPages = self.numberOfPages
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
-        swipeRight.direction = .right
-        self.view.addGestureRecognizer(swipeRight)
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
-        swipeLeft.direction = .left
-        self.view.addGestureRecognizer(swipeLeft)
+        self.addSwipeGestureRecognizers()
         self.startTimer()
     }
     
@@ -98,23 +93,32 @@ class WelcomeViewController: UIViewController {
     }
     
     //*************************************************
-    // MARK: - Setup Methods
+    // MARK: - Setup UI
     //*************************************************
     
-    private func setupNavigationBarItem() {
+    private func setupNavigationBar() {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
-    //*************************************************
-    // MARK: - Internal Methods
-    //*************************************************
+//*************************************************
+// MARK: - Private Methods
+//*************************************************
     
-    internal func swipeTimer() {
+    private func addSwipeGestureRecognizers() {
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+    }
+    
+    @objc private func swipeTimer() {
         self.view.isUserInteractionEnabled = false
         self.messageScrollView.setContentOffset(CGPoint(x: self.messageScrollView.contentOffset.x + self.messageScrollView.frame.size.width, y: 0), animated: true)
     }
     
-    internal func swipeRecognizer(_ gesture: UISwipeGestureRecognizer) {
+    @objc private func swipeRecognizer(_ gesture: UISwipeGestureRecognizer) {
         self.view.isUserInteractionEnabled = false
         self.resetTimer()
         switch gesture.direction {

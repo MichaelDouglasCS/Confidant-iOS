@@ -15,9 +15,11 @@ import UIKit
 //**************************************************************************************************
 
 extension UIView {
+    
     func addSubViews(views: [UIView]) {
         for view in views {
             self.addSubview(view)
         }
     }
+    
 }

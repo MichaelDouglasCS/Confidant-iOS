@@ -53,9 +53,9 @@ class LogInViewController: UIViewController {
         print("Forgot Password")
     }
     
-    //*************************************************
-    // MARK: - UIViewController's Lifecycle Methods
-    //*************************************************
+//*************************************************
+// MARK: - Override Public Methods
+//*************************************************
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,9 +69,9 @@ class LogInViewController: UIViewController {
         self.removeAllGestureRecognizers()
     }
     
-    //*************************************************
-    // MARK: - Keyboard Methods
-    //*************************************************
+//*************************************************
+// MARK: - Private Methods
+//*************************************************
     
     private func registerForKeyboardNotifications(){
         //Adding notifies on keyboard appearing
