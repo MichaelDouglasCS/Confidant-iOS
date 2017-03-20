@@ -20,6 +20,12 @@ import UIKit
 //
 //**************************************************************************************************
 
+//**************************************************************************************************
+//
+// MARK: - Enum -
+//
+//**************************************************************************************************
+
 fileprivate enum SignUpTextFieldsTag: Int {
     case Email = 1
     case Name = 2
@@ -60,7 +66,30 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpWithEmail(_ sender: UIButton) {
-        print("Sign Up Email")
+        guard
+            let email = self.emailTextField.text,
+            let name = self.nameTextField.text,
+            let password = self.choosePasswordTextField.text,
+            let userName = self.chooseUserNameTextField.text,
+            let dateOfBirth = self.dateOfBirthTextField.text,
+            let gender = self.genderTextField.text else {
+                return
+        }
+        
+        let authentication = AuthenticationManager()
+    
+        authentication.signUpUser(email: email,
+                                  name: name,
+                                  password: password,
+                                  userName: userName,
+                                  dateOfBirth: dateOfBirth,
+                                  gender: gender,
+                                  responseError: { error in
+                                    
+                                    
+            
+        })
+        
     }
     
     //*************************************************
@@ -232,18 +261,6 @@ extension SignUpViewController: UITextFieldDelegate {
             } else {
                 self.signUpButton.isEnabled = false
             }
-        case SignUpTextFieldsTag.DateOfBirth.rawValue:
-            if (!self.emailTextField.text!.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.choosePasswordTextField.text!.isEmpty && !self.chooseUserNameTextField.text!.isEmpty && !textFill.isEmpty && !self.genderTextField.text!.isEmpty){
-                self.signUpButton.isEnabled = true
-            } else {
-                self.signUpButton.isEnabled = false
-            }
-        case SignUpTextFieldsTag.Gender.rawValue:
-            if (!self.emailTextField.text!.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.choosePasswordTextField.text!.isEmpty && !self.chooseUserNameTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !textFill.isEmpty){
-                self.signUpButton.isEnabled = true
-            } else {
-                self.signUpButton.isEnabled = false
-            }
         default: break
         }
         return true
@@ -256,12 +273,22 @@ extension SignUpViewController: UITextFieldDelegate {
             let formatter = DateFormatter()
             formatter.dateStyle = .long
             self.dateOfBirthTextField.text = formatter.string(from: datePickerView.date)
+            if (!self.emailTextField.text!.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.choosePasswordTextField.text!.isEmpty && !self.chooseUserNameTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+                self.signUpButton.isEnabled = true
+            } else {
+                self.signUpButton.isEnabled = false
+            }
             break
         case SignUpTextFieldsTag.Gender.rawValue:
             let genderPickerView = self.genderTextField.inputView as! UIPickerView
             let selectedRow = genderPickerView.selectedRow(inComponent: 0)
             let selectedText = genderPickerView.delegate?.pickerView!(genderPickerView, titleForRow: selectedRow, forComponent: 0)
             self.genderTextField.text = selectedText
+            if (!self.emailTextField.text!.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.choosePasswordTextField.text!.isEmpty && !self.chooseUserNameTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+                self.signUpButton.isEnabled = true
+            } else {
+                self.signUpButton.isEnabled = false
+            }
         default: break
         }
     }
