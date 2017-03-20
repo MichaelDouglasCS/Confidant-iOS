@@ -151,7 +151,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or with e-mail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Lb-7zC">
-                                        <rect key="frame" x="145" y="80" width="85" height="14"/>
+                                        <rect key="frame" x="145" y="80" width="85" height="11"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="85" id="UEc-e5-o3n"/>
                                         </constraints>
@@ -160,7 +160,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-E8-nS4" userLabel="EmailView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="114" width="327" height="40"/>
+                                        <rect key="frame" x="24" y="111" width="327" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mail-icon" translatesAutoresizingMaskIntoConstraints="NO" id="0X5-UE-Rcy" userLabel="email-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
@@ -199,7 +199,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAZ-Aj-ZZg" userLabel="NameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="169" width="327" height="40"/>
+                                        <rect key="frame" x="24" y="166" width="327" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="name-icon" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-zj-KYx" userLabel="name-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
@@ -238,7 +238,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUk-jZ-lPK" userLabel="ChoosePasswordView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="224" width="327" height="40"/>
+                                        <rect key="frame" x="24" y="221" width="327" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ftd-Ze-IVK" userLabel="password-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
@@ -279,7 +279,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRn-PT-leR" userLabel="ChooseUsernameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="279" width="327" height="40"/>
+                                        <rect key="frame" x="24" y="276" width="327" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-icon" translatesAutoresizingMaskIntoConstraints="NO" id="rT2-t6-mw3">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
@@ -317,7 +317,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4x-Px-um3" userLabel="DateOfBirthView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="334" width="327" height="40"/>
+                                        <rect key="frame" x="24" y="331" width="327" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-Iw-zVS" userLabel="date-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
@@ -355,7 +355,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvx-wy-gN9" userLabel="GenderView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="389" width="327" height="40"/>
+                                        <rect key="frame" x="24" y="386" width="327" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genders-icon" translatesAutoresizingMaskIntoConstraints="NO" id="YpX-ZL-Pzb" userLabel="gender-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
@@ -394,7 +394,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIT-ql-UbD" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="94" y="449" width="187" height="45"/>
+                                        <rect key="frame" x="94" y="446" width="187" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="jar-Ta-885"/>
                                         </constraints>
@@ -412,7 +412,7 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="By signing up, you agree to Confidant’s Terms and conditions of Use and Privacy Policy." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sdy-8P-96b" customClass="IBDesigableTextView" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="504" width="359" height="45"/>
+                                        <rect key="frame" x="8" y="501" width="359" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="76b-4n-8o9"/>
                                         </constraints>
@@ -519,13 +519,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NP3-mv-fo4">
-                                        <rect key="frame" x="182" y="80" width="11" height="14"/>
+                                        <rect key="frame" x="181" y="80" width="13" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="12"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgt-wu-RAT" userLabel="UsernameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="114" width="327" height="40"/>
+                                        <rect key="frame" x="24" y="111" width="327" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-icon" translatesAutoresizingMaskIntoConstraints="NO" id="QiL-Zk-x79">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
@@ -563,7 +563,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSH-vO-l7a" userLabel="PasswordView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="169" width="327" height="40"/>
+                                        <rect key="frame" x="24" y="166" width="327" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password-icon" translatesAutoresizingMaskIntoConstraints="NO" id="KqY-HR-Izx" userLabel="password-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
@@ -604,7 +604,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-aK-ogj" userLabel="Forgot your password?">
-                                        <rect key="frame" x="126" y="284" width="123" height="29"/>
+                                        <rect key="frame" x="126" y="281" width="123" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="123" id="4u8-aM-FhW"/>
                                             <constraint firstAttribute="height" constant="29" id="iXh-yB-HuW"/>
@@ -618,7 +618,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln8-Xc-m6n" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="91" y="229" width="193" height="45"/>
+                                        <rect key="frame" x="91" y="226" width="193" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Rb1-dT-2No"/>
                                             <constraint firstAttribute="width" constant="193" id="g5f-3F-UhP"/>

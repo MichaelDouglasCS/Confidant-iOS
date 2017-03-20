@@ -1,18 +1,21 @@
 //
-//  NetworkManager.swift
+//  PersistenceManager.swift
 //  Confidant
 //
-//  Created by Michael Douglas on 18/03/17.
+//  Created by Michael Douglas on 19/03/17.
 //  Copyright © 2017 Watermelon. All rights reserved.
 //
 
 import Foundation
+import FirebaseDatabase
 
 //**************************************************************************************************
 //
 // MARK: - Constants -
 //
 //**************************************************************************************************
+
+public let kUsersDBReference = "users"
 
 //**************************************************************************************************
 //
@@ -22,35 +25,30 @@ import Foundation
 
 //**************************************************************************************************
 //
-// MARK: - Enum -
-//
-//**************************************************************************************************
-
-public enum ResponseMethodType {
-    case SUCCESS
-    case FAILED
-}
-
-public enum KnowErrorCode: Int {
-    case EmailAlreadyInUse = 17007
-}
-
-//**************************************************************************************************
-//
 // MARK: - Class -
 //
 //**************************************************************************************************
 
-class NetworkManager {
+class PersistenceManager {
 
 //*************************************************
 // MARK: - Properties
 //*************************************************
 
+    static var databaseReference: FIRDatabaseReference {
+        get {
+            return FIRDatabase.database().reference(fromURL: URL.databaseURL())
+        }
+    }
+    
 //*************************************************
-// MARK: - Public Methods
+// MARK: - Constructors
 //*************************************************
 
+//*************************************************
+// MARK: - Private Methods
+//*************************************************
+    
 //*************************************************
 // MARK: - Internal Methods
 //*************************************************

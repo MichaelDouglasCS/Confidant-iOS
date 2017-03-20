@@ -78,15 +78,15 @@ class SignUpViewController: UIViewController {
         
         let authentication = AuthenticationManager()
     
-        authentication.signUpUser(email: email,
+        authentication.createUserWithEmail(email: email,
                                   name: name,
                                   password: password,
                                   userName: userName,
                                   dateOfBirth: dateOfBirth,
                                   gender: gender,
-                                  responseError: { error in
+                                  completion: { error in
                                     
-                                    
+                                    print(error)
             
         })
         

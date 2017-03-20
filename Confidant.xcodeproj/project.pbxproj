@@ -36,6 +36,7 @@
 		61A2BFE41E686DD900414A4C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A2BFE21E686DD900414A4C /* Login.storyboard */; };
 		61A35AF31E7DBF100010A01D /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A35AF21E7DBF100010A01D /* URL.swift */; };
 		61A35AF51E7DCB1F0010A01D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A35AF41E7DCB1F0010A01D /* User.swift */; };
+		61A35AF81E7F63DE0010A01D /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A35AF71E7F63DE0010A01D /* PersistenceManager.swift */; };
 		61A59A641E7B9BA000698FBA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 61A59A631E7B9BA000698FBA /* GoogleService-Info.plist */; };
 		61BDD9B41E69F3BB00FA0410 /* IBDesignableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDD9B31E69F3BB00FA0410 /* IBDesignableClass.swift */; };
 		61F570971E7DABDE00712518 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F570961E7DABDE00712518 /* AuthenticationManager.swift */; };
@@ -104,6 +105,7 @@
 		61A2BFE21E686DD900414A4C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		61A35AF21E7DBF100010A01D /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		61A35AF41E7DCB1F0010A01D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		61A35AF71E7F63DE0010A01D /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		61A59A631E7B9BA000698FBA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		61BDD9B31E69F3BB00FA0410 /* IBDesignableClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignableClass.swift; sourceTree = "<group>"; };
 		61F570961E7DABDE00712518 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
@@ -281,8 +283,9 @@
 			children = (
 				61494DF91E685AB400D4DF13 /* AppDelegate.swift */,
 				6184857D1E68633B00854092 /* Models */,
-				6184857B1E68631200854092 /* Authentication */,
 				618485791E6862FE00854092 /* Networking */,
+				6184857B1E68631200854092 /* Authentication */,
+				61A35AF61E7F63B80010A01D /* Persistence */,
 				61EA4A001E68F3C600E76C54 /* Extensions */,
 			);
 			path = Core;
@@ -326,6 +329,14 @@
 			children = (
 			);
 			path = XIBs;
+			sourceTree = "<group>";
+		};
+		61A35AF61E7F63B80010A01D /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				61A35AF71E7F63DE0010A01D /* PersistenceManager.swift */,
+			);
+			name = Persistence;
 			sourceTree = "<group>";
 		};
 		61BDD9AC1E699CE300FA0410 /* Fonts */ = {
@@ -684,6 +695,7 @@
 				61F570971E7DABDE00712518 /* AuthenticationManager.swift in Sources */,
 				61A35AF31E7DBF100010A01D /* URL.swift in Sources */,
 				61F570991E7DAC5E00712518 /* NetworkManager.swift in Sources */,
+				61A35AF81E7F63DE0010A01D /* PersistenceManager.swift in Sources */,
 				613A8B471E6F1159000DD11D /* UIView+AddSubViews.swift in Sources */,
 				61F5CE8C1E68FA1C001261C1 /* WelcomeViewController.swift in Sources */,
 				61F6D2711E733DC800754866 /* SignUpViewController.swift in Sources */,

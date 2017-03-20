@@ -34,6 +34,8 @@ class AuthenticationManager {
 // MARK: - Properties
 //*************************************************
 
+    var userAuthenticated: User?
+    
 //*************************************************
 // MARK: - Constructors
 //*************************************************
@@ -41,37 +43,45 @@ class AuthenticationManager {
 //*************************************************
 // MARK: - Self Public Methods
 //*************************************************
-
-    func signUpUser(email: String,
-                    name: String,
-                    password: String,
-                    userName: String,
-                    dateOfBirth: String,
-                    gender: String, responseError: @escaping (Error?)->Void) {
+    
+    func createUserWithEmail(email: String,
+                             name: String,
+                             password: String,
+                             userName: String,
+                             dateOfBirth: String,
+                             gender: String,
+                             completion: @escaping (Error?)->Void) {
         
-        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error)  in
-            
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (userResponse: FIRUser?, error)  in
             if error != nil {
-                responseError(error)
-                return
+                completion(error)
+            } else {
+                guard
+                    let uid = userResponse?.uid else {
+                        return
+                }
+                let user = User(userId: uid, email: email, name: name, userName: userName, dateOfBirth: dateOfBirth, gender: gender, photoURL: nil)
+                let dbReference = PersistenceManager.databaseReference
+                let userDBReference = dbReference.child(kUsersDBReference).child(uid)
+                userDBReference.updateChildValues(user.getJSON(), withCompletionBlock: { (error, databaseReference) in
+                    if error != nil {
+                        completion(error)
+                    }
+                })
+                self.userAuthenticated = user
             }
-            
-            guard let uid = user?.uid else {
-                return
-            }
-            
-            let ref = FIRDatabase.database().reference(fromURL: URL.databaseURL())
-            let userReference = ref.child("users").child(uid)
-            let parameters = ["email": email,
-                              "name": name,
-                              "userName": userName,
-                              "dateOfBirth": dateOfBirth,
-                              "gender": gender]
-            
-            userReference.updateChildValues(parameters)
-            
         })
-        
+    }
+    
+    func userEmailExists(email: String, isExists: @escaping (Bool?)->Void) {
+        FIRAuth.auth()?.createUser(withEmail: email, password: "", completion: { (userResponse: FIRUser?, errorResponse)  in
+            let error = errorResponse as? NSError
+            if error?.code == KnowErrorCode.EmailAlreadyInUse.rawValue {
+                isExists(true)
+            } else {
+                isExists(false)
+            }
+        })
     }
     
 //*************************************************

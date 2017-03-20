@@ -38,23 +38,40 @@ class User: NSObject {
     private var userName: String?
     private var dateOfBirth: String?
     private var gender: String?
+    private var photoURL: String?
     
 //*************************************************
 // MARK: - Constructors
 //*************************************************
 
     init(userId: String?,
-        email: String?,
-        name: String?,
-        userName: String?,
-        dateOfBirth: String?,
-        gender: String?) {
+         email: String?,
+         name: String?,
+         userName: String?,
+         dateOfBirth: String?,
+         gender: String?,
+         photoURL: String?) {
         self.userId = userId ?? ""
         self.email = email ?? ""
         self.name = name ?? ""
         self.userName = userName ?? ""
         self.dateOfBirth = dateOfBirth ?? ""
         self.gender = gender ?? ""
+        self.photoURL = photoURL ?? ""
+    }
+    
+//*************************************************
+// MARK: - Self Public Methods
+//*************************************************
+    
+    func getJSON() -> [String: String] {
+        let userJSONValue: [String: String] = ["email": self.email ?? "",
+                             "name": self.name ?? "",
+                             "userName": self.userName ?? "",
+                             "dateOfBirth": self.dateOfBirth ?? "",
+                             "gender": self.gender ?? "",
+                             "photoURL": self.photoURL ?? ""]
+        return userJSONValue
     }
     
 //*************************************************
@@ -63,10 +80,6 @@ class User: NSObject {
 
 //*************************************************
 // MARK: - Internal Methods
-//*************************************************
-
-//*************************************************
-// MARK: - Self Public Methods
 //*************************************************
 
 //*************************************************
