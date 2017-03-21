@@ -66,13 +66,13 @@ class PersistenceManager {
     
     enum FirebaseDBTables {
         case Users(user: User)
-        case Accounts
+        case Accounts(userEmailSha1: String)
         func reference() -> FIRDatabaseReference {
             switch self {
             case .Users(let user):
                 return PersistenceManager.databaseReference.child(kUsersTableName).child(user.userId!)
-            case .Accounts:
-                return PersistenceManager.databaseReference.child(kAccountTableName)
+            case .Accounts(let userEmailSha1):
+                return PersistenceManager.databaseReference.child(kAccountTableName).child(userEmailSha1)
             }
         }
     }

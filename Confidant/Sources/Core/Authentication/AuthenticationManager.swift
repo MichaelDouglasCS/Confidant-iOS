@@ -57,7 +57,7 @@ class AuthenticationManager {
                 }
                 let user = User(userId: uid, email: email, nickName: nickName, dateOfBirth: dateOfBirth, gender: gender, photoURL: nil)
                 let userDBReference = PersistenceManager.FirebaseDBTables.Users(user: user).reference()
-                let accountDBReference = PersistenceManager.FirebaseDBTables.Accounts.reference()
+                let accountDBReference = PersistenceManager.FirebaseDBTables.Accounts(userEmailSha1: email.sha1()).reference()
                 
                 accountDBReference.updateChildValues(user.getAccountEmail(), withCompletionBlock: { (error, accountDBResult) in
                     if error != nil {
@@ -82,7 +82,7 @@ class AuthenticationManager {
     }
     
     class func userEmailExists(email: String, isExists: @escaping (Bool)->Void) {
-        let accountDBReference = PersistenceManager.FirebaseDBTables.Accounts.reference()
+        let accountDBReference = PersistenceManager.FirebaseDBTables.Accounts(userEmailSha1: email.sha1()).reference()
         let userDBReference = accountDBReference.queryOrderedByValue()
         userDBReference.queryEqual(toValue: "\(email)").observeSingleEvent(of: .value, with: { snapshot in
             if snapshot.exists() {
