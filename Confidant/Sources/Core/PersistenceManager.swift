@@ -15,11 +15,18 @@ import FirebaseDatabase
 //
 //**************************************************************************************************
 
-public let kUsersDBReference = "users"
+public let kUsersTableName = "users"
+public let kAccountTableName = "accounts"
 
 //**************************************************************************************************
 //
 // MARK: - Definitions -
+//
+//**************************************************************************************************
+
+//**************************************************************************************************
+//
+// MARK: - Enum -
 //
 //**************************************************************************************************
 
@@ -46,12 +53,29 @@ class PersistenceManager {
 //*************************************************
 
 //*************************************************
-// MARK: - Private Methods
+// MARK: - Public Methods
 //*************************************************
     
+    func createUser() {
+        
+    }
+    
 //*************************************************
-// MARK: - Internal Methods
+// MARK: - Enum
 //*************************************************
+    
+    enum FirebaseDBTables {
+        case Users(user: User)
+        case Accounts
+        func reference() -> FIRDatabaseReference {
+            switch self {
+            case .Users(let user):
+                return PersistenceManager.databaseReference.child(kUsersTableName).child(user.userId!)
+            case .Accounts:
+                return PersistenceManager.databaseReference.child(kAccountTableName)
+            }
+        }
+    }
 
 //*************************************************
 // MARK: - Self Public Methods

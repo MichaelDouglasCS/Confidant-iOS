@@ -20,6 +20,8 @@ import Foundation
 //
 //**************************************************************************************************
 
+typealias FirebaseJSON = [String: String]
+
 //**************************************************************************************************
 //
 // MARK: - Class -
@@ -32,13 +34,12 @@ class User: NSObject {
 // MARK: - Properties
 //*************************************************
 
-    private var userId: String?
-    private var email: String?
-    private var name: String?
-    private var userName: String?
-    private var dateOfBirth: String?
-    private var gender: String?
-    private var photoURL: String?
+    public var userId: String?
+    public var email: String?
+    public var nickName: String?
+    public var dateOfBirth: String?
+    public var gender: String?
+    public var photoURL: String?
     
 //*************************************************
 // MARK: - Constructors
@@ -46,15 +47,13 @@ class User: NSObject {
 
     init(userId: String?,
          email: String?,
-         name: String?,
-         userName: String?,
+         nickName: String?,
          dateOfBirth: String?,
          gender: String?,
          photoURL: String?) {
         self.userId = userId ?? ""
         self.email = email ?? ""
-        self.name = name ?? ""
-        self.userName = userName ?? ""
+        self.nickName = nickName ?? ""
         self.dateOfBirth = dateOfBirth ?? ""
         self.gender = gender ?? ""
         self.photoURL = photoURL ?? ""
@@ -64,14 +63,18 @@ class User: NSObject {
 // MARK: - Self Public Methods
 //*************************************************
     
-    func getJSON() -> [String: String] {
-        let userJSONValue: [String: String] = ["email": self.email ?? "",
-                             "name": self.name ?? "",
-                             "userName": self.userName ?? "",
+    func getJSON() -> FirebaseJSON {
+        let userJSONValue: FirebaseJSON = ["email": self.email ?? "",
+                             "nickName": self.nickName ?? "",
                              "dateOfBirth": self.dateOfBirth ?? "",
                              "gender": self.gender ?? "",
                              "photoURL": self.photoURL ?? ""]
         return userJSONValue
+    }
+    
+    func getAccountEmail() -> FirebaseJSON {
+        let accountJSONValue: FirebaseJSON = ["email": self.email ?? ""]
+        return accountJSONValue
     }
     
 //*************************************************

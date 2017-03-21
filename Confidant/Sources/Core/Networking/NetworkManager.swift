@@ -33,6 +33,7 @@ public enum ResponseMethodType {
 
 public enum KnowErrorCode: Int {
     case EmailAlreadyInUse = 17007
+    case EmailInvalid = 17008
 }
 
 //**************************************************************************************************

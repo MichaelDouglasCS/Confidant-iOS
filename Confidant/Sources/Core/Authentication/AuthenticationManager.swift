@@ -35,19 +35,14 @@ class AuthenticationManager {
 //*************************************************
 
     var userAuthenticated: User?
-    
-//*************************************************
-// MARK: - Constructors
-//*************************************************
 
 //*************************************************
 // MARK: - Self Public Methods
 //*************************************************
     
     func createUserWithEmail(email: String,
-                             name: String,
+                             nickName: String,
                              password: String,
-                             userName: String,
                              dateOfBirth: String,
                              gender: String,
                              completion: @escaping (Error?)->Void) {
@@ -60,23 +55,37 @@ class AuthenticationManager {
                     let uid = userResponse?.uid else {
                         return
                 }
-                let user = User(userId: uid, email: email, name: name, userName: userName, dateOfBirth: dateOfBirth, gender: gender, photoURL: nil)
-                let dbReference = PersistenceManager.databaseReference
-                let userDBReference = dbReference.child(kUsersDBReference).child(uid)
-                userDBReference.updateChildValues(user.getJSON(), withCompletionBlock: { (error, databaseReference) in
+                let user = User(userId: uid, email: email, nickName: nickName, dateOfBirth: dateOfBirth, gender: gender, photoURL: nil)
+                let userDBReference = PersistenceManager.FirebaseDBTables.Users(user: user).reference()
+                let accountDBReference = PersistenceManager.FirebaseDBTables.Accounts.reference()
+                
+                accountDBReference.updateChildValues(user.getAccountEmail(), withCompletionBlock: { (error, accountDBResult) in
                     if error != nil {
+                        
                         completion(error)
+                        
+                    } else {
+                        
+                        userDBReference.updateChildValues(user.getJSON(), withCompletionBlock: { (error, userDBResult) in
+                            if error != nil {
+                                completion(error)
+                            } else {
+                                self.userAuthenticated = user
+                            }
+                        })
+                        
                     }
                 })
-                self.userAuthenticated = user
             }
         })
+        
     }
     
-    func userEmailExists(email: String, isExists: @escaping (Bool?)->Void) {
-        FIRAuth.auth()?.createUser(withEmail: email, password: "", completion: { (userResponse: FIRUser?, errorResponse)  in
-            let error = errorResponse as? NSError
-            if error?.code == KnowErrorCode.EmailAlreadyInUse.rawValue {
+    class func userEmailExists(email: String, isExists: @escaping (Bool)->Void) {
+        let accountDBReference = PersistenceManager.FirebaseDBTables.Accounts.reference()
+        let userDBReference = accountDBReference.queryOrderedByValue()
+        userDBReference.queryEqual(toValue: "\(email)").observe(.value, with: { snapshot in
+            if snapshot.exists() {
                 isExists(true)
             } else {
                 isExists(false)

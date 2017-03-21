@@ -22,6 +22,17 @@ import UIKit
 
 //**************************************************************************************************
 //
+// MARK: - Enum -
+//
+//**************************************************************************************************
+
+fileprivate enum LogInTextFieldsTag: Int {
+    case Email = 1
+    case Password = 2
+}
+
+//**************************************************************************************************
+//
 // MARK: - Class -
 //
 //**************************************************************************************************
@@ -33,7 +44,7 @@ class LogInViewController: UIViewController {
     //*************************************************
     
     @IBOutlet weak var loginScrollView: UIScrollView!
-    @IBOutlet weak var userNameOrEmailTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     
@@ -45,7 +56,7 @@ class LogInViewController: UIViewController {
         print("Login Facebook")
     }
     
-    @IBAction func logInWithUserAndPassword(_ sender: UIButton) {
+    @IBAction func logInWithEmailAndPassword(_ sender: UIButton) {
         print("Log In")
     }
     
@@ -127,35 +138,38 @@ extension LogInViewController: UITextFieldDelegate {
     
     internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-        if textField == self.userNameOrEmailTextField {
+        switch textField.tag {
+        case LogInTextFieldsTag.Email.rawValue:
             if ((!textFill.isEmpty) && (!(self.passwordTextField.text!.isEmpty))){
                 self.logInButton.isEnabled = true
             } else {
                 self.logInButton.isEnabled = false
             }
-        }
-        else if textField == self.passwordTextField {
-            if ((!textFill.isEmpty) && (!(self.userNameOrEmailTextField.text!.isEmpty))){
+        case LogInTextFieldsTag.Password.rawValue:
+            if ((!textFill.isEmpty) && (!(self.emailTextField.text!.isEmpty))){
                 self.logInButton.isEnabled = true
             } else {
                 self.logInButton.isEnabled = false
             }
+        default: break
         }
         return true
     }
     
     internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == self.userNameOrEmailTextField {
+        switch textField.tag {
+        case LogInTextFieldsTag.Email.rawValue:
             self.passwordTextField.becomeFirstResponder()
-        } else {
-            if self.userNameOrEmailTextField.text?.isEmpty == true {
-                self.userNameOrEmailTextField.becomeFirstResponder()
+        case LogInTextFieldsTag.Password.rawValue:
+            if self.emailTextField.text?.isEmpty == true {
+                self.emailTextField.becomeFirstResponder()
             } else if self.passwordTextField.text?.isEmpty == true {
                 return false
             } else {
                 self.passwordTextField.resignFirstResponder()
                 print("Log In")
             }
+        default: break
         }
         return true
     }

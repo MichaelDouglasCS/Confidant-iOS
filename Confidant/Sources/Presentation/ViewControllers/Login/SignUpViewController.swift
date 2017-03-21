@@ -28,11 +28,10 @@ import UIKit
 
 fileprivate enum SignUpTextFieldsTag: Int {
     case Email = 1
-    case Name = 2
-    case ChoosePassword = 3
-    case ChooseUsername = 4
-    case DateOfBirth = 5
-    case Gender = 6
+    case NickName = 2
+    case Password = 3
+    case DateOfBirth = 4
+    case Gender = 5
 }
 
 //**************************************************************************************************
@@ -49,9 +48,8 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var signInScrollView: UIScrollView!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var choosePasswordTextField: UITextField!
-    @IBOutlet weak var chooseUserNameTextField: UITextField!
+    @IBOutlet weak var nickNameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var dateOfBirthTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
@@ -68,9 +66,8 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpWithEmail(_ sender: UIButton) {
         guard
             let email = self.emailTextField.text,
-            let name = self.nameTextField.text,
-            let password = self.choosePasswordTextField.text,
-            let userName = self.chooseUserNameTextField.text,
+            let nickName = self.nickNameTextField.text,
+            let password = self.passwordTextField.text,
             let dateOfBirth = self.dateOfBirthTextField.text,
             let gender = self.genderTextField.text else {
                 return
@@ -79,9 +76,8 @@ class SignUpViewController: UIViewController {
         let authentication = AuthenticationManager()
     
         authentication.createUserWithEmail(email: email,
-                                  name: name,
+                                  nickName: nickName,
                                   password: password,
-                                  userName: userName,
                                   dateOfBirth: dateOfBirth,
                                   gender: gender,
                                   completion: { error in
@@ -144,7 +140,6 @@ class SignUpViewController: UIViewController {
         self.dateOfBirthTextField.inputView = datePicker
         self.dateOfBirthTextField.inputAccessoryView = toolBar
         datePicker.addTarget(self, action: #selector(self.datePickerChanged(datePicker:)), for: UIControlEvents.valueChanged)
-        
         
         let pickerView = UIPickerView()
         pickerView.dataSource = self
@@ -238,25 +233,19 @@ extension SignUpViewController: UITextFieldDelegate {
         let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         switch textField.tag {
         case SignUpTextFieldsTag.Email.rawValue:
-            if (!textFill.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.choosePasswordTextField.text!.isEmpty && !self.chooseUserNameTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            if (!textFill.isEmpty) && (!self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
-        case SignUpTextFieldsTag.Name.rawValue:
-            if (!self.emailTextField.text!.isEmpty) && (!textFill.isEmpty && !self.choosePasswordTextField.text!.isEmpty && !self.chooseUserNameTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+        case SignUpTextFieldsTag.NickName.rawValue:
+            if (!self.emailTextField.text!.isEmpty) && (!textFill.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
-        case SignUpTextFieldsTag.ChoosePassword.rawValue:
-            if (!self.emailTextField.text!.isEmpty) && (!self.nameTextField.text!.isEmpty && !textFill.isEmpty && !self.chooseUserNameTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
-                self.signUpButton.isEnabled = true
-            } else {
-                self.signUpButton.isEnabled = false
-            }
-        case SignUpTextFieldsTag.ChooseUsername.rawValue:
-            if (!self.emailTextField.text!.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.choosePasswordTextField.text!.isEmpty && !textFill.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+        case SignUpTextFieldsTag.Password.rawValue:
+            if (!self.emailTextField.text!.isEmpty) && (!self.nickNameTextField.text!.isEmpty && !textFill.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
@@ -273,18 +262,17 @@ extension SignUpViewController: UITextFieldDelegate {
             let formatter = DateFormatter()
             formatter.dateStyle = .long
             self.dateOfBirthTextField.text = formatter.string(from: datePickerView.date)
-            if (!self.emailTextField.text!.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.choosePasswordTextField.text!.isEmpty && !self.chooseUserNameTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            if (!self.emailTextField.text!.isEmpty) && (!self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
-            break
         case SignUpTextFieldsTag.Gender.rawValue:
             let genderPickerView = self.genderTextField.inputView as! UIPickerView
             let selectedRow = genderPickerView.selectedRow(inComponent: 0)
             let selectedText = genderPickerView.delegate?.pickerView!(genderPickerView, titleForRow: selectedRow, forComponent: 0)
             self.genderTextField.text = selectedText
-            if (!self.emailTextField.text!.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.choosePasswordTextField.text!.isEmpty && !self.chooseUserNameTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            if (!self.emailTextField.text!.isEmpty) && (!self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
@@ -293,15 +281,27 @@ extension SignUpViewController: UITextFieldDelegate {
         }
     }
     
+    internal func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        switch textField.tag {
+        case SignUpTextFieldsTag.Email.rawValue:
+            AuthenticationManager.userEmailExists(email: textField.text!, isExists: { isExistsResponse in
+                if isExistsResponse {
+                    print("Existe")
+                } else {
+                    print("Não existe")
+                }
+            })
+        default: break
+        }
+    }
+    
     internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField.tag {
         case SignUpTextFieldsTag.Email.rawValue:
-            self.nameTextField.becomeFirstResponder()
-        case SignUpTextFieldsTag.Name.rawValue:
-            self.choosePasswordTextField.becomeFirstResponder()
-        case SignUpTextFieldsTag.ChoosePassword.rawValue:
-            self.chooseUserNameTextField.becomeFirstResponder()
-        case SignUpTextFieldsTag.ChooseUsername.rawValue:
+            self.nickNameTextField.becomeFirstResponder()
+        case SignUpTextFieldsTag.NickName.rawValue:
+            self.passwordTextField.becomeFirstResponder()
+        case SignUpTextFieldsTag.Password.rawValue:
             self.dateOfBirthTextField.becomeFirstResponder()
         default: break
         }
