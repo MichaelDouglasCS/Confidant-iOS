@@ -84,7 +84,7 @@ class AuthenticationManager {
     class func userEmailExists(email: String, isExists: @escaping (Bool)->Void) {
         let accountDBReference = PersistenceManager.FirebaseDBTables.Accounts.reference()
         let userDBReference = accountDBReference.queryOrderedByValue()
-        userDBReference.queryEqual(toValue: "\(email)").observe(.value, with: { snapshot in
+        userDBReference.queryEqual(toValue: "\(email)").observeSingleEvent(of: .value, with: { snapshot in
             if snapshot.exists() {
                 isExists(true)
             } else {

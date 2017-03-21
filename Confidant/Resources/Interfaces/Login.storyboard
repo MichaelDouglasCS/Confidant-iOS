@@ -174,17 +174,26 @@
                                                     <outlet property="delegate" destination="13q-1x-OyM" id="q7H-st-MZS"/>
                                                 </connections>
                                             </textField>
+                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email-correct" translatesAutoresizingMaskIntoConstraints="NO" id="rzO-3j-epK" userLabel="check-email">
+                                                <rect key="frame" x="301" y="12" width="16" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="16" id="6hN-i4-84a"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="rzO-3j-epK" firstAttribute="centerY" secondItem="rOj-UW-Br4" secondAttribute="centerY" id="49q-EC-HOV"/>
                                             <constraint firstItem="0X5-UE-Rcy" firstAttribute="leading" secondItem="ONL-E8-nS4" secondAttribute="leading" constant="10" id="75K-8W-odJ"/>
                                             <constraint firstItem="rOj-UW-Br4" firstAttribute="trailing" secondItem="ONL-E8-nS4" secondAttribute="trailingMargin" id="CN4-NQ-KiL"/>
+                                            <constraint firstItem="rzO-3j-epK" firstAttribute="top" secondItem="ONL-E8-nS4" secondAttribute="top" constant="12" id="JSB-Xb-D4c"/>
                                             <constraint firstItem="0X5-UE-Rcy" firstAttribute="top" secondItem="ONL-E8-nS4" secondAttribute="top" constant="9" id="K0c-9G-QyK"/>
                                             <constraint firstItem="rOj-UW-Br4" firstAttribute="top" secondItem="ONL-E8-nS4" secondAttribute="top" constant="5" id="MGh-zy-MH5"/>
                                             <constraint firstAttribute="height" constant="40" id="UJf-m0-EcB"/>
                                             <constraint firstItem="0X5-UE-Rcy" firstAttribute="centerY" secondItem="ONL-E8-nS4" secondAttribute="centerY" id="W3b-9w-rCS"/>
                                             <constraint firstItem="rOj-UW-Br4" firstAttribute="leading" secondItem="0X5-UE-Rcy" secondAttribute="trailing" constant="10" id="XVV-51-0bG"/>
                                             <constraint firstItem="0X5-UE-Rcy" firstAttribute="centerY" secondItem="rOj-UW-Br4" secondAttribute="centerY" id="rHa-BG-2Qi"/>
+                                            <constraint firstAttribute="trailing" secondItem="rzO-3j-epK" secondAttribute="trailing" constant="10" id="sg7-R5-hgj"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -198,6 +207,16 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoJ-0B-dFi" userLabel="EmailCheckMessage">
+                                        <rect key="frame" x="25" y="151" width="289" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="289" id="TaU-py-8Uh"/>
+                                            <constraint firstAttribute="height" constant="20" id="pcw-Ga-adw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="10"/>
+                                        <color key="textColor" red="0.84705882352941175" green="0.0" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAZ-Aj-ZZg" userLabel="NicknameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="24" y="166" width="327" height="40"/>
                                         <subviews>
@@ -395,15 +414,17 @@
                                     <constraint firstItem="X4x-Px-um3" firstAttribute="top" secondItem="OUk-jZ-lPK" secondAttribute="bottom" constant="15" id="7Rh-FL-SwN"/>
                                     <constraint firstItem="X3T-9K-MKi" firstAttribute="centerX" secondItem="vz7-AZ-5gq" secondAttribute="centerX" id="7cT-bZ-kTo"/>
                                     <constraint firstItem="X4x-Px-um3" firstAttribute="trailing" secondItem="OUk-jZ-lPK" secondAttribute="trailing" id="8kw-Ji-5u5"/>
+                                    <constraint firstItem="OoJ-0B-dFi" firstAttribute="top" secondItem="ONL-E8-nS4" secondAttribute="bottom" id="9Af-rH-L6h"/>
                                     <constraint firstItem="GBf-Lb-7zC" firstAttribute="centerX" secondItem="ONL-E8-nS4" secondAttribute="centerX" id="9r1-uX-MeT"/>
                                     <constraint firstItem="GBf-Lb-7zC" firstAttribute="top" secondItem="X3T-9K-MKi" secondAttribute="bottom" constant="20" id="Bkf-Qn-GT5"/>
                                     <constraint firstItem="FAZ-Aj-ZZg" firstAttribute="top" secondItem="ONL-E8-nS4" secondAttribute="bottom" constant="15" id="DA5-r1-HnH"/>
                                     <constraint firstItem="ONL-E8-nS4" firstAttribute="leading" secondItem="vz7-AZ-5gq" secondAttribute="leading" constant="24" id="Evp-Iq-ke7"/>
                                     <constraint firstItem="X4x-Px-um3" firstAttribute="trailing" secondItem="bvx-wy-gN9" secondAttribute="trailing" id="QEN-hg-Dp3"/>
-                                    <constraint firstAttribute="bottom" secondItem="sdy-8P-96b" secondAttribute="bottom" constant="57" id="R7z-3M-xpG"/>
+                                    <constraint firstAttribute="bottom" secondItem="sdy-8P-96b" secondAttribute="bottom" constant="112" id="R7z-3M-xpG"/>
                                     <constraint firstItem="sdy-8P-96b" firstAttribute="leading" secondItem="vz7-AZ-5gq" secondAttribute="leadingMargin" id="TGO-eF-N7U"/>
                                     <constraint firstItem="ONL-E8-nS4" firstAttribute="top" secondItem="GBf-Lb-7zC" secondAttribute="bottom" constant="20" id="URE-2d-gj8"/>
                                     <constraint firstItem="X4x-Px-um3" firstAttribute="leading" secondItem="OUk-jZ-lPK" secondAttribute="leading" id="YZP-of-nIL"/>
+                                    <constraint firstItem="OoJ-0B-dFi" firstAttribute="leading" secondItem="vz7-AZ-5gq" secondAttribute="leading" constant="25" id="Yh6-Vp-spR"/>
                                     <constraint firstItem="bvx-wy-gN9" firstAttribute="centerX" secondItem="FIT-ql-UbD" secondAttribute="centerX" id="ZBg-Wg-21h"/>
                                     <constraint firstItem="X3T-9K-MKi" firstAttribute="top" secondItem="vz7-AZ-5gq" secondAttribute="top" constant="15" id="ZjP-Lk-Pe6"/>
                                     <constraint firstItem="FIT-ql-UbD" firstAttribute="top" secondItem="bvx-wy-gN9" secondAttribute="bottom" constant="20" id="ZvR-hq-Spl"/>
@@ -428,7 +449,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="SIGN UP" id="UNS-Tc-3Uf"/>
                     <connections>
+                        <outlet property="checkEmailImageView" destination="rzO-3j-epK" id="C1v-V3-a0T"/>
                         <outlet property="dateOfBirthTextField" destination="vaU-y0-8sj" id="eer-Af-uBh"/>
+                        <outlet property="emailBottomConstraint" destination="DA5-r1-HnH" id="jCX-It-z17"/>
+                        <outlet property="emailCheckMessageLabel" destination="OoJ-0B-dFi" id="xAJ-ds-quu"/>
                         <outlet property="emailTextField" destination="rOj-UW-Br4" id="ZMm-gk-RvE"/>
                         <outlet property="genderTextField" destination="BUi-85-pya" id="cCT-bn-Qqd"/>
                         <outlet property="nickNameTextField" destination="unK-aq-Wct" id="wpm-FW-1Lh"/>
@@ -659,6 +683,7 @@
         <image name="backgroundFacebook" width="269" height="45"/>
         <image name="bg-welcome" width="375" height="667"/>
         <image name="calendar-icon" width="21" height="21"/>
+        <image name="email-correct" width="18" height="14"/>
         <image name="genders-icon" width="21" height="22"/>
         <image name="login-background" width="187" height="50"/>
         <image name="login-welcome" width="189" height="50"/>

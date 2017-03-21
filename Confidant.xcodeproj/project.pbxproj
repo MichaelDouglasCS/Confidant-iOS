@@ -12,7 +12,6 @@
 		6110E1821E6F72340005A419 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6110E1811E6F72340005A419 /* LogInViewController.swift */; };
 		613A8B471E6F1159000DD11D /* UIView+AddSubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A8B461E6F1159000DD11D /* UIView+AddSubViews.swift */; };
 		61494DFA1E685AB400D4DF13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61494DF91E685AB400D4DF13 /* AppDelegate.swift */; };
-		61494E011E685AB400D4DF13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61494E001E685AB400D4DF13 /* Assets.xcassets */; };
 		61494E0F1E685AB400D4DF13 /* ConfidantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61494E0E1E685AB400D4DF13 /* ConfidantTests.swift */; };
 		61494E1A1E685AB400D4DF13 /* ConfidantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61494E191E685AB400D4DF13 /* ConfidantUITests.swift */; };
 		61790EE21E6A0A520095482F /* GOTHAM-BLACK.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC01E6A0A520095482F /* GOTHAM-BLACK.TTF */; };
@@ -39,6 +38,7 @@
 		61A35AF81E7F63DE0010A01D /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A35AF71E7F63DE0010A01D /* PersistenceManager.swift */; };
 		61A59A641E7B9BA000698FBA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 61A59A631E7B9BA000698FBA /* GoogleService-Info.plist */; };
 		61BDD9B41E69F3BB00FA0410 /* IBDesignableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDD9B31E69F3BB00FA0410 /* IBDesignableClass.swift */; };
+		61CC4EC71E80DE6A00ED4DB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61CC4EC61E80DE6A00ED4DB6 /* Assets.xcassets */; };
 		61F570971E7DABDE00712518 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F570961E7DABDE00712518 /* AuthenticationManager.swift */; };
 		61F570991E7DAC5E00712518 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F570981E7DAC5E00712518 /* NetworkManager.swift */; };
 		61F5CE8C1E68FA1C001261C1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F5CE8B1E68FA1C001261C1 /* WelcomeViewController.swift */; };
@@ -76,7 +76,6 @@
 		613A8B461E6F1159000DD11D /* UIView+AddSubViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubViews.swift"; sourceTree = "<group>"; };
 		61494DF61E685AB400D4DF13 /* Confidant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Confidant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61494DF91E685AB400D4DF13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		61494E001E685AB400D4DF13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61494E051E685AB400D4DF13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61494E0A1E685AB400D4DF13 /* ConfidantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConfidantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61494E0E1E685AB400D4DF13 /* ConfidantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfidantTests.swift; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		61A35AF71E7F63DE0010A01D /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		61A59A631E7B9BA000698FBA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		61BDD9B31E69F3BB00FA0410 /* IBDesignableClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignableClass.swift; sourceTree = "<group>"; };
+		61CC4EC61E80DE6A00ED4DB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61F570961E7DABDE00712518 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		61F570981E7DAC5E00712518 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		61F5CE8B1E68FA1C001261C1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 		6184856E1E68624000854092 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				61494E001E685AB400D4DF13 /* Assets.xcassets */,
+				61CC4EC61E80DE6A00ED4DB6 /* Assets.xcassets */,
 				618485701E68625500854092 /* Interfaces */,
 				618485711E68625D00854092 /* Supporting Files */,
 			);
@@ -511,9 +511,9 @@
 				61790EF81E6A0A520095482F /* GOTHAM-THIN.TTF in Resources */,
 				61790EEC1E6A0A520095482F /* GOTHAM-BOOKITALIC_0.OTF in Resources */,
 				61A2BFE41E686DD900414A4C /* Login.storyboard in Resources */,
+				61CC4EC71E80DE6A00ED4DB6 /* Assets.xcassets in Resources */,
 				61790EE81E6A0A520095482F /* GOTHAM-BOLD.TTF in Resources */,
 				61790EF61E6A0A520095482F /* GOTHAM-MEDIUMITALIC.TTF in Resources */,
-				61494E011E685AB400D4DF13 /* Assets.xcassets in Resources */,
 				61790EE21E6A0A520095482F /* GOTHAM-BLACK.TTF in Resources */,
 				61790EE61E6A0A520095482F /* GOTHAM-BOLD_0.OTF in Resources */,
 				61790F021E6A0A520095482F /* GOTHAM-XLIGHTITALIC.TTF in Resources */,

@@ -14,6 +14,9 @@ import UIKit
 //
 //**************************************************************************************************
 
+fileprivate let kEmailBottomConstraintWithMessage: CGFloat = 20
+fileprivate let kEmailBottomConstraintWithoutMessage: CGFloat = 15
+
 //**************************************************************************************************
 //
 // MARK: - Definitions -
@@ -48,6 +51,9 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var signInScrollView: UIScrollView!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailCheckMessageLabel: UILabel!
+    @IBOutlet weak var emailBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var checkEmailImageView: UIImageView!
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var dateOfBirthTextField: UITextField!
@@ -200,6 +206,16 @@ class SignUpViewController: UIViewController {
     }
     
     //*************************************************
+    // MARK: - Email Format Validate
+    //*************************************************
+    
+    internal func isValidEmailAddress(emailAddressString: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: emailAddressString)
+    }
+    
+    //*************************************************
     // MARK: - Setup Terms And Conditions Label
     //*************************************************
     
@@ -233,19 +249,22 @@ extension SignUpViewController: UITextFieldDelegate {
         let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         switch textField.tag {
         case SignUpTextFieldsTag.Email.rawValue:
-            if (!textFill.isEmpty) && (!self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            self.checkEmailImageView.isHidden = true
+            self.emailBottomConstraint.constant = kEmailBottomConstraintWithoutMessage
+            self.emailCheckMessageLabel.isHidden = true
+            if (!textFill.isEmpty) && (!self.emailCheckMessageLabel.isHidden) && (!self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
         case SignUpTextFieldsTag.NickName.rawValue:
-            if (!self.emailTextField.text!.isEmpty) && (!textFill.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            if (!self.emailTextField.text!.isEmpty) && (!self.emailCheckMessageLabel.isHidden) && (!textFill.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
         case SignUpTextFieldsTag.Password.rawValue:
-            if (!self.emailTextField.text!.isEmpty) && (!self.nickNameTextField.text!.isEmpty && !textFill.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            if (!self.emailTextField.text!.isEmpty) && (!self.emailCheckMessageLabel.isHidden) && (!self.nickNameTextField.text!.isEmpty && !textFill.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
@@ -284,13 +303,40 @@ extension SignUpViewController: UITextFieldDelegate {
     internal func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
         switch textField.tag {
         case SignUpTextFieldsTag.Email.rawValue:
-            AuthenticationManager.userEmailExists(email: textField.text!, isExists: { isExistsResponse in
-                if isExistsResponse {
-                    print("Existe")
+            if !(textField.text?.isEmpty)! {
+                if !(self.isValidEmailAddress(emailAddressString: textField.text!)) {
+                    self.checkEmailImageView.image = #imageLiteral(resourceName: "email-incorrect")
+                    self.emailCheckMessageLabel.text = "Invalid email address."
+                    self.checkEmailImageView.isHidden = false
+                    self.emailBottomConstraint.constant = kEmailBottomConstraintWithMessage
+                    self.emailCheckMessageLabel.isHidden = false
+                    self.signUpButton.isEnabled = false
                 } else {
-                    print("Não existe")
+                    AuthenticationManager.userEmailExists(email: textField.text!, isExists: { isExistsResponse in
+                        self.checkEmailImageView.isHidden = true
+                        self.emailCheckMessageLabel.isHidden = true
+                        self.emailBottomConstraint.constant = kEmailBottomConstraintWithoutMessage
+                        if isExistsResponse {
+                            self.checkEmailImageView.image = #imageLiteral(resourceName: "email-incorrect")
+                            self.emailCheckMessageLabel.text = "That email address is already registered."
+                            self.checkEmailImageView.isHidden = false
+                            self.emailBottomConstraint.constant = kEmailBottomConstraintWithMessage
+                            self.emailCheckMessageLabel.isHidden = false
+                            self.signUpButton.isEnabled = false
+                        } else {
+                            self.checkEmailImageView.image = #imageLiteral(resourceName: "email-correct")
+                            self.checkEmailImageView.isHidden = false
+                            self.emailBottomConstraint.constant = kEmailBottomConstraintWithoutMessage
+                            self.emailCheckMessageLabel.isHidden = true
+                            if (!self.emailTextField.text!.isEmpty) && (!self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty) {
+                                self.signUpButton.isEnabled = true
+                            } else {
+                                self.signUpButton.isEnabled = false
+                            }
+                        }
+                    })
                 }
-            })
+            }
         default: break
         }
     }
