@@ -77,6 +77,7 @@ class AuthenticationManager {
                     }
                 })
             }
+            completion(error)
         })
         
     }

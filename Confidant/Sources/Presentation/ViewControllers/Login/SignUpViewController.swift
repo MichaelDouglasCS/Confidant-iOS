@@ -70,6 +70,9 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpWithEmail(_ sender: UIButton) {
+    
+        self.addLoading()
+        
         guard
             let email = self.emailTextField.text,
             let nickName = self.nickNameTextField.text,
@@ -88,7 +91,12 @@ class SignUpViewController: UIViewController {
                                   gender: gender,
                                   completion: { error in
                                     
-                                    print(error)
+                                    if error != nil {
+                                        
+                                    } else {
+                                        self.removeLoading()
+                                    }
+                                    
             
         })
         
@@ -109,7 +117,7 @@ class SignUpViewController: UIViewController {
         self.setDatePickerAndPickerViewKeyboard()
         self.setupTermsAndConditionsHyperLink()
         self.addHideKeyboardWhenTappedAround()
-        self.registerForKeyboardNotifications()
+        self.registerForKeyboardNotifications()        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
