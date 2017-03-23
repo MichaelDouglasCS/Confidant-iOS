@@ -454,6 +454,7 @@
                         <outlet property="emailBottomConstraint" destination="DA5-r1-HnH" id="jCX-It-z17"/>
                         <outlet property="emailCheckMessageLabel" destination="OoJ-0B-dFi" id="xAJ-ds-quu"/>
                         <outlet property="emailTextField" destination="rOj-UW-Br4" id="ZMm-gk-RvE"/>
+                        <outlet property="emailView" destination="ONL-E8-nS4" id="YPO-9b-xAX"/>
                         <outlet property="genderTextField" destination="BUi-85-pya" id="cCT-bn-Qqd"/>
                         <outlet property="nickNameTextField" destination="unK-aq-Wct" id="wpm-FW-1Lh"/>
                         <outlet property="passwordTextField" destination="Lof-w4-WPc" id="m2d-AS-ECn"/>

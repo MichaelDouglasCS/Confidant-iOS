@@ -59,20 +59,22 @@ extension UIViewController {
 
 extension UIButton {
     
-    override func loadingIndicator(isShow: Bool, frame: CGRect) {
+    func loadingIndicatorButton(isShow: Bool, point: CGPoint?) {
         if isShow {
             self.isEnabled = false
             self.alpha = 0.5
             let indicator = UIActivityIndicatorView()
-            let buttonHeight = self.bounds.size.height
-            let buttonWidth = self.bounds.size.width
-            indicator.center = CGPoint(x: ((buttonWidth/2) + 40), y: buttonHeight/2)
+            indicator.color = UIColor.lightGray
+            indicator.tag = kLoadingViewTag
+            let viewHeight = self.frame.height
+            let viewWidth = self.frame.width
+            indicator.center = CGPoint(x: point?.x ?? (viewHeight/2), y: point?.y ?? (viewWidth/2))
             self.addSubview(indicator)
             indicator.startAnimating()
         } else {
             self.isEnabled = true
             self.alpha = 1.0
-            if let indicator = self.viewWithTag(tag) as? UIActivityIndicatorView {
+            if let indicator = self.viewWithTag(kLoadingViewTag) as? UIActivityIndicatorView {
                 indicator.stopAnimating()
                 indicator.removeFromSuperview()
             }
@@ -89,17 +91,18 @@ extension UIButton {
 
 extension UIView {
     
-    func loadingIndicator(isShow: Bool, frame: CGRect) {
+    func loadingIndicatorView(isShow: Bool, point: CGPoint?) {
         if isShow {
             let indicator = UIActivityIndicatorView()
-            let buttonHeight = frame.height
-            let buttonWidth = self.bounds.size.width
-            
-            indicator.center = CGPoint(x: ((buttonWidth/2) + 40), y: buttonHeight/2)
+            indicator.tag = kLoadingViewTag
+            indicator.color = UIColor.lightGray
+            let viewHeight = self.frame.height
+            let viewWidth = self.frame.width
+            indicator.center = CGPoint(x: point?.x ?? (viewHeight/2), y: point?.y ?? (viewWidth/2))
             self.addSubview(indicator)
             indicator.startAnimating()
         } else {
-            if let indicator = self.viewWithTag(tag) as? UIActivityIndicatorView {
+            if let indicator = self.viewWithTag(kLoadingViewTag) as? UIActivityIndicatorView {
                 indicator.stopAnimating()
                 indicator.removeFromSuperview()
             }

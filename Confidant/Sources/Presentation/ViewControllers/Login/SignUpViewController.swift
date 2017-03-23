@@ -50,6 +50,7 @@ class SignUpViewController: UIViewController {
 //*************************************************
     
     @IBOutlet weak var signInScrollView: UIScrollView!
+    @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var emailCheckMessageLabel: UILabel!
     @IBOutlet weak var emailBottomConstraint: NSLayoutConstraint!
@@ -316,11 +317,13 @@ extension SignUpViewController: UITextFieldDelegate {
                     self.emailCheckMessageLabel.isHidden = false
                     self.signUpButton.isEnabled = false
                 } else {
+                    self.emailView.loadingIndicatorView(isShow: true, point: self.checkEmailImageView.center)
                     AuthenticationManager.userEmailExists(email: textField.text!, isExists: { isExistsResponse in
                         self.checkEmailImageView.isHidden = true
                         self.emailCheckMessageLabel.isHidden = true
                         self.emailBottomConstraint.constant = kEmailBottomConstraintWithoutMessage
                         if isExistsResponse {
+                            self.emailView.loadingIndicatorView(isShow: false, point: nil)
                             self.checkEmailImageView.image = #imageLiteral(resourceName: "email-incorrect")
                             self.emailCheckMessageLabel.text = "That email address is already registered."
                             self.checkEmailImageView.isHidden = false
@@ -328,6 +331,7 @@ extension SignUpViewController: UITextFieldDelegate {
                             self.emailCheckMessageLabel.isHidden = false
                             self.signUpButton.isEnabled = false
                         } else {
+                            self.emailView.loadingIndicatorView(isShow: false, point: nil)
                             self.checkEmailImageView.image = #imageLiteral(resourceName: "email-correct")
                             self.checkEmailImageView.isHidden = false
                             self.emailBottomConstraint.constant = kEmailBottomConstraintWithoutMessage
