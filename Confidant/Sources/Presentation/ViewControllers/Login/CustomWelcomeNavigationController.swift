@@ -28,9 +28,9 @@ import UIKit
 
 class CustomWelcomeNavigationController: UINavigationController {
 
-    //*************************************************
-    // MARK: - Override Properties
-    //*************************************************
+//*************************************************
+// MARK: - Properties
+//*************************************************
     
     override var shouldAutorotate: Bool {
         return false
@@ -41,18 +41,8 @@ class CustomWelcomeNavigationController: UINavigationController {
     }
     
 //*************************************************
-// MARK: - Override Public Methods
+// MARK: - Constructors
 //*************************************************
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setupNavigationBar()
-//        self.printFonts()
-    }
-    
-    //*************************************************
-    // MARK: - Setup UI
-    //*************************************************
     
     internal func setupNavigationBar() {
         self.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "navigationBar-image"), for: .default)
@@ -62,9 +52,13 @@ class CustomWelcomeNavigationController: UINavigationController {
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "GothamMedium", size: 14)!, NSForegroundColorAttributeName: UIColor.white]
     }
     
-    //PRINT FONTS EXISTENTS
+//*************************************************
+// MARK: - Private Methods
+//*************************************************
     
-//    func printFonts() {
+//    PRINT FONTS EXISTENTS
+    
+//    private func printFonts() {
 //        let fontFamilyNames = UIFont.familyNames
 //        for familyName in fontFamilyNames {
 //            print("------------------------------")
@@ -73,5 +67,23 @@ class CustomWelcomeNavigationController: UINavigationController {
 //            print("Font Names = [\(names)]")
 //        }
 //    }
+    
+//*************************************************
+// MARK: - Internal Methods
+//*************************************************
+    
+//*************************************************
+// MARK: - Public Methods
+//*************************************************
+    
+//*************************************************
+// MARK: - Override Public Methods
+//*************************************************
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupNavigationBar()
+        //        self.printFonts()
+    }
 
 }

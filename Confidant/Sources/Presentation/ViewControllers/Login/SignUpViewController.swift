@@ -45,9 +45,9 @@ fileprivate enum SignUpTextFieldsTag: Int {
 
 class SignUpViewController: UIViewController {
     
-    //*************************************************
-    // MARK: - IBOutlets
-    //*************************************************
+//*************************************************
+// MARK: - Properties
+//*************************************************
     
     @IBOutlet weak var signInScrollView: UIScrollView!
     @IBOutlet weak var emailTextField: UITextField!
@@ -61,70 +61,11 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var termsAndConditionsTextView: UITextView!
     
-    //*************************************************
-    // MARK: - IBActions
-    //*************************************************
-    
-    @IBAction func signUpWithFacebook(_ sender: UIButton) {
-        print("Sign Up Facebook")
-    }
-    
-    @IBAction func signUpWithEmail(_ sender: UIButton) {
-    
-        self.addLoading()
-        
-        guard
-            let email = self.emailTextField.text,
-            let nickName = self.nickNameTextField.text,
-            let password = self.passwordTextField.text,
-            let dateOfBirth = self.dateOfBirthTextField.text,
-            let gender = self.genderTextField.text else {
-                return
-        }
-        
-        let authentication = AuthenticationManager()
-    
-        authentication.createUserWithEmail(email: email,
-                                  nickName: nickName,
-                                  password: password,
-                                  dateOfBirth: dateOfBirth,
-                                  gender: gender,
-                                  completion: { error in
-                                    
-                                    if error != nil {
-                                        
-                                    } else {
-                                        self.removeLoading()
-                                    }
-                                    
-            
-        })
-        
-    }
-    
-    //*************************************************
-    // MARK: - Properties
-    //*************************************************
-    
     internal let pickerViewGender = ["Female", "Male"]
     
 //*************************************************
-// MARK: - Override Public Methods
+// MARK: - Constructors
 //*************************************************
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setDatePickerAndPickerViewKeyboard()
-        self.setupTermsAndConditionsHyperLink()
-        self.addHideKeyboardWhenTappedAround()
-        self.registerForKeyboardNotifications()        
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(false)
-        self.deregisterFromKeyboardNotifications()
-        self.removeAllGestureRecognizers()
-    }
     
 //*************************************************
 // MARK: - Private Methods
@@ -214,16 +155,6 @@ class SignUpViewController: UIViewController {
     }
     
     //*************************************************
-    // MARK: - Email Format Validate
-    //*************************************************
-    
-    internal func isValidEmailAddress(emailAddressString: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: emailAddressString)
-    }
-    
-    //*************************************************
     // MARK: - Setup Terms And Conditions Label
     //*************************************************
     
@@ -237,6 +168,75 @@ class SignUpViewController: UIViewController {
             NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
         self.termsAndConditionsTextView.linkTextAttributes = linkAttributes
         self.termsAndConditionsTextView.attributedText = attributedString
+    }
+    
+//*************************************************
+// MARK: - Internal Methods
+//*************************************************
+    
+    internal func isValidEmailAddress(emailAddressString: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: emailAddressString)
+    }
+    
+//*************************************************
+// MARK: - Public Methods
+//*************************************************
+    
+    @IBAction func signUpWithFacebook(_ sender: UIButton) {
+        print("Sign Up Facebook")
+    }
+    
+    @IBAction func signUpWithEmail(_ sender: UIButton) {
+        
+        self.addLoading()
+        
+        guard
+            let email = self.emailTextField.text,
+            let nickName = self.nickNameTextField.text,
+            let password = self.passwordTextField.text,
+            let dateOfBirth = self.dateOfBirthTextField.text,
+            let gender = self.genderTextField.text else {
+                return
+        }
+        
+        let authentication = AuthenticationManager()
+        
+        authentication.createUserWithEmail(email: email,
+                                           nickName: nickName,
+                                           password: password,
+                                           dateOfBirth: dateOfBirth,
+                                           gender: gender,
+                                           completion: { error in
+                                            
+                                            if error != nil {
+                                                
+                                            } else {
+                                                self.removeLoading()
+                                            }
+                                            
+                                            
+        })
+        
+    }
+    
+//*************************************************
+// MARK: - Override Public Methods
+//*************************************************
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setDatePickerAndPickerViewKeyboard()
+        self.setupTermsAndConditionsHyperLink()
+        self.addHideKeyboardWhenTappedAround()
+        self.registerForKeyboardNotifications()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(false)
+        self.deregisterFromKeyboardNotifications()
+        self.removeAllGestureRecognizers()
     }
     
 }

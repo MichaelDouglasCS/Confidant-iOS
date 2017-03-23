@@ -39,47 +39,19 @@ fileprivate enum LogInTextFieldsTag: Int {
 
 class LogInViewController: UIViewController {
     
-    //*************************************************
-    // MARK: - IBOutlets
-    //*************************************************
+//*************************************************
+// MARK: - Properties
+//*************************************************
     
     @IBOutlet weak var loginScrollView: UIScrollView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     
-    //*************************************************
-    // MARK: - IBActions
-    //*************************************************
-    
-    @IBAction func logInWithFacebook(_ sender: UIButton) {
-        print("Login Facebook")
-    }
-    
-    @IBAction func logInWithEmailAndPassword(_ sender: UIButton) {
-        print("Log In")
-    }
-    
-    @IBAction func forgotPassword(_ sender: UIButton) {
-        print("Forgot Password")
-    }
-    
 //*************************************************
-// MARK: - Override Public Methods
+// MARK: - Constructors
 //*************************************************
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.addHideKeyboardWhenTappedAround()
-        self.registerForKeyboardNotifications()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(false)
-        self.deregisterFromKeyboardNotifications()
-        self.removeAllGestureRecognizers()
-    }
-    
+
 //*************************************************
 // MARK: - Private Methods
 //*************************************************
@@ -96,7 +68,7 @@ class LogInViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    internal func keyboardWasShown(notification: NSNotification){
+    @objc private func keyboardWasShown(notification: NSNotification){
         //Need to calculate keyboard exact size due to Apple suggestions
         var info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
@@ -115,11 +87,48 @@ class LogInViewController: UIViewController {
         
     }
     
-    internal func keyboardWillBeHidden(notification: NSNotification){
+    @objc private func keyboardWillBeHidden(notification: NSNotification){
         //Once keyboard disappears, restore original positions
         let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
         self.loginScrollView.contentInset = contentInsets
         self.loginScrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+//*************************************************
+// MARK: - Internal Methods
+//*************************************************
+    
+//*************************************************
+// MARK: - Public Methods
+//*************************************************
+    
+    @IBAction func logInWithFacebook(_ sender: UIButton) {
+        print("Login Facebook")
+    }
+    
+    @IBAction func logInWithEmailAndPassword(_ sender: UIButton) {
+        print("Log In")
+    }
+    
+    @IBAction func forgotPassword(_ sender: UIButton) {
+        print("Forgot Password")
+    }
+
+    
+//*************************************************
+// MARK: - Override Public Methods
+//*************************************************
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.addHideKeyboardWhenTappedAround()
+        self.registerForKeyboardNotifications()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(false)
+        self.deregisterFromKeyboardNotifications()
+        self.removeAllGestureRecognizers()
     }
     
 }
@@ -133,7 +142,7 @@ class LogInViewController: UIViewController {
 extension LogInViewController: UITextFieldDelegate {
     
     //*************************************************
-    // MARK: - TextField Delegates
+    // MARK: - TextField Methods
     //*************************************************
     
     internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -173,5 +182,5 @@ extension LogInViewController: UITextFieldDelegate {
         }
         return true
     }
-    
+
 }

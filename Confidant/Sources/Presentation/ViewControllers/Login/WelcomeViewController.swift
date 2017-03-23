@@ -59,16 +59,12 @@ fileprivate struct WelcomeMessages {
 
 class WelcomeViewController: UIViewController {
     
-    //*************************************************
-    // MARK: - IBOutlets
-    //*************************************************
+//*************************************************
+// MARK: - Properties
+//*************************************************
     
     @IBOutlet weak var messageScrollView: UIScrollView!
     @IBOutlet weak var messagePageControl: UIPageControl!
-    
-    //*************************************************
-    // MARK: - Properties
-    //*************************************************
     
     private var timer = Timer()
     fileprivate var numberOfPages: Int {
@@ -78,39 +74,16 @@ class WelcomeViewController: UIViewController {
     }
     
 //*************************************************
-// MARK: - Override Public Methods
+// MARK: - Constructors
 //*************************************************
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setupNavigationBar()
-        self.loadWelcomeMessages()
-        self.messagePageControl.numberOfPages = self.numberOfPages
-        self.addSwipeGestureRecognizers()
-        self.startTimer()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        super.viewWillAppear(true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    //*************************************************
-    // MARK: - Setup UI
-    //*************************************************
-    
-    private func setupNavigationBar() {
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-    }
     
 //*************************************************
 // MARK: - Private Methods
 //*************************************************
+    
+    private func setupNavigationBar() {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
     
     private func addSwipeGestureRecognizers() {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
@@ -226,6 +199,37 @@ class WelcomeViewController: UIViewController {
         self.startTimer()
     }
     
+//*************************************************
+// MARK: - Internal Methods
+//*************************************************
+    
+//*************************************************
+// MARK: - Public Methods
+//*************************************************
+    
+//*************************************************
+// MARK: - Override Public Methods
+//*************************************************
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupNavigationBar()
+        self.loadWelcomeMessages()
+        self.messagePageControl.numberOfPages = self.numberOfPages
+        self.addSwipeGestureRecognizers()
+        self.startTimer()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        super.viewWillAppear(true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
 }
 
 //**************************************************************************************************
@@ -237,7 +241,7 @@ class WelcomeViewController: UIViewController {
 extension WelcomeViewController: UIScrollViewDelegate {
     
     //*************************************************
-    // MARK: - ScrollView Delegates
+    // MARK: - ScrollView Methods
     //*************************************************
     
     internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
