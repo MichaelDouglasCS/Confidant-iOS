@@ -108,6 +108,7 @@ class LogInViewController: UIViewController {
     
     @IBAction func logInWithEmailAndPassword(_ sender: UIButton) {
         print("Log In")
+        self.performSegue(withIdentifier: "logInToDashboard", sender: nil)
     }
     
     @IBAction func forgotPassword(_ sender: UIButton) {

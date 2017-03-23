@@ -10,6 +10,7 @@
 		2E899D66B66C5E9EA26848CA /* Pods_ConfidantUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C14DD8F3A1F7700E9456ADF /* Pods_ConfidantUITests.framework */; };
 		6110E1801E6F6D360005A419 /* CustomWelcomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6110E17F1E6F6D360005A419 /* CustomWelcomeNavigationController.swift */; };
 		6110E1821E6F72340005A419 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6110E1811E6F72340005A419 /* LogInViewController.swift */; };
+		61203F2E1E83802600E4B257 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61203F2D1E83802600E4B257 /* Dashboard.storyboard */; };
 		613A8B471E6F1159000DD11D /* UIView+AddSubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A8B461E6F1159000DD11D /* UIView+AddSubViews.swift */; };
 		61494DFA1E685AB400D4DF13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61494DF91E685AB400D4DF13 /* AppDelegate.swift */; };
 		61494E0F1E685AB400D4DF13 /* ConfidantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61494E0E1E685AB400D4DF13 /* ConfidantTests.swift */; };
@@ -76,6 +77,7 @@
 		3A08DBCE842BFE9C9E22D751 /* Pods_Confidant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Confidant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6110E17F1E6F6D360005A419 /* CustomWelcomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWelcomeNavigationController.swift; sourceTree = "<group>"; };
 		6110E1811E6F72340005A419 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		61203F2D1E83802600E4B257 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		613A8B461E6F1159000DD11D /* UIView+AddSubViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubViews.swift"; sourceTree = "<group>"; };
 		61494DF61E685AB400D4DF13 /* Confidant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Confidant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61494DF91E685AB400D4DF13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				61A2BFE21E686DD900414A4C /* Login.storyboard */,
+				61203F2D1E83802600E4B257 /* Dashboard.storyboard */,
 				61A2BFE11E686DD900414A4C /* LaunchScreen.storyboard */,
 				619616ED1E6C6B74007548AC /* XIBs */,
 			);
@@ -537,6 +540,7 @@
 				61790EE41E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF in Resources */,
 				61790EF81E6A0A520095482F /* GOTHAM-THIN.TTF in Resources */,
 				61790EEC1E6A0A520095482F /* GOTHAM-BOOKITALIC_0.OTF in Resources */,
+				61203F2E1E83802600E4B257 /* Dashboard.storyboard in Resources */,
 				61A2BFE41E686DD900414A4C /* Login.storyboard in Resources */,
 				61CC4EC71E80DE6A00ED4DB6 /* Assets.xcassets in Resources */,
 				61790EE81E6A0A520095482F /* GOTHAM-BOLD.TTF in Resources */,
