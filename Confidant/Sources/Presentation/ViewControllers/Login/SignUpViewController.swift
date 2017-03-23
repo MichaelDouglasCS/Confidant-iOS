@@ -85,7 +85,7 @@ class SignUpViewController: UIViewController {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButton(barButton:)))
         
         let titleAttributes: [String: Any] = [NSFontAttributeName: UIFont(name: "GothamMedium", size: 15)!,
-                               NSForegroundColorAttributeName: UIColor.black]
+                                              NSForegroundColorAttributeName: UIColor.black]
         
         doneButton.setTitleTextAttributes(titleAttributes, for: .normal)
         toolBar.setItems([flexibleSpace, doneButton], animated: false)
@@ -189,9 +189,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpWithEmail(_ sender: UIButton) {
-        
-        self.addLoading()
-        
+        self.loadingIndicator(true)
         guard
             let email = self.emailTextField.text,
             let nickName = self.nickNameTextField.text,
@@ -200,9 +198,7 @@ class SignUpViewController: UIViewController {
             let gender = self.genderTextField.text else {
                 return
         }
-        
         let authentication = AuthenticationManager()
-        
         authentication.createUserWithEmail(email: email,
                                            nickName: nickName,
                                            password: password,
@@ -211,14 +207,14 @@ class SignUpViewController: UIViewController {
                                            completion: { error in
                                             
                                             if error != nil {
-                                                
+                                                self.loadingIndicator(false)
+                                                self.presentAlertOk(title: "Sign Up Failed", message: (error?.localizedDescription)!)
                                             } else {
-                                                self.removeLoading()
+                                                self.loadingIndicator(false)
                                             }
                                             
                                             
         })
-        
     }
     
 //*************************************************
@@ -260,19 +256,19 @@ extension SignUpViewController: UITextFieldDelegate {
             self.checkEmailImageView.isHidden = true
             self.emailBottomConstraint.constant = kEmailBottomConstraintWithoutMessage
             self.emailCheckMessageLabel.isHidden = true
-            if (!textFill.isEmpty) && (!self.emailCheckMessageLabel.isHidden) && (!self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            if (!textFill.isEmpty) && (!self.emailCheckMessageLabel.isHidden && !self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
         case SignUpTextFieldsTag.NickName.rawValue:
-            if (!self.emailTextField.text!.isEmpty) && (!self.emailCheckMessageLabel.isHidden) && (!textFill.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            if (!textFill.isEmpty) && (!self.emailTextField.text!.isEmpty && !self.emailCheckMessageLabel.isHidden && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
         case SignUpTextFieldsTag.Password.rawValue:
-            if (!self.emailTextField.text!.isEmpty) && (!self.emailCheckMessageLabel.isHidden) && (!self.nickNameTextField.text!.isEmpty && !textFill.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            if (!textFill.isEmpty) && (!self.emailTextField.text!.isEmpty && !self.emailCheckMessageLabel.isHidden && !self.nickNameTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
@@ -289,7 +285,7 @@ extension SignUpViewController: UITextFieldDelegate {
             let formatter = DateFormatter()
             formatter.dateStyle = .long
             self.dateOfBirthTextField.text = formatter.string(from: datePickerView.date)
-            if (!self.emailTextField.text!.isEmpty) && (!self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            if (!self.emailTextField.text!.isEmpty && !self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
@@ -299,7 +295,7 @@ extension SignUpViewController: UITextFieldDelegate {
             let selectedRow = genderPickerView.selectedRow(inComponent: 0)
             let selectedText = genderPickerView.delegate?.pickerView!(genderPickerView, titleForRow: selectedRow, forComponent: 0)
             self.genderTextField.text = selectedText
-            if (!self.emailTextField.text!.isEmpty) && (!self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            if (!self.emailTextField.text!.isEmpty && !self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false

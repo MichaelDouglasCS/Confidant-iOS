@@ -70,14 +70,10 @@ class AuthenticationManager {
                 let user = User(userId: uid, email: email, nickName: nickName, dateOfBirth: dateOfBirth, gender: gender, photoURL: nil)
                 let userDBReference = PersistenceManager.FirebaseDBTables.Users(user: user).reference()
                 let accountDBReference = PersistenceManager.FirebaseDBTables.Accounts(userEmailSha1: email.sha1()).reference()
-                
                 accountDBReference.updateChildValues(user.getAccountEmail(), withCompletionBlock: { (error, accountDBResult) in
                     if error != nil {
-                        
                         completion(error)
-                        
                     } else {
-                        
                         userDBReference.updateChildValues(user.getJSON(), withCompletionBlock: { (error, userDBResult) in
                             if error != nil {
                                 completion(error)
