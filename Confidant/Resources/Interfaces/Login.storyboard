@@ -18,10 +18,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Welcome View Controller-->
+        <!--WelcomeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeVC" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -125,7 +125,7 @@
         <!--SignInViewController-->
         <scene sceneID="wBK-8x-eU4">
             <objects>
-                <viewController id="13q-1x-OyM" userLabel="SignInViewController" customClass="SignUpViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="13q-1x-OyM" userLabel="SignInViewController" customClass="SignUpVC" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fkY-NM-19l"/>
                         <viewControllerLayoutGuide type="bottom" id="jMt-T1-JaQ"/>
@@ -479,7 +479,7 @@
         <!--LogInViewController-->
         <scene sceneID="hP4-R5-Z91">
             <objects>
-                <viewController id="Z3h-2O-sy4" userLabel="LogInViewController" customClass="LogInViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Z3h-2O-sy4" userLabel="LogInViewController" customClass="LogInVC" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xq4-lH-hgQ"/>
                         <viewControllerLayoutGuide type="bottom" id="hnK-Sc-Vaw"/>
@@ -667,10 +667,10 @@
             </objects>
             <point key="canvasLocation" x="1318" y="808"/>
         </scene>
-        <!--Custom Welcome Navigation Controller-->
+        <!--Custom WelcomeNC-->
         <scene sceneID="yjd-iQ-jVb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QU8-uW-fYb" customClass="CustomWelcomeNavigationController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QU8-uW-fYb" customClass="CustomWelcomeNC" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="FOt-cQ-22d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

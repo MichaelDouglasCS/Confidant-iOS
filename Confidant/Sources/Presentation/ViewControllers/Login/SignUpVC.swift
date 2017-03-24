@@ -1,5 +1,5 @@
 //
-//  SignUpViewController.swift
+//  SignUpVC.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 10/03/17.
@@ -16,6 +16,7 @@ import UIKit
 
 fileprivate let kEmailBottomConstraintWithMessage: CGFloat = 20
 fileprivate let kEmailBottomConstraintWithoutMessage: CGFloat = 15
+fileprivate let kSignUpToDashboardSegue = "signUpToDashboard"
 
 //**************************************************************************************************
 //
@@ -43,7 +44,7 @@ fileprivate enum SignUpTextFieldsTag: Int {
 //
 //**************************************************************************************************
 
-class SignUpViewController: UIViewController {
+class SignUpVC : UIViewController {
     
 //*************************************************
 // MARK: - Properties
@@ -190,6 +191,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpWithEmail(_ sender: UIButton) {
+        self.dismissKeyboard()
         self.loadingIndicator(true)
         guard
             let email = self.emailTextField.text,
@@ -200,7 +202,7 @@ class SignUpViewController: UIViewController {
                 return
         }
         let authentication = AuthenticationManager()
-        authentication.createUserWithEmail(email: email,
+        authentication.createUserWith(email: email,
                                            nickName: nickName,
                                            password: password,
                                            dateOfBirth: dateOfBirth,
@@ -209,11 +211,13 @@ class SignUpViewController: UIViewController {
                                             
                                             if error != nil {
                                                 self.loadingIndicator(false)
-                                                self.presentAlertOk(title: "Sign Up Failed", message: (error?.localizedDescription)!)
+                                                self.presentAlertOk(title: "SIGN UP FAILED", message: (error?.localizedDescription)!)
                                             } else {
                                                 self.loadingIndicator(false)
+                                                DispatchQueue.main.async {
+                                                    self.performSegue(withIdentifier: kSignUpToDashboardSegue, sender: nil)
+                                                }
                                             }
-                                            
                                             
         })
     }
@@ -244,7 +248,7 @@ class SignUpViewController: UIViewController {
 //
 //**************************************************************************************************
 
-extension SignUpViewController: UITextFieldDelegate {
+extension SignUpVC : UITextFieldDelegate {
     
     //*************************************************
     // MARK: - TextField Delegates
@@ -370,7 +374,7 @@ extension SignUpViewController: UITextFieldDelegate {
 //
 //**************************************************************************************************
 
-extension SignUpViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension SignUpVC : UIPickerViewDataSource, UIPickerViewDelegate {
     
     //*************************************************
     // MARK: - UIPickerView Methods

@@ -52,16 +52,16 @@ class AuthenticationManager {
 // MARK: - Public Methods
 //*************************************************
     
-    func createUserWithEmail(email: String,
+    func createUserWith(email: String,
                              nickName: String,
                              password: String,
                              dateOfBirth: String,
                              gender: String,
                              completion: @escaping (Error?)->Void) {
-        
+        var completionError: Error?
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (userResponse: FIRUser?, error)  in
             if error != nil {
-                completion(error)
+                completionError = error
             } else {
                 guard
                     let uid = userResponse?.uid else {
@@ -72,11 +72,11 @@ class AuthenticationManager {
                 let accountDBReference = PersistenceManager.FirebaseDBTables.Accounts(userEmailSha1: email.sha1()).reference()
                 accountDBReference.updateChildValues(user.getAccountEmail(), withCompletionBlock: { (error, accountDBResult) in
                     if error != nil {
-                        completion(error)
+                        completionError = error
                     } else {
                         userDBReference.updateChildValues(user.getJSON(), withCompletionBlock: { (error, userDBResult) in
                             if error != nil {
-                                completion(error)
+                                completionError = error
                             } else {
                                 self.userAuthenticated = user
                             }
@@ -85,9 +85,23 @@ class AuthenticationManager {
                     }
                 })
             }
-            completion(error)
+            completion(completionError)
         })
         
+    }
+    
+    func logInWith(email: String, password: String, completion: @escaping (Error?)->Void) {
+        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (userResponse: FIRUser?, error) in
+            var completionError: Error?
+            if error != nil {
+                completionError = error
+            } else {
+                if let user = userResponse {
+                    print(user)
+                }
+            }
+            completion(completionError)
+        })
     }
     
     class func userEmailExists(email: String, isExists: @escaping (Bool)->Void) {

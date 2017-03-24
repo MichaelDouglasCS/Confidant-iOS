@@ -1,5 +1,5 @@
 //
-//  WelcomeViewController.swift
+//  WelcomeVC.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 02/03/17.
@@ -57,7 +57,7 @@ fileprivate struct WelcomeMessages {
 //
 //**************************************************************************************************
 
-class WelcomeViewController: UIViewController {
+class WelcomeVC : UIViewController {
     
 //*************************************************
 // MARK: - Properties
@@ -234,11 +234,11 @@ class WelcomeViewController: UIViewController {
 
 //**************************************************************************************************
 //
-// MARK: - Extension - WelcomeViewController - UIScrollViewDelegate
+// MARK: - Extension - WelcomeVC - UIScrollViewDelegate
 //
 //**************************************************************************************************
 
-extension WelcomeViewController: UIScrollViewDelegate {
+extension WelcomeVC : UIScrollViewDelegate {
     
     //*************************************************
     // MARK: - ScrollView Methods

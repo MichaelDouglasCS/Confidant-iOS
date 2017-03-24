@@ -1,5 +1,5 @@
 //
-//  CustomWelcomeNavigationController.swift
+//  CustomWelcomeNC.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 07/03/17.
@@ -26,7 +26,7 @@ import UIKit
 //
 //**************************************************************************************************
 
-class CustomWelcomeNavigationController: UINavigationController {
+class CustomWelcomeNC : UINavigationController {
 
 //*************************************************
 // MARK: - Properties

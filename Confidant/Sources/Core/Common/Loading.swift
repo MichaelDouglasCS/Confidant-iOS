@@ -35,7 +35,7 @@ extension UIViewController {
             }
             let window = UIApplication.shared.keyWindow
             let opaqueWindow = UIView(frame: CGRect(x: 0, y: 0, width: (window?.frame.size.width)!, height: (window?.frame.size.height)!))
-            opaqueWindow.backgroundColor = UIColor(white: 0, alpha: 0.1)
+            opaqueWindow.backgroundColor = UIColor(white: 0, alpha: 0.5)
             opaqueWindow.center = CGPoint(x: (window?.frame.size.width)! / 2, y: (window?.frame.size.height)! / 2)
             opaqueWindow.tag = kLoadingViewTag
             let loadingAnimation = UIImageView(frame: CGRect(x: 0, y: 0, width: 65, height: 65))

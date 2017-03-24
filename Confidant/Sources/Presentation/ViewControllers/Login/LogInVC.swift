@@ -1,5 +1,5 @@
 //
-//  LogInViewController.swift
+//  LogInVC.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 07/03/17.
@@ -13,6 +13,8 @@ import UIKit
 // MARK: - Constants -
 //
 //**************************************************************************************************
+
+fileprivate let kLogInToDashboardSegue = "logInToDashboard"
 
 //**************************************************************************************************
 //
@@ -37,7 +39,7 @@ fileprivate enum LogInTextFieldsTag: Int {
 //
 //**************************************************************************************************
 
-class LogInViewController: UIViewController {
+class LogInVC : UIViewController {
     
 //*************************************************
 // MARK: - Properties
@@ -107,8 +109,25 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func logInWithEmailAndPassword(_ sender: UIButton) {
-        print("Log In")
-        self.performSegue(withIdentifier: "logInToDashboard", sender: nil)
+        self.dismissKeyboard()
+        self.loadingIndicator(true)
+        guard
+            let email = self.emailTextField.text,
+            let password = self.passwordTextField.text else {
+                return
+        }
+        let authentication = AuthenticationManager()
+        authentication.logInWith(email: email, password: password, completion: { error in
+            if error != nil {
+                self.loadingIndicator(false)
+                self.presentAlertOk(title: "LOG IN FAILED", message: (error?.localizedDescription)!)
+            } else {
+                self.loadingIndicator(false)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: kLogInToDashboardSegue, sender: nil)
+                }
+            }
+        })
     }
     
     @IBAction func forgotPassword(_ sender: UIButton) {
@@ -136,11 +155,11 @@ class LogInViewController: UIViewController {
 
 //**************************************************************************************************
 //
-// MARK: - Extension - LoginViewController - UITextFieldDelegate
+// MARK: - Extension - LogInVC - UITextFieldDelegate
 //
 //**************************************************************************************************
 
-extension LogInViewController: UITextFieldDelegate {
+extension LogInVC : UITextFieldDelegate {
     
     //*************************************************
     // MARK: - TextField Methods
