@@ -1,5 +1,5 @@
 //
-//  WelcomeVC.swift
+//  WelcomeViewController.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 02/03/17.
@@ -57,7 +57,7 @@ fileprivate struct WelcomeMessages {
 //
 //**************************************************************************************************
 
-class WelcomeVC : UIViewController {
+class WelcomeViewController : UIViewController {
     
 //*************************************************
 // MARK: - Properties
@@ -143,10 +143,10 @@ class WelcomeVC : UIViewController {
                 let firstText = UILabel(frame: messageText.frame)
                 
                 if let title = welcomeMessages[welcomeMessages.endIndex-1]["title"] {
-                    firstTitle.getMessageTitleFormat(title: title)
+                    firstTitle.getMessageFormat(title: title)
                 }
                 if let text = welcomeMessages[welcomeMessages.endIndex-1]["text"] {
-                    firstText.getMessageTextFormat(text: text)
+                    firstText.getMessageFormat(text: text)
                 }
                 
                 firstView.addSubViews(views: [firstTitle, firstText])
@@ -157,10 +157,10 @@ class WelcomeVC : UIViewController {
             
             //Configure MessageTitle and MessageText to input in MessageView
             if let title = message["title"] {
-                messageTitle.getMessageTitleFormat(title: title)
+                messageTitle.getMessageFormat(title: title)
             }
             if let text = message["text"] {
-                messageText.getMessageTextFormat(text: text)
+                messageText.getMessageFormat(text: text)
             }
             
             messageView.addSubViews(views: [messageTitle, messageText])
@@ -173,10 +173,10 @@ class WelcomeVC : UIViewController {
                 let lastTitle = UILabel(frame: messageTitle.frame)
                 let lastText = UILabel(frame: messageText.frame)
                 if let title = welcomeMessages[welcomeMessages.startIndex]["title"] {
-                    lastTitle.getMessageTitleFormat(title: title)
+                    lastTitle.getMessageFormat(title: title)
                 }
                 if let text = welcomeMessages[welcomeMessages.startIndex]["text"] {
-                    lastText.getMessageTextFormat(text: text)
+                    lastText.getMessageFormat(text: text)
                 }
                 lastView.addSubViews(views: [lastTitle, lastText])
                 lastView.frame.origin.x = CGFloat(index+1) * self.messageScrollView.frame.size.width
@@ -238,13 +238,13 @@ class WelcomeVC : UIViewController {
 //
 //**************************************************************************************************
 
-extension WelcomeVC : UIScrollViewDelegate {
+extension WelcomeViewController : UIScrollViewDelegate {
     
     //*************************************************
     // MARK: - ScrollView Methods
     //*************************************************
     
-    internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (scrollView.contentOffset.x == (-self.view.frame.size.width)) {
             self.messageScrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x + scrollView.frame.size.width * CGFloat(self.numberOfPages), y: 0), animated: false)
         } else if (scrollView.contentOffset.x == (self.view.frame.size.width * CGFloat(self.numberOfPages))) {
@@ -254,7 +254,7 @@ extension WelcomeVC : UIScrollViewDelegate {
         self.messagePageControl.currentPage = Int(page)
     }
     
-    internal func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         self.view.isUserInteractionEnabled = true
     }
     
@@ -268,7 +268,7 @@ extension WelcomeVC : UIScrollViewDelegate {
 
 extension UILabel {
     
-    func getMessageTitleFormat(title: String) {
+    func getMessageFormat(title: String) {
         let attributedString = NSMutableAttributedString(string: title)
         attributedString.addAttribute(NSKernAttributeName, value: kLetterSpacingTitle, range: NSRange(location: 0, length: attributedString.length))
         self.attributedText = attributedString
@@ -277,7 +277,7 @@ extension UILabel {
         self.textAlignment = .center
     }
     
-    func getMessageTextFormat(text: String) {
+    func getMessageFormat(text: String) {
         let attributedString = NSMutableAttributedString(string: text)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = kLineSpacingText

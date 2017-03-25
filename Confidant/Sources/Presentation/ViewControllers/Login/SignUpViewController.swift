@@ -1,5 +1,5 @@
 //
-//  SignUpVC.swift
+//  SignUpViewController.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 10/03/17.
@@ -44,7 +44,7 @@ fileprivate enum SignUpTextFieldsTag: Int {
 //
 //**************************************************************************************************
 
-class SignUpVC : UIViewController {
+class SignUpViewController : UIViewController {
     
 //*************************************************
 // MARK: - Properties
@@ -63,7 +63,7 @@ class SignUpVC : UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var termsAndConditionsTextView: UITextView!
     
-    internal let pickerViewGender = ["Female", "Male"]
+    let pickerViewGender = ["Female", "Male"]
     
 //*************************************************
 // MARK: - Constructors
@@ -176,7 +176,7 @@ class SignUpVC : UIViewController {
 // MARK: - Internal Methods
 //*************************************************
     
-    internal func isValidEmailAddress(emailAddressString: String) -> Bool {
+    func isValidEmailAddress(emailAddressString: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: emailAddressString)
@@ -248,13 +248,13 @@ class SignUpVC : UIViewController {
 //
 //**************************************************************************************************
 
-extension SignUpVC : UITextFieldDelegate {
+extension SignUpViewController : UITextFieldDelegate {
     
     //*************************************************
     // MARK: - TextField Delegates
     //*************************************************
     
-    internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         switch textField.tag {
         case SignUpTextFieldsTag.Email.rawValue:
@@ -283,7 +283,7 @@ extension SignUpVC : UITextFieldDelegate {
         return true
     }
     
-    internal func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField.tag {
         case SignUpTextFieldsTag.DateOfBirth.rawValue:
             let datePickerView = self.dateOfBirthTextField.inputView as! UIDatePicker
@@ -309,7 +309,7 @@ extension SignUpVC : UITextFieldDelegate {
         }
     }
     
-    internal func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
         switch textField.tag {
         case SignUpTextFieldsTag.Email.rawValue:
             if !(textField.text?.isEmpty)! {
@@ -321,13 +321,13 @@ extension SignUpVC : UITextFieldDelegate {
                     self.emailCheckMessageLabel.isHidden = false
                     self.signUpButton.isEnabled = false
                 } else {
-                    self.emailView.loadingIndicatorView(isShow: true, point: self.checkEmailImageView.center)
+                    self.emailView.loadingIndicatorView(isShow: true, at: self.checkEmailImageView.center)
                     AuthenticationManager.userEmailExists(email: textField.text!, isExists: { isExistsResponse in
                         self.checkEmailImageView.isHidden = true
                         self.emailCheckMessageLabel.isHidden = true
                         self.emailBottomConstraint.constant = kEmailBottomConstraintWithoutMessage
                         if isExistsResponse {
-                            self.emailView.loadingIndicatorView(isShow: false, point: nil)
+                            self.emailView.loadingIndicatorView(isShow: false, at: nil)
                             self.checkEmailImageView.image = #imageLiteral(resourceName: "email-incorrect")
                             self.emailCheckMessageLabel.text = "That email address is already registered."
                             self.checkEmailImageView.isHidden = false
@@ -335,7 +335,7 @@ extension SignUpVC : UITextFieldDelegate {
                             self.emailCheckMessageLabel.isHidden = false
                             self.signUpButton.isEnabled = false
                         } else {
-                            self.emailView.loadingIndicatorView(isShow: false, point: nil)
+                            self.emailView.loadingIndicatorView(isShow: false, at: nil)
                             self.checkEmailImageView.image = #imageLiteral(resourceName: "email-correct")
                             self.checkEmailImageView.isHidden = false
                             self.emailBottomConstraint.constant = kEmailBottomConstraintWithoutMessage
@@ -353,7 +353,7 @@ extension SignUpVC : UITextFieldDelegate {
         }
     }
     
-    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField.tag {
         case SignUpTextFieldsTag.Email.rawValue:
             self.nickNameTextField.becomeFirstResponder()
@@ -374,25 +374,25 @@ extension SignUpVC : UITextFieldDelegate {
 //
 //**************************************************************************************************
 
-extension SignUpVC : UIPickerViewDataSource, UIPickerViewDelegate {
+extension SignUpViewController : UIPickerViewDataSource, UIPickerViewDelegate {
     
     //*************************************************
     // MARK: - UIPickerView Methods
     //*************************************************
     
-    internal func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    internal func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.pickerViewGender.count
     }
     
-    internal func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return self.pickerViewGender[row]
     }
     
-    internal func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.genderTextField.text = self.pickerViewGender[row]
     }
     

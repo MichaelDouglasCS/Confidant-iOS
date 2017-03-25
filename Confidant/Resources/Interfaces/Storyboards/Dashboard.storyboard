@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--DashboardTBC-->
+        <!--Dashboard Tab Bar Controller-->
         <scene sceneID="Eof-wZ-5VR">
             <objects>
-                <tabBarController id="3U2-jz-yAC" customClass="DashboardTBC" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="3U2-jz-yAC" customClass="DashboardTabBarController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="zY2-It-e1j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -20,7 +20,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="SaK-Bm-kMn" kind="relationship" relationship="viewControllers" id="X7U-H2-v3P"/>
-                        <segue destination="dKe-Ud-oIx" kind="relationship" relationship="viewControllers" id="3Ti-Ea-xc1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Du8-9X-o2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -47,25 +46,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbR-iq-bpJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="185" y="-335"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="tWq-8G-wyC">
-            <objects>
-                <viewController id="dKe-Ud-oIx" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mLz-1Q-RTi"/>
-                        <viewControllerLayoutGuide type="bottom" id="DkW-bX-4WM"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ueQ-M1-hVV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="diT-B6-H1a"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ApB-hg-38m" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="185" y="359"/>
         </scene>
     </scenes>
     <resources>

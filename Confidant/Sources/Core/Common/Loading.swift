@@ -59,7 +59,7 @@ extension UIViewController {
 
 extension UIButton {
     
-    func loadingIndicatorButton(isShow: Bool, point: CGPoint?) {
+    func loadingIndicatorButton(isShow: Bool, at point: CGPoint?) {
         if isShow {
             self.isEnabled = false
             self.alpha = 0.5
@@ -91,7 +91,7 @@ extension UIButton {
 
 extension UIView {
     
-    func loadingIndicatorView(isShow: Bool, point: CGPoint?) {
+    func loadingIndicatorView(isShow: Bool, at point: CGPoint?) {
         if isShow {
             let indicator = UIActivityIndicatorView()
             indicator.tag = kLoadingViewTag

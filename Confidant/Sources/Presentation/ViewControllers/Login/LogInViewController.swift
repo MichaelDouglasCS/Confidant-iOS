@@ -1,5 +1,5 @@
 //
-//  LogInVC.swift
+//  LogInViewController.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 07/03/17.
@@ -39,7 +39,7 @@ fileprivate enum LogInTextFieldsTag: Int {
 //
 //**************************************************************************************************
 
-class LogInVC : UIViewController {
+class LogInViewController : UIViewController {
     
 //*************************************************
 // MARK: - Properties
@@ -159,13 +159,13 @@ class LogInVC : UIViewController {
 //
 //**************************************************************************************************
 
-extension LogInVC : UITextFieldDelegate {
+extension LogInViewController : UITextFieldDelegate {
     
     //*************************************************
     // MARK: - TextField Methods
     //*************************************************
     
-    internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         switch textField.tag {
         case LogInTextFieldsTag.Email.rawValue:
@@ -185,7 +185,7 @@ extension LogInVC : UITextFieldDelegate {
         return true
     }
     
-    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField.tag {
         case LogInTextFieldsTag.Email.rawValue:
             self.passwordTextField.becomeFirstResponder()
