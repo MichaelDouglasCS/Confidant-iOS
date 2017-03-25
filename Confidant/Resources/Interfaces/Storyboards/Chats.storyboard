@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Chats-->
         <scene sceneID="9EX-wH-VrP">
             <objects>
                 <viewController id="vtk-dY-Igl" customClass="ChatsViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,24 +18,26 @@
                         <viewControllerLayoutGuide type="bottom" id="XTk-x5-Tkx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Wfn-MC-V8s">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="0ru-4l-hna"/>
-                    <navigationItem key="navigationItem" id="ah8-MO-bZk"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="chats-icon" selectedImage="chats-icon-selected" id="0ru-4l-hna"/>
+                    <navigationItem key="navigationItem" title="Chats" id="ah8-MO-bZk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xv4-53-cb6"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDG-b9-cPI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-282" y="-133"/>
+            <point key="canvasLocation" x="-207" y="-134"/>
         </scene>
         <!--Chats Navigation View Controller-->
         <scene sceneID="61O-gT-MGl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yCG-ha-e3T" customClass="ChatsNavigationViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YU6-z5-1df">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="YU6-z5-1df">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -49,4 +51,8 @@
             <point key="canvasLocation" x="-974" y="-134"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chats-icon" width="32" height="32"/>
+        <image name="chats-icon-selected" width="32" height="32"/>
+    </resources>
 </document>

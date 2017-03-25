@@ -43,15 +43,7 @@ class CustomWelcomeNavigationController : UINavigationController {
 //*************************************************
 // MARK: - Constructors
 //*************************************************
-    
-    func setupNavigationBar() {
-        self.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "navigationBar-image"), for: .default)
-        self.navigationBar.tintColor = UIColor.white
-        self.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "backButton")
-        self.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "backButton")
-        self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "GothamMedium", size: 14)!, NSForegroundColorAttributeName: UIColor.white]
-    }
-    
+
 //*************************************************
 // MARK: - Private Methods
 //*************************************************
@@ -71,6 +63,14 @@ class CustomWelcomeNavigationController : UINavigationController {
 //*************************************************
 // MARK: - Internal Methods
 //*************************************************
+    
+    func setupNavigationBar() {
+        self.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "navigationBar-image"), for: .default)
+        self.navigationBar.tintColor = UIColor.white
+        self.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "backButton")
+        self.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "backButton")
+        self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "GothamMedium", size: 14)!, NSForegroundColorAttributeName: UIColor.white]
+    }
     
 //*************************************************
 // MARK: - Public Methods

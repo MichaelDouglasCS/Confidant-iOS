@@ -10,6 +10,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseDatabase
 
+
 //**************************************************************************************************
 //
 // MARK: - Constants -
@@ -51,6 +52,10 @@ class AuthenticationManager {
 //*************************************************
 // MARK: - Public Methods
 //*************************************************
+    
+    func createUserWithFacebook() {
+        
+    }
     
     func createUserWith(email: String,
                              nickName: String,

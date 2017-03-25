@@ -44,6 +44,14 @@ class ChatsNavigationViewController: UINavigationController {
 // MARK: - Internal Methods
 //*************************************************
     
+    func setupNavigationBar() {
+        self.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "navigationBar-image"), for: .default)
+        self.navigationBar.tintColor = UIColor.white
+        self.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "backButton")
+        self.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "backButton")
+        self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "GothamMedium", size: 17)!, NSForegroundColorAttributeName: UIColor.white]
+    }
+    
 //*************************************************
 // MARK: - Public Methods
 //*************************************************
@@ -54,7 +62,7 @@ class ChatsNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.setupNavigationBar()
         // Do any additional setup after loading the view.
     }
 

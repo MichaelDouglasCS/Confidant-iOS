@@ -55,7 +55,7 @@ class LogInViewController : UIViewController {
 //*************************************************
 
 //*************************************************
-// MARK: - Private Methods
+// MARK: - Protected Methods
 //*************************************************
     
     private func registerForKeyboardNotifications(){

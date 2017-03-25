@@ -41,7 +41,7 @@ fileprivate struct WelcomeMessages {
     private let messageFive = ["title": "Score", "text": "Be punctuated by people that you help, become the first and share it with everyone"]
     
     //*************************************************
-    // MARK: - Public Methods
+    // MARK: - Internal Methods
     //*************************************************
     
     func getMessages() -> [Dictionary<String, String>] {
@@ -78,7 +78,7 @@ class WelcomeViewController : UIViewController {
 //*************************************************
     
 //*************************************************
-// MARK: - Private Methods
+// MARK: - Protected Methods
 //*************************************************
     
     private func setupNavigationBar() {

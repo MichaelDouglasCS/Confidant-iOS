@@ -19,7 +19,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="SaK-Bm-kMn" kind="relationship" relationship="viewControllers" id="X7U-H2-v3P"/>
+                        <segue destination="Vmy-EB-5Na" kind="relationship" relationship="viewControllers" id="gbd-Fy-MfR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Du8-9X-o2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -27,29 +27,14 @@
             <point key="canvasLocation" x="-720" y="-48"/>
         </scene>
         <!--Chats-->
-        <scene sceneID="Sfp-Jf-jdP">
+        <scene sceneID="K6s-et-sos">
             <objects>
-                <viewController id="SaK-Bm-kMn" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Z9i-J7-vs4"/>
-                        <viewControllerLayoutGuide type="bottom" id="iwF-9I-s61"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Cxw-5J-eMn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Chats" image="chats-icon" selectedImage="chats-icon-selected" id="RFi-mf-dEj">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jbR-iq-bpJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Chats" id="Vmy-EB-5Na" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="k9i-Of-dsX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l0m-UX-Gbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="185" y="-335"/>
+            <point key="canvasLocation" x="86" y="-363"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="chats-icon" width="32" height="32"/>
-        <image name="chats-icon-selected" width="32" height="32"/>
-    </resources>
 </document>
