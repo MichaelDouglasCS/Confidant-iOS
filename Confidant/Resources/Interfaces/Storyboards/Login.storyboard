@@ -147,7 +147,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="signUpWithFacebook:" destination="13q-1x-OyM" eventType="touchUpInside" id="Azj-IG-JIZ"/>
+                                            <action selector="signUpWithFacebook:" destination="13q-1x-OyM" eventType="touchUpInside" id="fc6-Vg-BIU"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or with e-mail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Lb-7zC">

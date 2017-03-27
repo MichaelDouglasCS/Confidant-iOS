@@ -38,7 +38,7 @@ class PersistenceManager {
 
     static var databaseReference: FIRDatabaseReference {
         get {
-            return FIRDatabase.database().reference(fromURL: URL.databaseURL())
+            return FIRDatabase.database().reference(fromURL: URLs.databaseURL())
         }
     }
 

@@ -20,7 +20,7 @@ import Foundation
 //
 //**************************************************************************************************
 
-typealias FirebaseJSON = [String: String]
+typealias JSON = [String: String]
 
 //**************************************************************************************************
 //
@@ -59,6 +59,14 @@ class User : NSObject {
         self.photoURL = photoURL ?? ""
     }
     
+    init(json: Any?) {
+        self.email = email ?? ""
+        self.nickName = nickName ?? ""
+        self.dateOfBirth = dateOfBirth ?? ""
+        self.gender = gender ?? ""
+        self.photoURL = photoURL ?? ""
+    }
+    
 //*************************************************
 // MARK: - Private Methods
 //*************************************************
@@ -71,8 +79,8 @@ class User : NSObject {
 // MARK: - Public Methods
 //*************************************************
     
-    func getJSON() -> FirebaseJSON {
-        let userJSONValue: FirebaseJSON = ["email": self.email ?? "",
+    func getJSON() -> JSON {
+        let userJSONValue: JSON = ["email": self.email ?? "",
                              "nickName": self.nickName ?? "",
                              "dateOfBirth": self.dateOfBirth ?? "",
                              "gender": self.gender ?? "",
@@ -80,8 +88,8 @@ class User : NSObject {
         return userJSONValue
     }
     
-    func getAccountEmail() -> FirebaseJSON {
-        let accountJSONValue: FirebaseJSON = ["email": self.email ?? ""]
+    func getAccountEmail() -> JSON {
+        let accountJSONValue: JSON = ["email": self.email ?? ""]
         return accountJSONValue
     }
 

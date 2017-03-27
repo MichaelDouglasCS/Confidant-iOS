@@ -47,6 +47,7 @@
 		61BE8B6C1E81E158005FDB0D /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BE8B6B1E81E158005FDB0D /* UIViewController+Alerts.swift */; };
 		61CC4EC71E80DE6A00ED4DB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61CC4EC61E80DE6A00ED4DB6 /* Assets.xcassets */; };
 		61CC4EC91E80EE3400ED4DB6 /* String+sha1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CC4EC81E80EE3400ED4DB6 /* String+sha1.swift */; };
+		61CDB4371E87038E00E792F6 /* UITextField+Verifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CDB4361E87038E00E792F6 /* UITextField+Verifications.swift */; };
 		61DB8CCD1E83719B00EFD080 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DB8CCC1E83719B00EFD080 /* Loading.swift */; };
 		61F570971E7DABDE00712518 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F570961E7DABDE00712518 /* AuthenticationManager.swift */; };
 		61F570991E7DAC5E00712518 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F570981E7DAC5E00712518 /* NetworkManager.swift */; };
@@ -126,7 +127,8 @@
 		61CC4EC61E80DE6A00ED4DB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61CC4EC81E80EE3400ED4DB6 /* String+sha1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+sha1.swift"; sourceTree = "<group>"; };
 		61CC4ECB1E80F11D00ED4DB6 /* Crypto-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crypto-Bridging-Header.h"; sourceTree = "<group>"; };
-		61DB8CCC1E83719B00EFD080 /* Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		61CDB4361E87038E00E792F6 /* UITextField+Verifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Verifications.swift"; sourceTree = "<group>"; };
+		61DB8CCC1E83719B00EFD080 /* Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Loading.swift; path = Views/Loading.swift; sourceTree = "<group>"; };
 		61F570961E7DABDE00712518 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		61F570981E7DAC5E00712518 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		61F5CE8B1E68FA1C001261C1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				618AF4CE1E84E25C008A6A22 /* Dashboard */,
+				61DB8CCC1E83719B00EFD080 /* Loading.swift */,
 				61BDD9B31E69F3BB00FA0410 /* IBDesignableClass.swift */,
 			);
 			name = Views;
@@ -443,9 +446,9 @@
 				613A8B461E6F1159000DD11D /* UIView+AddSubViews.swift */,
 				61F6D26E1E725F1800754866 /* UIViewController+HideKeyboard.swift */,
 				61BE8B6B1E81E158005FDB0D /* UIViewController+Alerts.swift */,
-				61DB8CCC1E83719B00EFD080 /* Loading.swift */,
 				61CC4EC81E80EE3400ED4DB6 /* String+sha1.swift */,
 				618AF4CB1E84D610008A6A22 /* StyleKit.swift */,
+				61CDB4361E87038E00E792F6 /* UITextField+Verifications.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -785,6 +788,7 @@
 				61232BC01E8625CF00DC64BC /* ChatsNavigationViewController.swift in Sources */,
 				61F6D26F1E725F1800754866 /* UIViewController+HideKeyboard.swift in Sources */,
 				61F570971E7DABDE00712518 /* AuthenticationManager.swift in Sources */,
+				61CDB4371E87038E00E792F6 /* UITextField+Verifications.swift in Sources */,
 				61A35AF31E7DBF100010A01D /* URL.swift in Sources */,
 				61F570991E7DAC5E00712518 /* NetworkManager.swift in Sources */,
 				61A35AF81E7F63DE0010A01D /* PersistenceManager.swift in Sources */,

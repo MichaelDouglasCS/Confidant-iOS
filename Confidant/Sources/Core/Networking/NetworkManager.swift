@@ -20,15 +20,17 @@ import Foundation
 //
 //**************************************************************************************************
 
+typealias completionError = (Error?)->Void
+
 //**************************************************************************************************
 //
 // MARK: - Enum -
 //
 //**************************************************************************************************
 
-public enum ResponseMethodType {
-    case SUCCESS
-    case FAILED
+public enum ResponseStatus {
+    case Success
+    case Failed
 }
 
 public enum KnowErrorCode: Int {

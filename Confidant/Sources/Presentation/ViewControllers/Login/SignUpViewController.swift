@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FBSDKLoginKit
 
 //**************************************************************************************************
 //
@@ -172,22 +174,58 @@ class SignUpViewController : UIViewController {
         self.termsAndConditionsTextView.attributedText = attributedString
     }
     
+    private func logged() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: kSignUpToDashboardSegue, sender: nil)
+        }
+    }
+    
 //*************************************************
 // MARK: - Internal Methods
 //*************************************************
-    
-    func isValidEmailAddress(emailAddressString: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: emailAddressString)
-    }
     
 //*************************************************
 // MARK: - Public Methods
 //*************************************************
     
     @IBAction func signUpWithFacebook(_ sender: UIButton) {
-        print("Sign Up Facebook")
+        self.loadingIndicator(true)
+        FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile", "user_birthday"], from: self, handler: { (result, error) in
+            if (result?.isCancelled)! {
+                self.loadingIndicator(false)
+            } else {
+                if error != nil {
+                    self.loadingIndicator(false)
+                    self.presentAlertOk(title: "SIGN UP FAILED", message: (error?.localizedDescription)!)
+                } else {
+                    
+                    FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, name, birthday, gender"]).start(completionHandler: { (connection, result, error) -> Void in
+                        if (error == nil){
+                            print(result)
+                        }
+                    })
+                    
+                    let accessToken = result?.token
+                    guard
+                        let accessTokenString = accessToken?.tokenString else {
+                            return
+                    }
+                    
+                    let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
+                    let authentication = AuthenticationManager()
+                    authentication.createUserWith(facebook: credentials, completion: { (responseStatus, error) in
+                        switch(responseStatus) {
+                        case .Success:
+                            self.loadingIndicator(false)
+                            self.logged()
+                        case .Failed:
+                            self.loadingIndicator(false)
+                            self.presentAlertOk(title: "SIGN UP FAILED", message: (error?.localizedDescription)!)
+                        }
+                    })
+                }
+            }
+        })
     }
     
     @IBAction func signUpWithEmail(_ sender: UIButton) {
@@ -203,22 +241,19 @@ class SignUpViewController : UIViewController {
         }
         let authentication = AuthenticationManager()
         authentication.createUserWith(email: email,
-                                           nickName: nickName,
-                                           password: password,
-                                           dateOfBirth: dateOfBirth,
-                                           gender: gender,
-                                           completion: { error in
-                                            
-                                            if error != nil {
-                                                self.loadingIndicator(false)
-                                                self.presentAlertOk(title: "SIGN UP FAILED", message: (error?.localizedDescription)!)
-                                            } else {
-                                                self.loadingIndicator(false)
-                                                DispatchQueue.main.async {
-                                                    self.performSegue(withIdentifier: kSignUpToDashboardSegue, sender: nil)
-                                                }
-                                            }
-                                            
+                                      nickName: nickName,
+                                      password: password,
+                                      dateOfBirth: dateOfBirth,
+                                      gender: gender,
+                                      completion: { (responseStatus, error) in
+                                        switch(responseStatus) {
+                                        case .Success:
+                                            self.loadingIndicator(false)
+                                            self.logged()
+                                        case .Failed:
+                                            self.loadingIndicator(false)
+                                            self.presentAlertOk(title: "SIGN UP FAILED", message: (error?.localizedDescription)!)
+                                        }
         })
     }
     
@@ -313,7 +348,7 @@ extension SignUpViewController : UITextFieldDelegate {
         switch textField.tag {
         case SignUpTextFieldsTag.Email.rawValue:
             if !(textField.text?.isEmpty)! {
-                if !(self.isValidEmailAddress(emailAddressString: textField.text!)) {
+                if !(self.emailTextField.isValidEmailAddress()) {
                     self.checkEmailImageView.image = #imageLiteral(resourceName: "email-incorrect")
                     self.emailCheckMessageLabel.text = "Invalid email address."
                     self.checkEmailImageView.isHidden = false

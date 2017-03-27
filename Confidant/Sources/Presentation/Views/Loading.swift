@@ -33,7 +33,7 @@ extension UIViewController {
                     loading.append(imageLoad)
                 }
             }
-            let window = UIApplication.shared.keyWindow
+            let window = self.navigationController?.view
             let opaqueWindow = UIView(frame: CGRect(x: 0, y: 0, width: (window?.frame.size.width)!, height: (window?.frame.size.height)!))
             opaqueWindow.backgroundColor = UIColor(white: 0, alpha: 0.5)
             opaqueWindow.center = CGPoint(x: (window?.frame.size.width)! / 2, y: (window?.frame.size.height)! / 2)
@@ -44,7 +44,7 @@ extension UIViewController {
             opaqueWindow.addSubview(loadingAnimation)
             window?.addSubview(opaqueWindow)
         } else {
-            let window = UIApplication.shared.keyWindow
+            let window = self.navigationController?.view
             window?.viewWithTag(kLoadingViewTag)?.removeFromSuperview()
         }
     }
@@ -64,11 +64,11 @@ extension UIButton {
             self.isEnabled = false
             self.alpha = 0.5
             let indicator = UIActivityIndicatorView()
-            indicator.color = UIColor.lightGray
             indicator.tag = kLoadingViewTag
-            let viewHeight = self.frame.height
-            let viewWidth = self.frame.width
-            indicator.center = CGPoint(x: point?.x ?? (viewHeight/2), y: point?.y ?? (viewWidth/2))
+            indicator.color = UIColor.white
+            let viewHeight = self.bounds.size.height
+            let viewWidth = self.bounds.size.width
+            indicator.center = CGPoint(x: point?.x ?? (viewWidth/2), y: point?.y ?? (viewHeight/2))
             self.addSubview(indicator)
             indicator.startAnimating()
         } else {
@@ -98,7 +98,7 @@ extension UIView {
             indicator.color = UIColor.lightGray
             let viewHeight = self.frame.height
             let viewWidth = self.frame.width
-            indicator.center = CGPoint(x: point?.x ?? (viewHeight/2), y: point?.y ?? (viewWidth/2))
+            indicator.center = CGPoint(x: point?.x ?? (viewWidth/2), y: point?.y ?? (viewHeight/2))
             self.addSubview(indicator)
             indicator.startAnimating()
         } else {

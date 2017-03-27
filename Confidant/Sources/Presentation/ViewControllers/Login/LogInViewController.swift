@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 //**************************************************************************************************
 //
@@ -96,6 +97,12 @@ class LogInViewController : UIViewController {
         self.loginScrollView.scrollIndicatorInsets = contentInsets
     }
     
+    private func logged() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: kLogInToDashboardSegue, sender: nil)
+        }
+    }
+    
 //*************************************************
 // MARK: - Internal Methods
 //*************************************************
@@ -117,15 +124,14 @@ class LogInViewController : UIViewController {
                 return
         }
         let authentication = AuthenticationManager()
-        authentication.logInWith(email: email, password: password, completion: { error in
-            if error != nil {
+        authentication.logInWith(email: email, password: password, completion: { (responseStatus, error) in
+            switch(responseStatus) {
+            case .Success:
+                self.loadingIndicator(false)
+                self.logged()
+            case .Failed:
                 self.loadingIndicator(false)
                 self.presentAlertOk(title: "LOG IN FAILED", message: (error?.localizedDescription)!)
-            } else {
-                self.loadingIndicator(false)
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: kLogInToDashboardSegue, sender: nil)
-                }
             }
         })
     }
