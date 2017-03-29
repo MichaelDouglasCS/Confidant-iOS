@@ -24,7 +24,7 @@ fileprivate let kLoadingViewTag = 100773
 
 extension UIViewController {
     
-    func loadingIndicator(_ show: Bool) {
+    func loadingIndicator(isShow show: Bool) {
         if show {
             var loading = [UIImage]()
             for i in 0...40 {

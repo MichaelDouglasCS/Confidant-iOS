@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 import FirebaseDatabase
 
 //**************************************************************************************************
@@ -14,9 +15,6 @@ import FirebaseDatabase
 // MARK: - Constants -
 //
 //**************************************************************************************************
-
-public let kUsersTableName = "users"
-public let kAccountTableName = "accounts"
 
 //**************************************************************************************************
 //
@@ -31,34 +29,30 @@ public let kAccountTableName = "accounts"
 //**************************************************************************************************
 
 class PersistenceManager {
+    
+    enum FirebaseDBTables {
+        case Users(userId: String)
+        case Accounts(userEmailEncrypted: String)
+        func reference() -> FIRDatabaseReference {
+            switch self {
+            case .Users(let userId):
+                return PersistenceManager.firebaseDB.child("users").child(userId)
+            case .Accounts(let email):
+                return PersistenceManager.firebaseDB.child("accounts").child(email)
+            }
+        }
+    }
 
 //*************************************************
 // MARK: - Properties
 //*************************************************
 
-    static var databaseReference: FIRDatabaseReference {
+    static var firebaseDB: FIRDatabaseReference {
         get {
             return FIRDatabase.database().reference(fromURL: URLs.databaseURL())
         }
     }
 
-//*************************************************
-// MARK: - Enum
-//*************************************************
-    
-    enum FirebaseDBTables {
-        case Users(user: User)
-        case Accounts(userEmailSha1: String)
-        func reference() -> FIRDatabaseReference {
-            switch self {
-            case .Users(let user):
-                return PersistenceManager.databaseReference.child(kUsersTableName).child(user.userId!)
-            case .Accounts(let userEmailSha1):
-                return PersistenceManager.databaseReference.child(kAccountTableName).child(userEmailSha1)
-            }
-        }
-    }
-    
 //*************************************************
 // MARK: - Constructors
 //*************************************************
@@ -70,6 +64,23 @@ class PersistenceManager {
 //*************************************************
 // MARK: - Internal Methods
 //*************************************************
+    
+    func create(user: User, completion: @escaping (ResponseStatus, Error?)->Void) {
+        PersistenceManager.FirebaseDBTables.Accounts(userEmailEncrypted: (user.email?.toSHA1())!).reference().updateChildValues(user.encodeAccountEmailJSON(), withCompletionBlock: { (error, accountResult) in
+            if error == nil {
+                PersistenceManager.FirebaseDBTables.Users(userId: user.userId!).reference().updateChildValues(user.encodeJSON(), withCompletionBlock: {
+                    (error, userResult) in
+                    if error == nil {
+                        completion(.Success, error)
+                    } else {
+                        completion(.Failed, error)
+                    }
+                })
+            } else {
+                completion(.Failed, error)
+            }
+        })
+    }
     
 //*************************************************
 // MARK: - Public Methods

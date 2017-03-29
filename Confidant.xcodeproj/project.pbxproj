@@ -46,7 +46,7 @@
 		61BDD9B41E69F3BB00FA0410 /* IBDesignableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDD9B31E69F3BB00FA0410 /* IBDesignableClass.swift */; };
 		61BE8B6C1E81E158005FDB0D /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BE8B6B1E81E158005FDB0D /* UIViewController+Alerts.swift */; };
 		61CC4EC71E80DE6A00ED4DB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61CC4EC61E80DE6A00ED4DB6 /* Assets.xcassets */; };
-		61CC4EC91E80EE3400ED4DB6 /* String+sha1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CC4EC81E80EE3400ED4DB6 /* String+sha1.swift */; };
+		61CC4EC91E80EE3400ED4DB6 /* String+Formats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CC4EC81E80EE3400ED4DB6 /* String+Formats.swift */; };
 		61CDB4371E87038E00E792F6 /* UITextField+Verifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CDB4361E87038E00E792F6 /* UITextField+Verifications.swift */; };
 		61DB8CCD1E83719B00EFD080 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DB8CCC1E83719B00EFD080 /* Loading.swift */; };
 		61F570971E7DABDE00712518 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F570961E7DABDE00712518 /* AuthenticationManager.swift */; };
@@ -125,7 +125,7 @@
 		61BDD9B31E69F3BB00FA0410 /* IBDesignableClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBDesignableClass.swift; path = Views/IBDesignableClass.swift; sourceTree = "<group>"; };
 		61BE8B6B1E81E158005FDB0D /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		61CC4EC61E80DE6A00ED4DB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		61CC4EC81E80EE3400ED4DB6 /* String+sha1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+sha1.swift"; sourceTree = "<group>"; };
+		61CC4EC81E80EE3400ED4DB6 /* String+Formats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Formats.swift"; sourceTree = "<group>"; };
 		61CC4ECB1E80F11D00ED4DB6 /* Crypto-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crypto-Bridging-Header.h"; sourceTree = "<group>"; };
 		61CDB4361E87038E00E792F6 /* UITextField+Verifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Verifications.swift"; sourceTree = "<group>"; };
 		61DB8CCC1E83719B00EFD080 /* Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Loading.swift; path = Views/Loading.swift; sourceTree = "<group>"; };
@@ -326,8 +326,8 @@
 				61BE8B6A1E81E011005FDB0D /* BridgingHeader */,
 				6184857D1E68633B00854092 /* Models */,
 				618485791E6862FE00854092 /* Networking */,
-				6184857B1E68631200854092 /* Authentication */,
 				61A35AF61E7F63B80010A01D /* Persistence */,
+				6184857B1E68631200854092 /* Authentication */,
 				61CC4ECC1E81558900ED4DB6 /* Helpers */,
 				61DB8CCF1E8371FE00EFD080 /* Common */,
 			);
@@ -446,7 +446,7 @@
 				613A8B461E6F1159000DD11D /* UIView+AddSubViews.swift */,
 				61F6D26E1E725F1800754866 /* UIViewController+HideKeyboard.swift */,
 				61BE8B6B1E81E158005FDB0D /* UIViewController+Alerts.swift */,
-				61CC4EC81E80EE3400ED4DB6 /* String+sha1.swift */,
+				61CC4EC81E80EE3400ED4DB6 /* String+Formats.swift */,
 				618AF4CB1E84D610008A6A22 /* StyleKit.swift */,
 				61CDB4361E87038E00E792F6 /* UITextField+Verifications.swift */,
 			);
@@ -796,7 +796,7 @@
 				61F5CE8C1E68FA1C001261C1 /* WelcomeViewController.swift in Sources */,
 				61F6D2711E733DC800754866 /* SignUpViewController.swift in Sources */,
 				61A35AF51E7DCB1F0010A01D /* User.swift in Sources */,
-				61CC4EC91E80EE3400ED4DB6 /* String+sha1.swift in Sources */,
+				61CC4EC91E80EE3400ED4DB6 /* String+Formats.swift in Sources */,
 				61494DFA1E685AB400D4DF13 /* AppDelegate.swift in Sources */,
 				6110E1801E6F6D360005A419 /* CustomWelcomeNavigationController.swift in Sources */,
 				61BE8B6C1E81E158005FDB0D /* UIViewController+Alerts.swift in Sources */,

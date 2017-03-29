@@ -16,8 +16,6 @@ import FBSDKLoginKit
 //
 //**************************************************************************************************
 
-fileprivate let kEmailBottomConstraintWithMessage: CGFloat = 20
-fileprivate let kEmailBottomConstraintWithoutMessage: CGFloat = 15
 fileprivate let kSignUpToDashboardSegue = "signUpToDashboard"
 
 //**************************************************************************************************
@@ -28,29 +26,27 @@ fileprivate let kSignUpToDashboardSegue = "signUpToDashboard"
 
 //**************************************************************************************************
 //
-// MARK: - Enum -
-//
-//**************************************************************************************************
-
-fileprivate enum SignUpTextFieldsTag: Int {
-    case Email = 1
-    case NickName = 2
-    case Password = 3
-    case DateOfBirth = 4
-    case Gender = 5
-}
-
-//**************************************************************************************************
-//
 // MARK: - Class -
 //
 //**************************************************************************************************
 
 class SignUpViewController : UIViewController {
     
+    fileprivate enum SignUpTextFieldsTag: Int {
+        case Email = 1
+        case NickName = 2
+        case Password = 3
+        case DateOfBirth = 4
+        case Gender = 5
+    }
+    
 //*************************************************
 // MARK: - Properties
 //*************************************************
+    
+    fileprivate let emailBottomConstraintWithMessage: CGFloat = 20
+    fileprivate let emailBottomConstraintWithoutMessage: CGFloat = 15
+    let pickerViewGender = ["Female", "Male"]
     
     @IBOutlet weak var signInScrollView: UIScrollView!
     @IBOutlet weak var emailView: UIView!
@@ -65,8 +61,6 @@ class SignUpViewController : UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var termsAndConditionsTextView: UITextView!
     
-    let pickerViewGender = ["Female", "Male"]
-    
 //*************************************************
 // MARK: - Constructors
 //*************************************************
@@ -80,14 +74,10 @@ class SignUpViewController : UIViewController {
     //*************************************************
     
     private func setDatePickerAndPickerViewKeyboard() {
-        
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButton(barButton:)))
-        
         let titleAttributes: [String: Any] = [NSFontAttributeName: UIFont(name: "GothamMedium", size: 15)!,
                                               NSForegroundColorAttributeName: UIColor.black]
         
@@ -105,7 +95,6 @@ class SignUpViewController : UIViewController {
         pickerView.delegate = self
         self.genderTextField.inputView = pickerView
         self.genderTextField.inputAccessoryView = toolBar
-        
     }
     
     @objc private func datePickerChanged(datePicker: UIDatePicker) {
@@ -189,57 +178,61 @@ class SignUpViewController : UIViewController {
 //*************************************************
     
     @IBAction func signUpWithFacebook(_ sender: UIButton) {
-        self.loadingIndicator(true)
-        FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile", "user_birthday"], from: self, handler: { (result, error) in
-            if (result?.isCancelled)! {
-                self.loadingIndicator(false)
-            } else {
-                if error != nil {
-                    self.loadingIndicator(false)
-                    self.presentAlertOk(title: "SIGN UP FAILED", message: (error?.localizedDescription)!)
-                } else {
-                    
-                    FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, name, birthday, gender"]).start(completionHandler: { (connection, result, error) -> Void in
-                        if (error == nil){
-                            print(result)
-                        }
-                    })
-                    
-                    let accessToken = result?.token
-                    guard
-                        let accessTokenString = accessToken?.tokenString else {
-                            return
-                    }
-                    
-                    let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
-                    let authentication = AuthenticationManager()
-                    authentication.createUserWith(facebook: credentials, completion: { (responseStatus, error) in
-                        switch(responseStatus) {
-                        case .Success:
-                            self.loadingIndicator(false)
-                            self.logged()
-                        case .Failed:
-                            self.loadingIndicator(false)
+        self.loadingIndicator(isShow: true)
+        let readPermissions = ["email", "public_profile", "user_birthday"]
+        FBSDKLoginManager().logIn(withReadPermissions: readPermissions, from: self, handler: { (resultLoginManager, error) in
+            if (resultLoginManager?.isCancelled)! == false {
+                if error == nil {
+                    FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, name, birthday, gender, picture"]).start(completionHandler: {
+                        (connection, resultGraph, error) -> Void in
+                        if error == nil {
+                            guard let userJSON = resultGraph as? JSON else { return }
+                            let facebookUser = User()
+                            
+                            facebookUser.decodeJSON(fromFacebook: userJSON)
+                            
+                            let accessToken = resultLoginManager?.token
+                            guard let accessTokenString = accessToken?.tokenString else { return }
+                            let facebookCredentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
+                            let authentication = AuthenticationManager()
+                            
+                            authentication.createUserWith(credentials: facebookCredentials, accreditedUser: facebookUser, completion: {
+                                (responseStatus, error) in
+                                switch(responseStatus) {
+                                case .Success:
+                                    self.logged()
+                                case .Failed:
+                                    self.loadingIndicator(isShow: false)
+                                    self.presentAlertOk(title: "SIGN UP FAILED", message: (error?.localizedDescription)!)
+                                }
+                            })
+                        } else {
+                            self.loadingIndicator(isShow: false)
                             self.presentAlertOk(title: "SIGN UP FAILED", message: (error?.localizedDescription)!)
                         }
                     })
+                } else {
+                    self.loadingIndicator(isShow: false)
+                    self.presentAlertOk(title: "SIGN UP FAILED", message: (error?.localizedDescription)!)
                 }
+                
+            } else {
+                self.loadingIndicator(isShow: false)
             }
         })
     }
     
     @IBAction func signUpWithEmail(_ sender: UIButton) {
         self.dismissKeyboard()
-        self.loadingIndicator(true)
-        guard
-            let email = self.emailTextField.text,
-            let nickName = self.nickNameTextField.text,
-            let password = self.passwordTextField.text,
-            let dateOfBirth = self.dateOfBirthTextField.text,
-            let gender = self.genderTextField.text else {
-                return
-        }
+        self.loadingIndicator(isShow: true)
+        
+        let email = self.emailTextField.text!
+        let nickName = self.nickNameTextField.text!
+        let password = self.passwordTextField.text!
+        let dateOfBirth = self.dateOfBirthTextField.text!
+        let gender = self.genderTextField.text!
         let authentication = AuthenticationManager()
+        
         authentication.createUserWith(email: email,
                                       nickName: nickName,
                                       password: password,
@@ -248,10 +241,9 @@ class SignUpViewController : UIViewController {
                                       completion: { (responseStatus, error) in
                                         switch(responseStatus) {
                                         case .Success:
-                                            self.loadingIndicator(false)
                                             self.logged()
                                         case .Failed:
-                                            self.loadingIndicator(false)
+                                            self.loadingIndicator(isShow: false)
                                             self.presentAlertOk(title: "SIGN UP FAILED", message: (error?.localizedDescription)!)
                                         }
         })
@@ -294,7 +286,7 @@ extension SignUpViewController : UITextFieldDelegate {
         switch textField.tag {
         case SignUpTextFieldsTag.Email.rawValue:
             self.checkEmailImageView.isHidden = true
-            self.emailBottomConstraint.constant = kEmailBottomConstraintWithoutMessage
+            self.emailBottomConstraint.constant = emailBottomConstraintWithoutMessage
             self.emailCheckMessageLabel.isHidden = true
             if (!textFill.isEmpty) && (!self.emailCheckMessageLabel.isHidden && !self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
@@ -352,7 +344,7 @@ extension SignUpViewController : UITextFieldDelegate {
                     self.checkEmailImageView.image = #imageLiteral(resourceName: "email-incorrect")
                     self.emailCheckMessageLabel.text = "Invalid email address."
                     self.checkEmailImageView.isHidden = false
-                    self.emailBottomConstraint.constant = kEmailBottomConstraintWithMessage
+                    self.emailBottomConstraint.constant = emailBottomConstraintWithMessage
                     self.emailCheckMessageLabel.isHidden = false
                     self.signUpButton.isEnabled = false
                 } else {
@@ -360,20 +352,20 @@ extension SignUpViewController : UITextFieldDelegate {
                     AuthenticationManager.userEmailExists(email: textField.text!, isExists: { isExistsResponse in
                         self.checkEmailImageView.isHidden = true
                         self.emailCheckMessageLabel.isHidden = true
-                        self.emailBottomConstraint.constant = kEmailBottomConstraintWithoutMessage
+                        self.emailBottomConstraint.constant = self.emailBottomConstraintWithoutMessage
                         if isExistsResponse {
                             self.emailView.loadingIndicatorView(isShow: false, at: nil)
                             self.checkEmailImageView.image = #imageLiteral(resourceName: "email-incorrect")
                             self.emailCheckMessageLabel.text = "That email address is already registered."
                             self.checkEmailImageView.isHidden = false
-                            self.emailBottomConstraint.constant = kEmailBottomConstraintWithMessage
+                            self.emailBottomConstraint.constant = self.emailBottomConstraintWithMessage
                             self.emailCheckMessageLabel.isHidden = false
                             self.signUpButton.isEnabled = false
                         } else {
                             self.emailView.loadingIndicatorView(isShow: false, at: nil)
                             self.checkEmailImageView.image = #imageLiteral(resourceName: "email-correct")
                             self.checkEmailImageView.isHidden = false
-                            self.emailBottomConstraint.constant = kEmailBottomConstraintWithoutMessage
+                            self.emailBottomConstraint.constant = self.emailBottomConstraintWithoutMessage
                             self.emailCheckMessageLabel.isHidden = true
                             if (!self.emailTextField.text!.isEmpty) && (!self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty) {
                                 self.signUpButton.isEnabled = true

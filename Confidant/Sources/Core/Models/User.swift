@@ -20,7 +20,7 @@ import Foundation
 //
 //**************************************************************************************************
 
-typealias JSON = [String: String]
+typealias JSON = [String: AnyObject]
 
 //**************************************************************************************************
 //
@@ -44,6 +44,10 @@ class User : NSObject {
 //*************************************************
 // MARK: - Constructors
 //*************************************************
+    
+    override init() {
+        
+    }
 
     init(userId: String?,
          email: String?,
@@ -52,14 +56,6 @@ class User : NSObject {
          gender: String?,
          photoURL: String?) {
         self.userId = userId ?? ""
-        self.email = email ?? ""
-        self.nickName = nickName ?? ""
-        self.dateOfBirth = dateOfBirth ?? ""
-        self.gender = gender ?? ""
-        self.photoURL = photoURL ?? ""
-    }
-    
-    init(json: Any?) {
         self.email = email ?? ""
         self.nickName = nickName ?? ""
         self.dateOfBirth = dateOfBirth ?? ""
@@ -79,17 +75,25 @@ class User : NSObject {
 // MARK: - Public Methods
 //*************************************************
     
-    func getJSON() -> JSON {
-        let userJSONValue: JSON = ["email": self.email ?? "",
-                             "nickName": self.nickName ?? "",
-                             "dateOfBirth": self.dateOfBirth ?? "",
-                             "gender": self.gender ?? "",
-                             "photoURL": self.photoURL ?? ""]
-        return userJSONValue
+    public func decodeJSON(fromFacebook: JSON) {
+        self.email = fromFacebook["email"] as? String ?? ""
+        self.nickName = fromFacebook["name"] as? String ?? ""
+        self.dateOfBirth = fromFacebook["birthday"] as? String ?? ""
+        self.gender = fromFacebook["gender"] as? String ?? ""
+        self.photoURL = fromFacebook["picture"] as? String ?? ""
     }
     
-    func getAccountEmail() -> JSON {
-        let accountJSONValue: JSON = ["email": self.email ?? ""]
+    public func encodeJSON() -> JSON {
+        let json: JSON = ["email" : self.email as AnyObject,
+                          "nickName" : self.nickName as AnyObject,
+                          "dateOfBirth" : self.dateOfBirth as AnyObject,
+                          "gender" : self.gender as AnyObject,
+                          "photoURL" : self.photoURL as AnyObject]
+        return json
+    }
+    
+    public func encodeAccountEmailJSON() -> JSON {
+        let accountJSONValue: JSON = ["email" : self.email as AnyObject]
         return accountJSONValue
     }
 

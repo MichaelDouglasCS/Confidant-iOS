@@ -25,22 +25,16 @@ fileprivate let kLogInToDashboardSegue = "logInToDashboard"
 
 //**************************************************************************************************
 //
-// MARK: - Enum -
-//
-//**************************************************************************************************
-
-fileprivate enum LogInTextFieldsTag: Int {
-    case Email = 1
-    case Password = 2
-}
-
-//**************************************************************************************************
-//
 // MARK: - Class -
 //
 //**************************************************************************************************
 
 class LogInViewController : UIViewController {
+    
+    fileprivate enum LogInTextFieldsTag: Int {
+        case Email = 1
+        case Password = 2
+    }
     
 //*************************************************
 // MARK: - Properties
@@ -103,6 +97,25 @@ class LogInViewController : UIViewController {
         }
     }
     
+    fileprivate func loginWithEmail() {
+        self.dismissKeyboard()
+        self.loadingIndicator(isShow: true)
+        
+        let email = self.emailTextField.text!
+        let password = self.passwordTextField.text!
+        let authentication = AuthenticationManager()
+        
+        authentication.logInWith(email: email, password: password, completion: { (responseStatus, error) in
+            switch(responseStatus) {
+            case .Success:
+                self.logged()
+            case .Failed:
+                self.loadingIndicator(isShow: false)
+                self.presentAlertOk(title: "LOG IN FAILED", message: (error?.localizedDescription)!)
+            }
+        })
+    }
+    
 //*************************************************
 // MARK: - Internal Methods
 //*************************************************
@@ -116,24 +129,7 @@ class LogInViewController : UIViewController {
     }
     
     @IBAction func logInWithEmailAndPassword(_ sender: UIButton) {
-        self.dismissKeyboard()
-        self.loadingIndicator(true)
-        guard
-            let email = self.emailTextField.text,
-            let password = self.passwordTextField.text else {
-                return
-        }
-        let authentication = AuthenticationManager()
-        authentication.logInWith(email: email, password: password, completion: { (responseStatus, error) in
-            switch(responseStatus) {
-            case .Success:
-                self.loadingIndicator(false)
-                self.logged()
-            case .Failed:
-                self.loadingIndicator(false)
-                self.presentAlertOk(title: "LOG IN FAILED", message: (error?.localizedDescription)!)
-            }
-        })
+        self.loginWithEmail()
     }
     
     @IBAction func forgotPassword(_ sender: UIButton) {
@@ -202,7 +198,7 @@ extension LogInViewController : UITextFieldDelegate {
                 return false
             } else {
                 self.passwordTextField.resignFirstResponder()
-                print("Log In")
+                self.loginWithEmail()
             }
         default: break
         }

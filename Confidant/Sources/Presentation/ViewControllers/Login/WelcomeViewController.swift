@@ -88,9 +88,10 @@ class WelcomeViewController : UIViewController {
     private func addSwipeGestureRecognizers() {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
         swipeRight.direction = .right
-        self.view.addGestureRecognizer(swipeRight)
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
         swipeLeft.direction = .left
+        
+        self.view.addGestureRecognizer(swipeRight)
         self.view.addGestureRecognizer(swipeLeft)
     }
     
@@ -116,7 +117,6 @@ class WelcomeViewController : UIViewController {
     //*************************************************
     
     private func loadWelcomeMessages() {
-        
         //Actualize MessageScrollView with the same frame of Super View
         self.messageScrollView.frame = self.view.frame
         
@@ -125,19 +125,15 @@ class WelcomeViewController : UIViewController {
         self.messageScrollView.contentSize = CGSize(width: self.view.bounds.size.width * (CGFloat(welcomeMessages.count) + 2), height: self.messageScrollView.frame.size.height)
         
         for (index, message) in welcomeMessages.enumerated() {
-            
             //Setup Size and Position MessageView, Title and Text
             let messageView = UIView(frame: CGRect(x: 0, y: 0, width: CGFloat(self.messageScrollView.bounds.size.width), height: CGFloat(self.messageScrollView.bounds.size.height)))
-            
             let messageTitle = UILabel(frame: CGRect(x: CGFloat(messageView.frame.size.width - 300) / 2, y: 0, width: 300, height: 25))
-            
             let messageText = UILabel(frame: CGRect(x: CGFloat(messageView.frame.size.width - 300) / 2, y: CGFloat(messageTitle.frame.size.height + 3), width: 300, height: 40))
             
             //Configure MessageView Background
             messageView.backgroundColor = UIColor.clear
 
             if index == welcomeMessages.startIndex {
-                
                 let firstView = UIView(frame: messageView.frame)
                 let firstTitle = UILabel(frame: messageTitle.frame)
                 let firstText = UILabel(frame: messageText.frame)
@@ -181,7 +177,6 @@ class WelcomeViewController : UIViewController {
                 lastView.addSubViews(views: [lastTitle, lastText])
                 lastView.frame.origin.x = CGFloat(index+1) * self.messageScrollView.frame.size.width
                 self.messageScrollView.addSubview(lastView)
-
             }
         }
     }
