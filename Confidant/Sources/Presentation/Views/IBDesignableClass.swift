@@ -54,6 +54,18 @@ import UIKit
             layer.borderColor = borderColor?.cgColor
         }
     }
+	
+	//*************************************************
+	// MARK: - Override Public Methods
+	//*************************************************
+	
+	override public func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
+	}
+	
+	override public func awakeFromNib() {
+		super.awakeFromNib()
+	}
     
 }
 
@@ -85,6 +97,18 @@ import UIKit
             layer.borderColor = borderColor?.cgColor
         }
     }
+	
+	//*************************************************
+	// MARK: - Override Public Methods
+	//*************************************************
+	
+	override public func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
+	}
+	
+	override public func awakeFromNib() {
+		super.awakeFromNib()
+	}
     
 }
 
@@ -116,6 +140,18 @@ import UIKit
             layer.borderColor = borderColor?.cgColor
         }
     }
+	
+	//*************************************************
+	// MARK: - Override Public Methods
+	//*************************************************
+	
+	override public func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
+	}
+	
+	override public func awakeFromNib() {
+		super.awakeFromNib()
+	}
     
 }
 
@@ -147,6 +183,18 @@ import UIKit
             layer.borderColor = borderColor?.cgColor
         }
     }
+	
+	//*************************************************
+	// MARK: - Override Public Methods
+	//*************************************************
+	
+	override public func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
+	}
+	
+	override public func awakeFromNib() {
+		super.awakeFromNib()
+	}
     
 }
 
@@ -201,6 +249,18 @@ import UIKit
             self.attributedText = attributedString;
         }
     }
+	
+	//*************************************************
+	// MARK: - Override Public Methods
+	//*************************************************
+	
+	override public func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
+	}
+	
+	override public func awakeFromNib() {
+		super.awakeFromNib()
+	}
     
 }
 
@@ -236,6 +296,18 @@ import UIKit
             self.attributedText = attributedString;
         }
     }
+	
+	//*************************************************
+	// MARK: - Override Public Methods
+	//*************************************************
+	
+	override public func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
+	}
+	
+	override public func awakeFromNib() {
+		super.awakeFromNib()
+	}
     
 }
 
@@ -260,5 +332,17 @@ import UIKit
             self.setBackgroundImage(backgroundImage, for: .default)
         }
     }
+	
+	//*************************************************
+	// MARK: - Override Public Methods
+	//*************************************************
+	
+	override public func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
+	}
+	
+	override public func awakeFromNib() {
+		super.awakeFromNib()
+	}
     
 }
