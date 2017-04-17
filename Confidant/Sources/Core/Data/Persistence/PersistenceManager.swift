@@ -1,12 +1,14 @@
 //
-//  User.swift
+//  PersistenceManager.swift
 //  Confidant
 //
-//  Created by Michael Douglas on 18/03/17.
+//  Created by Michael Douglas on 19/03/17.
 //  Copyright © 2017 Watermelon. All rights reserved.
 //
 
 import Foundation
+import FirebaseAuth
+import FirebaseDatabase
 
 //**************************************************************************************************
 //
@@ -20,49 +22,41 @@ import Foundation
 //
 //**************************************************************************************************
 
-typealias JSON = [String: AnyObject]
-
 //**************************************************************************************************
 //
 // MARK: - Class -
 //
 //**************************************************************************************************
 
-class User : NSObject {
+class PersistenceManager {
+    
+    enum FirebaseDBTables {
+        case Users(userId: String)
+        case Accounts(userEmailEncrypted: String)
+        func reference() -> FIRDatabaseReference {
+            switch self {
+            case .Users(let userId):
+                return PersistenceManager.firebaseDB.child("users").child(userId)
+            case .Accounts(let email):
+                return PersistenceManager.firebaseDB.child("accounts").child(email)
+            }
+        }
+    }
 
 //*************************************************
 // MARK: - Properties
 //*************************************************
 
-    public var userId: String?
-    public var email: String?
-    public var nickName: String?
-    public var dateOfBirth: String?
-    public var gender: String?
-    public var photoURL: String?
-    
+    static var firebaseDB: FIRDatabaseReference {
+        get {
+            return FIRDatabase.database().reference(fromURL: URLs.databaseURL())
+        }
+    }
+
 //*************************************************
 // MARK: - Constructors
 //*************************************************
-    
-    override init() {
-        
-    }
 
-    init(userId: String?,
-         email: String?,
-         nickName: String?,
-         dateOfBirth: String?,
-         gender: String?,
-         photoURL: String?) {
-        self.userId = userId ?? ""
-        self.email = email ?? ""
-        self.nickName = nickName ?? ""
-        self.dateOfBirth = dateOfBirth ?? ""
-        self.gender = gender ?? ""
-        self.photoURL = photoURL ?? ""
-    }
-    
 //*************************************************
 // MARK: - Private Methods
 //*************************************************
@@ -71,31 +65,26 @@ class User : NSObject {
 // MARK: - Internal Methods
 //*************************************************
     
+    func create(user: UserVO, completion: @escaping (ResponseStatus, Error?)->Void) {
+        PersistenceManager.FirebaseDBTables.Accounts(userEmailEncrypted: (user.email?.toSHA1())!).reference().updateChildValues(user.encodeAccountEmailJSON(), withCompletionBlock: { (error, accountResult) in
+            if error == nil {
+                PersistenceManager.FirebaseDBTables.Users(userId: user.userId!).reference().updateChildValues(user.encodeJSON(), withCompletionBlock: {
+                    (error, userResult) in
+                    if error == nil {
+                        completion(.Success, error)
+                    } else {
+                        completion(.Failed, error)
+                    }
+                })
+            } else {
+                completion(.Failed, error)
+            }
+        })
+    }
+    
 //*************************************************
 // MARK: - Public Methods
 //*************************************************
-    
-    public func decodeJSON(fromFacebook: JSON) {
-        self.email = fromFacebook["email"] as? String ?? ""
-        self.nickName = fromFacebook["name"] as? String ?? ""
-        self.dateOfBirth = fromFacebook["birthday"] as? String ?? ""
-        self.gender = fromFacebook["gender"] as? String ?? ""
-        self.photoURL = fromFacebook["picture"] as? String ?? ""
-    }
-    
-    public func encodeJSON() -> JSON {
-        let json: JSON = ["email" : self.email as AnyObject,
-                          "nickName" : self.nickName as AnyObject,
-                          "dateOfBirth" : self.dateOfBirth as AnyObject,
-                          "gender" : self.gender as AnyObject,
-                          "photoURL" : self.photoURL as AnyObject]
-        return json
-    }
-    
-    public func encodeAccountEmailJSON() -> JSON {
-        let accountJSONValue: JSON = ["email" : self.email as AnyObject]
-        return accountJSONValue
-    }
 
 //*************************************************
 // MARK: - Override Public Methods

@@ -36,7 +36,7 @@ class AuthenticationManager {
 // MARK: - Properties
 //*************************************************
 
-    var userAuthenticated: User?
+    var userAuthenticated: UserVO?
     
 //*************************************************
 // MARK: - Constructors
@@ -54,7 +54,7 @@ class AuthenticationManager {
 // MARK: - Public Methods
 //*************************************************
     
-    func createUserWith(credentials: FIRAuthCredential, accreditedUser: User, completion: @escaping (ResponseStatus, Error?)->Void) {
+    func createUserWith(credentials: FIRAuthCredential, accreditedUser: UserVO, completion: @escaping (ResponseStatus, Error?)->Void) {
         FIRAuth.auth()?.signIn(with: credentials, completion: { (firebaseUser: FIRUser?, error) in
             if error == nil {
                 guard
@@ -67,7 +67,7 @@ class AuthenticationManager {
                         completion(.Failed, error)
                         return
                 }
-                let user = User(userId: uid, email: email, nickName: nickName, dateOfBirth: dateOfBirth, gender: gender, photoURL: photoURL)
+                let user = UserVO(userId: uid, email: email, nickName: nickName, dateOfBirth: dateOfBirth, gender: gender, photoURL: photoURL)
                 let persistence = PersistenceManager()
                 
                 persistence.create(user: user, completion: { (responseStatus, error) in
@@ -93,7 +93,7 @@ class AuthenticationManager {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (firebaseUser: FIRUser?, error)  in
             if error == nil {
                 guard let uid = firebaseUser?.uid else { return }
-                let user = User(userId: uid, email: email, nickName: nickName, dateOfBirth: dateOfBirth, gender: gender, photoURL: nil)
+                let user = UserVO(userId: uid, email: email, nickName: nickName, dateOfBirth: dateOfBirth, gender: gender, photoURL: nil)
                 let persistence = PersistenceManager()
                 
                 persistence.create(user: user, completion: { (responseStatus, error) in
