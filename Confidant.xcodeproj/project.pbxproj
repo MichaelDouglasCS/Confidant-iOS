@@ -966,7 +966,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.watermelon.Confidant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "Confidant/Sources/Core/BridgingHeader/Crypto-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Confidant/Sources/Core/Common/Crypto-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -984,7 +984,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.watermelon.Confidant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "Confidant/Sources/Core/BridgingHeader/Crypto-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Confidant/Sources/Core/Common/Crypto-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

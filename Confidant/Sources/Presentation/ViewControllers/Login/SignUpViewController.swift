@@ -187,7 +187,7 @@ class SignUpViewController : UIViewController {
                         (connection, resultGraph, error) -> Void in
                         if error == nil {
                             guard let userJSON = resultGraph as? JSON else { return }
-                            let facebookUser = User()
+                            let facebookUser = UserVO()
                             
                             facebookUser.decodeJSON(fromFacebook: userJSON)
                             
