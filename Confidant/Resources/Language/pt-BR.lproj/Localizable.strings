@@ -1,0 +1,24 @@
+//*************************
+// Labels
+//*************************
+
+"LB_LOGIN" = "LOG IN";
+"LB_SIGNUP" = "SIGN UP";
+
+
+//*************************
+// Strings
+//*************************
+
+"ST_OK" = "OK";
+"ST_HELLO" = "Hello";
+"ST_TODAY" = "Today";
+
+
+//*************************
+// Messages
+//*************************
+
+"MSG_FINGER_PRINT" = "Please place your finger over the Home Button sensor to authenticate the current user";
+"MSG_INVALID_FINGER_PRINT" = "It was not possible to authenticate through the sensor, please enter the password manually";
+

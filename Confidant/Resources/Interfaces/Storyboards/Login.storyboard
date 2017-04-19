@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QU8-uW-fYb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QU8-uW-fYb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="GOTHAM-BOLD.TTF">
             <string>GothamBold</string>
+        </array>
+        <array key="GOTHAM-LIGHT_0.OTF">
+            <string>Gotham-Light</string>
         </array>
         <array key="GOTHAM-MEDIUM.TTF">
             <string>GothamMedium</string>
@@ -21,95 +25,103 @@
         <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="MainView">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-welcome" translatesAutoresizingMaskIntoConstraints="NO" id="vlE-fh-E07" userLabel="BackgroundImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_welcome" translatesAutoresizingMaskIntoConstraints="NO" id="vlE-fh-E07" userLabel="BackgroundImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <gestureRecognizers/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-welcome" translatesAutoresizingMaskIntoConstraints="NO" id="rqg-dq-mT7" userLabel="LogoNameImageView">
-                                <rect key="frame" x="33" y="50" width="308" height="95"/>
-                            </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P76-oI-xE8" userLabel="MessageScrollView">
-                                <rect key="frame" x="0.0" y="414" width="375" height="68"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="68" id="wZL-eT-iiu"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Yeo-es-UrV"/>
-                                </connections>
-                            </scrollView>
-                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="QPx-JJ-pRK" userLabel="MessagePageControl">
-                                <rect key="frame" x="152" y="490" width="71" height="37"/>
-                            </pageControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WI-tj-6Po" userLabel="ButtonView">
-                                <rect key="frame" x="0.0" y="553" width="375" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="V2e-NF-8VW">
+                                <rect key="frame" x="29.5" y="50" width="316" height="95"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqh-aP-GHI">
-                                        <rect key="frame" x="186" y="0.0" width="2" height="50"/>
-                                        <color key="backgroundColor" red="0.84302508009999999" green="0.2642250948" blue="0.79832135579999997" alpha="0.72999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="olQ-0s-RzU">
+                                        <rect key="frame" x="0.0" y="0.0" width="98" height="95"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="5hQ-Hp-hVL"/>
-                                            <constraint firstAttribute="width" constant="2" id="XEj-bL-6BH"/>
+                                            <constraint firstAttribute="width" secondItem="olQ-0s-RzU" secondAttribute="height" multiplier="98:95" id="4us-di-1Uh"/>
+                                            <constraint firstAttribute="width" constant="98" id="72a-At-Cgp"/>
+                                            <constraint firstAttribute="height" constant="95" id="KNg-PR-hl2"/>
                                         </constraints>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLr-x2-vyf" userLabel="LoginButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
-                                        <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="17"/>
-                                        <state key="normal" title="LOG IN" backgroundImage="login-welcome"/>
-                                        <connections>
-                                            <segue destination="Z3h-2O-sy4" kind="show" identifier="loginSegue" id="6rr-VM-BUh"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Tm-qV-bh3" userLabel="SigninButton">
-                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
-                                        <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="17"/>
-                                        <state key="normal" title="SIGN UP" backgroundImage="signup-welcome"/>
-                                        <connections>
-                                            <segue destination="13q-1x-OyM" kind="show" id="wVw-Gk-lSf"/>
-                                        </connections>
-                                    </button>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confidant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFS-ef-fOf" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
+                                        <rect key="frame" x="103" y="0.0" width="213" height="95"/>
+                                        <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                                <real key="value" value="-4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="JLr-x2-vyf" secondAttribute="bottom" id="2bv-wv-dl3"/>
-                                    <constraint firstItem="JLr-x2-vyf" firstAttribute="leading" secondItem="1WI-tj-6Po" secondAttribute="leading" id="8Kl-mr-tM5"/>
-                                    <constraint firstItem="8Tm-qV-bh3" firstAttribute="leading" secondItem="dqh-aP-GHI" secondAttribute="trailing" constant="-1" id="E9A-wY-qgw"/>
-                                    <constraint firstItem="JLr-x2-vyf" firstAttribute="top" secondItem="8Tm-qV-bh3" secondAttribute="top" id="QTm-oG-snH"/>
-                                    <constraint firstItem="dqh-aP-GHI" firstAttribute="centerX" secondItem="1WI-tj-6Po" secondAttribute="centerX" id="Wf0-uc-WlC"/>
-                                    <constraint firstAttribute="bottom" secondItem="8Tm-qV-bh3" secondAttribute="bottom" id="bpv-ZC-2ed"/>
-                                    <constraint firstAttribute="trailing" secondItem="8Tm-qV-bh3" secondAttribute="trailing" id="hqN-CO-ByM"/>
-                                    <constraint firstAttribute="bottom" secondItem="JLr-x2-vyf" secondAttribute="bottom" id="mbS-fB-GeJ"/>
-                                    <constraint firstItem="JLr-x2-vyf" firstAttribute="top" secondItem="1WI-tj-6Po" secondAttribute="top" id="pb3-88-o5d"/>
-                                    <constraint firstItem="JLr-x2-vyf" firstAttribute="width" secondItem="8Tm-qV-bh3" secondAttribute="width" id="ri8-Cn-8Fn"/>
-                                    <constraint firstAttribute="bottom" secondItem="dqh-aP-GHI" secondAttribute="bottom" id="ww4-hJ-oBh"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="95" id="Dh8-UA-LqY"/>
                                 </constraints>
-                            </view>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pnE-n1-8p4">
+                                <rect key="frame" x="0.0" y="435" width="375" height="168"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P76-oI-xE8" userLabel="MessageScrollView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="68" id="3tq-TD-0CE"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Yeo-es-UrV"/>
+                                        </connections>
+                                    </scrollView>
+                                    <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="QPx-JJ-pRK" userLabel="MessagePageControl">
+                                        <rect key="frame" x="0.0" y="68" width="375" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="wuS-uW-0Xl"/>
+                                        </constraints>
+                                    </pageControl>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FnY-FT-4Zs">
+                                        <rect key="frame" x="0.0" y="118" width="375" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Tm-qV-bh3" userLabel="SigninButton" customClass="LocalizedButton" customModule="Confidant" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="188" height="50"/>
+                                                <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="17"/>
+                                                <state key="normal" title="LB_SIGNUP" backgroundImage="bg_blue"/>
+                                                <connections>
+                                                    <segue destination="13q-1x-OyM" kind="show" id="wVw-Gk-lSf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLr-x2-vyf" userLabel="LoginButton" customClass="LocalizedButton" customModule="Confidant" customModuleProvider="target">
+                                                <rect key="frame" x="187" y="0.0" width="188" height="50"/>
+                                                <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="17"/>
+                                                <state key="normal" title="LB_LOGIN" backgroundImage="bg_pink"/>
+                                                <connections>
+                                                    <segue destination="Z3h-2O-sy4" kind="show" identifier="loginSegue" id="6rr-VM-BUh"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Gt3-VE-RQs"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="vlE-fh-E07" secondAttribute="bottom" id="1Bf-LQ-XPV"/>
-                            <constraint firstItem="vlE-fh-E07" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4Sa-Bp-4tf"/>
-                            <constraint firstItem="1WI-tj-6Po" firstAttribute="leading" secondItem="P76-oI-xE8" secondAttribute="leading" id="6YE-Gg-hAD"/>
-                            <constraint firstAttribute="trailing" secondItem="P76-oI-xE8" secondAttribute="trailing" id="6z1-Sp-TKo"/>
-                            <constraint firstAttribute="trailing" secondItem="rqg-dq-mT7" secondAttribute="trailing" constant="34" id="ChT-X5-aIH"/>
-                            <constraint firstItem="1WI-tj-6Po" firstAttribute="top" secondItem="QPx-JJ-pRK" secondAttribute="bottom" constant="26" id="HKc-9S-byf"/>
-                            <constraint firstItem="QPx-JJ-pRK" firstAttribute="top" secondItem="P76-oI-xE8" secondAttribute="bottom" constant="8" id="SvI-5l-Jmj"/>
-                            <constraint firstItem="rqg-dq-mT7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="aSN-T0-9Ti"/>
-                            <constraint firstItem="QPx-JJ-pRK" firstAttribute="centerX" secondItem="P76-oI-xE8" secondAttribute="centerX" id="cWo-Jq-acW"/>
-                            <constraint firstItem="P76-oI-xE8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dzR-IP-83p"/>
-                            <constraint firstItem="1WI-tj-6Po" firstAttribute="trailing" secondItem="P76-oI-xE8" secondAttribute="trailing" id="jVf-nd-exX"/>
-                            <constraint firstItem="1WI-tj-6Po" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="mGB-d3-kUd"/>
-                            <constraint firstAttribute="trailing" secondItem="vlE-fh-E07" secondAttribute="trailing" id="pg6-m9-2sl"/>
-                            <constraint firstItem="vlE-fh-E07" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qOt-2j-xxi"/>
-                            <constraint firstItem="rqg-dq-mT7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="33" id="zn7-T7-aLJ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="vlE-fh-E07" secondAttribute="bottom" id="5Wc-rH-SyT"/>
+                            <constraint firstItem="V2e-NF-8VW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8W5-ku-3dH"/>
+                            <constraint firstAttribute="topMargin" secondItem="vlE-fh-E07" secondAttribute="top" id="CBk-8y-KmX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pnE-n1-8p4" secondAttribute="bottom" id="cBE-m0-AYh"/>
+                            <constraint firstItem="V2e-NF-8VW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="gMA-mm-brk"/>
+                            <constraint firstAttribute="trailing" secondItem="pnE-n1-8p4" secondAttribute="trailing" id="hdB-SW-M1O"/>
+                            <constraint firstItem="pnE-n1-8p4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pDm-Jy-8IQ"/>
+                            <constraint firstAttribute="trailing" secondItem="vlE-fh-E07" secondAttribute="trailing" id="toJ-YZ-U9K"/>
+                            <constraint firstItem="vlE-fh-E07" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="w6n-8t-gOc"/>
+                            <constraint firstItem="pnE-n1-8p4" firstAttribute="top" secondItem="V2e-NF-8VW" secondAttribute="bottom" priority="750" constant="290" id="wYy-Nt-XfQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DnS-MR-goq"/>
@@ -125,7 +137,7 @@
         <!--SignInViewController-->
         <scene sceneID="wBK-8x-eU4">
             <objects>
-                <viewController id="13q-1x-OyM" userLabel="SignInViewController" customClass="SignUpViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="13q-1x-OyM" userLabel="SignInViewController" customClass="SignUpViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fkY-NM-19l"/>
                         <viewControllerLayoutGuide type="bottom" id="jMt-T1-JaQ"/>
@@ -140,7 +152,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3T-9K-MKi" userLabel="SignUpButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="53" y="15" width="269" height="45"/>
                                         <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="13"/>
-                                        <state key="normal" title="SIGN UP WITH FACEBOOK" backgroundImage="backgroundFacebook"/>
+                                        <state key="normal" title="SIGN UP WITH FACEBOOK" backgroundImage="bg_blue_facebook"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="23"/>
@@ -162,7 +174,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-E8-nS4" userLabel="EmailView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="24" y="111" width="327" height="40"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mail-icon" translatesAutoresizingMaskIntoConstraints="NO" id="0X5-UE-Rcy" userLabel="email-icon">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_email" translatesAutoresizingMaskIntoConstraints="NO" id="0X5-UE-Rcy" userLabel="email-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="rOj-UW-Br4" userLabel="EmailTextField">
@@ -174,7 +186,7 @@
                                                     <outlet property="delegate" destination="13q-1x-OyM" id="q7H-st-MZS"/>
                                                 </connections>
                                             </textField>
-                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email-correct" translatesAutoresizingMaskIntoConstraints="NO" id="rzO-3j-epK" userLabel="check-email">
+                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_checkmark_correct" translatesAutoresizingMaskIntoConstraints="NO" id="rzO-3j-epK" userLabel="check-email">
                                                 <rect key="frame" x="301" y="12" width="16" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="16" id="6hN-i4-84a"/>
@@ -220,7 +232,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAZ-Aj-ZZg" userLabel="NicknameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="24" y="166" width="327" height="40"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-icon" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-zj-KYx">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_user" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-zj-KYx">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nickname" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="unK-aq-Wct" userLabel="NicknameTextField">
@@ -259,7 +271,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUk-jZ-lPK" userLabel="PasswordView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="24" y="221" width="327" height="40"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ftd-Ze-IVK" userLabel="password-icon">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_password" translatesAutoresizingMaskIntoConstraints="NO" id="ftd-Ze-IVK" userLabel="password-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="21" id="T2w-QN-bpI"/>
@@ -300,7 +312,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4x-Px-um3" userLabel="DateOfBirthView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="24" y="276" width="327" height="40"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-Iw-zVS" userLabel="date-icon">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_calendar" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-Iw-zVS" userLabel="date-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of birth" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="vaU-y0-8sj" userLabel="DateOfBirthTextField">
@@ -338,7 +350,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvx-wy-gN9" userLabel="GenderView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="24" y="331" width="327" height="40"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genders-icon" translatesAutoresizingMaskIntoConstraints="NO" id="YpX-ZL-Pzb" userLabel="gender-icon">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_gender" translatesAutoresizingMaskIntoConstraints="NO" id="YpX-ZL-Pzb" userLabel="gender-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="BUi-85-pya" userLabel="GenderTextField">
@@ -380,7 +392,7 @@
                                             <constraint firstAttribute="height" constant="45" id="jar-Ta-885"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="15"/>
-                                        <state key="normal" title="SIGN UP" backgroundImage="login-background">
+                                        <state key="normal" title="SIGN UP" backgroundImage="bg_pink">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -479,7 +491,7 @@
         <!--LogInViewController-->
         <scene sceneID="hP4-R5-Z91">
             <objects>
-                <viewController id="Z3h-2O-sy4" userLabel="LogInViewController" customClass="LogInViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Z3h-2O-sy4" userLabel="LogInViewController" customClass="LogInViewController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xq4-lH-hgQ"/>
                         <viewControllerLayoutGuide type="bottom" id="hnK-Sc-Vaw"/>
@@ -494,7 +506,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyH-s9-Ewm" userLabel="LoginFacebookButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="53" y="15" width="269" height="45"/>
                                         <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="13"/>
-                                        <state key="normal" title="LOG IN WITH FACEBOOK" backgroundImage="backgroundFacebook">
+                                        <state key="normal" title="LOG IN WITH FACEBOOK" backgroundImage="bg_blue_facebook">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -515,7 +527,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgt-wu-RAT" userLabel="UsernameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="24" y="111" width="327" height="40"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mail-icon" translatesAutoresizingMaskIntoConstraints="NO" id="QiL-Zk-x79">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_email" translatesAutoresizingMaskIntoConstraints="NO" id="QiL-Zk-x79">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Xcz-tz-Mlv" userLabel="EmailTextField">
@@ -554,7 +566,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSH-vO-l7a" userLabel="PasswordView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="24" y="166" width="327" height="40"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password-icon" translatesAutoresizingMaskIntoConstraints="NO" id="KqY-HR-Izx" userLabel="password-icon">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_password" translatesAutoresizingMaskIntoConstraints="NO" id="KqY-HR-Izx" userLabel="password-icon">
                                                 <rect key="frame" x="10" y="9" width="21" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="21" id="dZe-RF-mb0"/>
@@ -612,7 +624,7 @@
                                             <constraint firstAttribute="height" constant="45" id="jin-mq-Y1K"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="15"/>
-                                        <state key="normal" title="LOG IN" backgroundImage="login-background">
+                                        <state key="normal" title="LOG IN" backgroundImage="bg_pink">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -667,17 +679,19 @@
             </objects>
             <point key="canvasLocation" x="1318" y="808"/>
         </scene>
-        <!--Custom Welcome Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="yjd-iQ-jVb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QU8-uW-fYb" customClass="CustomWelcomeNavigationController" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QU8-uW-fYb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="FOt-cQ-22d">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="backButton" backIndicatorTransitionMaskImage="backButton" id="FOt-cQ-22d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                            <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -691,20 +705,20 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backgroundFacebook" width="269" height="45"/>
-        <image name="bg-welcome" width="375" height="667"/>
-        <image name="calendar-icon" width="21" height="21"/>
-        <image name="email-correct" width="18" height="14"/>
-        <image name="genders-icon" width="21" height="22"/>
-        <image name="login-background" width="187" height="50"/>
-        <image name="login-welcome" width="189" height="50"/>
-        <image name="logo-welcome" width="309" height="95"/>
-        <image name="mail-icon" width="21" height="15"/>
-        <image name="password-icon" width="17" height="21"/>
-        <image name="signup-welcome" width="187" height="50"/>
-        <image name="user-icon" width="21" height="21"/>
+        <image name="backButton" width="11" height="18"/>
+        <image name="bg_blue" width="189" height="50"/>
+        <image name="bg_blue_facebook" width="269" height="45"/>
+        <image name="bg_pink" width="187" height="50"/>
+        <image name="bg_welcome" width="375" height="667"/>
+        <image name="icn_calendar" width="21" height="21"/>
+        <image name="icn_checkmark_correct" width="18" height="14"/>
+        <image name="icn_email" width="21" height="15"/>
+        <image name="icn_gender" width="21" height="22"/>
+        <image name="icn_logo_white" width="95" height="95"/>
+        <image name="icn_password" width="17" height="21"/>
+        <image name="icn_user" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Ea-uU-bpZ"/>
+        <segue reference="niF-Wi-J4x"/>
     </inferredMetricsTieBreakers>
 </document>
