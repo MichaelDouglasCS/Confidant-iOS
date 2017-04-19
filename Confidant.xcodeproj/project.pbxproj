@@ -48,7 +48,6 @@
 		61CDB4371E87038E00E792F6 /* UITextField+Verifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CDB4361E87038E00E792F6 /* UITextField+Verifications.swift */; };
 		61F127891EA6FFA200F14A17 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61F1278B1EA6FFA200F14A17 /* Localizable.strings */; };
 		61F127981EA7015F00F14A17 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1278D1EA7015E00F14A17 /* Alerts.swift */; };
-		61F1279A1EA7015F00F14A17 /* BundleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1278F1EA7015E00F14A17 /* BundleKit.swift */; };
 		61F1279B1EA7015F00F14A17 /* DateKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F127901EA7015E00F14A17 /* DateKit.swift */; };
 		61F1279C1EA7015F00F14A17 /* KeyboardAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F127911EA7015E00F14A17 /* KeyboardAdjuster.swift */; };
 		61F1279D1EA7015F00F14A17 /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F127921EA7015E00F14A17 /* KeyboardToolbar.swift */; };
@@ -151,7 +150,6 @@
 		61F1278A1EA6FFA200F14A17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		61F1278C1EA6FFE600F14A17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		61F1278D1EA7015E00F14A17 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
-		61F1278F1EA7015E00F14A17 /* BundleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleKit.swift; sourceTree = "<group>"; };
 		61F127901EA7015E00F14A17 /* DateKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateKit.swift; sourceTree = "<group>"; };
 		61F127911EA7015E00F14A17 /* KeyboardAdjuster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAdjuster.swift; sourceTree = "<group>"; };
 		61F127921EA7015E00F14A17 /* KeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardToolbar.swift; sourceTree = "<group>"; };
@@ -516,7 +514,6 @@
 			isa = PBXGroup;
 			children = (
 				61F1278D1EA7015E00F14A17 /* Alerts.swift */,
-				61F1278F1EA7015E00F14A17 /* BundleKit.swift */,
 				61CC4ECB1E80F11D00ED4DB6 /* Crypto-Bridging-Header.h */,
 				61F127901EA7015E00F14A17 /* DateKit.swift */,
 				61F127911EA7015E00F14A17 /* KeyboardAdjuster.swift */,
@@ -898,7 +895,6 @@
 				61F127A11EA7015F00F14A17 /* StyleKit.swift in Sources */,
 				61F127BA1EA7034D00F14A17 /* LocalizedSearchBar.swift in Sources */,
 				61F1279B1EA7015F00F14A17 /* DateKit.swift in Sources */,
-				61F1279A1EA7015F00F14A17 /* BundleKit.swift in Sources */,
 				61F127B51EA7034D00F14A17 /* Loading.swift in Sources */,
 				61CC4EC91E80EE3400ED4DB6 /* String+Formats.swift in Sources */,
 				61494DFA1E685AB400D4DF13 /* AppDelegate.swift in Sources */,
