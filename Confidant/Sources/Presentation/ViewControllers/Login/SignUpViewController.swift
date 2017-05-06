@@ -16,7 +16,7 @@ import FBSDKLoginKit
 //
 //**************************************************************************************************
 
-fileprivate let kSignUpToDashboardSegue = "signUpToDashboard"
+fileprivate let kSignUpToDashboardSegue = "signupToDashboardSegue"
 
 //**************************************************************************************************
 //

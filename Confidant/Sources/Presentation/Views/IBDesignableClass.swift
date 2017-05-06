@@ -118,9 +118,9 @@ import UIKit
 
 @IBDesignable public class IBDesigableButton: UIButton {
     
-    //**************************************************
-    // MARK: - Properties
-    //**************************************************
+//**************************************************
+// MARK: - Properties
+//**************************************************
     
     @IBInspectable var cornerRadius: CGFloat = 10 {
         didSet {
@@ -141,16 +141,38 @@ import UIKit
         }
     }
 	
-	//*************************************************
-	// MARK: - Override Public Methods
-	//*************************************************
+//*************************************************
+// MARK: - Protected Methods
+//*************************************************
+	
+	private func setupView() {
+		
+		// Applying the localization for each preferred style
+		let localizedStates: [UIControlState] = [ .normal, .disabled ]
+		
+		localizedStates.forEach {
+			let localizedTitle = self.title(for: $0)?.localized
+			
+			self.setTitle(localizedTitle, for: $0)
+			self.accessibilityHint = localizedTitle
+			self.accessibilityLabel = localizedTitle
+		}
+		
+		self.setBackgroundImage(self.backgroundImage(for: .normal)?.nineSliced(), for: .normal)
+	}
+	
+//*************************************************
+// MARK: - Override Public Methods
+//*************************************************
 	
 	override public func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
+		self.setupView()
 	}
 	
 	override public func awakeFromNib() {
 		super.awakeFromNib()
+		self.setupView()
 	}
     
 }
