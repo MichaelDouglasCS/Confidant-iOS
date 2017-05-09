@@ -152,7 +152,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fdf-qV-3UP">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cNX-dC-Eoh">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cNX-dC-Eoh">
                                                 <rect key="frame" x="28" y="15" width="358" height="505"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="k0n-cB-Zn5">
@@ -161,7 +161,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3T-9K-MKi" userLabel="SignUpButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="44" y="0.0" width="270" height="45"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="270" id="TnT-om-O14"/>
+                                                                    <constraint firstAttribute="width" priority="750" constant="270" id="TnT-om-O14"/>
                                                                     <constraint firstAttribute="height" constant="45" id="fAj-rO-Iun"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="13"/>
@@ -183,20 +183,20 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-OW-eyv">
-                                                        <rect key="frame" x="0.0" y="96" width="358" height="284"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-OW-eyv">
+                                                        <rect key="frame" x="0.0" y="107.33333333333331" width="358" height="261.33333333333337"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-E8-nS4" userLabel="EmailView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="358" height="40"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="358" height="40.000000000000014"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wyf-kK-AG7">
-                                                                        <rect key="frame" x="10" y="5" width="343" height="30"/>
+                                                                        <rect key="frame" x="10" y="5" width="343" height="30.000000000000014"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_email" translatesAutoresizingMaskIntoConstraints="NO" id="0X5-UE-Rcy" userLabel="email-icon">
-                                                                                <rect key="frame" x="0.0" y="7.6666666666666714" width="21" height="14.999999999999986"/>
+                                                                                <rect key="frame" x="0.0" y="7.6666666666666714" width="21" height="15"/>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="rOj-UW-Br4" userLabel="EmailTextField">
-                                                                                <rect key="frame" x="31" y="9" width="284" height="12"/>
+                                                                                <rect key="frame" x="31" y="9.0000000000000142" width="312" height="12"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
@@ -205,7 +205,7 @@
                                                                                 </connections>
                                                                             </textField>
                                                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_checkmark_correct" translatesAutoresizingMaskIntoConstraints="NO" id="rzO-3j-epK" userLabel="check-email">
-                                                                                <rect key="frame" x="325" y="8" width="18" height="14"/>
+                                                                                <rect key="frame" x="343" y="8.0000000000000142" width="0.0" height="14"/>
                                                                             </imageView>
                                                                         </subviews>
                                                                     </stackView>
@@ -231,13 +231,13 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedback Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoJ-0B-dFi" userLabel="EmailCheckMessage">
-                                                                <rect key="frame" x="0.0" y="55" width="358" height="9"/>
+                                                                <rect key="frame" x="0.0" y="47.666666666666671" width="358" height="0.0"/>
                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="10"/>
                                                                 <color key="textColor" red="0.84705882352941175" green="0.0" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAZ-Aj-ZZg" userLabel="NicknameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="79" width="358" height="40"/>
+                                                                <rect key="frame" x="0.0" y="55.333333333333329" width="358" height="40"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icn_user" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-zj-KYx">
                                                                         <rect key="frame" x="10" y="9" width="21" height="21"/>
@@ -271,7 +271,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUk-jZ-lPK" userLabel="PasswordView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="134" width="358" height="40"/>
+                                                                <rect key="frame" x="0.0" y="110.66666666666669" width="358" height="40"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icn_password" translatesAutoresizingMaskIntoConstraints="NO" id="ftd-Ze-IVK" userLabel="password-icon">
                                                                         <rect key="frame" x="10" y="9" width="21" height="21"/>
@@ -305,7 +305,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4x-Px-um3" userLabel="DateOfBirthView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="189" width="358" height="40"/>
+                                                                <rect key="frame" x="0.0" y="166" width="358" height="40"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icn_calendar" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-Iw-zVS" userLabel="date-icon">
                                                                         <rect key="frame" x="10" y="9" width="21" height="21"/>
@@ -339,7 +339,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvx-wy-gN9" userLabel="GenderView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="244" width="358" height="40"/>
+                                                                <rect key="frame" x="0.0" y="221.33333333333337" width="358" height="40"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icn_gender" translatesAutoresizingMaskIntoConstraints="NO" id="YpX-ZL-Pzb" userLabel="gender-icon">
                                                                         <rect key="frame" x="10" y="9" width="21" height="21"/>
@@ -378,13 +378,13 @@
                                                         <rect key="frame" x="0.0" y="400" width="358" height="105"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIT-ql-UbD" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="63" y="0.0" width="232" height="45"/>
+                                                                <rect key="frame" x="81.666666666666686" y="0.0" width="195" height="45"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="232" id="fZE-Ce-vye"/>
+                                                                    <constraint firstAttribute="width" priority="750" constant="195" id="fZE-Ce-vye"/>
                                                                     <constraint firstAttribute="height" constant="45" id="gBr-yg-dQt"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="15"/>
-                                                                <state key="normal" title="SIGN UP" backgroundImage="bg_pink">
+                                                                <state key="normal" title="LB_SIGNUP" backgroundImage="bg_pink">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
@@ -396,20 +396,15 @@
                                                                     <action selector="signUpWithEmail:" destination="13q-1x-OyM" eventType="touchUpInside" id="IJb-Jy-wgo"/>
                                                                 </connections>
                                                             </button>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="By signing up, you agree to Confidant’s Terms and conditions of Use and Privacy Policy." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sdy-8P-96b" customClass="IBDesigableTextView" customModule="Confidant" customModuleProvider="target">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="MSG_TERMS_AND_CONDITIONS" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sdy-8P-96b" customClass="IBDesigableTextView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="55" width="358" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="MqW-2v-u5Y"/>
                                                                     <constraint firstAttribute="width" priority="750" constant="358" id="jEf-c5-oOW"/>
                                                                 </constraints>
-                                                                <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="10"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineSpace">
-                                                                        <real key="value" value="10"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
                                                             </textView>
                                                         </subviews>
                                                     </stackView>
@@ -672,7 +667,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_LOGIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpV-a9-LT8" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="43" y="10.000000000000002" width="80" height="13.66666666666667"/>
+                                    <rect key="frame" x="42.666666666666671" y="10.000000000000002" width="79.666666666666657" height="13.66666666666667"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -737,6 +732,6 @@
         <image name="icn_user" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Ea-uU-bpZ"/>
+        <segue reference="niF-Wi-J4x"/>
     </inferredMetricsTieBreakers>
 </document>

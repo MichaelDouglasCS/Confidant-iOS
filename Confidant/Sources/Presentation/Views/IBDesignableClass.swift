@@ -30,11 +30,12 @@ import UIKit
 // MARK: - UIView
 //*************************************************
 
-@IBDesignable public class IBDesigableView: UIView {
+@IBDesignable
+class IBDesigableView: UIView {
     
-    //**************************************************
-    // MARK: - Properties
-    //**************************************************
+//**************************************************
+// MARK: - Properties
+//**************************************************
     
     @IBInspectable var cornerRadius: CGFloat = 10 {
         didSet {
@@ -55,29 +56,29 @@ import UIKit
         }
     }
 	
-	//*************************************************
-	// MARK: - Override Public Methods
-	//*************************************************
+//*************************************************
+// MARK: - Override Public Methods
+//*************************************************
 	
-	override public func prepareForInterfaceBuilder() {
+	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
 	}
 	
-	override public func awakeFromNib() {
+	override func awakeFromNib() {
 		super.awakeFromNib()
 	}
-    
 }
 
 //*************************************************
 // MARK: - UIImageView
 //*************************************************
 
-@IBDesignable public class IBDesigableImageView: UIImageView {
+@IBDesignable
+class IBDesigableImageView: UIImageView {
     
-    //**************************************************
-    // MARK: - Properties
-    //**************************************************
+//**************************************************
+// MARK: - Properties
+//**************************************************
     
     @IBInspectable var cornerRadius: CGFloat = 10 {
         didSet {
@@ -98,25 +99,25 @@ import UIKit
         }
     }
 	
-	//*************************************************
-	// MARK: - Override Public Methods
-	//*************************************************
+//*************************************************
+// MARK: - Override Public Methods
+//*************************************************
 	
-	override public func prepareForInterfaceBuilder() {
+	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
 	}
 	
-	override public func awakeFromNib() {
+	override func awakeFromNib() {
 		super.awakeFromNib()
 	}
-    
 }
 
 //*************************************************
 // MARK: - UIButton
 //*************************************************
 
-@IBDesignable public class IBDesigableButton: UIButton {
+@IBDesignable
+class IBDesigableButton: UIButton {
     
 //**************************************************
 // MARK: - Properties
@@ -165,27 +166,27 @@ import UIKit
 // MARK: - Override Public Methods
 //*************************************************
 	
-	override public func prepareForInterfaceBuilder() {
+	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
 		self.setupView()
 	}
 	
-	override public func awakeFromNib() {
+	override func awakeFromNib() {
 		super.awakeFromNib()
 		self.setupView()
 	}
-    
 }
 
 //*************************************************
 // MARK: - UITextField
 //*************************************************
 
-@IBDesignable public class IBDesigableTextField: UITextField {
+@IBDesignable
+class IBDesigableTextField: UITextField {
     
-    //**************************************************
-    // MARK: - Properties
-    //**************************************************
+//**************************************************
+// MARK: - Properties
+//**************************************************
     
     @IBInspectable var cornerRadius: CGFloat = 10 {
         didSet {
@@ -206,95 +207,119 @@ import UIKit
         }
     }
 	
-	//*************************************************
-	// MARK: - Override Public Methods
-	//*************************************************
+//*************************************************
+// MARK: - Override Public Methods
+//*************************************************
 	
-	override public func prepareForInterfaceBuilder() {
+	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
 	}
 	
-	override public func awakeFromNib() {
+	override func awakeFromNib() {
 		super.awakeFromNib()
 	}
-    
 }
 
 //*************************************************
 // MARK: - UITextView
 //*************************************************
 
-@IBDesignable public class IBDesigableTextView: UITextView {
+@IBDesignable
+class IBDesigableTextView: UITextView {
     
-    //**************************************************
-    // MARK: - Properties
-    //**************************************************
-    
-    @IBInspectable var cornerRadius: CGFloat = 10 {
-        didSet {
-            layer.cornerRadius = cornerRadius
-            layer.masksToBounds = cornerRadius > 0
-        }
-    }
-    
-    @IBInspectable var borderWidth: CGFloat = 0 {
-        didSet {
-            layer.borderWidth = borderWidth
-        }
-    }
-    
-    @IBInspectable var borderColor: UIColor? {
-        didSet {
-            layer.borderColor = borderColor?.cgColor
-        }
-    }
-    
-    @IBInspectable var letterSpacing: CGFloat = 0 {
-        didSet {
-            let attributedString = NSMutableAttributedString(string: self.text!)
-            attributedString.addAttribute(NSKernAttributeName, value: letterSpacing, range: NSRange(location: 0, length: attributedString.length))
-            attributedString.addAttribute(NSFontAttributeName, value: self.font!, range: NSRange(location: 0, length: attributedString.length))
-            attributedString.addAttribute(NSForegroundColorAttributeName, value: self.textColor!, range: NSRange(location: 0, length: attributedString.length))
-            self.attributedText = attributedString
-        }
-    }
-    
-    @IBInspectable var lineSpace: CGFloat = 0 {
-        didSet {
-            let attributedString = NSMutableAttributedString(string: self.text!)
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.alignment = self.textAlignment
-            paragraphStyle.lineSpacing = lineSpace
-            attributedString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
-            attributedString.addAttribute(NSFontAttributeName, value: self.font!, range: NSRange(location: 0, length: attributedString.length))
-            attributedString.addAttribute(NSForegroundColorAttributeName, value: self.textColor!, range: NSRange(location: 0, length: attributedString.length))
-            self.attributedText = attributedString;
-        }
-    }
+	//**************************************************
+	// MARK: - Properties
+	//**************************************************
 	
-	//*************************************************
-	// MARK: - Override Public Methods
-	//*************************************************
+	private var placeholderLabel: LocalizedLabel = LocalizedLabel()
 	
-	override public func prepareForInterfaceBuilder() {
+	@IBInspectable var placeholder: String? {
+		get {
+			return self.placeholderLabel.text
+		}
+		
+		set {
+			self.placeholderLabel.text = "#\((newValue ?? "").localized)#"
+		}
+	}
+	
+	override var text: String! {
+		didSet {
+			self.placeholderLabel.isHidden = self.hasText
+		}
+	}
+	
+	//**************************************************
+	// MARK: - Constructors
+	//**************************************************
+	
+	//**************************************************
+	// MARK: - Protected Methods
+	//**************************************************
+	
+	private func setupView() {
+		let attributedString = NSMutableAttributedString(string: self.text.localized)
+		let paragraphStyle = NSMutableParagraphStyle()
+		paragraphStyle.alignment = self.textAlignment
+		paragraphStyle.lineSpacing = 10
+		attributedString.addAttribute(NSParagraphStyleAttributeName,
+		                              value: paragraphStyle,
+		                              range: NSRange(location: 0, length: attributedString.length))
+		attributedString.addAttribute(NSFontAttributeName,
+		                              value: self.font!,
+		                              range: NSRange(location: 0, length: attributedString.length))
+		attributedString.addAttribute(NSForegroundColorAttributeName,
+		                              value: self.textColor!,
+		                              range: NSRange(location: 0, length: attributedString.length))
+		self.attributedText = attributedString
+		
+		self.placeholderLabel.font = self.font ?? UIFont.systemFont(ofSize: UIFont.systemFontSize)
+		self.placeholderLabel.textColor = UIColor.Confidant.lightGray
+		self.placeholderLabel.sizeToFit()
+		self.placeholderLabel.frame.origin = CGPoint(x: 5, y: 7)
+		self.placeholderLabel.isHidden = self.hasText
+		self.addSubview(self.placeholderLabel)
+	}
+	
+	//**************************************************
+	// MARK: - Exposed Methods
+	//**************************************************
+	
+	//**************************************************
+	// MARK: - Overridden Methods
+	//**************************************************
+	
+	override func becomeFirstResponder() -> Bool {
+		self.placeholderLabel.isHidden = true
+		return super.becomeFirstResponder()
+	}
+	
+	override func resignFirstResponder() -> Bool {
+		self.placeholderLabel.isHidden = self.hasText
+		return super.resignFirstResponder()
+	}
+	
+	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
+		self.setupView()
 	}
 	
-	override public func awakeFromNib() {
+	override func awakeFromNib() {
 		super.awakeFromNib()
+		self.setupView()
 	}
-    
 }
 
 //*************************************************
 // MARK: - UILabel
 //*************************************************
 
-@IBDesignable public class IBDesigableLabel: UILabel {
+@IBDesignable
+class IBDesigableLabel: UILabel {
     
-    //*************************************************
-    // MARK: - Properties
-    //*************************************************
+//*************************************************
+// MARK: - Properties
+//*************************************************
     
     @IBInspectable var letterSpacing: CGFloat = 0 {
         didSet {
@@ -319,29 +344,29 @@ import UIKit
         }
     }
 	
-	//*************************************************
-	// MARK: - Override Public Methods
-	//*************************************************
+//*************************************************
+// MARK: - Override Public Methods
+//*************************************************
 	
-	override public func prepareForInterfaceBuilder() {
+	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
 	}
 	
-	override public func awakeFromNib() {
+	override func awakeFromNib() {
 		super.awakeFromNib()
 	}
-    
 }
 
 //*************************************************
 // MARK: - UINavigationBar
 //*************************************************
 
-@IBDesignable public class IBDesignableNavigationBar: UINavigationBar {
+@IBDesignable
+class IBDesignableNavigationBar: UINavigationBar {
     
-    //**************************************************
-    // MARK: - Properties
-    //**************************************************
+//**************************************************
+// MARK: - Properties
+//**************************************************
     
     @IBInspectable var navigationHeigh: CGFloat = 44 {
         didSet {
@@ -355,16 +380,15 @@ import UIKit
         }
     }
 	
-	//*************************************************
-	// MARK: - Override Public Methods
-	//*************************************************
+//*************************************************
+// MARK: - Override Public Methods
+//*************************************************
 	
-	override public func prepareForInterfaceBuilder() {
+	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
 	}
 	
-	override public func awakeFromNib() {
+	override func awakeFromNib() {
 		super.awakeFromNib()
 	}
-    
 }
