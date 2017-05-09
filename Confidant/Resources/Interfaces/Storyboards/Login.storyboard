@@ -175,8 +175,8 @@
                                                                     <action selector="signUpWithFacebook:" destination="13q-1x-OyM" eventType="touchUpInside" id="fc6-Vg-BIU"/>
                                                                 </connections>
                                                             </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or with e-mail" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Lb-7zC">
-                                                                <rect key="frame" x="137.33333333333337" y="65" width="83.666666666666657" height="11"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MSG_OR_WITH_EMAIL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Lb-7zC" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                                                <rect key="frame" x="108.33333333333333" y="65" width="141.33333333333337" height="11"/>
                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -190,13 +190,17 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="358" height="40"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wyf-kK-AG7">
-                                                                        <rect key="frame" x="10" y="5" width="343" height="30"/>
+                                                                        <rect key="frame" x="10" y="5.3333333333333286" width="343" height="30.000000000000014"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_email" translatesAutoresizingMaskIntoConstraints="NO" id="0X5-UE-Rcy" userLabel="email-icon">
-                                                                                <rect key="frame" x="0.0" y="7.6666666666666714" width="21" height="14.999999999999986"/>
+                                                                                <rect key="frame" x="0.0" y="7.6666666666666714" width="21" height="15"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="15" id="8LP-rn-dK9"/>
+                                                                                    <constraint firstAttribute="width" constant="21" id="u1x-V9-2aY"/>
+                                                                                </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="rOj-UW-Br4" userLabel="EmailTextField">
-                                                                                <rect key="frame" x="31" y="9" width="284" height="12"/>
+                                                                                <rect key="frame" x="31" y="9" width="284" height="12.000000000000014"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
@@ -205,7 +209,11 @@
                                                                                 </connections>
                                                                             </textField>
                                                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_checkmark_correct" translatesAutoresizingMaskIntoConstraints="NO" id="rzO-3j-epK" userLabel="check-email">
-                                                                                <rect key="frame" x="325" y="8" width="18" height="14"/>
+                                                                                <rect key="frame" x="325" y="8" width="18" height="14.000000000000014"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="18" id="4A6-sq-nE4"/>
+                                                                                    <constraint firstAttribute="height" constant="14.000000000000014" id="pfJ-DF-YVE"/>
+                                                                                </constraints>
                                                                             </imageView>
                                                                         </subviews>
                                                                     </stackView>
@@ -239,24 +247,35 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAZ-Aj-ZZg" userLabel="NicknameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="79" width="358" height="40"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icn_user" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-zj-KYx">
-                                                                        <rect key="frame" x="10" y="9" width="21" height="21"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    </imageView>
-                                                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nickname" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="unK-aq-Wct" userLabel="NicknameTextField">
-                                                                        <rect key="frame" x="41" y="5" width="317" height="30"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                        <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
-                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
-                                                                        <connections>
-                                                                            <outlet property="delegate" destination="13q-1x-OyM" id="w2k-G2-6CR"/>
-                                                                        </connections>
-                                                                    </textField>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="x1G-zg-dR2">
+                                                                        <rect key="frame" x="10" y="5" width="343" height="30"/>
+                                                                        <subviews>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_user" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-zj-KYx">
+                                                                                <rect key="frame" x="0.0" y="4.6666666666666572" width="21" height="21"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="21" id="Hro-g0-Do2"/>
+                                                                                    <constraint firstAttribute="height" constant="21" id="xfH-rM-6Va"/>
+                                                                                </constraints>
+                                                                            </imageView>
+                                                                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nickname" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="unK-aq-Wct" userLabel="NicknameTextField">
+                                                                                <rect key="frame" x="31" y="9" width="312" height="12"/>
+                                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="13q-1x-OyM" id="w2k-G2-6CR"/>
+                                                                                </connections>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                    </stackView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
+                                                                    <constraint firstItem="x1G-zg-dR2" firstAttribute="top" secondItem="FAZ-Aj-ZZg" secondAttribute="top" constant="5" id="UsQ-XM-Xjz"/>
                                                                     <constraint firstAttribute="height" constant="40" id="Z2f-bW-tfa"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="x1G-zg-dR2" secondAttribute="trailing" constant="5" id="lhq-sd-1TT"/>
+                                                                    <constraint firstItem="x1G-zg-dR2" firstAttribute="leading" secondItem="FAZ-Aj-ZZg" secondAttribute="leading" constant="10" id="m57-Ly-i5w"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="x1G-zg-dR2" secondAttribute="bottom" constant="5" id="zag-Ag-t9G"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -273,23 +292,34 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUk-jZ-lPK" userLabel="PasswordView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="134" width="358" height="40"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icn_password" translatesAutoresizingMaskIntoConstraints="NO" id="ftd-Ze-IVK" userLabel="password-icon">
-                                                                        <rect key="frame" x="10" y="9" width="21" height="21"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    </imageView>
-                                                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Lof-w4-WPc" userLabel="PasswordTextField">
-                                                                        <rect key="frame" x="41" y="5" width="317" height="30"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                        <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
-                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
-                                                                        <connections>
-                                                                            <outlet property="delegate" destination="13q-1x-OyM" id="UTr-Ru-4MU"/>
-                                                                        </connections>
-                                                                    </textField>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CbK-vj-cw7">
+                                                                        <rect key="frame" x="10" y="5" width="343" height="30"/>
+                                                                        <subviews>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_password" translatesAutoresizingMaskIntoConstraints="NO" id="ftd-Ze-IVK" userLabel="password-icon">
+                                                                                <rect key="frame" x="0.0" y="4.6666666666666572" width="17" height="21.000000000000028"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="17" id="5k1-0u-jwV"/>
+                                                                                    <constraint firstAttribute="height" constant="21.000000000000028" id="lzM-LW-6Ba"/>
+                                                                                </constraints>
+                                                                            </imageView>
+                                                                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Lof-w4-WPc" userLabel="PasswordTextField">
+                                                                                <rect key="frame" x="27" y="9" width="316" height="12"/>
+                                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="13q-1x-OyM" id="UTr-Ru-4MU"/>
+                                                                                </connections>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                    </stackView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
+                                                                    <constraint firstItem="CbK-vj-cw7" firstAttribute="leading" secondItem="OUk-jZ-lPK" secondAttribute="leading" constant="10" id="BS9-37-3UV"/>
+                                                                    <constraint firstItem="CbK-vj-cw7" firstAttribute="top" secondItem="OUk-jZ-lPK" secondAttribute="top" constant="5" id="aNq-Gn-zuU"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="CbK-vj-cw7" secondAttribute="bottom" constant="5" id="hT7-s3-DYe"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="CbK-vj-cw7" secondAttribute="trailing" constant="5" id="qGo-XL-RPj"/>
                                                                     <constraint firstAttribute="height" constant="40" id="qYV-Om-2KX"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
@@ -307,24 +337,35 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4x-Px-um3" userLabel="DateOfBirthView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="189" width="358" height="40"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icn_calendar" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-Iw-zVS" userLabel="date-icon">
-                                                                        <rect key="frame" x="10" y="9" width="21" height="21"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    </imageView>
-                                                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of birth" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="vaU-y0-8sj" userLabel="DateOfBirthTextField">
-                                                                        <rect key="frame" x="41" y="5" width="317" height="30"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                        <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
-                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
-                                                                        <connections>
-                                                                            <outlet property="delegate" destination="13q-1x-OyM" id="GbB-s6-ddr"/>
-                                                                        </connections>
-                                                                    </textField>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OpV-53-Vjj">
+                                                                        <rect key="frame" x="10" y="5" width="343" height="30"/>
+                                                                        <subviews>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_calendar" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-Iw-zVS" userLabel="date-icon">
+                                                                                <rect key="frame" x="0.0" y="4.6666666666666856" width="21" height="21"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="21" id="pwd-4r-Pv5"/>
+                                                                                    <constraint firstAttribute="width" constant="21" id="xO2-Ca-Ei5"/>
+                                                                                </constraints>
+                                                                            </imageView>
+                                                                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of birth" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="vaU-y0-8sj" userLabel="DateOfBirthTextField">
+                                                                                <rect key="frame" x="31" y="9" width="312" height="12"/>
+                                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="13q-1x-OyM" id="GbB-s6-ddr"/>
+                                                                                </connections>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                    </stackView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="8CN-n4-8Rw"/>
+                                                                    <constraint firstItem="OpV-53-Vjj" firstAttribute="top" secondItem="X4x-Px-um3" secondAttribute="top" constant="5" id="MjB-tE-sim"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="OpV-53-Vjj" secondAttribute="bottom" constant="5" id="fFM-kl-O8h"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="OpV-53-Vjj" secondAttribute="trailing" constant="5" id="iHz-g5-Rgw"/>
+                                                                    <constraint firstItem="OpV-53-Vjj" firstAttribute="leading" secondItem="X4x-Px-um3" secondAttribute="leading" constant="10" id="sgb-eQ-UdU"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -341,24 +382,35 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvx-wy-gN9" userLabel="GenderView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="244" width="358" height="40"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icn_gender" translatesAutoresizingMaskIntoConstraints="NO" id="YpX-ZL-Pzb" userLabel="gender-icon">
-                                                                        <rect key="frame" x="10" y="9" width="21" height="21"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    </imageView>
-                                                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="BUi-85-pya" userLabel="GenderTextField">
-                                                                        <rect key="frame" x="41" y="5" width="317" height="30"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                        <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
-                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
-                                                                        <connections>
-                                                                            <outlet property="delegate" destination="13q-1x-OyM" id="3Fb-fp-BAy"/>
-                                                                        </connections>
-                                                                    </textField>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8we-V8-ITo">
+                                                                        <rect key="frame" x="10" y="5" width="343" height="30"/>
+                                                                        <subviews>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_gender" translatesAutoresizingMaskIntoConstraints="NO" id="YpX-ZL-Pzb" userLabel="gender-icon">
+                                                                                <rect key="frame" x="0.0" y="4" width="21" height="22"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="21" id="Tx0-Re-jwj"/>
+                                                                                    <constraint firstAttribute="height" constant="22" id="jiW-lH-eRf"/>
+                                                                                </constraints>
+                                                                            </imageView>
+                                                                            <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="BUi-85-pya" userLabel="GenderTextField">
+                                                                                <rect key="frame" x="31" y="9" width="312" height="12"/>
+                                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="13q-1x-OyM" id="3Fb-fp-BAy"/>
+                                                                                </connections>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                    </stackView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="8we-V8-ITo" secondAttribute="trailing" constant="5" id="VRW-IO-2JC"/>
                                                                     <constraint firstAttribute="height" constant="40" id="YfG-YS-Fwx"/>
+                                                                    <constraint firstItem="8we-V8-ITo" firstAttribute="top" secondItem="bvx-wy-gN9" secondAttribute="top" constant="5" id="aLH-Ah-sms"/>
+                                                                    <constraint firstItem="8we-V8-ITo" firstAttribute="leading" secondItem="bvx-wy-gN9" secondAttribute="leading" constant="10" id="nVg-97-Goo"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="8we-V8-ITo" secondAttribute="bottom" constant="5" id="wiY-xF-iQQ"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -667,7 +719,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_LOGIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpV-a9-LT8" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="42.666666666666671" y="10.000000000000002" width="79.666666666666657" height="13.66666666666667"/>
+                                    <rect key="frame" x="43.000000000000007" y="10.000000000000002" width="79.666666666666686" height="13.66666666666667"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
