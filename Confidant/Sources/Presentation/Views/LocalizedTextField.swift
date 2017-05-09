@@ -68,8 +68,6 @@ class LocalizedTextField : UITextField {
 		cgLayer.borderWidth = self.strokeThikness
 		cgLayer.borderColor = self.strokeColor.cgColor
 		cgLayer.masksToBounds = true
-		
-		self.setValue(self.textColor, forKeyPath: "_placeholderLabel.textColor")
 	}
 	
 //**************************************************
