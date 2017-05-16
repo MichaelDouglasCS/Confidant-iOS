@@ -11,6 +11,9 @@
 "LB_PASSWORD" = "Password";
 "LB_DATE_OF_BIRTH" = "Date of Birth";
 "LB_GENDER" = "Gender";
+"LB_OR" = "or";
+"LB_OR_WITH_EMAIL" = "or with e-mail";
+"LB_FORGOT_YOUR_PASSWORD" = "Forgot your password?";
 
 //*************************
 // Strings
@@ -27,4 +30,4 @@
 "MSG_FINGER_PRINT" = "Please place your finger over the Home Button sensor to authenticate the current user";
 "MSG_INVALID_FINGER_PRINT" = "It was not possible to authenticate through the sensor, please enter the password manually";
 "MSG_TERMS_AND_CONDITIONS" = "By signing up, you agree to Confidant’s Terms and conditions of Use and Privacy Policy.";
-"MSG_OR_WITH_EMAIL" = "or with e-mail";
+
