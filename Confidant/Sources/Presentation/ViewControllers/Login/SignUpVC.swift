@@ -1,5 +1,5 @@
 //
-//  SignUpViewController.swift
+//  SignUpVC.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 10/03/17.
@@ -30,7 +30,7 @@ fileprivate let kSignUpToDashboardSegue = "signupToDashboardSegue"
 //
 //**************************************************************************************************
 
-class SignUpViewController : UIViewController {
+class SignUpVC : UIViewController {
     
     fileprivate enum SignUpTextFieldsTag: Int {
         case Email = 1
@@ -43,9 +43,7 @@ class SignUpViewController : UIViewController {
 //*************************************************
 // MARK: - Properties
 //*************************************************
-    
-    fileprivate let emailBottomConstraintWithMessage: CGFloat = 20
-    fileprivate let emailBottomConstraintWithoutMessage: CGFloat = 15
+	
     let pickerViewGender = ["Female", "Male"]
     
     @IBOutlet weak var signInScrollView: UIScrollView!
@@ -271,11 +269,11 @@ class SignUpViewController : UIViewController {
 
 //**************************************************************************************************
 //
-// MARK: - Extension - SignUpViewController - UITextFieldDelegate
+// MARK: - Extension - SignUpVC - UITextFieldDelegate
 //
 //**************************************************************************************************
 
-extension SignUpViewController : UITextFieldDelegate {
+extension SignUpVC : UITextFieldDelegate {
     
     //*************************************************
     // MARK: - TextField Delegates
@@ -286,7 +284,6 @@ extension SignUpViewController : UITextFieldDelegate {
         switch textField.tag {
         case SignUpTextFieldsTag.Email.rawValue:
             self.checkEmailImageView.isHidden = true
-            self.emailBottomConstraint.constant = emailBottomConstraintWithoutMessage
             self.emailCheckMessageLabel.isHidden = true
             if (!textFill.isEmpty) && (!self.emailCheckMessageLabel.isHidden && !self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
@@ -344,7 +341,6 @@ extension SignUpViewController : UITextFieldDelegate {
                     self.checkEmailImageView.image = #imageLiteral(resourceName: "email-incorrect")
                     self.emailCheckMessageLabel.text = "Invalid email address."
                     self.checkEmailImageView.isHidden = false
-                    self.emailBottomConstraint.constant = emailBottomConstraintWithMessage
                     self.emailCheckMessageLabel.isHidden = false
                     self.signUpButton.isEnabled = false
                 } else {
@@ -352,20 +348,17 @@ extension SignUpViewController : UITextFieldDelegate {
                     AuthenticationManager.userEmailExists(email: textField.text!, isExists: { isExistsResponse in
                         self.checkEmailImageView.isHidden = true
                         self.emailCheckMessageLabel.isHidden = true
-                        self.emailBottomConstraint.constant = self.emailBottomConstraintWithoutMessage
                         if isExistsResponse {
                             self.emailView.loadingIndicatorView(isShow: false, at: nil)
                             self.checkEmailImageView.image = #imageLiteral(resourceName: "email-incorrect")
                             self.emailCheckMessageLabel.text = "That email address is already registered."
                             self.checkEmailImageView.isHidden = false
-                            self.emailBottomConstraint.constant = self.emailBottomConstraintWithMessage
                             self.emailCheckMessageLabel.isHidden = false
                             self.signUpButton.isEnabled = false
                         } else {
                             self.emailView.loadingIndicatorView(isShow: false, at: nil)
                             self.checkEmailImageView.image = #imageLiteral(resourceName: "email-correct")
                             self.checkEmailImageView.isHidden = false
-                            self.emailBottomConstraint.constant = self.emailBottomConstraintWithoutMessage
                             self.emailCheckMessageLabel.isHidden = true
                             if (!self.emailTextField.text!.isEmpty) && (!self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty) {
                                 self.signUpButton.isEnabled = true
@@ -397,11 +390,11 @@ extension SignUpViewController : UITextFieldDelegate {
 
 //**************************************************************************************************
 //
-// MARK: - Extension - SignUpViewController - UIPickerViewDataSource + UIPickerViewDelegate
+// MARK: - Extension - SignUpVC - UIPickerViewDataSource + UIPickerViewDelegate
 //
 //**************************************************************************************************
 
-extension SignUpViewController : UIPickerViewDataSource, UIPickerViewDelegate {
+extension SignUpVC : UIPickerViewDataSource, UIPickerViewDelegate {
     
     //*************************************************
     // MARK: - UIPickerView Methods

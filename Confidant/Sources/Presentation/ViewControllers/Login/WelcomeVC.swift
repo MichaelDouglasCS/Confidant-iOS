@@ -1,5 +1,5 @@
 //
-//  WelcomeViewController.swift
+//  WelcomeVC.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 02/03/17.
@@ -57,7 +57,7 @@ fileprivate struct WelcomeMessages {
 //
 //**************************************************************************************************
 
-class WelcomeViewController : UIViewController {
+class WelcomeVC : UIViewController {
     
 //*************************************************
 // MARK: - Properties
@@ -76,7 +76,7 @@ class WelcomeViewController : UIViewController {
 //*************************************************
 // MARK: - Constructors
 //*************************************************
-    
+	
 //*************************************************
 // MARK: - Protected Methods
 //*************************************************
@@ -233,7 +233,7 @@ class WelcomeViewController : UIViewController {
 //
 //**************************************************************************************************
 
-extension WelcomeViewController : UIScrollViewDelegate {
+extension WelcomeVC : UIScrollViewDelegate {
     
     //*************************************************
     // MARK: - ScrollView Methods
@@ -252,7 +252,6 @@ extension WelcomeViewController : UIScrollViewDelegate {
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         self.view.isUserInteractionEnabled = true
     }
-    
 }
 
 //**************************************************************************************************

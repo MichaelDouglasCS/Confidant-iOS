@@ -1,5 +1,5 @@
 //
-//  LogInViewController.swift
+//  LogInVC.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 07/03/17.
@@ -29,7 +29,7 @@ fileprivate let kLogInToDashboardSegue = "loginToDashboardSegue"
 //
 //**************************************************************************************************
 
-class LogInViewController : UIViewController {
+class LogInVC : UIViewController {
     
     fileprivate enum LogInTextFieldsTag: Int {
         case Email = 1
@@ -161,7 +161,7 @@ class LogInViewController : UIViewController {
 //
 //**************************************************************************************************
 
-extension LogInViewController : UITextFieldDelegate {
+extension LogInVC : UITextFieldDelegate {
     
     //*************************************************
     // MARK: - TextField Methods

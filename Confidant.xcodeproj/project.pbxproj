@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E899D66B66C5E9EA26848CA /* Pods_ConfidantUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C14DD8F3A1F7700E9456ADF /* Pods_ConfidantUITests.framework */; };
-		6110E1801E6F6D360005A419 /* CustomWelcomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6110E17F1E6F6D360005A419 /* CustomWelcomeNavigationController.swift */; };
-		6110E1821E6F72340005A419 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6110E1811E6F72340005A419 /* LogInViewController.swift */; };
+		6110E1821E6F72340005A419 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6110E1811E6F72340005A419 /* LogInVC.swift */; };
 		61203F2E1E83802600E4B257 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61203F2D1E83802600E4B257 /* Dashboard.storyboard */; };
 		61232BBD1E86232B00DC64BC /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61232BBC1E86232B00DC64BC /* Chats.storyboard */; };
 		61232BC01E8625CF00DC64BC /* ChatsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61232BBF1E8625CF00DC64BC /* ChatsNavigationViewController.swift */; };
@@ -18,6 +17,16 @@
 		61494DFA1E685AB400D4DF13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61494DF91E685AB400D4DF13 /* AppDelegate.swift */; };
 		61494E0F1E685AB400D4DF13 /* ConfidantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61494E0E1E685AB400D4DF13 /* ConfidantTests.swift */; };
 		61494E1A1E685AB400D4DF13 /* ConfidantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61494E191E685AB400D4DF13 /* ConfidantUITests.swift */; };
+		6155F2391ECBAF29000445D1 /* ChartColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155F2211ECBAF29000445D1 /* ChartColumnView.swift */; };
+		6155F23B1ECBAF29000445D1 /* ChartLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155F2231ECBAF29000445D1 /* ChartLineView.swift */; };
+		6155F23F1ECBAF29000445D1 /* DisclosureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155F2271ECBAF29000445D1 /* DisclosureView.swift */; };
+		6155F2431ECBAF29000445D1 /* LocalizedBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155F22B1ECBAF29000445D1 /* LocalizedBarButton.swift */; };
+		6155F2441ECBAF29000445D1 /* LocalizedNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155F22C1ECBAF29000445D1 /* LocalizedNavigationBar.swift */; };
+		6155F2451ECBAF29000445D1 /* LocalizedSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155F22D1ECBAF29000445D1 /* LocalizedSegmentedControl.swift */; };
+		6155F2461ECBAF29000445D1 /* LocalizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155F22E1ECBAF29000445D1 /* LocalizedTabBar.swift */; };
+		6155F2481ECBAF29000445D1 /* LocalizedWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155F2301ECBAF29000445D1 /* LocalizedWebView.swift */; };
+		6155F24B1ECBAF29000445D1 /* TiledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155F2331ECBAF29000445D1 /* TiledView.swift */; };
+		6155F24C1ECBAF29000445D1 /* UIBoxGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155F2341ECBAF29000445D1 /* UIBoxGroup.swift */; };
 		61790EE21E6A0A520095482F /* GOTHAM-BLACK.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC01E6A0A520095482F /* GOTHAM-BLACK.TTF */; };
 		61790EE41E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC21E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF */; };
 		61790EE61E6A0A520095482F /* GOTHAM-BOLD_0.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC41E6A0A520095482F /* GOTHAM-BOLD_0.OTF */; };
@@ -35,7 +44,6 @@
 		61790EFE1E6A0A520095482F /* GOTHAM-ULTRAITALIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EDC1E6A0A520095482F /* GOTHAM-ULTRAITALIC.TTF */; };
 		61790F001E6A0A520095482F /* GOTHAM-XLIGHT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EDE1E6A0A520095482F /* GOTHAM-XLIGHT.TTF */; };
 		61790F021E6A0A520095482F /* GOTHAM-XLIGHTITALIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EE01E6A0A520095482F /* GOTHAM-XLIGHTITALIC.TTF */; };
-		618AF4CA1E84D2AD008A6A22 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618AF4C91E84D2AD008A6A22 /* DashboardTabBarController.swift */; };
 		61A2BFE31E686DD900414A4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A2BFE11E686DD900414A4C /* LaunchScreen.storyboard */; };
 		61A2BFE41E686DD900414A4C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A2BFE21E686DD900414A4C /* Login.storyboard */; };
 		61A35AF31E7DBF100010A01D /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A35AF21E7DBF100010A01D /* URL.swift */; };
@@ -72,9 +80,9 @@
 		61F127BE1EA7034D00F14A17 /* VerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F127B01EA7034D00F14A17 /* VerticalButton.swift */; };
 		61F570971E7DABDE00712518 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F570961E7DABDE00712518 /* AuthenticationManager.swift */; };
 		61F570991E7DAC5E00712518 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F570981E7DAC5E00712518 /* NetworkManager.swift */; };
-		61F5CE8C1E68FA1C001261C1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F5CE8B1E68FA1C001261C1 /* WelcomeViewController.swift */; };
+		61F5CE8C1E68FA1C001261C1 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F5CE8B1E68FA1C001261C1 /* WelcomeVC.swift */; };
 		61F6D26F1E725F1800754866 /* UIViewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F6D26E1E725F1800754866 /* UIViewController+HideKeyboard.swift */; };
-		61F6D2711E733DC800754866 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F6D2701E733DC800754866 /* SignUpViewController.swift */; };
+		61F6D2711E733DC800754866 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F6D2701E733DC800754866 /* SignUpVC.swift */; };
 		D35301352F8085056EF21250 /* Pods_ConfidantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A996F4F428BC232CDA44AD /* Pods_ConfidantTests.framework */; };
 		E032E7C21012FDD0788D1C00 /* Pods_Confidant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A08DBCE842BFE9C9E22D751 /* Pods_Confidant.framework */; };
 /* End PBXBuildFile section */
@@ -102,8 +110,7 @@
 		2D0C362904E8C189E4D8FA44 /* Pods-ConfidantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConfidantTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConfidantTests/Pods-ConfidantTests.debug.xcconfig"; sourceTree = "<group>"; };
 		37A996F4F428BC232CDA44AD /* Pods_ConfidantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConfidantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A08DBCE842BFE9C9E22D751 /* Pods_Confidant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Confidant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6110E17F1E6F6D360005A419 /* CustomWelcomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWelcomeNavigationController.swift; sourceTree = "<group>"; };
-		6110E1811E6F72340005A419 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		6110E1811E6F72340005A419 /* LogInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		61203F2D1E83802600E4B257 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		61232BBC1E86232B00DC64BC /* Chats.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
 		61232BBF1E8625CF00DC64BC /* ChatsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsNavigationViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +125,16 @@
 		61494E151E685AB400D4DF13 /* ConfidantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConfidantUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61494E191E685AB400D4DF13 /* ConfidantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfidantUITests.swift; sourceTree = "<group>"; };
 		61494E1B1E685AB400D4DF13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6155F2211ECBAF29000445D1 /* ChartColumnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartColumnView.swift; sourceTree = "<group>"; };
+		6155F2231ECBAF29000445D1 /* ChartLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartLineView.swift; sourceTree = "<group>"; };
+		6155F2271ECBAF29000445D1 /* DisclosureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisclosureView.swift; sourceTree = "<group>"; };
+		6155F22B1ECBAF29000445D1 /* LocalizedBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedBarButton.swift; sourceTree = "<group>"; };
+		6155F22C1ECBAF29000445D1 /* LocalizedNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedNavigationBar.swift; sourceTree = "<group>"; };
+		6155F22D1ECBAF29000445D1 /* LocalizedSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedSegmentedControl.swift; sourceTree = "<group>"; };
+		6155F22E1ECBAF29000445D1 /* LocalizedTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedTabBar.swift; sourceTree = "<group>"; };
+		6155F2301ECBAF29000445D1 /* LocalizedWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedWebView.swift; sourceTree = "<group>"; };
+		6155F2331ECBAF29000445D1 /* TiledView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledView.swift; sourceTree = "<group>"; };
+		6155F2341ECBAF29000445D1 /* UIBoxGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBoxGroup.swift; sourceTree = "<group>"; };
 		61790EC01E6A0A520095482F /* GOTHAM-BLACK.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BLACK.TTF"; sourceTree = "<group>"; };
 		61790EC21E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BLACKITALIC.TTF"; sourceTree = "<group>"; };
 		61790EC41E6A0A520095482F /* GOTHAM-BOLD_0.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BOLD_0.OTF"; sourceTree = "<group>"; };
@@ -135,7 +152,6 @@
 		61790EDC1E6A0A520095482F /* GOTHAM-ULTRAITALIC.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-ULTRAITALIC.TTF"; sourceTree = "<group>"; };
 		61790EDE1E6A0A520095482F /* GOTHAM-XLIGHT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-XLIGHT.TTF"; sourceTree = "<group>"; };
 		61790EE01E6A0A520095482F /* GOTHAM-XLIGHTITALIC.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-XLIGHTITALIC.TTF"; sourceTree = "<group>"; };
-		618AF4C91E84D2AD008A6A22 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
 		61A2BFE11E686DD900414A4C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61A2BFE21E686DD900414A4C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		61A35AF21E7DBF100010A01D /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
@@ -174,9 +190,9 @@
 		61F127B01EA7034D00F14A17 /* VerticalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalButton.swift; sourceTree = "<group>"; };
 		61F570961E7DABDE00712518 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		61F570981E7DAC5E00712518 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		61F5CE8B1E68FA1C001261C1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		61F5CE8B1E68FA1C001261C1 /* WelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		61F6D26E1E725F1800754866 /* UIViewController+HideKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboard.swift"; sourceTree = "<group>"; };
-		61F6D2701E733DC800754866 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		61F6D2701E733DC800754866 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		7094B65AAEF9D78F4413782D /* Pods-Confidant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Confidant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Confidant/Pods-Confidant.debug.xcconfig"; sourceTree = "<group>"; };
 		7EE3FB91BFA4AAEE2E166754 /* Pods-ConfidantUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConfidantUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConfidantUITests/Pods-ConfidantUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C38CD2C74A1639AE22DF8FDA /* Pods-ConfidantUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConfidantUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConfidantUITests/Pods-ConfidantUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -414,7 +430,6 @@
 		618AF4C81E84D0E7008A6A22 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				618AF4C91E84D2AD008A6A22 /* DashboardTabBarController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -423,18 +438,28 @@
 			isa = PBXGroup;
 			children = (
 				61F127A31EA7034D00F14A17 /* BlurredView.swift */,
+				6155F2211ECBAF29000445D1 /* ChartColumnView.swift */,
+				6155F2231ECBAF29000445D1 /* ChartLineView.swift */,
 				61F127A41EA7034D00F14A17 /* CircularImage.swift */,
+				6155F2271ECBAF29000445D1 /* DisclosureView.swift */,
 				61F127A51EA7034D00F14A17 /* IBDesignableClass.swift */,
 				61F127A61EA7034D00F14A17 /* LinedView.swift */,
 				61F127A71EA7034D00F14A17 /* Loading.swift */,
+				6155F22B1ECBAF29000445D1 /* LocalizedBarButton.swift */,
 				61F127A81EA7034D00F14A17 /* LocalizedBarButtonItem.swift */,
 				61F127A91EA7034D00F14A17 /* LocalizedButton.swift */,
 				61F127AA1EA7034D00F14A17 /* LocalizedLabel.swift */,
+				6155F22C1ECBAF29000445D1 /* LocalizedNavigationBar.swift */,
 				61F127AB1EA7034D00F14A17 /* LocalizedNavigationItem.swift */,
 				61F127AC1EA7034D00F14A17 /* LocalizedSearchBar.swift */,
+				6155F22D1ECBAF29000445D1 /* LocalizedSegmentedControl.swift */,
+				6155F22E1ECBAF29000445D1 /* LocalizedTabBar.swift */,
 				61F127AD1EA7034D00F14A17 /* LocalizedTextField.swift */,
+				6155F2301ECBAF29000445D1 /* LocalizedWebView.swift */,
 				61F127AE1EA7034D00F14A17 /* SlicedImage.swift */,
+				6155F2331ECBAF29000445D1 /* TiledView.swift */,
 				61F127AF1EA7034D00F14A17 /* UIBox.swift */,
+				6155F2341ECBAF29000445D1 /* UIBoxGroup.swift */,
 				61F127B01EA7034D00F14A17 /* VerticalButton.swift */,
 			);
 			path = Views;
@@ -535,10 +560,9 @@
 		61F5CE8A1E68F9EE001261C1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				6110E17F1E6F6D360005A419 /* CustomWelcomeNavigationController.swift */,
-				61F5CE8B1E68FA1C001261C1 /* WelcomeViewController.swift */,
-				6110E1811E6F72340005A419 /* LogInViewController.swift */,
-				61F6D2701E733DC800754866 /* SignUpViewController.swift */,
+				61F5CE8B1E68FA1C001261C1 /* WelcomeVC.swift */,
+				6110E1811E6F72340005A419 /* LogInVC.swift */,
+				61F6D2701E733DC800754866 /* SignUpVC.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -862,34 +886,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6155F2391ECBAF29000445D1 /* ChartColumnView.swift in Sources */,
 				61232BC21E86267A00DC64BC /* ChatsViewController.swift in Sources */,
 				61F127BB1EA7034D00F14A17 /* LocalizedTextField.swift in Sources */,
-				6110E1821E6F72340005A419 /* LogInViewController.swift in Sources */,
+				6110E1821E6F72340005A419 /* LogInVC.swift in Sources */,
 				61F127B21EA7034D00F14A17 /* CircularImage.swift in Sources */,
+				6155F2441ECBAF29000445D1 /* LocalizedNavigationBar.swift in Sources */,
 				61232BC01E8625CF00DC64BC /* ChatsNavigationViewController.swift in Sources */,
+				6155F2451ECBAF29000445D1 /* LocalizedSegmentedControl.swift in Sources */,
+				6155F24B1ECBAF29000445D1 /* TiledView.swift in Sources */,
 				61F6D26F1E725F1800754866 /* UIViewController+HideKeyboard.swift in Sources */,
 				61F1279F1EA7015F00F14A17 /* Localized.swift in Sources */,
 				61F127B81EA7034D00F14A17 /* LocalizedLabel.swift in Sources */,
+				6155F23F1ECBAF29000445D1 /* DisclosureView.swift in Sources */,
 				61F127B31EA7034D00F14A17 /* IBDesignableClass.swift in Sources */,
 				61F570971E7DABDE00712518 /* AuthenticationManager.swift in Sources */,
+				6155F2481ECBAF29000445D1 /* LocalizedWebView.swift in Sources */,
 				61F127B61EA7034D00F14A17 /* LocalizedBarButtonItem.swift in Sources */,
 				61F127A01EA7015F00F14A17 /* MathKit.swift in Sources */,
 				61F1279E1EA7015F00F14A17 /* LinkedChain.swift in Sources */,
 				61F1279C1EA7015F00F14A17 /* KeyboardAdjuster.swift in Sources */,
+				6155F23B1ECBAF29000445D1 /* ChartLineView.swift in Sources */,
 				61CDB4371E87038E00E792F6 /* UITextField+Verifications.swift in Sources */,
 				61A35AF31E7DBF100010A01D /* URL.swift in Sources */,
 				61F127B71EA7034D00F14A17 /* LocalizedButton.swift in Sources */,
 				61F127A21EA7015F00F14A17 /* XIBDesignable.swift in Sources */,
+				6155F2431ECBAF29000445D1 /* LocalizedBarButton.swift in Sources */,
+				6155F24C1ECBAF29000445D1 /* UIBoxGroup.swift in Sources */,
 				61F570991E7DAC5E00712518 /* NetworkManager.swift in Sources */,
 				61A35AF81E7F63DE0010A01D /* PersistenceManager.swift in Sources */,
 				613A8B471E6F1159000DD11D /* UIView+AddSubViews.swift in Sources */,
 				61F127B41EA7034D00F14A17 /* LinedView.swift in Sources */,
 				61F127B11EA7034D00F14A17 /* BlurredView.swift in Sources */,
+				6155F2461ECBAF29000445D1 /* LocalizedTabBar.swift in Sources */,
 				61F127BE1EA7034D00F14A17 /* VerticalButton.swift in Sources */,
-				61F5CE8C1E68FA1C001261C1 /* WelcomeViewController.swift in Sources */,
+				61F5CE8C1E68FA1C001261C1 /* WelcomeVC.swift in Sources */,
 				61F127BD1EA7034D00F14A17 /* UIBox.swift in Sources */,
 				61F127B91EA7034D00F14A17 /* LocalizedNavigationItem.swift in Sources */,
-				61F6D2711E733DC800754866 /* SignUpViewController.swift in Sources */,
+				61F6D2711E733DC800754866 /* SignUpVC.swift in Sources */,
 				61A35AF51E7DCB1F0010A01D /* UserVO.swift in Sources */,
 				61F127BC1EA7034D00F14A17 /* SlicedImage.swift in Sources */,
 				61F127A11EA7015F00F14A17 /* StyleKit.swift in Sources */,
@@ -898,9 +932,7 @@
 				61F127B51EA7034D00F14A17 /* Loading.swift in Sources */,
 				61CC4EC91E80EE3400ED4DB6 /* String+Formats.swift in Sources */,
 				61494DFA1E685AB400D4DF13 /* AppDelegate.swift in Sources */,
-				6110E1801E6F6D360005A419 /* CustomWelcomeNavigationController.swift in Sources */,
 				61BE8B6C1E81E158005FDB0D /* UIViewController+Alerts.swift in Sources */,
-				618AF4CA1E84D2AD008A6A22 /* DashboardTabBarController.swift in Sources */,
 				61F127981EA7015F00F14A17 /* Alerts.swift in Sources */,
 				61F1279D1EA7015F00F14A17 /* KeyboardToolbar.swift in Sources */,
 			);
