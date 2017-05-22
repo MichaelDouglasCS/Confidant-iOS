@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 //**************************************************************************************************
 //
@@ -19,8 +20,6 @@ import Foundation
 // MARK: - Definitions -
 //
 //**************************************************************************************************
-
-typealias JSON = [String: AnyObject]
 
 //**************************************************************************************************
 //
@@ -76,11 +75,11 @@ class UserVO : NSObject {
 //*************************************************
     
     public func decodeJSON(fromFacebook: JSON) {
-        self.email = fromFacebook["email"] as? String ?? ""
-        self.nickName = fromFacebook["name"] as? String ?? ""
-        self.dateOfBirth = fromFacebook["birthday"] as? String ?? ""
-        self.gender = fromFacebook["gender"] as? String ?? ""
-        self.photoURL = fromFacebook["picture"] as? String ?? ""
+        self.email = fromFacebook["email"].string
+        self.nickName = fromFacebook["name"].string
+        self.dateOfBirth = fromFacebook["birthday"].string
+        self.gender = fromFacebook["gender"].string
+        self.photoURL = fromFacebook["picture"].string
     }
     
     public func encodeJSON() -> JSON {
