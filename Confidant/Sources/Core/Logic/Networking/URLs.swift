@@ -1,5 +1,5 @@
 //
-//  URL.swift
+//  URLs.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 18/03/17.
@@ -26,10 +26,6 @@ import Foundation
 //
 //**************************************************************************************************
 
-enum BaseURL: String {
-    case MockServer = "https://ihungry.com"
-}
-
 //**************************************************************************************************
 //
 // MARK: - Class -
@@ -37,12 +33,14 @@ enum BaseURL: String {
 //**************************************************************************************************
 
 public class URLs {
+	
+	enum BaseURL: String {
+		case FirebaseServer = "https://confidant-47e97.firebaseio.com/"
+	}
     
 //*************************************************
 // MARK: - Properties
 //*************************************************
-    
-    static let host = BaseURL.MockServer
     
 //*************************************************
 // MARK: - Constructors
@@ -61,11 +59,11 @@ public class URLs {
 //*************************************************
     
     public class func hostURL() -> String {
-        return self.host.rawValue
+        return self.BaseURL.FirebaseServer.rawValue
     }
     
     public class func databaseURL() -> String {
-        return "https://confidant-47e97.firebaseio.com/"
+        return self.BaseURL.FirebaseServer.rawValue
     }
     
 //*************************************************

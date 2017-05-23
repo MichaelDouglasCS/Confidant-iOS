@@ -27,40 +27,21 @@ import SwiftyJSON
 //
 //**************************************************************************************************
 
-class UserVO : NSObject {
+public class UserVO : Parsable {
 
 //*************************************************
 // MARK: - Properties
 //*************************************************
 
-    public var userId: String?
+    public var id: String = ""
     public var email: String?
-    public var nickName: String?
-    public var dateOfBirth: String?
-    public var gender: String?
-    public var photoURL: String?
-    
+	public var profile: ProfileVO = ProfileVO()
+	
 //*************************************************
 // MARK: - Constructors
 //*************************************************
     
-    override init() {
-        
-    }
-
-    init(userId: String?,
-         email: String?,
-         nickName: String?,
-         dateOfBirth: String?,
-         gender: String?,
-         photoURL: String?) {
-        self.userId = userId ?? ""
-        self.email = email ?? ""
-        self.nickName = nickName ?? ""
-        self.dateOfBirth = dateOfBirth ?? ""
-        self.gender = gender ?? ""
-        self.photoURL = photoURL ?? ""
-    }
+	public required init() { }
     
 //*************************************************
 // MARK: - Private Methods
@@ -73,37 +54,10 @@ class UserVO : NSObject {
 //*************************************************
 // MARK: - Public Methods
 //*************************************************
-    
-    public func decodeJSON(fromFacebook: JSON) {
-        self.email = fromFacebook["email"].string
-        self.nickName = fromFacebook["name"].string
-        self.dateOfBirth = fromFacebook["birthday"].string
-        self.gender = fromFacebook["gender"].string
-        self.photoURL = fromFacebook["picture"].string
-    }
-    
-    public func encodeJSON() -> JSON {
-        let json: JSON = ["email" : self.email as AnyObject,
-                          "nickName" : self.nickName as AnyObject,
-                          "dateOfBirth" : self.dateOfBirth as AnyObject,
-                          "gender" : self.gender as AnyObject,
-                          "photoURL" : self.photoURL as AnyObject]
-        return json
-    }
-    
-    public func encodeAccountEmailJSON() -> JSON {
-        let accountJSONValue: JSON = ["email" : self.email as AnyObject]
-        return accountJSONValue
-    }
 
-//*************************************************
-// MARK: - Override Public Methods
-//*************************************************
-
+	public func parsing(_ parser: Parser) {
+		self.id <-> parser["id"]
+		self.email <-> parser["email"]
+		self.profile <-> parser["profile"]
+	}
 }
-
-//**************************************************************************************************
-//
-// MARK: - Extension -
-//
-//**************************************************************************************************

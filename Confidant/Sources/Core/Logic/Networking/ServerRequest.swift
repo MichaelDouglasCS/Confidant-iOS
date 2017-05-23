@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  ServerRequest.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 18/03/17.
@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 //**************************************************************************************************
 //
@@ -20,22 +21,46 @@ import Foundation
 //
 //**************************************************************************************************
 
-typealias completionError = (Error?)->Void
+public typealias LogicResult = (ServerResponse) -> Void
+public typealias ServerResult = (JSON, ServerResponse) -> Void
 
-//**************************************************************************************************
-//
-// MARK: - Enum -
-//
-//**************************************************************************************************
-
-public enum ResponseStatus {
-    case Success
-    case Failed
-}
-
-public enum KnowErrorCode: Int {
-    case EmailAlreadyInUse = 17007
-    case EmailInvalid = 17008
+/**
+Defines how the main server defines its responses.
+Showing up the agreed error codes and messages for each of the known scenarios.
+*/
+public enum ServerResponse {
+	
+	public enum Error : String {
+		case unkown = "MSG_SERVER_ERROR"
+		case invalidCredentials = "MSG_INVALID_LOGIN"
+	}
+	
+	case success
+	case error(ServerResponse.Error)
+	
+	public var localizedError: String {
+		switch self {
+		case .error(let type):
+			return type.rawValue.localized
+		default:
+			return ""
+		}
+	}
+	
+	public init(_ response: HTTPURLResponse?) {
+		if let httpResponse = response {
+			switch httpResponse.statusCode {
+			case 200..<300:
+				self = .success
+			case 401:
+				self = .error(.invalidCredentials)
+			default:
+				self = .error(.unkown)
+			}
+		} else {
+			self = .error(.unkown)
+		}
+	}
 }
 
 //**************************************************************************************************
@@ -44,7 +69,7 @@ public enum KnowErrorCode: Int {
 //
 //**************************************************************************************************
 
-class NetworkManager {
+class ServerRequest {
 
 //*************************************************
 // MARK: - Properties
