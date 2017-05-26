@@ -52,7 +52,7 @@ public struct AuthenticationManager {
 // MARK: - Protected Methods
 //*************************************************
 	
-	private func authenticateWith(email: String, password: String, completionHandler: @escaping FirebaseResult) {
+	private func logInWith(email: String, password: String, completionHandler: @escaping FirebaseResult) {
 		FIRAuth.auth()?.signIn(withEmail: email, password: password) { (firUser: FIRUser?, error) in
 			if let error = error {
 				completionHandler(firUser, .failed(error))
@@ -62,7 +62,7 @@ public struct AuthenticationManager {
 		}
 	}
 	
-	private func createUserWith(email: String, password: String, completionHandler: @escaping FirebaseResult) {
+	private func signInWith(email: String, password: String, completionHandler: @escaping FirebaseResult) {
 		FIRAuth.auth()?.createUser(withEmail: email, password: password) { (firUser: FIRUser?, error)  in
 			if let error = error {
 				completionHandler(firUser, .failed(error))
@@ -104,19 +104,17 @@ public struct AuthenticationManager {
 												completionHandler(nil, .failed(error))
 											} else {
 												var user: UserVO?
-												let dic = resultGraph as! NSDictionary
 												
-												let json = JSON(dic)
-												let userJSON = UserVO(facebookJSON: json)
-												
-												user = userJSON
+												if let dictionary = resultGraph as? NSDictionary {
+													let userJSON = UserVO(facebookJSON: JSON(dictionary))
+													user = userJSON
+												}
 												
 												FIRAuth.auth()?.signIn(with: credentials) { (firUser: FIRUser?, error) in
 													if let error = error {
 														completionHandler(user, .failed(error))
 													} else {
 														user?.id = firUser?.uid ?? ""
-														
 														completionHandler(user, .success)
 													}
 												}
@@ -153,7 +151,7 @@ public struct AuthenticationManager {
 		
 		switch self.method {
 		case .logInBy(let email, let password):
-			self.authenticateWith(email: email, password: password) { (firUser, logicResult) in
+			self.logInWith(email: email, password: password) { (firUser, logicResult) in
 				var user: UserVO?
 				
 				if let firUser = firUser {
@@ -175,7 +173,7 @@ public struct AuthenticationManager {
 				}
 			}
 		case .signInBy(let email, let name, let password, let birthdate, let gender):
-			self.createUserWith(email: email, password: password) { (firUser, logicResult) in
+			self.signInWith(email: email, password: password) { (firUser, logicResult) in
 				var user: UserVO?
 				
 				if let firUser = firUser {

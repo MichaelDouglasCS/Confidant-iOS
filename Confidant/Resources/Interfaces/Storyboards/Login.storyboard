@@ -39,7 +39,7 @@
                                 <gestureRecognizers/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="V2e-NF-8VW">
-                                <rect key="frame" x="33" y="50" width="309" height="95"/>
+                                <rect key="frame" x="42.5" y="50" width="290" height="95"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="olQ-0s-RzU">
                                         <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
@@ -50,7 +50,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confidant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFS-ef-fOf" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="103" y="0.0" width="206" height="95"/>
+                                        <rect key="frame" x="103" y="0.0" width="187" height="95"/>
                                         <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -153,10 +153,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cNX-dC-Eoh">
-                                                <rect key="frame" x="24" y="15" width="327" height="481"/>
+                                                <rect key="frame" x="24" y="15" width="327" height="484"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="k0n-cB-Zn5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="76"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="79"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3T-9K-MKi" userLabel="SignUpButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="28.5" y="0.0" width="270" height="45"/>
@@ -176,7 +176,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_OR_WITH_EMAIL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Lb-7zC" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="98.5" y="65" width="130" height="11"/>
+                                                                <rect key="frame" x="106" y="65" width="115.5" height="14"/>
                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -184,7 +184,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-OW-eyv">
-                                                        <rect key="frame" x="0.0" y="96" width="327" height="260"/>
+                                                        <rect key="frame" x="0.0" y="99" width="327" height="260"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-E8-nS4" userLabel="EmailView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
@@ -200,7 +200,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_EMAIL" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="rOj-UW-Br4" userLabel="EmailTextField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
-                                                                                <rect key="frame" x="26" y="9" width="286" height="12"/>
+                                                                                <rect key="frame" x="26" y="7" width="286" height="16"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
@@ -257,7 +257,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_NAME" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="unK-aq-Wct" userLabel="NicknameTextField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
-                                                                                <rect key="frame" x="26" y="9" width="286" height="12"/>
+                                                                                <rect key="frame" x="26" y="7" width="286" height="16"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
@@ -302,7 +302,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_PASSWORD" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Lof-w4-WPc" userLabel="PasswordTextField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
-                                                                                <rect key="frame" x="26" y="9" width="286" height="12"/>
+                                                                                <rect key="frame" x="26" y="7" width="286" height="16"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
@@ -347,7 +347,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_BIRTHDATE" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="vaU-y0-8sj" userLabel="DateOfBirthTextField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
-                                                                                <rect key="frame" x="26" y="9" width="286" height="12"/>
+                                                                                <rect key="frame" x="26" y="7" width="286" height="16"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
@@ -392,7 +392,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_GENDER" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="BUi-85-pya" userLabel="GenderTextField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
-                                                                                <rect key="frame" x="26" y="9" width="286" height="12"/>
+                                                                                <rect key="frame" x="26" y="7" width="286" height="16"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
@@ -426,7 +426,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hUo-UI-cPU">
-                                                        <rect key="frame" x="0.0" y="376" width="327" height="105"/>
+                                                        <rect key="frame" x="0.0" y="379" width="327" height="105"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIT-ql-UbD" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="66" y="0.0" width="195" height="45"/>
@@ -553,10 +553,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uhy-ZU-WQ1">
-                                                <rect key="frame" x="24" y="15" width="327" height="285"/>
+                                                <rect key="frame" x="24" y="15" width="327" height="288"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zCe-k1-hnx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="76"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="79"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyH-s9-Ewm" userLabel="LoginFacebookButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="29" y="0.0" width="269" height="45"/>
@@ -578,7 +578,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NP3-mv-fo4" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="142.5" y="65" width="42.5" height="11"/>
+                                                                <rect key="frame" x="144.5" y="65" width="38.5" height="14"/>
                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -586,7 +586,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Q95-0R-f8L">
-                                                        <rect key="frame" x="0.0" y="96" width="327" height="95"/>
+                                                        <rect key="frame" x="0.0" y="99" width="327" height="95"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgt-wu-RAT" userLabel="UsernameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
@@ -602,7 +602,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_EMAIL" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Xcz-tz-Mlv" userLabel="EmailTextField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
-                                                                                <rect key="frame" x="26" y="9" width="286" height="12"/>
+                                                                                <rect key="frame" x="26" y="7" width="286" height="16"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
@@ -647,7 +647,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_PASSWORD" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="aKC-Pf-sH9" userLabel="PasswordField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
-                                                                                <rect key="frame" x="26" y="9" width="286" height="12"/>
+                                                                                <rect key="frame" x="26" y="7" width="286" height="16"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
@@ -681,7 +681,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6gi-Rl-ChJ">
-                                                        <rect key="frame" x="0.0" y="211" width="327" height="74"/>
+                                                        <rect key="frame" x="0.0" y="214" width="327" height="74"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln8-Xc-m6n" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="66" y="0.0" width="195" height="45"/>
@@ -703,7 +703,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-aK-ogj" userLabel="Forgot your password?" customClass="LocalizedButton" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="78.5" y="45" width="170" height="29"/>
+                                                                <rect key="frame" x="87" y="45" width="153" height="29"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="29" id="mkA-uI-I44"/>
                                                                 </constraints>

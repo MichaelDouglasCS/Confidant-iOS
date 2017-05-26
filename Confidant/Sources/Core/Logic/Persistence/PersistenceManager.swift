@@ -28,7 +28,7 @@ import FirebaseDatabase
 //
 //**************************************************************************************************
 
-public class PersistenceManager {
+public struct PersistenceManager {
     
     enum FirebaseDBTables {
         case Users(userId: String)
