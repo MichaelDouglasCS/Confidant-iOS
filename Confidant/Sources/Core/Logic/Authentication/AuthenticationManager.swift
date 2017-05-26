@@ -104,12 +104,12 @@ public struct AuthenticationManager {
 												completionHandler(nil, .failed(error))
 											} else {
 												var user: UserVO?
+												let dic = resultGraph as! NSDictionary
 												
-												if let json = resultGraph as? JSON {
-													let userJSON = UserVO(facebookJSON: json)
-													
-													user = userJSON
-												}
+												let json = JSON(dic)
+												let userJSON = UserVO(facebookJSON: json)
+												
+												user = userJSON
 												
 												FIRAuth.auth()?.signIn(with: credentials) { (firUser: FIRUser?, error) in
 													if let error = error {

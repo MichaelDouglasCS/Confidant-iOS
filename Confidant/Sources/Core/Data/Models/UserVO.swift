@@ -94,6 +94,6 @@ extension UserVO {
 		self.profile.birthdate = facebookJSON["birthday"].string
 		self.profile.gender = facebookJSON["gender"].string
 		self.profile.userKind = .user
-		self.profile.picture = facebookJSON["picture"].string
+		self.profile.picture = facebookJSON["picture"]["data"]["url"].URL?.absoluteString
 	}
 }

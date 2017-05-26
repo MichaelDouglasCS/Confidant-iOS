@@ -47,14 +47,12 @@ class SignUpVC : UIViewController {
     let pickerViewGender = ["Female", "Male"]
     
     @IBOutlet weak var signInScrollView: UIScrollView!
-    @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var emailCheckMessageLabel: UILabel!
-    @IBOutlet weak var emailBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var checkEmailImageView: UIImageView!
-    @IBOutlet weak var nickNameTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var dateOfBirthTextField: UITextField!
+    @IBOutlet weak var birthdateTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var termsAndConditionsTextView: UITextView!
@@ -84,8 +82,8 @@ class SignUpVC : UIViewController {
         
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
-        self.dateOfBirthTextField.inputView = datePicker
-        self.dateOfBirthTextField.inputAccessoryView = toolBar
+        self.birthdateTextField.inputView = datePicker
+        self.birthdateTextField.inputAccessoryView = toolBar
         datePicker.addTarget(self, action: #selector(self.datePickerChanged(datePicker:)), for: UIControlEvents.valueChanged)
         
         let pickerView = UIPickerView()
@@ -98,11 +96,11 @@ class SignUpVC : UIViewController {
     @objc private func datePickerChanged(datePicker: UIDatePicker) {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
-        self.dateOfBirthTextField.text = formatter.string(from: datePicker.date)
+        self.birthdateTextField.text = formatter.string(from: datePicker.date)
     }
     
     @objc private func doneButton(barButton: UIBarButtonItem) {
-        if self.dateOfBirthTextField.isEditing {
+        if self.birthdateTextField.isEditing {
             if (self.genderTextField.text?.isEmpty)! {
                 self.genderTextField.becomeFirstResponder()
             } else {
@@ -112,39 +110,39 @@ class SignUpVC : UIViewController {
             self.view.endEditing(true)
         }
     }
-    
-    //*************************************************
-    // MARK: - Keyboard Methods
-    //*************************************************
-    
-    private func registerForKeyboardNotifications(){
-        //Adding notifies on keyboard appearing
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    private func deregisterFromKeyboardNotifications(){
-        //Removing notifies on keyboard appearing
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    @objc private func keyboardWasShown(notification: NSNotification){
-        //Need to calculate keyboard exact size due to Apple suggestions
-        var info = notification.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
-        self.signInScrollView.contentInset = contentInsets
-        self.signInScrollView.scrollIndicatorInsets = contentInsets
-    }
-    
-    @objc private func keyboardWillBeHidden(notification: NSNotification){
-        //Once keyboard disappears, restore original positions
-        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
-        self.signInScrollView.contentInset = contentInsets
-        self.signInScrollView.scrollIndicatorInsets = contentInsets
-    }
-    
+//    
+//    //*************************************************
+//    // MARK: - Keyboard Methods
+//    //*************************************************
+//    
+//    private func registerForKeyboardNotifications(){
+//        //Adding notifies on keyboard appearing
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+//    }
+//    
+//    private func deregisterFromKeyboardNotifications(){
+//        //Removing notifies on keyboard appearing
+//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+//    }
+//    
+//    @objc private func keyboardWasShown(notification: NSNotification){
+//        //Need to calculate keyboard exact size due to Apple suggestions
+//        var info = notification.userInfo!
+//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+//        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+//        self.signInScrollView.contentInset = contentInsets
+//        self.signInScrollView.scrollIndicatorInsets = contentInsets
+//    }
+//    
+//    @objc private func keyboardWillBeHidden(notification: NSNotification){
+//        //Once keyboard disappears, restore original positions
+//        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+//        self.signInScrollView.contentInset = contentInsets
+//        self.signInScrollView.scrollIndicatorInsets = contentInsets
+//    }
+	
     //*************************************************
     // MARK: - Setup Terms And Conditions Label
     //*************************************************
@@ -166,87 +164,51 @@ class SignUpVC : UIViewController {
             self.performSegue(withIdentifier: kSignUpToDashboardSegue, sender: nil)
         }
     }
-    
+
 //*************************************************
-// MARK: - Internal Methods
-//*************************************************
-    
-//*************************************************
-// MARK: - Public Methods
+// MARK: - Exposed Methods
 //*************************************************
     
     @IBAction func signUpWithFacebook(_ sender: UIButton) {
         self.loadingIndicator(isShow: true)
-        let readPermissions = ["email", "public_profile", "user_birthday"]
-        FBSDKLoginManager().logIn(withReadPermissions: readPermissions, from: self, handler: { (resultLoginManager, error) in
-            if (resultLoginManager?.isCancelled)! == false {
-                if error == nil {
-                    FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, name, birthday, gender, picture"]).start(completionHandler: {
-                        (connection, resultGraph, error) -> Void in
-                        if error == nil {
-                            guard let userJSON = resultGraph as? JSON else { return }
-                            let facebookUser = UserVO()
-                            
-                            facebookUser.decodeJSON(fromFacebook: userJSON)
-                            
-                            let accessToken = resultLoginManager?.token
-                            guard let accessTokenString = accessToken?.tokenString else { return }
-                            let facebookCredentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
-                            let authentication = AuthenticationManager()
-                            
-                            authentication.createUserWith(credentials: facebookCredentials, accreditedUser: facebookUser, completion: {
-                                (responseStatus, error) in
-                                switch(responseStatus) {
-                                case .Success:
-                                    self.logged()
-                                case .Failed:
-                                    self.loadingIndicator(isShow: false)
-                                    self.presentAlertOk(title: "SIGN UP FAILED", message: (error?.localizedDescription)!)
-                                }
-                            })
-                        } else {
-                            self.loadingIndicator(isShow: false)
-                            self.presentAlertOk(title: "SIGN UP FAILED", message: (error?.localizedDescription)!)
-                        }
-                    })
-                } else {
-                    self.loadingIndicator(isShow: false)
-                    self.presentAlertOk(title: "SIGN UP FAILED", message: (error?.localizedDescription)!)
-                }
-                
-            } else {
-                self.loadingIndicator(isShow: false)
-            }
-        })
-    }
-    
-    @IBAction func signUpWithEmail(_ sender: UIButton) {
-        self.dismissKeyboard()
-        self.loadingIndicator(isShow: true)
-        
-        let email = self.emailTextField.text!
-        let nickName = self.nickNameTextField.text!
-        let password = self.passwordTextField.text!
-        let dateOfBirth = self.dateOfBirthTextField.text!
-        let gender = self.genderTextField.text!
-        let authentication = AuthenticationManager()
-        
-        authentication.createUserWith(email: email,
-                                      nickName: nickName,
-                                      password: password,
-                                      dateOfBirth: dateOfBirth,
-                                      gender: gender,
-                                      completion: { (responseStatus, error) in
-                                        switch(responseStatus) {
-                                        case .Success:
-                                            self.logged()
-                                        case .Failed:
-                                            self.loadingIndicator(isShow: false)
-                                            self.presentAlertOk(title: "SIGN UP FAILED", message: (error?.localizedDescription)!)
-                                        }
-        })
-    }
-    
+		
+		UsersLO.instance.authenticate(by: .signInByFacebook(from: self)) { (result) in
+			switch(result) {
+			case .success:
+				self.logged()
+			case .failed(let error):
+				self.loadingIndicator(isShow: false)
+				self.presentAlertOk(title: "SIGN UP FAILED", message: error?.localizedDescription ?? "")
+			}
+		}
+	}
+	
+	@IBAction func signUpWithEmail(_ sender: UIButton) {
+		self.dismissKeyboard()
+		self.loadingIndicator(isShow: true)
+		
+		let email = self.emailTextField.text!
+		let name = self.nameTextField.text!
+		let password = self.passwordTextField.text!
+		let birthdate = self.birthdateTextField.text!
+		let gender = self.genderTextField.text!
+		
+		UsersLO.instance.authenticate(by: .signInBy(email: email,
+		                                            name: name,
+		                                            password: password,
+		                                            birthdate: birthdate,
+		                                            gender: gender)) { (result) in
+														
+														switch(result) {
+														case .success:
+															self.logged()
+														case .failed(let error):
+															self.loadingIndicator(isShow: false)
+															self.presentAlertOk(title: "SIGN UP FAILED", message: error?.localizedDescription ?? "")
+														}
+		}
+	}
+	
 //*************************************************
 // MARK: - Override Public Methods
 //*************************************************
@@ -255,14 +217,12 @@ class SignUpVC : UIViewController {
         super.viewDidLoad()
         self.setDatePickerAndPickerViewKeyboard()
         self.setupTermsAndConditionsHyperLink()
-        self.addHideKeyboardWhenTappedAround()
-        self.registerForKeyboardNotifications()
+		self.addKeyboardObservers()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(false)
-        self.deregisterFromKeyboardNotifications()
-        self.removeAllGestureRecognizers()
+		self.removeObservers()
     }
     
 }
@@ -285,19 +245,19 @@ extension SignUpVC : UITextFieldDelegate {
         case SignUpTextFieldsTag.Email.rawValue:
             self.checkEmailImageView.isHidden = true
             self.emailCheckMessageLabel.isHidden = true
-            if (!textFill.isEmpty) && (!self.emailCheckMessageLabel.isHidden && !self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            if (!textFill.isEmpty) && (!self.emailCheckMessageLabel.isHidden && !self.nameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
         case SignUpTextFieldsTag.NickName.rawValue:
-            if (!textFill.isEmpty) && (!self.emailTextField.text!.isEmpty && !self.emailCheckMessageLabel.isHidden && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            if (!textFill.isEmpty) && (!self.emailTextField.text!.isEmpty && !self.emailCheckMessageLabel.isHidden && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
         case SignUpTextFieldsTag.Password.rawValue:
-            if (!textFill.isEmpty) && (!self.emailTextField.text!.isEmpty && !self.emailCheckMessageLabel.isHidden && !self.nickNameTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            if (!textFill.isEmpty) && (!self.emailTextField.text!.isEmpty && !self.emailCheckMessageLabel.isHidden && !self.nameTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
@@ -310,11 +270,11 @@ extension SignUpVC : UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField.tag {
         case SignUpTextFieldsTag.DateOfBirth.rawValue:
-            let datePickerView = self.dateOfBirthTextField.inputView as! UIDatePicker
+            let datePickerView = self.birthdateTextField.inputView as! UIDatePicker
             let formatter = DateFormatter()
             formatter.dateStyle = .long
-            self.dateOfBirthTextField.text = formatter.string(from: datePickerView.date)
-            if (!self.emailTextField.text!.isEmpty && !self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            self.birthdateTextField.text = formatter.string(from: datePickerView.date)
+            if (!self.emailTextField.text!.isEmpty && !self.nameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
@@ -324,7 +284,7 @@ extension SignUpVC : UITextFieldDelegate {
             let selectedRow = genderPickerView.selectedRow(inComponent: 0)
             let selectedText = genderPickerView.delegate?.pickerView!(genderPickerView, titleForRow: selectedRow, forComponent: 0)
             self.genderTextField.text = selectedText
-            if (!self.emailTextField.text!.isEmpty && !self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+            if (!self.emailTextField.text!.isEmpty && !self.nameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
@@ -334,53 +294,53 @@ extension SignUpVC : UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        switch textField.tag {
-        case SignUpTextFieldsTag.Email.rawValue:
-            if !(textField.text?.isEmpty)! {
-                if !(self.emailTextField.isValidEmailAddress()) {
-                    self.checkEmailImageView.image = #imageLiteral(resourceName: "email-incorrect")
-                    self.emailCheckMessageLabel.text = "Invalid email address."
-                    self.checkEmailImageView.isHidden = false
-                    self.emailCheckMessageLabel.isHidden = false
-                    self.signUpButton.isEnabled = false
-                } else {
-                    self.emailView.loadingIndicatorView(isShow: true, at: self.checkEmailImageView.center)
-                    AuthenticationManager.userEmailExists(email: textField.text!, isExists: { isExistsResponse in
-                        self.checkEmailImageView.isHidden = true
-                        self.emailCheckMessageLabel.isHidden = true
-                        if isExistsResponse {
-                            self.emailView.loadingIndicatorView(isShow: false, at: nil)
-                            self.checkEmailImageView.image = #imageLiteral(resourceName: "email-incorrect")
-                            self.emailCheckMessageLabel.text = "That email address is already registered."
-                            self.checkEmailImageView.isHidden = false
-                            self.emailCheckMessageLabel.isHidden = false
-                            self.signUpButton.isEnabled = false
-                        } else {
-                            self.emailView.loadingIndicatorView(isShow: false, at: nil)
-                            self.checkEmailImageView.image = #imageLiteral(resourceName: "email-correct")
-                            self.checkEmailImageView.isHidden = false
-                            self.emailCheckMessageLabel.isHidden = true
-                            if (!self.emailTextField.text!.isEmpty) && (!self.nickNameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.dateOfBirthTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty) {
-                                self.signUpButton.isEnabled = true
-                            } else {
-                                self.signUpButton.isEnabled = false
-                            }
-                        }
-                    })
-                }
-            }
-        default: break
-        }
+//        switch textField.tag {
+//        case SignUpTextFieldsTag.Email.rawValue:
+//            if !(textField.text?.isEmpty)! {
+//                if !(self.emailTextField.isValidEmailAddress()) {
+//                    self.checkEmailImageView.image = #imageLiteral(resourceName: "email-incorrect")
+//                    self.emailCheckMessageLabel.text = "Invalid email address."
+//                    self.checkEmailImageView.isHidden = false
+//                    self.emailCheckMessageLabel.isHidden = false
+//                    self.signUpButton.isEnabled = false
+//                } else {
+//                    self.emailView.loadingIndicatorView(isShow: true, at: self.checkEmailImageView.center)
+//                    AuthenticationManager.userEmailExists(email: textField.text!, isExists: { isExistsResponse in
+//                        self.checkEmailImageView.isHidden = true
+//                        self.emailCheckMessageLabel.isHidden = true
+//                        if isExistsResponse {
+//                            self.emailView.loadingIndicatorView(isShow: false, at: nil)
+//                            self.checkEmailImageView.image = #imageLiteral(resourceName: "email-incorrect")
+//                            self.emailCheckMessageLabel.text = "That email address is already registered."
+//                            self.checkEmailImageView.isHidden = false
+//                            self.emailCheckMessageLabel.isHidden = false
+//                            self.signUpButton.isEnabled = false
+//                        } else {
+//                            self.emailView.loadingIndicatorView(isShow: false, at: nil)
+//                            self.checkEmailImageView.image = #imageLiteral(resourceName: "email-correct")
+//                            self.checkEmailImageView.isHidden = false
+//                            self.emailCheckMessageLabel.isHidden = true
+//                            if (!self.emailTextField.text!.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty) {
+//                                self.signUpButton.isEnabled = true
+//                            } else {
+//                                self.signUpButton.isEnabled = false
+//                            }
+//                        }
+//                    })
+//                }
+//            }
+//        default: break
+//        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField.tag {
         case SignUpTextFieldsTag.Email.rawValue:
-            self.nickNameTextField.becomeFirstResponder()
+            self.nameTextField.becomeFirstResponder()
         case SignUpTextFieldsTag.NickName.rawValue:
             self.passwordTextField.becomeFirstResponder()
         case SignUpTextFieldsTag.Password.rawValue:
-            self.dateOfBirthTextField.becomeFirstResponder()
+            self.birthdateTextField.becomeFirstResponder()
         default: break
         }
         return true

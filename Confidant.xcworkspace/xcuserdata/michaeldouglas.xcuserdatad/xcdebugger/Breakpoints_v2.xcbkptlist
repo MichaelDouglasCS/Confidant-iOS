@@ -2,4 +2,390 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+            timestampString = "517457698.927949"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "createUserWith(email:password:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Confidant.AuthenticationManager.(createUserWith in _7C31E3AC608C14A4B66DCF3C2956104F) (email : Swift.String, password : Swift.String, completionHandler : (Swift.Optional&lt;__ObjC.FIRUser&gt;, Confidant.ServerResponse) -&gt; ()) -&gt; ()"
+                  moduleName = "Confidant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michaeldouglas/Cap%20Company/confidant-ios/Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+                  timestampString = "517463982.583943"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "445">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Confidant.AuthenticationManager.((createUserWith in _7C31E3AC608C14A4B66DCF3C2956104F) (email : Swift.String, password : Swift.String, completionHandler : (Swift.Optional&lt;__ObjC.FIRUser&gt;, Confidant.ServerResponse) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "Confidant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michaeldouglas/Cap%20Company/confidant-ios/Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+                  timestampString = "517463982.587563"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+            timestampString = "517457876.521827"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "createUserWith(email:password:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+            timestampString = "517458098.664386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "execute(completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+            timestampString = "517458157.12036"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "execute(completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Confidant.AuthenticationManager.execute (completionHandler : (Swift.Optional&lt;Confidant.UserVO&gt;, Confidant.ServerResponse) -&gt; ()) -&gt; ()"
+                  moduleName = "Confidant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michaeldouglas/Cap%20Company/confidant-ios/Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+                  timestampString = "517463982.614257"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "167"
+                  endingLineNumber = "167"
+                  offsetFromSymbolStart = "1409">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Confidant.AuthenticationManager.(execute (completionHandler : (Swift.Optional&lt;Confidant.UserVO&gt;, Confidant.ServerResponse) -&gt; ()) -&gt; ()).(closure #2)"
+                  moduleName = "Confidant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michaeldouglas/Cap%20Company/confidant-ios/Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+                  timestampString = "517463982.616994"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+            timestampString = "517458161.080659"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "signInWithFacebook(from:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+            timestampString = "517458192.877033"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "signInWithFacebook(from:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+            timestampString = "517458564.38144"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "signInWithFacebook(from:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+            timestampString = "517458565.850023"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "signInWithFacebook(from:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+            timestampString = "517458568.508998"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "signInWithFacebook(from:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Confidant.AuthenticationManager.((signInWithFacebook in _7C31E3AC608C14A4B66DCF3C2956104F) (from : __ObjC.UIViewController, completionHandler : (Swift.Optional&lt;Confidant.UserVO&gt;, Confidant.ServerResponse) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "Confidant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michaeldouglas/Cap%20Company/confidant-ios/Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+                  timestampString = "517463982.680606"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "333">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Confidant.AuthenticationManager.((signInWithFacebook in _7C31E3AC608C14A4B66DCF3C2956104F) (from : __ObjC.UIViewController, completionHandler : (Swift.Optional&lt;Confidant.UserVO&gt;, Confidant.ServerResponse) -&gt; ()) -&gt; ()).(closure #1).(implicit closure #1)"
+                  moduleName = "Confidant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michaeldouglas/Cap%20Company/confidant-ios/Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+                  timestampString = "517463982.683761"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+            timestampString = "517458569.309151"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "signInWithFacebook(from:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+            timestampString = "517458571.997766"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "signInWithFacebook(from:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+            timestampString = "517458583.092944"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "signInWithFacebook(from:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Confidant.AuthenticationManager.((signInWithFacebook in _7C31E3AC608C14A4B66DCF3C2956104F) (from : __ObjC.UIViewController, completionHandler : (Swift.Optional&lt;Confidant.UserVO&gt;, Confidant.ServerResponse) -&gt; ()) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Confidant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michaeldouglas/Cap%20Company/confidant-ios/Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+                  timestampString = "517463982.701649"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "1341">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Confidant.AuthenticationManager.((signInWithFacebook in _7C31E3AC608C14A4B66DCF3C2956104F) (from : __ObjC.UIViewController, completionHandler : (Swift.Optional&lt;Confidant.UserVO&gt;, Confidant.ServerResponse) -&gt; ()) -&gt; ()).(closure #1).(closure #1).(closure #1)"
+                  moduleName = "Confidant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michaeldouglas/Cap%20Company/confidant-ios/Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+                  timestampString = "517463982.70443"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "35">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+            timestampString = "517458590.41074"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "signInWithFacebook(from:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+            timestampString = "517459719.378734"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "signInWithFacebook(from:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Confidant.AuthenticationManager.((signInWithFacebook in _7C31E3AC608C14A4B66DCF3C2956104F) (from : __ObjC.UIViewController, completionHandler : (Swift.Optional&lt;Confidant.UserVO&gt;, Confidant.ServerResponse) -&gt; ()) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Confidant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michaeldouglas/Cap%20Company/confidant-ios/Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+                  timestampString = "517463982.716758"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "304">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Confidant.AuthenticationManager.((signInWithFacebook in _7C31E3AC608C14A4B66DCF3C2956104F) (from : __ObjC.UIViewController, completionHandler : (Swift.Optional&lt;Confidant.UserVO&gt;, Confidant.ServerResponse) -&gt; ()) -&gt; ()).(closure #1).(closure #1).(closure #1)"
+                  moduleName = "Confidant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michaeldouglas/Cap%20Company/confidant-ios/Confidant/Sources/Core/Logic/Authentication/AuthenticationManager.swift"
+                  timestampString = "517463982.719513"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "35">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

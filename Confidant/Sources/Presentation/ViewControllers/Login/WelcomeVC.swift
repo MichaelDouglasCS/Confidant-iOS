@@ -20,35 +20,6 @@ import UIKit
 //
 //**********************************************************************************************************
 
-fileprivate struct Messages {
-	
-	typealias local = String.Local
-	
-    //*************************************************
-    // MARK: - Properties
-    //*************************************************
-    
-    private static let welcome = ["title": local.welcome, "text": local.welcomeMessage]
-    private static let anonymously = ["title": local.anonymously, "text": local.anonymouslyMessage]
-    private static let randomly = ["title": local.randomly, "text": local.randomlyMessage]
-    private static let voluntary = ["title": local.voluntary, "text": local.voluntaryMessage]
-    private static let score = ["title": local.score, "text": local.scoreMessage]
-    
-    //*************************************************
-    // MARK: - Internal Methods
-    //*************************************************
-    
-    static func getMessages() -> [Dictionary<String, String>] {
-        let messagesArray = [self.welcome,
-                             self.anonymously,
-                             self.randomly,
-                             self.voluntary,
-                             self.score]
-		
-        return messagesArray
-    }
-}
-
 //**********************************************************************************************************
 //
 // MARK: - Class -
@@ -56,7 +27,28 @@ fileprivate struct Messages {
 //**********************************************************************************************************
 
 class WelcomeVC : UIViewController {
-    
+	
+	fileprivate struct Messages {
+		
+		typealias local = String.Local
+		
+		private static let welcome = ["title": local.welcome, "text": local.welcomeMessage]
+		private static let anonymously = ["title": local.anonymously, "text": local.anonymouslyMessage]
+		private static let randomly = ["title": local.randomly, "text": local.randomlyMessage]
+		private static let voluntary = ["title": local.voluntary, "text": local.voluntaryMessage]
+		private static let score = ["title": local.score, "text": local.scoreMessage]
+		
+		static func getMessages() -> [Dictionary<String, String>] {
+			let messagesArray = [self.welcome,
+			                     self.anonymously,
+			                     self.randomly,
+			                     self.voluntary,
+			                     self.score]
+			
+			return messagesArray
+		}
+	}
+	
 //*************************************************
 // MARK: - Properties
 //*************************************************

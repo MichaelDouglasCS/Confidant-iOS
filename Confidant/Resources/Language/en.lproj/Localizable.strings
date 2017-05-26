@@ -7,9 +7,9 @@
 "LB_SIGNUP" = "SIGN UP";
 "LB_SIGNUP_FACEBOOK" = "SIGN UP WITH FACEBOOK";
 "LB_EMAIL" = "Email";
-"LB_NICKNAME" = "Nickname";
+"LB_NAME" = "Name";
 "LB_PASSWORD" = "Password";
-"LB_DATE_OF_BIRTH" = "Date of Birth";
+"LB_BIRTHDATE" = "Birthdate";
 "LB_GENDER" = "Gender";
 "LB_OR" = "or";
 "LB_OR_WITH_EMAIL" = "or with e-mail";
