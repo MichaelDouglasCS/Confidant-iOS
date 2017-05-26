@@ -22,6 +22,11 @@
 "ST_OK" = "OK";
 "ST_HELLO" = "Hello";
 "ST_TODAY" = "Today";
+"ST_WELCOME" = "Welcome";
+"ST_ANONYMOUSLY" = "Anonymously";
+"ST_RANDOMLY" = "Randomly";
+"ST_VOLUNTARY" = "Voluntary";
+"ST_SCORE" = "Score";
 
 //*************************
 // Messages
@@ -30,4 +35,15 @@
 "MSG_FINGER_PRINT" = "Please place your finger over the Home Button sensor to authenticate the current user";
 "MSG_INVALID_FINGER_PRINT" = "It was not possible to authenticate through the sensor, please enter the password manually";
 "MSG_TERMS_AND_CONDITIONS" = "By signing up, you agree to Confidant’s Terms and conditions of Use and Privacy Policy.";
+"MSG_WELCOME" = "Feel free for help someone or keep someone help you, find your Confidant";
+"MSG_ANONYMOUSLY" = "Don't care about your identity, we assure your securence and anonymity";
+"MSG_RANDOMLY" = "Let us find someone to help you, according to your interests";
+"MSG_VOLUNTARY" = "How about you being a volunteer?";
+"MSG_SCORE" = "Be punctuated by people that you help, become the first and share it with everyone";
+"MSG_SERVER_ERROR" = "Server Error";
+"MSG_INVALID_LOGIN" = "Are you sure entered the right username and password?";
+"MSG_EMAIL_ALREADY_EXISTS" = "Email already in use";
+"MSG_TOO_MANY_REQUESTS" = "Too many requests";
+"MSG_USER_NOT_FOUND" = "User not found";
+"MSG_NETWORK_ERROR" = "Network Error";
 

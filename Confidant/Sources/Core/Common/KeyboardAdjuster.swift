@@ -44,9 +44,18 @@ extension UIViewController {
 		                                       selector: #selector(self.keyboardWillChange),
 		                                       name: .UIKeyboardWillChangeFrame,
 		                                       object: nil)
+		
+		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+		                                                         action: #selector(self.dismissKeyboard))
+		self.view.addGestureRecognizer(tap)
+	}
+	
+	func dismissKeyboard() {
+		self.view.endEditing(true)
 	}
 	
 	func removeObservers() {
 		NotificationCenter.default.removeObserver(self)
+		self.view.gestureRecognizers?.removeAll()
 	}
 }

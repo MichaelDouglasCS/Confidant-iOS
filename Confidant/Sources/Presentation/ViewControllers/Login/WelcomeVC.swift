@@ -8,106 +8,98 @@
 
 import UIKit
 
-//**************************************************************************************************
+//**********************************************************************************************************
 //
 // MARK: - Constants -
 //
-//**************************************************************************************************
+//**********************************************************************************************************
 
-//TitleAttributes
-fileprivate let kFontSizeTitle: CGFloat = 22
-fileprivate let kLetterSpacingTitle: Double = -0.5
-
-//TextAttributes
-fileprivate let kLineSpacingText: CGFloat = 10
-fileprivate let kFontSizeText: CGFloat = 12
-
-//**************************************************************************************************
+//**********************************************************************************************************
 //
-// MARK: - Structs -
+// MARK: - Definitions -
 //
-//**************************************************************************************************
+//**********************************************************************************************************
 
-fileprivate struct WelcomeMessages {
-    
+fileprivate struct Messages {
+	
+	typealias local = String.Local
+	
     //*************************************************
     // MARK: - Properties
     //*************************************************
     
-    private let messageOne = ["title": "Welcome", "text": "Feel free for help someone or keep someone help you, find your Confidant"]
-    private let messageTwo = ["title": "Anonymously", "text": "Don't care about your identity, we assure your securence and anonymity"]
-    private let messageThree = ["title": "Randomly", "text": "Let us find someone to help you, according to your interests"]
-    private let messageFour = ["title": "Voluntary", "text": "How about you being a volunteer?"]
-    private let messageFive = ["title": "Score", "text": "Be punctuated by people that you help, become the first and share it with everyone"]
+    private static let welcome = ["title": local.welcome, "text": local.welcomeMessage]
+    private static let anonymously = ["title": local.anonymously, "text": local.anonymouslyMessage]
+    private static let randomly = ["title": local.randomly, "text": local.randomlyMessage]
+    private static let voluntary = ["title": local.voluntary, "text": local.voluntaryMessage]
+    private static let score = ["title": local.score, "text": local.scoreMessage]
     
     //*************************************************
     // MARK: - Internal Methods
     //*************************************************
     
-    func getMessages() -> [Dictionary<String, String>] {
-        let messagesArray = [self.messageOne, self.messageTwo, self.messageThree, self.messageFour, self.messageFive]
+    static func getMessages() -> [Dictionary<String, String>] {
+        let messagesArray = [self.welcome,
+                             self.anonymously,
+                             self.randomly,
+                             self.voluntary,
+                             self.score]
+		
         return messagesArray
     }
-    
 }
 
-//**************************************************************************************************
+//**********************************************************************************************************
 //
 // MARK: - Class -
 //
-//**************************************************************************************************
+//**********************************************************************************************************
 
 class WelcomeVC : UIViewController {
     
 //*************************************************
 // MARK: - Properties
 //*************************************************
-    
-    @IBOutlet weak var messageScrollView: UIScrollView!
-    @IBOutlet weak var messagePageControl: UIPageControl!
-    
-    private var timer = Timer()
-    fileprivate var numberOfPages: Int {
-        get {
-            return WelcomeMessages().getMessages().count
-        }
-    }
-    
-//*************************************************
-// MARK: - Constructors
-//*************************************************
+	
+	private var timer = Timer()
+	fileprivate var numberOfPages: Int {
+		get {
+			return Messages.getMessages().count
+		}
+	}
+	
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var pageControl: UIPageControl!
 	
 //*************************************************
 // MARK: - Protected Methods
 //*************************************************
     
     private func setupNavigationBar() {
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+		let barButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = barButton
     }
-    
-    private func addSwipeGestureRecognizers() {
+	
+    private func addSwipeGesture() {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
-        swipeRight.direction = .right
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
+		
+		swipeRight.direction = .right
         swipeLeft.direction = .left
         
         self.view.addGestureRecognizer(swipeRight)
         self.view.addGestureRecognizer(swipeLeft)
     }
-    
-    @objc private func swipeTimer() {
-        self.view.isUserInteractionEnabled = false
-        self.messageScrollView.setContentOffset(CGPoint(x: self.messageScrollView.contentOffset.x + self.messageScrollView.frame.size.width, y: 0), animated: true)
-    }
-    
+	
     @objc private func swipeRecognizer(_ gesture: UISwipeGestureRecognizer) {
         self.view.isUserInteractionEnabled = false
         self.resetTimer()
+		
         switch gesture.direction {
         case UISwipeGestureRecognizerDirection.right:
-            self.messageScrollView.setContentOffset(CGPoint(x: self.messageScrollView.contentOffset.x - self.messageScrollView.frame.size.width, y: 0), animated: true)
+            self.scrollView.setContentOffset(CGPoint(x: self.scrollView.contentOffset.x - self.scrollView.frame.size.width, y: 0), animated: true)
         case UISwipeGestureRecognizerDirection.left:
-            self.messageScrollView.setContentOffset(CGPoint(x: self.messageScrollView.contentOffset.x + self.messageScrollView.frame.size.width, y: 0), animated: true)
+            self.scrollView.setContentOffset(CGPoint(x: self.scrollView.contentOffset.x + self.scrollView.frame.size.width, y: 0), animated: true)
         default: break
         }
     }
@@ -116,17 +108,23 @@ class WelcomeVC : UIViewController {
     // MARK: - Welcome Messages Methods
     //*************************************************
     
-    private func loadWelcomeMessages() {
-        //Actualize MessageScrollView with the same frame of Super View
-        self.messageScrollView.frame = self.view.frame
-        
-        let welcomeMessages = WelcomeMessages().getMessages()
-        
-        self.messageScrollView.contentSize = CGSize(width: self.view.bounds.size.width * (CGFloat(welcomeMessages.count) + 2), height: self.messageScrollView.frame.size.height)
+    private func loadData() {
+		let welcomeMessages = Messages.getMessages()
+        let frame = self.view.frame
+		let bounds = self.view.bounds
+		let scrollViewFrame = self.scrollView.frame
+		let scrollViewBounds = self.scrollView.bounds
+		
+        self.scrollView.frame = frame
+		self.scrollView.contentSize = CGSize(width: bounds.size.width * (CGFloat(welcomeMessages.count) + 2),
+		                                     height: self.scrollView.frame.size.height)
         
         for (index, message) in welcomeMessages.enumerated() {
             //Setup Size and Position MessageView, Title and Text
-            let messageView = UIView(frame: CGRect(x: 0, y: 0, width: CGFloat(self.messageScrollView.bounds.size.width), height: CGFloat(self.messageScrollView.bounds.size.height)))
+            let messageView = UIView(frame: CGRect(x: 0,
+                                                   y: 0,
+                                                   width: CGFloat(scrollViewBounds.size.width),
+                                                   height: CGFloat(scrollViewBounds.size.height)))
             let messageTitle = UILabel(frame: CGRect(x: CGFloat(messageView.frame.size.width - 300) / 2, y: 0, width: 300, height: 25))
             let messageText = UILabel(frame: CGRect(x: CGFloat(messageView.frame.size.width - 300) / 2, y: CGFloat(messageTitle.frame.size.height + 3), width: 300, height: 40))
             
@@ -141,83 +139,83 @@ class WelcomeVC : UIViewController {
                 if let title = welcomeMessages[welcomeMessages.endIndex-1]["title"] {
                     firstTitle.getMessageFormat(title: title)
                 }
+				
                 if let text = welcomeMessages[welcomeMessages.endIndex-1]["text"] {
                     firstText.getMessageFormat(text: text)
                 }
                 
                 firstView.addSubViews(views: [firstTitle, firstText])
-                firstView.frame.origin.x = CGFloat(index-1) * self.messageScrollView.frame.size.width
+                firstView.frame.origin.x = CGFloat(index-1) * scrollViewFrame.size.width
                 
-                self.messageScrollView.addSubview(firstView)
+                self.scrollView.addSubview(firstView)
             }
             
             //Configure MessageTitle and MessageText to input in MessageView
             if let title = message["title"] {
                 messageTitle.getMessageFormat(title: title)
             }
+			
             if let text = message["text"] {
                 messageText.getMessageFormat(text: text)
             }
             
             messageView.addSubViews(views: [messageTitle, messageText])
-            messageView.frame.origin.x = CGFloat(index) * self.messageScrollView.frame.size.width
+            messageView.frame.origin.x = CGFloat(index) * scrollViewFrame.size.width
             
-            self.messageScrollView.addSubview(messageView)
+            self.scrollView.addSubview(messageView)
             
             if index == welcomeMessages.endIndex - 1 {
                 let lastView = UIView(frame: messageView.frame)
                 let lastTitle = UILabel(frame: messageTitle.frame)
                 let lastText = UILabel(frame: messageText.frame)
+				
                 if let title = welcomeMessages[welcomeMessages.startIndex]["title"] {
                     lastTitle.getMessageFormat(title: title)
                 }
+				
                 if let text = welcomeMessages[welcomeMessages.startIndex]["text"] {
                     lastText.getMessageFormat(text: text)
                 }
+				
                 lastView.addSubViews(views: [lastTitle, lastText])
-                lastView.frame.origin.x = CGFloat(index+1) * self.messageScrollView.frame.size.width
-                self.messageScrollView.addSubview(lastView)
+                lastView.frame.origin.x = CGFloat(index+1) * scrollViewFrame.size.width
+				
+                self.scrollView.addSubview(lastView)
             }
         }
+		
+		self.pageControl.numberOfPages = self.numberOfPages
     }
-    
-    //*************************************************
-    // MARK: - Timer Methods
-    //*************************************************
-    
+	
+	@objc private func swipeAction() {
+		self.view.isUserInteractionEnabled = false
+		self.scrollView.setContentOffset(CGPoint(x: self.scrollView.contentOffset.x + self.scrollView.frame.size.width, y: 0), animated: true)
+	}
+	
     private func startTimer() {
-        self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.swipeTimer), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.swipeAction), userInfo: nil, repeats: true)
     }
     
     private func resetTimer() {
         self.timer.invalidate()
         self.startTimer()
     }
-    
+
 //*************************************************
-// MARK: - Internal Methods
+// MARK: - Overridden Public Methods
 //*************************************************
-    
-//*************************************************
-// MARK: - Public Methods
-//*************************************************
-    
-//*************************************************
-// MARK: - Override Public Methods
-//*************************************************
-    
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavigationBar()
-        self.loadWelcomeMessages()
-        self.messagePageControl.numberOfPages = self.numberOfPages
-        self.addSwipeGestureRecognizers()
+        self.loadData()
+        self.addSwipeGesture()
         self.startTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewWillAppear(true)
+		self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -235,18 +233,17 @@ class WelcomeVC : UIViewController {
 
 extension WelcomeVC : UIScrollViewDelegate {
     
-    //*************************************************
-    // MARK: - ScrollView Methods
-    //*************************************************
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (scrollView.contentOffset.x == (-self.view.frame.size.width)) {
-            self.messageScrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x + scrollView.frame.size.width * CGFloat(self.numberOfPages), y: 0), animated: false)
-        } else if (scrollView.contentOffset.x == (self.view.frame.size.width * CGFloat(self.numberOfPages))) {
-            self.messageScrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x - scrollView.frame.size.width * CGFloat(self.numberOfPages), y: 0), animated: false)
+		let frame = self.view.frame
+		
+        if (scrollView.contentOffset.x == (-frame.size.width)) {
+            self.scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x + scrollView.frame.size.width * CGFloat(self.numberOfPages), y: 0), animated: false)
+        } else if (scrollView.contentOffset.x == (frame.size.width * CGFloat(self.numberOfPages))) {
+            self.scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x - scrollView.frame.size.width * CGFloat(self.numberOfPages), y: 0), animated: false)
         }
+		
         let page = scrollView.contentOffset.x / scrollView.frame.size.width
-        self.messagePageControl.currentPage = Int(page)
+        self.pageControl.currentPage = Int(page)
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
@@ -262,25 +259,28 @@ extension WelcomeVC : UIScrollViewDelegate {
 
 extension UILabel {
     
-    func getMessageFormat(title: String) {
+    fileprivate func getMessageFormat(title: String) {
         let attributedString = NSMutableAttributedString(string: title)
-        attributedString.addAttribute(NSKernAttributeName, value: kLetterSpacingTitle, range: NSRange(location: 0, length: attributedString.length))
-        self.attributedText = attributedString
-        self.font = UIFont(name: "Gotham-Bold", size: kFontSizeTitle)
+		
+        attributedString.addAttribute(NSKernAttributeName, value: -0.5, range: NSRange(location: 0, length: attributedString.length))
+		
+		self.attributedText = attributedString
+        self.font = UIFont(name: "Gotham-Bold", size: 22)
         self.textColor = UIColor.white
         self.textAlignment = .center
     }
     
-    func getMessageFormat(text: String) {
+    fileprivate func getMessageFormat(text: String) {
         let attributedString = NSMutableAttributedString(string: text)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = kLineSpacingText
+		
+        paragraphStyle.lineSpacing = 10
         attributedString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
-        self.attributedText = attributedString
-        self.font = UIFont(name: "Gotham-Bold", size: kFontSizeText)
+		
+		self.attributedText = attributedString
+        self.font = UIFont(name: "Gotham-Bold", size: 12)
         self.textColor = UIColor(white: 100, alpha: 0.7)
         self.textAlignment = .center
         self.numberOfLines = 0
     }
-    
 }

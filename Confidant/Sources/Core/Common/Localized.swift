@@ -41,12 +41,22 @@ extension String {
 		static var ok: String { return "ST_OK".localized }
 		static var today: String { return "ST_TODAY".localized }
 		static var yesterday: String { return "ST_YESTERDAY".localized }
+		static var welcome: String { return "ST_WELCOME".localized }
+		static var anonymously: String { return "ST_ANONYMOUSLY".localized }
+		static var randomly: String { return "ST_RANDOMLY".localized }
+		static var voluntary: String { return "ST_VOLUNTARY".localized }
+		static var score: String { return "ST_SCORE".localized }
 		
 		//*************************
 		// Messages
 		//*************************
 		static var fingerPrint: String { return "MSG_FINGER_PRINT".localized }
 		static var invalidFingerPrint: String { return "MSG_INVALID_FINGER_PRINT".localized }
+		static var welcomeMessage: String { return "MSG_WELCOME".localized }
+		static var anonymouslyMessage: String { return "MSG_ANONYMOUSLY".localized }
+		static var randomlyMessage: String { return "MSG_RANDOMLY".localized }
+		static var voluntaryMessage: String { return "MSG_VOLUNTARY".localized }
+		static var scoreMessage: String { return "MSG_SCORE".localized }
 		
 		//*************************
 		// Plurals

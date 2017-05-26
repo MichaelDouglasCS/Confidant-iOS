@@ -8,21 +8,24 @@
 
 import Foundation
 import SwiftyJSON
+import FirebaseAuth
 
-//**************************************************************************************************
+//**********************************************************************************************************
 //
 // MARK: - Constants -
 //
-//**************************************************************************************************
+//**********************************************************************************************************
 
-//**************************************************************************************************
+//**********************************************************************************************************
 //
 // MARK: - Definitions -
 //
-//**************************************************************************************************
+//**********************************************************************************************************
 
 public typealias LogicResult = (ServerResponse) -> Void
 public typealias ServerResult = (JSON, ServerResponse) -> Void
+public typealias FirebaseResult = (FIRUser?, ServerResponse) -> Void
+public typealias UserResult = (UserVO?, ServerResponse) -> Void
 
 /**
 Defines how the main server defines its responses.
@@ -30,44 +33,55 @@ Showing up the agreed error codes and messages for each of the known scenarios.
 */
 public enum ServerResponse {
 	
-	public enum Error : String {
+	public enum Errors : String {
 		case unkown = "MSG_SERVER_ERROR"
 		case invalidCredentials = "MSG_INVALID_LOGIN"
+		case emailAlreadyExists = "MSG_EMAIL_ALREADY_EXISTS"
+		case tooManyRequests = "MSG_TOO_MANY_REQUESTS"
+		case userNotFound = "MSG_USER_NOT_FOUND"
+		case networkError = "MSG_NETWORK_ERROR"
 	}
 	
 	case success
-	case error(ServerResponse.Error)
+	case failed(Error?)
 	
 	public var localizedError: String {
 		switch self {
-		case .error(let type):
-			return type.rawValue.localized
+		case .failed(let error as NSError):
+			return description(error).localized
 		default:
 			return ""
 		}
 	}
 	
-	public init(_ response: HTTPURLResponse?) {
-		if let httpResponse = response {
-			switch httpResponse.statusCode {
-			case 200..<300:
-				self = .success
-			case 401:
-				self = .error(.invalidCredentials)
-			default:
-				self = .error(.unkown)
-			}
-		} else {
-			self = .error(.unkown)
+	private func description(_ error: NSError) -> String {
+		var description = ""
+		
+		switch error.code {
+		case 17007:
+			description = Errors.emailAlreadyExists.rawValue
+		case 17008, 17009:
+			description = Errors.invalidCredentials.rawValue
+		case 17010:
+			description = Errors.tooManyRequests.rawValue
+		case 17011:
+			description = Errors.userNotFound.rawValue
+		case 17020:
+			description = Errors.networkError.rawValue
+		default:
+			description = Errors.unkown.rawValue
 		}
+		
+		return description
 	}
 }
 
-//**************************************************************************************************
+
+//**********************************************************************************************************
 //
 // MARK: - Class -
 //
-//**************************************************************************************************
+//**********************************************************************************************************
 
 class ServerRequest {
 
@@ -97,8 +111,8 @@ class ServerRequest {
 
 }
 
-//**************************************************************************************************
+//**********************************************************************************************************
 //
 // MARK: - Extension -
 //
-//**************************************************************************************************
+//**********************************************************************************************************
