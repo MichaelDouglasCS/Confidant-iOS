@@ -70,6 +70,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.0)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.0)
   - GTMSessionFetcher/Core (1.1.7)
+  - SCrypto (2.0.0)
   - SwiftyJSON (3.1.3)
 
 DEPENDENCIES:
@@ -83,6 +84,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Messaging
   - Firebase/Storage
+  - SCrypto
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -103,8 +105,9 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
+  SCrypto: 8287dcf6151df38f9bc0efad2ed982c54a96d1b8
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: e1a22cfc094d24d8403e06fd388bcf5496f1a024
+PODFILE CHECKSUM: 60ff6960f1129c69104b044def12d3b3ee080ac5
 
 COCOAPODS: 1.1.1

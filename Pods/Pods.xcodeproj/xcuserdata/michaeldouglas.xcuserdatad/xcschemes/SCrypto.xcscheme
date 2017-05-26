@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '6D5CEDECD3D8DC52EA507E0431BDA8A0'
-               BlueprintName = 'GoogleToolboxForMac'
+               BlueprintIdentifier = '229B30DDC3FE9C351A9BA44CB3E6D841'
+               BlueprintName = 'SCrypto'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'GoogleToolboxForMac.framework'>
+               BuildableName = 'SCrypto.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

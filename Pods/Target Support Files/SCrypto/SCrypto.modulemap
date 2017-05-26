@@ -1,0 +1,6 @@
+framework module SCrypto {
+  umbrella header "SCrypto-umbrella.h"
+
+  export *
+  module * { export * }
+}

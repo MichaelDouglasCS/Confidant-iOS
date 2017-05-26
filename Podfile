@@ -16,6 +16,7 @@ target 'Confidant' do
   pod 'FBSDKShareKit'
   pod 'Firebase/Storage'
   pod 'SwiftyJSON'
+  pod 'SCrypto'
   pod 'Alamofire'
   # pod 'Firebase/Invites'
   # pod 'Firebase/Crash'

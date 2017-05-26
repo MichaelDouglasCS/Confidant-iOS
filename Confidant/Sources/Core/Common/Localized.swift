@@ -7,6 +7,7 @@
  */
 
 import UIKit
+import SCrypto
 
 //**********************************************************************************************************
 //
@@ -68,19 +69,107 @@ extension String {
 		static var familySupporting: String { return "PL_SUPPORT_SYSTEM".localized }
 		static var issue: String { return "PL_ISSUE".localized }
 	}
+	
+	public var localized: String {
+		return NSLocalizedString(self, comment: self)
+	}
+	
+	public var localizedCountryName: String {
+		return Locale.current.localizedString(forRegionCode: self) ?? ""
+	}
+	
+	public var renderHTML: NSAttributedString? {
+		guard let stringData = self.data(using: .utf8) else { return nil }
+		let options: [String : Any] = [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+		                               NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue]
+		return try? NSAttributedString(data: stringData, options: options, documentAttributes: nil)
+	}
+	
+	public func pluralize(_ count: Int) -> String {
+		return String.localizedStringWithFormat(self, count)
+	}
 }
 
 //**********************************************************************************************************
 //
-// MARK: - Extension - String Localized
+// MARK: - Extension - String
 //
 //**********************************************************************************************************
 
 extension String {
 
-//**************************************************
-// MARK: - Protected Methods
-//**************************************************
+	public var capitalizedFirst: String {
+		
+		if let char = self.characters.first {
+			let first = String(char).uppercased()
+			let others = self.substring(from: self.index(after: self.startIndex))
+			
+			return first + others
+		}
+		
+		return self
+	}
+	
+	public var isValidEmail: Bool {
+		
+		let pattern = "\\b[\\w\\.-_]+@[\\w\\.\\-\\_]+\\.\\w{2,}\\b"
+		let fullRange = NSRange(location: 0, length: self.characters.count)
+		var result = false
+		
+		if let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive) {
+			result = (regex.numberOfMatches(in: self, options: [], range: fullRange) > 0)
+		}
+		
+		return result
+	}
+	
+	public var isStrongPassword: Bool {
+		
+		let pattern = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})"
+		let fullRange = NSRange(location: 0, length: self.characters.count)
+		var result = false
+		
+		if let regex = try? NSRegularExpression(pattern: pattern, options: []) {
+			result = (regex.numberOfMatches(in: self, options: [], range: fullRange) > 0)
+		}
+		
+		return result
+	}
+	
+	public var encryptedPassword: String {
+		
+		// MD5 3 times
+		let phase1 = self.MD5().MD5().MD5()
+		
+		// Append a secret phrase
+		let phase2 = phase1 + "confidant"
+		
+		// Run MD5 6 times
+		let phase3 = phase2.MD5().MD5().MD5().MD5().MD5()
+		
+		return phase3
+	}
+	
+	public var highlighted: String {
+		
+		var newValue = ""
+		var skip = true
+		let components = self.components(separatedBy: "#")
+		
+		components.forEach {
+			if !skip {
+				newValue += "\($0) "
+				skip = true
+			} else {
+				skip = false
+			}
+		}
+		
+		let count = newValue.characters.count
+		let index = (count > 0) ? newValue.index(before: newValue.endIndex) : newValue.endIndex
+		
+		return newValue.substring(to: index)
+	}
 	
 	private func attribute(for font: UIFont, with trait: UIFontDescriptorSymbolicTraits) -> [String: Any] {
 		
@@ -101,18 +190,6 @@ extension String {
 		return [ NSFontAttributeName : newFont ]
 	}
 	
-//**************************************************
-// MARK: - Exposed Methods
-//**************************************************
-	
-	public var localized: String {
-		return NSLocalizedString(self, comment: self)
-	}
-	
-	public func pluralized(_ count: Int) -> String {
-		return String.localizedStringWithFormat(self, count)
-	}
-	
 	public func localizedAttributed(for font: UIFont, underline: CGFloat = 2.0) -> NSAttributedString {
 		
 		let boldStyle = self.attribute(for: font, with: .traitBold)
@@ -120,8 +197,8 @@ extension String {
 		let underlineStyle = [NSUnderlineStyleAttributeName : underline]
 		let replacements = [
 			"\\#.*?\\#" : boldStyle,
-			"\\$.*?\\$" : italicStyle,
-			"\\%.*?\\%" : underlineStyle
+			"\\*.*?\\*" : italicStyle,
+			"\\$.*?\\$" : underlineStyle
 		]
 		
 		let att = NSMutableAttributedString(string: self)
@@ -146,28 +223,21 @@ extension String {
 		
 		return att
 	}
-}
-
-//**********************************************************************************************************
-//
-// MARK: - Extension - String Validation
-//
-//**********************************************************************************************************
-
-extension String {
 	
-	public var isValidEmail: Bool {
+	public func halved(by pattern: String, keepFirst: Bool = true) -> String {
+		let components = self.components(separatedBy: pattern)
+		let midpoint = Int((Double(components.count) / 2.0).rounded(.up))
+		let halved: ArraySlice<String>
 		
-		let pattern = "\\b[\\w\\.-_]+@[\\w\\.\\-\\_]+\\.\\w{2,}\\b"
-		let fullRange = NSRange(location: 0, length: self.characters.count)
-		var result = false
-		
-		if let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive) {
-			result = (regex.numberOfMatches(in: self, options: [], range: fullRange) > 0)
+		if keepFirst {
+			halved = components.prefix(upTo: midpoint)
+		} else {
+			halved = components.suffix(from: midpoint)
 		}
 		
-		return result
+		return halved.joined(separator: pattern)
 	}
+
 }
 
 //**********************************************************************************************************

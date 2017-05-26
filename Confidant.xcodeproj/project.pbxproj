@@ -55,7 +55,6 @@
 		61BE69481ED3413E0036EDBB /* Parsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BE69471ED3413E0036EDBB /* Parsable.swift */; };
 		61BE8B6C1E81E158005FDB0D /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BE8B6B1E81E158005FDB0D /* UIViewController+Alerts.swift */; };
 		61CC4EC71E80DE6A00ED4DB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61CC4EC61E80DE6A00ED4DB6 /* Assets.xcassets */; };
-		61CC4EC91E80EE3400ED4DB6 /* String+Formats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CC4EC81E80EE3400ED4DB6 /* String+Formats.swift */; };
 		61CDB4371E87038E00E792F6 /* UITextField+Verifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CDB4361E87038E00E792F6 /* UITextField+Verifications.swift */; };
 		61F127891EA6FFA200F14A17 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61F1278B1EA6FFA200F14A17 /* Localizable.strings */; };
 		61F127981EA7015F00F14A17 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1278D1EA7015E00F14A17 /* Alerts.swift */; };
@@ -165,8 +164,6 @@
 		61BE69471ED3413E0036EDBB /* Parsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsable.swift; sourceTree = "<group>"; };
 		61BE8B6B1E81E158005FDB0D /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		61CC4EC61E80DE6A00ED4DB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		61CC4EC81E80EE3400ED4DB6 /* String+Formats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Formats.swift"; sourceTree = "<group>"; };
-		61CC4ECB1E80F11D00ED4DB6 /* Crypto-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crypto-Bridging-Header.h"; sourceTree = "<group>"; };
 		61CDB4361E87038E00E792F6 /* UITextField+Verifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Verifications.swift"; sourceTree = "<group>"; };
 		61F1278A1EA6FFA200F14A17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		61F1278C1EA6FFE600F14A17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -414,13 +411,13 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		618485791E6862FE00854092 /* Networking */ = {
+		618485791E6862FE00854092 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				6139C8841ED4DE7B00D4BC9B /* URLs.swift */,
 				61F570981E7DAC5E00712518 /* ServerRequest.swift */,
 			);
-			path = Networking;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		6184857B1E68631200854092 /* Authentication */ = {
@@ -520,7 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				6184857B1E68631200854092 /* Authentication */,
-				618485791E6862FE00854092 /* Networking */,
+				618485791E6862FE00854092 /* Services */,
 				611DA8811ED75DB200FBB047 /* Persistence */,
 				611DA8841ED75E3700FBB047 /* UsersLO.swift */,
 			);
@@ -546,7 +543,6 @@
 			isa = PBXGroup;
 			children = (
 				61F1278D1EA7015E00F14A17 /* Alerts.swift */,
-				61CC4ECB1E80F11D00ED4DB6 /* Crypto-Bridging-Header.h */,
 				61F127901EA7015E00F14A17 /* DateKit.swift */,
 				61F127911EA7015E00F14A17 /* KeyboardAdjuster.swift */,
 				61F127921EA7015E00F14A17 /* KeyboardToolbar.swift */,
@@ -554,7 +550,6 @@
 				61F127941EA7015E00F14A17 /* Localized.swift */,
 				61F127951EA7015E00F14A17 /* MathKit.swift */,
 				61F127961EA7015E00F14A17 /* StyleKit.swift */,
-				61CC4EC81E80EE3400ED4DB6 /* String+Formats.swift */,
 				613A8B461E6F1159000DD11D /* UIView+AddSubViews.swift */,
 				61BE8B6B1E81E158005FDB0D /* UIViewController+Alerts.swift */,
 				61CDB4361E87038E00E792F6 /* UITextField+Verifications.swift */,
@@ -938,7 +933,6 @@
 				61F127BA1EA7034D00F14A17 /* LocalizedSearchBar.swift in Sources */,
 				61F1279B1EA7015F00F14A17 /* DateKit.swift in Sources */,
 				61F127B51EA7034D00F14A17 /* Loading.swift in Sources */,
-				61CC4EC91E80EE3400ED4DB6 /* String+Formats.swift in Sources */,
 				61494DFA1E685AB400D4DF13 /* AppDelegate.swift in Sources */,
 				61BE8B6C1E81E158005FDB0D /* UIViewController+Alerts.swift in Sources */,
 				61F127981EA7015F00F14A17 /* Alerts.swift in Sources */,
@@ -1098,7 +1092,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.watermelon.Confidant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "Confidant/Sources/Core/Common/Crypto-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1117,7 +1111,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.watermelon.Confidant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "Confidant/Sources/Core/Common/Crypto-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
