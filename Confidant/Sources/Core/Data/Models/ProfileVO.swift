@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 //**********************************************************************************************************
 //
@@ -26,7 +27,7 @@ import UIKit
 //
 //**********************************************************************************************************
 
-public class ProfileVO : Parsable {
+public class ProfileVO : ModelVO {
 
 	public enum UserKind : String {
 		case user = "USER"
@@ -46,8 +47,6 @@ public class ProfileVO : Parsable {
 //*************************************************
 // MARK: - Constructors
 //*************************************************
-	
-	public required init() { }
 
 //*************************************************
 // MARK: - Protected Methods
@@ -57,12 +56,34 @@ public class ProfileVO : Parsable {
 // MARK: - Exposed Methods
 //*************************************************
 	
-	public func parsing(_ parser: Parser) {
-		self.name <-> parser["name"]
-		self.birthdate <-> parser["birthdate"]
-		self.gender <-> parser["gender"]
-		self.userKind <-> parser["userKind"]
-		self.picture <-> parser["picture"]
+	override public func decodeJSON(json: JSON) {
+		
+		self.name = json["name"].stringValue
+		self.birthdate = json["birthdate"].string
+		self.gender = json["gender"].string
+		self.userKind = UserKind(rawValue: json["userKind"].stringValue) ?? .user
+		self.picture = json["picture"].string
+	}
+	
+	override public func encodeJSON() -> JSON {
+		
+		var json: JSON = ["name" : self.name as AnyObject]
+		
+		json["userKind"] = JSON(self.userKind.rawValue)
+		
+		if let birthdate = self.birthdate {
+			json["birthdate"] = JSON(birthdate)
+		}
+		
+		if let gender = self.gender {
+			json["gender"] = JSON(gender)
+		}
+		
+		if let picture = self.picture {
+			json["picture"] = JSON(picture)
+		}
+		
+		return json
 	}
 }
 

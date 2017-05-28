@@ -86,11 +86,12 @@ class LogInVC : UIViewController {
     fileprivate func loginWithEmail() {
         self.dismissKeyboard()
         self.loadingIndicator(isShow: true)
-        
-        let email = self.emailTextField.text!
-        let password = self.passwordTextField.text!
-        
-		UsersLO.instance.authenticate(by: .logInBy(email: email, password: password)) { (result) in
+		
+		let user = UserVO()
+		user.email = self.emailTextField.text ?? ""
+		user.password = (self.passwordTextField.text ?? "").encryptedPassword
+		
+		UsersLO.instance.login(by: .email(user: user)) { (result) in
 			switch(result) {
 			case .success:
 				self.logged()
@@ -110,7 +111,18 @@ class LogInVC : UIViewController {
 //*************************************************
     
     @IBAction func logInWithFacebook(_ sender: UIButton) {
-        print("Login Facebook")
+		
+		self.loadingIndicator(isShow: true)
+		
+		UsersLO.instance.register(by: .facebook) { (result) in
+			switch(result) {
+			case .success:
+				self.logged()
+			case .failed(let error):
+				self.loadingIndicator(isShow: false)
+				self.presentAlertOk(title: "LOG IN FAILED", message: error?.localizedDescription ?? "")
+			}
+		}
     }
     
     @IBAction func logInWithEmailAndPassword(_ sender: UIButton) {

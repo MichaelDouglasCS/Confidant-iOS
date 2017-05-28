@@ -172,7 +172,7 @@ class SignUpVC : UIViewController {
     @IBAction func signUpWithFacebook(_ sender: UIButton) {
         self.loadingIndicator(isShow: true)
 		
-		UsersLO.instance.authenticate(by: .signInByFacebook(from: self)) { (result) in
+		UsersLO.instance.register(by: .facebook) { (result) in
 			switch(result) {
 			case .success:
 				self.logged()
@@ -187,25 +187,21 @@ class SignUpVC : UIViewController {
 		self.dismissKeyboard()
 		self.loadingIndicator(isShow: true)
 		
-		let email = self.emailTextField.text!
-		let name = self.nameTextField.text!
-		let password = self.passwordTextField.text!
-		let birthdate = self.birthdateTextField.text!
-		let gender = self.genderTextField.text!
+		let user = UserVO()
+		user.email = self.emailTextField.text ?? ""
+		user.password = (self.passwordTextField.text ?? "").encryptedPassword
+		user.profile.name = self.nameTextField.text ?? ""
+		user.profile.birthdate = self.birthdateTextField.text ?? ""
+		user.profile.gender = self.genderTextField.text ?? ""
 		
-		UsersLO.instance.authenticate(by: .signInBy(email: email,
-		                                            name: name,
-		                                            password: password,
-		                                            birthdate: birthdate,
-		                                            gender: gender)) { (result) in
-														
-														switch(result) {
-														case .success:
-															self.logged()
-														case .failed(let error):
-															self.loadingIndicator(isShow: false)
-															self.presentAlertOk(title: "SIGN UP FAILED", message: error?.localizedDescription ?? "")
-														}
+		UsersLO.instance.register(by: .email(user: user)) { (result) in
+			switch(result) {
+			case .success:
+				self.logged()
+			case .failed(let error):
+				self.loadingIndicator(isShow: false)
+				self.presentAlertOk(title: "SIGN UP FAILED", message: error?.localizedDescription ?? "")
+			}
 		}
 	}
 	

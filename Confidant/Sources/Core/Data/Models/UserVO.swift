@@ -28,21 +28,20 @@ import FirebaseAuth
 //
 //**************************************************************************************************
 
-public class UserVO : Parsable {
+public class UserVO : ModelVO {
 
 //*************************************************
 // MARK: - Properties
 //*************************************************
 
     public var id: String = ""
-    public var email: String?
+    public var email: String = ""
+	public var password: String = ""
 	public var profile: ProfileVO = ProfileVO()
 	
 //*************************************************
 // MARK: - Constructors
 //*************************************************
-    
-	public required init() { }
     
 //*************************************************
 // MARK: - Private Methods
@@ -56,10 +55,23 @@ public class UserVO : Parsable {
 // MARK: - Public Methods
 //*************************************************
 
-	public func parsing(_ parser: Parser) {
-		self.id <-> parser["id"]
-		self.email <-> parser["email"]
-		self.profile <-> parser["profile"]
+	override public func decodeJSON(json: JSON) {
+		
+		self.id = json["id"].stringValue
+		self.email = json["email"].stringValue
+		self.password = json["password"].stringValue
+		self.profile = ProfileVO(json: json["profile"])
+	}
+	
+	override public func encodeJSON() -> JSON {
+		
+		var json: JSON = ["id" : self.id as AnyObject,
+		                  "email" : self.email as AnyObject,
+		                  "password" : self.password as AnyObject]
+		
+		json["profile"] = self.profile.encodeJSON()
+		
+		return json
 	}
 }
 
@@ -68,32 +80,3 @@ public class UserVO : Parsable {
 // MARK: - Extension -
 //
 //**********************************************************************************************************
-
-extension UserVO {
-	
-	public convenience init(firUser: FIRUser,
-	                        name: String,
-	                        birthdate: String,
-	                        gender: String) {
-		self.init()
-		
-		self.id = firUser.uid
-		self.email = firUser.email
-		self.profile.name = name
-		self.profile.birthdate = birthdate
-		self.profile.gender = gender
-		self.profile.userKind = .user
-		self.profile.picture = firUser.photoURL?.absoluteString
-	}
-	
-	public convenience init(facebookJSON: JSON) {
-		self.init()
-		
-		self.email = facebookJSON["email"].string
-		self.profile.name = facebookJSON["name"].stringValue
-		self.profile.birthdate = facebookJSON["birthday"].string
-		self.profile.gender = facebookJSON["gender"].string
-		self.profile.userKind = .user
-		self.profile.picture = facebookJSON["picture"]["data"]["url"].URL?.absoluteString
-	}
-}
