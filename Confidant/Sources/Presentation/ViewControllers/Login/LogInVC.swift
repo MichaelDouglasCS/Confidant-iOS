@@ -114,7 +114,7 @@ class LogInVC : UIViewController {
 		
 		self.loadingIndicator(isShow: true)
 		
-		UsersLO.instance.register(by: .facebook) { (result) in
+		UsersLO.instance.login(by: .facebook) { (result) in
 			switch(result) {
 			case .success:
 				self.logged()

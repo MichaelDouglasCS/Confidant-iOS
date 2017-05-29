@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseAuth
 import FirebaseDatabase
+import SwiftyJSON
 
 //**************************************************************************************************
 //
@@ -29,70 +30,103 @@ import FirebaseDatabase
 //**************************************************************************************************
 
 public struct PersistenceManager {
-    
-    enum FirebaseDBTables {
-        case Users(userId: String)
-        case Accounts(userEmailEncrypted: String)
+	
+	public enum Path {
+		case user(UserVO)
+	}
+	
+	public struct Firebase {
+		static fileprivate let reference = FIRDatabase.database().reference(fromURL: URLs.database())
 		
-//        func reference() -> FIRDatabaseReference {
-//            switch self {
-//            case .Users(let userId):
-//                return self.firebaseDB.child("users").child(userId)
-//            case .Accounts(let email):
-//                return PersistenceManager.firebaseDB.child("accounts").child(email)
-//            }
-//        }
-    }
+		static public let users = PersistenceManager.Firebase.reference.child("users")
+	}
 
 //*************************************************
 // MARK: - Properties
 //*************************************************
-
-    private lazy var firebaseDB: FIRDatabaseReference = {
-		return FIRDatabase.database().reference(fromURL: URLs.database())
-    }()
-
-//*************************************************
-// MARK: - Constructors
-//*************************************************
-
-//*************************************************
-// MARK: - Private Methods
-//*************************************************
-    
-//*************************************************
-// MARK: - Internal Methods
-//*************************************************
-    
-//    func create(user: UserVO, completionHandler: @escaping LogicResult) {
-//        PersistenceManager.FirebaseDBTables.Accounts(userEmailEncrypted: (user.email?.toSHA1())!).reference().updateChildValues(user.encodeAccountEmailJSON(), withCompletionBlock: { (error, accountResult) in
-//            if error == nil {
-//                PersistenceManager.FirebaseDBTables.Users(userId: user.userId!).reference().updateChildValues(user.encodeJSON(), withCompletionBlock: {
-//                    (error, userResult) in
-//                    if error == nil {
-//                        completion(.Success, error)
-//                    } else {
-//                        completion(.Failed, error)
-//                    }
-//                })
-//            } else {
-//                completion(.Failed, error)
-//            }
-//        })
-//    }
-//	
-//	public func update() {
-//		self.firebaseDB.childByAutoId().remove
-//	}
 	
 //*************************************************
-// MARK: - Public Methods
+// MARK: - Exposed Methods
 //*************************************************
-
-//*************************************************
-// MARK: - Override Public Methods
-//*************************************************
-
+	
+	static public func save(_ path: PersistenceManager.Path, completionHandler: @escaping LogicResult) {
+		
+		switch path {
+		case .user(let user):
+			if let params = user.encodeJSON().dictionaryObject, !user.id.isEmpty {
+				self.Firebase.users.child(user.id).updateChildValues(params) { (error, _) in
+					
+					if let error = error {
+						completionHandler(.failed(error))
+					} else {
+						completionHandler(.success)
+					}
+				}
+			} else {
+				completionHandler(.failed(nil))
+			}
+		}
+	}
+	
+	static public func update(_ path: PersistenceManager.Path, completionHandler: @escaping LogicResult) {
+		
+		switch path {
+		case .user(let user):
+			if let params = user.encodeJSON().dictionaryObject, !user.id.isEmpty {
+				self.Firebase.users.child(user.id).updateChildValues(params) { (error, _) in
+					
+					if let error = error {
+						completionHandler(.failed(error))
+					} else {
+						completionHandler(.success)
+					}
+				}
+			} else {
+				completionHandler(.failed(nil))
+			}
+		}
+	}
+	
+	static public func load(_ path: PersistenceManager.Path, completionHandler: @escaping ServerResult) {
+		
+		switch path {
+		case .user(let user):
+			var json: JSON = [:]
+			
+			if !user.id.isEmpty {
+				self.Firebase.users.child(user.id).observeSingleEvent(of: .value, with: { (result) in
+					if let value = result.value {
+						json = JSON(value)
+						
+						completionHandler(json, .success)
+					} else {
+						completionHandler(json, .failed(nil))
+					}
+				})
+			} else {
+				completionHandler(json, .failed(nil))
+			}
+		}
+	}
+	
+	static public func delete(_ path: PersistenceManager.Path, completionHandler: @escaping LogicResult) {
+		
+		switch path {
+		case .user(let user):
+			if let params = user.encodeJSON().dictionaryObject, !user.id.isEmpty {
+				self.Firebase.users.child(user.id).updateChildValues(params) { (error, _) in
+					
+					if let error = error {
+						completionHandler(.failed(error))
+					} else {
+						completionHandler(.success)
+					}
+				}
+			} else {
+				completionHandler(.failed(nil))
+			}
+		}
+	}
 }
 
 //**************************************************************************************************

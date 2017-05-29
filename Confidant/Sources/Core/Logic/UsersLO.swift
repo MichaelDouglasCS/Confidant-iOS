@@ -8,7 +8,9 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 import FBSDKLoginKit
+import SwiftyJSON
 
 //**********************************************************************************************************
 //
@@ -62,6 +64,7 @@ public final class UsersLO {
 	private func getFacebookCredentials(completionHandler: @escaping (FIRAuthCredential?, ServerResponse)->Void) {
 		let readPermissions = ["email", "public_profile", "user_birthday"]
 		let topViewController = UIWindow().topMostController
+		var credential: FIRAuthCredential?
 		
 		FBSDKLoginManager().logIn(withReadPermissions: readPermissions, from: topViewController) {
 			(resultFacebook, error) in
@@ -72,71 +75,114 @@ public final class UsersLO {
 						completionHandler(nil, .failed(error))
 					} else {
 						let accessToken = resultFacebook.token?.tokenString ?? ""
-						let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken)
+						credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken)
 						
 						completionHandler(credential, .success)
 					}
 				} else {
-					completionHandler(nil, .failed(error))
+					completionHandler(credential, .failed(error))
 				}
 			} else {
-				completionHandler(nil, .failed(error))
+				completionHandler(credential, .failed(error))
 			}
 		}
 	}
 	
-	private func getFacebookUser() {
+	private func loadFacebookUser(completionHandler: @escaping UserResult) {
+		var user: UserVO?
 		
-//		FBSDKGraphRequest(graphPath: "me",
-//		                  parameters: ["fields": "email, name, birthday, gender, picture"]).start() {
-//							(connection, resultGraph, error) -> Void in
-//							
-//							if let error = error {
-//								completionHandler(nil, .failed(error))
-//							} else {
-//								var user: UserVO?
-//								
-//								if let dictionary = resultGraph as? NSDictionary {
-//									let userJSON = UserVO(facebookJSON: JSON(dictionary))
-//									user = userJSON
-//								}
-//								
-//								FIRAuth.auth()?.signIn(with: credentials) { (firUser: FIRUser?, error) in
-//									if let error = error {
-//										completionHandler(user, .failed(error))
-//									} else {
-//										user?.id = firUser?.uid ?? ""
-//										completionHandler(user, .success)
-//									}
-//								}
-//							}
-//		}
+		FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, name, birthday, gender, picture"]).start() {
+			(connection, resultGraph, error) -> Void in
+			if let error = error {
+				completionHandler(user, .failed(error))
+			} else {
+				if let dictionary = resultGraph as? NSDictionary {
+					let json = JSON(dictionary)
+					
+					user = UserVO()
+					user?.decodeFacebook(json: json)
+				}
+				completionHandler(user, .success)
+			}
+		}
 	}
 
+	private func save(user: UserVO, completionHandler: @escaping LogicResult) {
+
+		PersistenceManager.save(.user(user)) { (result) in
+			switch result {
+			case .success:
+				self.current = user
+				completionHandler(.success)
+			case .failed(let error):
+				completionHandler(.failed(error))
+			}
+		}
+	}
+	
+	private func load(user: UserVO, completionHandler: @escaping LogicResult) {
+		
+		PersistenceManager.load(.user(user)) { (json, result) in
+			switch result {
+			case .success:
+				let user = UserVO(json: json)
+				self.current = user
+				completionHandler(.success)
+			case .failed(let error):
+				completionHandler(.failed(error))
+			}
+		}
+	}
+	
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
 	
 	public func register(by method: AuthenticationType.Register, completionHandler: @escaping LogicResult) {
-		
+
 		switch method {
 		case .email(let user):
 			FIRAuth.auth()?.createUser(withEmail: user.email, password: user.password) { (firUser: FIRUser?, error) in
 				if let error = error {
 					completionHandler(.failed(error))
 				} else {
-					completionHandler(.success)
+					user.id = firUser?.uid ?? ""
+					
+					self.save(user: user) { (result) in
+						switch result {
+						case .success:
+							completionHandler(.success)
+						case .failed(let error):
+							completionHandler(.failed(error))
+						}
+					}
 				}
 			}
 		case .facebook:
 			self.getFacebookCredentials() { (credential, result) in
-				
 				if let credential = credential {
+					
 					FIRAuth.auth()?.signIn(with: credential) { (firUser: FIRUser?, error) in
 						if let error = error {
 							completionHandler(.failed(error))
 						} else {
-							completionHandler(.success)
+							
+							self.loadFacebookUser() { (user, result) in
+								if let user = user {
+									user.id = firUser?.uid ?? ""
+									
+									self.save(user: user) { (result) in
+										switch result {
+										case .success:
+											completionHandler(.success)
+										case .failed(let error):
+											completionHandler(.failed(error))
+										}
+									}
+								} else {
+									completionHandler(result)
+								}
+							}
 						}
 					}
 				} else {
@@ -154,7 +200,17 @@ public final class UsersLO {
 				if let error = error {
 					completionHandler(.failed(error))
 				} else {
-					completionHandler(.success)
+					let user = UserVO()
+					user.id = firUser?.uid ?? ""
+					
+					self.load(user: user) { (result) in
+						switch result {
+						case .success:
+							completionHandler(.success)
+						case .failed(let error):
+							completionHandler(.failed(error))
+						}
+					}
 				}
 			}
 		case .facebook:
@@ -165,7 +221,17 @@ public final class UsersLO {
 						if let error = error {
 							completionHandler(.failed(error))
 						} else {
-							completionHandler(.success)
+							let user = UserVO()
+							user.id = firUser?.uid ?? ""
+							
+							self.load(user: user) { (result) in
+								switch result {
+								case .success:
+									completionHandler(.success)
+								case .failed(let error):
+									completionHandler(.failed(error))
+								}
+							}
 						}
 					}
 				} else {

@@ -42,17 +42,26 @@ public class UserVO : ModelVO {
 //*************************************************
 // MARK: - Constructors
 //*************************************************
-    
+
 //*************************************************
-// MARK: - Private Methods
+// MARK: - Protected Methods
 //*************************************************
-    
+
 //*************************************************
-// MARK: - Internal Methods
+// MARK: - Exposed Methods
 //*************************************************
-    
+	
+	public func decodeFacebook(json: JSON) {
+		
+		self.email = json["email"].stringValue
+		self.profile.name = json["name"].stringValue
+		self.profile.birthdate = json["birthday"].stringValue
+		self.profile.gender = json["gender"].stringValue
+		self.profile.picture = json["picture"].stringValue
+	}
+
 //*************************************************
-// MARK: - Public Methods
+// MARK: - Overridden Public Methods
 //*************************************************
 
 	override public func decodeJSON(json: JSON) {
