@@ -10,8 +10,6 @@ xcuserdata/
 *.moved-aside
 *.xcuserstate
 *.xcscmblueprint
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
 *.xcworkspace/contents.xcworkspacedata
 
 .DS_Store
