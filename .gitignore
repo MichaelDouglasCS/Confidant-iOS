@@ -1,8 +1,7 @@
 ####
 # CocoaPods
 Pods/
-!Podfile
-!Podfile.lock
+Podfile.lock
 
 xcuserdata/
 
@@ -11,3 +10,9 @@ xcuserdata/
 *.moved-aside
 *.xcuserstate
 *.xcscmblueprint
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+*.xcworkspace/contents.xcworkspacedata
+
+.DS_Store
+
