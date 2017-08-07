@@ -3,3 +3,11 @@
 Pods/
 !Podfile
 !Podfile.lock
+
+xcuserdata/
+
+## Other
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
