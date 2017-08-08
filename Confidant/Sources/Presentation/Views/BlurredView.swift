@@ -1,6 +1,6 @@
 /*
  *	BlurredView.swift
- *	Sapphire
+ *	Confidant
  *
  *	Created by Michael Douglas on 11/01/17.
  *	Copyright 2017 Watermelon. All rights reserved.

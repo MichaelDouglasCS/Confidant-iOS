@@ -1,6 +1,6 @@
 //
 //  LocalizedNavigationItem.swift
-//  Sapphire
+//  Confidant
 //
 //  Created by Michael Douglas on 21/03/17.
 //  Copyright © 2017 Watermelon. All rights reserved.

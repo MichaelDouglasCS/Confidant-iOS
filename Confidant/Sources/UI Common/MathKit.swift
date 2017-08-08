@@ -1,6 +1,6 @@
 /*
  *	MathKit.swift
- *	Sapphire
+ *	Confidant
  *
  *	Created by Michael Douglas on 14/11/16.
  *	Copyright 2017 Watermelon. All rights reserved.

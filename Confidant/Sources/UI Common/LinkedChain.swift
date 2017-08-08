@@ -1,6 +1,6 @@
 /*
  *	LinkedChain.swift
- *	Sapphire
+ *	Confidant
  *
  *	Created by Michael Douglas on 04/12/16.
  *	Copyright 2017 Watermelon. All rights reserved.

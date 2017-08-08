@@ -1,6 +1,6 @@
 /*
  *	XibDesignable.swift
- *	Sapphire
+ *	Confidant
  *
  *	Created by Michael Douglas on 09/11/16.
  *	Copyright 2017 Watermelon. All rights reserved.

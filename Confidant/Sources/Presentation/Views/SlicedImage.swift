@@ -1,6 +1,6 @@
 /*
  *	SlicedImage.swift
- *	Sapphire
+ *	Confidant
  *
  *	Created by Michael Douglas on 07/11/16.
  *	Copyright 2017 Watermelon. All rights reserved.

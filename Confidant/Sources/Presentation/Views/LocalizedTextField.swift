@@ -1,6 +1,6 @@
 /*
  *	LocalizedTextField.swift
- *	Sapphire
+ *	Confidant
  *
  *	Created by Michael Douglas on 03/12/16.
  *	Copyright 2017 Watermelon. All rights reserved.
