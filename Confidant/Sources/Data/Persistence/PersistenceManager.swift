@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import FirebaseAuth
-import FirebaseDatabase
 import SwiftyJSON
 
 //**************************************************************************************************

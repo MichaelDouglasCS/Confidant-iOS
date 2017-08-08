@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
-import FBSDKLoginKit
 import SwiftyJSON
 
 //**********************************************************************************************************
