@@ -35,12 +35,12 @@ public final class UsersLO {
 	public struct AuthenticationType {
 		
 		public enum Register {
-			case email(user: UserVO)
+			case email(user: UserBO)
 			case facebook
 		}
 		
 		public enum Login {
-			case email(user: UserVO)
+			case email(user: UserBO)
 			case facebook
 		}
 	}
@@ -49,7 +49,7 @@ public final class UsersLO {
 // MARK: - Properties
 //*************************************************
 
-	public var current: UserVO?
+	public var current: UserBO?
 	
 	static public let instance: UsersLO = UsersLO()
 	
@@ -89,7 +89,7 @@ public final class UsersLO {
 	}
 	
 	private func loadFacebookUser(completionHandler: @escaping UserResult) {
-		var user: UserVO?
+		var user: UserBO?
 		
 		FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, name, birthday, gender, picture"]).start() {
 			(connection, resultGraph, error) -> Void in
@@ -99,7 +99,7 @@ public final class UsersLO {
 				if let dictionary = resultGraph as? NSDictionary {
 					let json = JSON(dictionary)
 					
-					user = UserVO()
+					user = UserBO()
 					user?.decodeFacebook(json: json)
 				}
 				completionHandler(user, .success)
@@ -107,7 +107,7 @@ public final class UsersLO {
 		}
 	}
 
-	private func save(user: UserVO, completionHandler: @escaping LogicResult) {
+	private func save(user: UserBO, completionHandler: @escaping LogicResult) {
 
 		PersistenceManager.save(.user(user)) { (result) in
 			switch result {
@@ -120,12 +120,12 @@ public final class UsersLO {
 		}
 	}
 	
-	private func load(user: UserVO, completionHandler: @escaping LogicResult) {
+	private func load(user: UserBO, completionHandler: @escaping LogicResult) {
 		
 		PersistenceManager.load(.user(user)) { (json, result) in
 			switch result {
 			case .success:
-				let user = UserVO(json: json)
+				let user = UserBO(json: json)
 				self.current = user
 				completionHandler(.success)
 			case .failed(let error):
@@ -200,7 +200,7 @@ public final class UsersLO {
 				if let error = error {
 					completionHandler(.failed(error))
 				} else {
-					let user = UserVO()
+					let user = UserBO()
 					user.id = firUser?.uid ?? ""
 					
 					self.load(user: user) { (result) in
@@ -221,7 +221,7 @@ public final class UsersLO {
 						if let error = error {
 							completionHandler(.failed(error))
 						} else {
-							let user = UserVO()
+							let user = UserBO()
 							user.id = firUser?.uid ?? ""
 							
 							self.load(user: user) { (result) in
@@ -241,12 +241,12 @@ public final class UsersLO {
 		}
 	}
 	
-	public func update(user: UserVO, completionHandler: @escaping LogicResult) {
+	public func update(user: UserBO, completionHandler: @escaping LogicResult) {
 		
 	}
 	
 	public func signOut() {
-		self.current = UserVO()
+		self.current = UserBO()
 		try? FIRAuth.auth()?.signOut()
 		FBSDKLoginManager().logOut()
 	}

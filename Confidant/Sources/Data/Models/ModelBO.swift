@@ -1,5 +1,5 @@
 //
-//  ModelVO.swift
+//  ModelBO.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 22/05/17.
@@ -79,7 +79,7 @@ public func getFilePath(fileName: String, folders: String) -> String {
 //
 //**********************************************************************************************************
 
-public class ModelVO : NSObject, NSCoding {
+public class ModelBO : NSObject, NSCoding {
 	
 //**************************************************
 // MARK: - Properties
@@ -122,7 +122,7 @@ public class ModelVO : NSObject, NSCoding {
 	
 	//	public init?(file named: String, path: String = "") {
 	//		let localPath = getFilePath(fileName: named, folders: path)
-	//		if let object = loadObjectFromFile(decodeKey: named, path: localPath) as? ModelVO {
+	//		if let object = loadObjectFromFile(decodeKey: named, path: localPath) as? ModelBO {
 	//			self = object
 	//		} else {
 	//			return nil
@@ -157,12 +157,12 @@ public class ModelVO : NSObject, NSCoding {
 		saveObjectToFile(object: self, encodeKey: fileName, path: localPath)
 	}
 	
-	public static func loadFromFile(fileName:String, path: String) -> ModelVO? {
+	public static func loadFromFile(fileName:String, path: String) -> ModelBO? {
 		
 		let localPath = getFilePath(fileName: fileName, folders: path)
 		let object = loadObjectFromFile(decodeKey: fileName, path: localPath)
 		
-		return object as? ModelVO
+		return object as? ModelBO
 	}
 	
 //**************************************************

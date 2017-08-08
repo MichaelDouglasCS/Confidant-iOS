@@ -87,7 +87,7 @@ class LogInVC : UIViewController {
         self.dismissKeyboard()
         self.loadingIndicator(isShow: true)
 		
-		let user = UserVO()
+		let user = UserBO()
 		user.email = self.emailTextField.text ?? ""
 		user.password = (self.passwordTextField.text ?? "").encryptedPassword
 		

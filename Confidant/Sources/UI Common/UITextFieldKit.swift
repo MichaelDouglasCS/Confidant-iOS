@@ -1,5 +1,5 @@
 //
-//  UITextField+Verifications.swift
+//  UITextFieldKit.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 25/03/17.
@@ -21,5 +21,4 @@ extension UITextField {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: self.text)
     }
-    
 }

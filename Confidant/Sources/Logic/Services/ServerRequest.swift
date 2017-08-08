@@ -25,7 +25,7 @@ import FirebaseAuth
 public typealias LogicResult = (ServerResponse) -> Void
 public typealias ServerResult = (JSON, ServerResponse) -> Void
 public typealias FirebaseResult = (FIRUser?, ServerResponse) -> Void
-public typealias UserResult = (UserVO?, ServerResponse) -> Void
+public typealias UserResult = (UserBO?, ServerResponse) -> Void
 
 /**
 Defines how the main server defines its responses.

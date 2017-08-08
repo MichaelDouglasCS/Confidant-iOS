@@ -1,5 +1,5 @@
 //
-//  UserVO.swift
+//  UserBO.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 18/03/17.
@@ -28,7 +28,7 @@ import FirebaseAuth
 //
 //**************************************************************************************************
 
-public class UserVO : ModelVO {
+public class UserBO : ModelBO {
 
 //*************************************************
 // MARK: - Properties
@@ -37,7 +37,7 @@ public class UserVO : ModelVO {
     public var id: String = ""
     public var email: String = ""
 	public var password: String = ""
-	public var profile: ProfileVO = ProfileVO()
+	public var profile: ProfileBO = ProfileBO()
 	
 //*************************************************
 // MARK: - Constructors
@@ -69,7 +69,7 @@ public class UserVO : ModelVO {
 		self.id = json["id"].stringValue
 		self.email = json["email"].stringValue
 		self.password = json["password"].stringValue
-		self.profile = ProfileVO(json: json["profile"])
+		self.profile = ProfileBO(json: json["profile"])
 	}
 	
 	override public func encodeJSON() -> JSON {

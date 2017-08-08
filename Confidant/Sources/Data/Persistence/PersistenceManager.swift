@@ -32,7 +32,7 @@ import SwiftyJSON
 public struct PersistenceManager {
 	
 	public enum Path {
-		case user(UserVO)
+		case user(UserBO)
 	}
 	
 	public struct Firebase {

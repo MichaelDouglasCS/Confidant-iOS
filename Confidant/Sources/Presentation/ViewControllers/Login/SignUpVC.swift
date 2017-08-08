@@ -187,7 +187,7 @@ class SignUpVC : UIViewController {
 		self.dismissKeyboard()
 		self.loadingIndicator(isShow: true)
 		
-		let user = UserVO()
+		let user = UserBO()
 		user.email = self.emailTextField.text ?? ""
 		user.password = (self.passwordTextField.text ?? "").encryptedPassword
 		user.profile.name = self.nameTextField.text ?? ""

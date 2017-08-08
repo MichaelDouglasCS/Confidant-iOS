@@ -1,5 +1,5 @@
 //
-//  UIView+UIView+AddSubViews.swift
+//  UIViewKit.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 07/03/17.

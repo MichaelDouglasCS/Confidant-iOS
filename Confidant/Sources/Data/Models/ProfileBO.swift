@@ -1,5 +1,5 @@
 //
-//  ProfileVO.swift
+//  ProfileBO.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 22/05/17.
@@ -27,7 +27,7 @@ import SwiftyJSON
 //
 //**********************************************************************************************************
 
-public class ProfileVO : ModelVO {
+public class ProfileBO : ModelBO {
 
 	public enum UserKind : String {
 		case user = "USER"
@@ -41,7 +41,7 @@ public class ProfileVO : ModelVO {
 	public var name: String = ""
 	public var birthdate: String?
 	public var gender: String?
-	public var userKind: ProfileVO.UserKind = .user
+	public var userKind: ProfileBO.UserKind = .user
 	public var picture: String?
 
 //*************************************************
