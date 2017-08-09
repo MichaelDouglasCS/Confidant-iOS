@@ -7,6 +7,7 @@
  */
 
 import UIKit
+import CryptoSwift
 
 //**********************************************************************************************************
 //
@@ -136,17 +137,10 @@ extension String {
 	}
 	
 	public var encryptedPassword: String {
+		// MD5
+		let encrypted = self.md5() + "confidantappsecretkey"
 		
-		// MD5 3 times
-		let phase1 = self.MD5().MD5().MD5()
-		
-		// Append a secret phrase
-		let phase2 = phase1 + "confidant"
-		
-		// Run MD5 6 times
-		let phase3 = phase2.MD5().MD5().MD5().MD5().MD5()
-		
-		return phase3
+		return encrypted
 	}
 	
 	public var highlighted: String {

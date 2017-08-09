@@ -1,12 +1,13 @@
-//
-//  ServerRequest.swift
-//  Confidant
-//
-//  Created by Michael Douglas on 18/03/17.
-//  Copyright © 2017 Watermelon. All rights reserved.
-//
+/*
+*	ServerRequest.swift
+*	Confidant
+*
+*	Created by Michael Douglas on 06/01/17.
+*	Copyright 2017 Watermelon. All rights reserved.
+*/
 
 import Foundation
+import Alamofire
 import SwiftyJSON
 
 //**********************************************************************************************************
@@ -23,8 +24,6 @@ import SwiftyJSON
 
 public typealias LogicResult = (ServerResponse) -> Void
 public typealias ServerResult = (JSON, ServerResponse) -> Void
-public typealias FirebaseResult = (FIRUser?, ServerResponse) -> Void
-public typealias UserResult = (UserBO?, ServerResponse) -> Void
 
 /**
 Defines how the main server defines its responses.
@@ -32,86 +31,138 @@ Showing up the agreed error codes and messages for each of the known scenarios.
 */
 public enum ServerResponse {
 	
-	public enum Errors : String {
-		case unkown = "MSG_SERVER_ERROR"
-		case invalidCredentials = "MSG_INVALID_LOGIN"
-		case emailAlreadyExists = "MSG_EMAIL_ALREADY_EXISTS"
-		case tooManyRequests = "MSG_TOO_MANY_REQUESTS"
-		case userNotFound = "MSG_USER_NOT_FOUND"
-		case networkError = "MSG_NETWORK_ERROR"
+	public enum Error {
+		case unkown
+		case invalidCredentials
 	}
 	
 	case success
-	case failed(Error?)
+	case error(ServerResponse.Error)
 	
-	public var localizedError: String {
+	//**************************************************
+	// MARK: - Properties
+	//**************************************************
+	
+	//**************************************************
+	// MARK: - Constructors
+	//**************************************************
+	
+	public init(_ response: HTTPURLResponse?) {
+		if let httpResponse = response {
+			switch httpResponse.statusCode {
+			case 200..<300:
+				self = .success
+			case 401:
+				self = .error(.invalidCredentials)
+			default:
+				self = .error(.unkown)
+			}
+		} else {
+			self = .error(.unkown)
+		}
+	}
+}
+
+//**********************************************************************************************************
+//
+// MARK: - Type -
+//
+//**********************************************************************************************************
+
+public enum ServerRequest {
+	
+	case mobile(RESTContract)
+	
+	public typealias RESTContract = (method: HTTPMethod, path: String)
+	
+	public struct Domain {
+		static public var mobile: String = Domain.develop
+		
+		static public let develop: String = "https://confidant-api.herokuapp.com/confidant/api/v1"
+		static public let beta: String = ""
+		static public let homolog: String = ""
+		static public let production: String = ""
+	}
+	
+	public struct API {
+		static public let register: ServerRequest = .mobile((method: .post, path: "/register"))
+		static public let authenticate: ServerRequest = .mobile((method: .post, path: "/authenticate"))
+		static public let facebook: ServerRequest = .mobile((method: .get, path: "/facebook"))
+	}
+	
+	//**************************************************
+	// MARK: - Protected Methods
+	//**************************************************
+	
+	//**************************************************
+	// MARK: - Exposed Methods
+	//**************************************************
+	
+	public var method: HTTPMethod {
 		switch self {
-		case .failed(let error as NSError):
-			return description(error).localized
-		default:
-			return ""
+		case .mobile(let contract):
+			return contract.method
 		}
 	}
 	
-	private func description(_ error: NSError) -> String {
-		var description = ""
+	public var path: String {
+		switch self {
+		case .mobile(let contract):
+			return ServerRequest.Domain.mobile + contract.path
+		}
+	}
+	
+	public func url(params: String...) -> URL? {
+		let path = self.path
+		let fullRange = NSRange(location: 0, length: path.characters.count)
+		let template = "==##=="
 		
-		switch error.code {
-		case 17007:
-			description = Errors.emailAlreadyExists.rawValue
-		case 17008, 17009:
-			description = Errors.invalidCredentials.rawValue
-		case 17010:
-			description = Errors.tooManyRequests.rawValue
-		case 17011:
-			description = Errors.userNotFound.rawValue
-		case 17020:
-			description = Errors.networkError.rawValue
-		default:
-			description = Errors.unkown.rawValue
+		if let regex = try? NSRegularExpression(pattern: "\\{.*?\\}", options: []) {
+			let clean = regex.stringByReplacingMatches(in: path,
+			                                           options: [],
+			                                           range: fullRange,
+			                                           withTemplate: template)
+			var components = clean.components(separatedBy: template)
+			var index = 1
+			
+			params.forEach {
+				if components.count > index {
+					components.insert($0, at: index)
+					index += 2
+				}
+			}
+			
+			return URL(string: components.joined())
 		}
 		
-		return description
+		return nil
+	}
+	
+	public func execute(aPath: String? = nil,
+	                    params: [String : AnyObject]? = nil,
+	                    completion: @escaping ServerResult) {
+		DispatchQueue.global(qos: .background).async {
+			let method = self.method
+			let finalPath = aPath ?? self.path
+			let closure = { (_ dataResponse: DataResponse<Any>) in
+				var json: JSON = [:]
+				let httpResponse = dataResponse.response
+				
+				switch dataResponse.result {
+				case .success(let data):
+					json = JSON(data)
+				default:
+					break
+				}
+				
+				completion(json, ServerResponse(httpResponse))
+			}
+			
+			_ = Alamofire.request(finalPath,
+			                      method: method,
+			                      parameters: params,
+			                      encoding: JSONEncoding.default,
+			                      headers: nil).responseJSON(completionHandler: closure)
+		}
 	}
 }
-
-
-//**********************************************************************************************************
-//
-// MARK: - Class -
-//
-//**********************************************************************************************************
-
-class ServerRequest {
-
-//*************************************************
-// MARK: - Properties
-//*************************************************
-    
-//*************************************************
-// MARK: - Constructors
-//*************************************************
-    
-//*************************************************
-// MARK: - Private Methods
-//*************************************************
-    
-//*************************************************
-// MARK: - Internal Methods
-//*************************************************
-    
-//*************************************************
-// MARK: - Public Methods
-//*************************************************
-    
-//*************************************************
-// MARK: - Override Public Methods
-//*************************************************
-
-}
-
-//**********************************************************************************************************
-//
-// MARK: - Extension -
-//
-//**********************************************************************************************************

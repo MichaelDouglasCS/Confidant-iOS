@@ -90,15 +90,7 @@ class LogInVC : UIViewController {
 		user.email = self.emailTextField.text ?? ""
 		user.password = (self.passwordTextField.text ?? "").encryptedPassword
 		
-		UsersLO.instance.login(by: .email(user: user)) { (result) in
-			switch(result) {
-			case .success:
-				self.logged()
-			case .failed(let error):
-				self.loadingIndicator(isShow: false)
-				self.presentAlertOk(title: "LOG IN FAILED", message: error?.localizedDescription ?? "")
-			}
-		}
+		
     }
 	
 //*************************************************
@@ -113,15 +105,7 @@ class LogInVC : UIViewController {
 		
 		self.loadingIndicator(isShow: true)
 		
-		UsersLO.instance.login(by: .facebook) { (result) in
-			switch(result) {
-			case .success:
-				self.logged()
-			case .failed(let error):
-				self.loadingIndicator(isShow: false)
-				self.presentAlertOk(title: "LOG IN FAILED", message: error?.localizedDescription ?? "")
-			}
-		}
+		
     }
     
     @IBAction func logInWithEmailAndPassword(_ sender: UIButton) {
