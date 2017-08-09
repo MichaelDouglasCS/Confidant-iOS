@@ -170,15 +170,6 @@ class SignUpVC : UIViewController {
     @IBAction func signUpWithFacebook(_ sender: UIButton) {
         self.loadingIndicator(isShow: true)
 		
-		UsersLO.instance.register(by: .facebook) { (result) in
-			switch(result) {
-			case .success:
-				self.logged()
-			case .failed(let error):
-				self.loadingIndicator(isShow: false)
-				self.presentAlertOk(title: "SIGN UP FAILED", message: error?.localizedDescription ?? "")
-			}
-		}
 	}
 	
 	@IBAction func signUpWithEmail(_ sender: UIButton) {
@@ -192,15 +183,6 @@ class SignUpVC : UIViewController {
 		user.profile.birthdate = self.birthdateTextField.text ?? ""
 		user.profile.gender = self.genderTextField.text ?? ""
 		
-		UsersLO.instance.register(by: .email(user: user)) { (result) in
-			switch(result) {
-			case .success:
-				self.logged()
-			case .failed(let error):
-				self.loadingIndicator(isShow: false)
-				self.presentAlertOk(title: "SIGN UP FAILED", message: error?.localizedDescription ?? "")
-			}
-		}
 	}
 	
 //*************************************************

@@ -34,6 +34,7 @@ public class UserBO : ModelBO {
 //*************************************************
 
     public var id: String = ""
+	public var createdDate: TimeInterval = 0
     public var email: String = ""
 	public var password: String = ""
 	public var profile: ProfileBO = ProfileBO()
@@ -49,15 +50,6 @@ public class UserBO : ModelBO {
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
-	
-	public func decodeFacebook(json: JSON) {
-		
-		self.email = json["email"].stringValue
-		self.profile.name = json["name"].stringValue
-		self.profile.birthdate = json["birthday"].stringValue
-		self.profile.gender = json["gender"].stringValue
-		self.profile.picture = json["picture"].stringValue
-	}
 
 //*************************************************
 // MARK: - Overridden Public Methods
@@ -66,6 +58,7 @@ public class UserBO : ModelBO {
 	override public func decodeJSON(json: JSON) {
 		
 		self.id = json["id"].stringValue
+		self.createdDate = json["createdDate"].doubleValue
 		self.email = json["email"].stringValue
 		self.password = json["password"].stringValue
 		self.profile = ProfileBO(json: json["profile"])
@@ -73,9 +66,10 @@ public class UserBO : ModelBO {
 	
 	override public func encodeJSON() -> JSON {
 		
-		var json: JSON = ["id" : self.id as AnyObject,
-		                  "email" : self.email as AnyObject,
-		                  "password" : self.password as AnyObject]
+		var json: JSON = ["id": self.id as AnyObject,
+		                  "createdDate": self.createdDate as AnyObject,
+		                  "email": self.email as AnyObject,
+		                  "password": self.password as AnyObject]
 		
 		json["profile"] = self.profile.encodeJSON()
 		

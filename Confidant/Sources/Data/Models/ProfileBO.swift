@@ -29,9 +29,9 @@ import SwiftyJSON
 
 public class ProfileBO : ModelBO {
 
-	public enum UserKind : String {
-		case user = "USER"
-		case confidant = "CONFIDANT"
+	public enum TypeOfUser : String {
+		case user = "User"
+		case confidant = "Confidant"
 	}
 	
 //*************************************************
@@ -39,10 +39,9 @@ public class ProfileBO : ModelBO {
 //*************************************************
 	
 	public var name: String = ""
-	public var birthdate: String?
-	public var gender: String?
-	public var userKind: ProfileBO.UserKind = .user
-	public var picture: String?
+	public var birthdate: String = ""
+	public var gender: String = ""
+	public var typeOfUser: ProfileBO.TypeOfUser = .user
 
 //*************************************************
 // MARK: - Constructors
@@ -59,29 +58,18 @@ public class ProfileBO : ModelBO {
 	override public func decodeJSON(json: JSON) {
 		
 		self.name = json["name"].stringValue
-		self.birthdate = json["birthdate"].string
-		self.gender = json["gender"].string
-		self.userKind = UserKind(rawValue: json["userKind"].stringValue) ?? .user
-		self.picture = json["picture"].string
+		self.birthdate = json["birthdate"].stringValue
+		self.gender = json["gender"].stringValue
+		self.typeOfUser = TypeOfUser(rawValue: json["typeOfUser"].stringValue) ?? .user
 	}
 	
 	override public func encodeJSON() -> JSON {
 		
-		var json: JSON = ["name" : self.name as AnyObject]
+		var json: JSON = ["name": self.name as AnyObject,
+		                  "birthdate": self.birthdate as AnyObject,
+		                  "gender": self.gender as AnyObject]
 		
-		json["userKind"] = JSON(self.userKind.rawValue)
-		
-		if let birthdate = self.birthdate {
-			json["birthdate"] = JSON(birthdate)
-		}
-		
-		if let gender = self.gender {
-			json["gender"] = JSON(gender)
-		}
-		
-		if let picture = self.picture {
-			json["picture"] = JSON(picture)
-		}
+		json["typeOfUser"] = JSON(self.typeOfUser.rawValue)
 		
 		return json
 	}

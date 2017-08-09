@@ -142,12 +142,14 @@ public enum ServerRequest {
 	                    params: [String : AnyObject]? = nil,
 	                    completion: @escaping ServerResult) {
 		DispatchQueue.global(qos: .background).async {
+			
 			let method = self.method
 			let finalPath = aPath ?? self.path
 			let closure = { (_ dataResponse: DataResponse<Any>) in
+				
 				var json: JSON = [:]
 				let httpResponse = dataResponse.response
-				
+        
 				switch dataResponse.result {
 				case .success(let data):
 					json = JSON(data)
