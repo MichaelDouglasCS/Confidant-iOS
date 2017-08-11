@@ -26,7 +26,7 @@ import UIKit
 //
 //**********************************************************************************************************
 
-class LocalizedWebView : UIWebView {
+class LocalizedWebView: UIWebView {
 
 //**************************************************
 // MARK: - Properties

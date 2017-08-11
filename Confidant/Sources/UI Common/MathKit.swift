@@ -47,8 +47,8 @@ extension CGPoint {
 
 extension Comparable {
 	func clamped(min: Self, max: Self) -> Self {
-		let value = (self < min) ? min : self
-		return (self > max) ? max : value
+		let value = (self < min) ? min: self
+		return (self > max) ? max: value
 	}
 }
 
@@ -69,10 +69,10 @@ extension FloatingPoint {
 //
 //**********************************************************************************************************
 
-extension Sequence where Self.Iterator.Element : Hashable {
+extension Sequence where Self.Iterator.Element: Hashable {
 	
 	var frequencies: [(Self.Iterator.Element, Int)] {
-		var frequency: [Self.Iterator.Element : Int] = [:]
+		var frequency: [Self.Iterator.Element: Int] = [:]
 		
 		self.forEach {
 			frequency[$0] = (frequency[$0] ?? 0) + 1

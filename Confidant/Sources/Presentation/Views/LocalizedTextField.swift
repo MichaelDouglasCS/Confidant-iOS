@@ -27,7 +27,7 @@ import UIKit
 //**********************************************************************************************************
 
 @IBDesignable
-class LocalizedTextField : UITextField {
+class LocalizedTextField: UITextField {
 	
 //**************************************************
 // MARK: - Properties

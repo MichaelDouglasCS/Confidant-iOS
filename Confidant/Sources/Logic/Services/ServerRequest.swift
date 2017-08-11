@@ -139,7 +139,7 @@ public enum ServerRequest {
 	}
 	
 	public func execute(aPath: String? = nil,
-	                    params: [String : AnyObject]? = nil,
+	                    params: [String: AnyObject]? = nil,
 	                    completion: @escaping ServerResult) {
 		DispatchQueue.global(qos: .background).async {
 			

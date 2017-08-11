@@ -26,7 +26,7 @@ import UIKit
 //
 //**********************************************************************************************************
 
-class LogInVC : UIViewController {
+class LogInVC: UIViewController {
     
     fileprivate enum TextField: Int {
         case email = 1
@@ -54,12 +54,12 @@ class LogInVC : UIViewController {
         //Need to calculate keyboard exact size due to Apple suggestions
         var info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
         
         self.scrollView.contentInset = contentInsets
         self.scrollView.scrollIndicatorInsets = contentInsets
         
-        var aRect : CGRect = self.view.frame
+        var aRect: CGRect = self.view.frame
         aRect.size.height -= keyboardSize!.height
         
         if (!aRect.contains(self.logInButton.frame)){
@@ -71,7 +71,7 @@ class LogInVC : UIViewController {
     
     @objc private func keyboardWillBeHidden(notification: NSNotification){
         //Once keyboard disappears, restore original positions
-        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
         self.scrollView.contentInset = contentInsets
         self.scrollView.scrollIndicatorInsets = contentInsets
     }
@@ -137,7 +137,7 @@ class LogInVC : UIViewController {
 //
 //**************************************************************************************************
 
-extension LogInVC : UITextFieldDelegate {
+extension LogInVC: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)

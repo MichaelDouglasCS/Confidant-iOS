@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftyJSON
+import ObjectMapper
 
 //**********************************************************************************************************
 //
@@ -27,9 +27,9 @@ import SwiftyJSON
 //
 //**********************************************************************************************************
 
-public class ProfileBO : ModelBO {
+public class ProfileBO: Mappable {
 
-	public enum TypeOfUser : String {
+	public enum TypeOfUser: String {
 		case user = "User"
 		case confidant = "Confidant"
 	}
@@ -39,13 +39,17 @@ public class ProfileBO : ModelBO {
 //*************************************************
 	
 	public var name: String = ""
-	public var birthdate: String = ""
-	public var gender: String = ""
-	public var typeOfUser: ProfileBO.TypeOfUser = .user
+	public var birthdate: String?
+	public var gender: String?
+	public var typeOfUser: ProfileBO.TypeOfUser?
 
 //*************************************************
 // MARK: - Constructors
 //*************************************************
+	
+	public required init() { }
+	
+	public required init?(map: Map) { }
 
 //*************************************************
 // MARK: - Protected Methods
@@ -55,23 +59,11 @@ public class ProfileBO : ModelBO {
 // MARK: - Exposed Methods
 //*************************************************
 	
-	override public func decodeJSON(json: JSON) {
-		
-		self.name = json["name"].stringValue
-		self.birthdate = json["birthdate"].stringValue
-		self.gender = json["gender"].stringValue
-		self.typeOfUser = TypeOfUser(rawValue: json["typeOfUser"].stringValue) ?? .user
-	}
-	
-	override public func encodeJSON() -> JSON {
-		
-		var json: JSON = ["name": self.name as AnyObject,
-		                  "birthdate": self.birthdate as AnyObject,
-		                  "gender": self.gender as AnyObject]
-		
-		json["typeOfUser"] = JSON(self.typeOfUser.rawValue)
-		
-		return json
+	public func mapping(map: Map) {
+		self.name <- map["name"]
+		self.birthdate <- map["birthdate"]
+		self.gender <- map["gender"]
+		self.typeOfUser <- map["typeOfUser"]
 	}
 }
 

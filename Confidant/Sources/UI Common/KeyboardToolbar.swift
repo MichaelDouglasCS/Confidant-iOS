@@ -49,7 +49,7 @@ fileprivate struct KeyboardSizes {
 //
 //**********************************************************************************************************
 
-public class KeyboardToolbar : UIToolbar {
+public class KeyboardToolbar: UIToolbar {
 	
 //**************************************************
 // MARK: - Properties

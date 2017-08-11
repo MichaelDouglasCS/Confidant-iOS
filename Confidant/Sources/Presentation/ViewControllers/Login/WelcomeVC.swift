@@ -26,7 +26,7 @@ import UIKit
 //
 //**********************************************************************************************************
 
-class WelcomeVC : UIViewController {
+class WelcomeVC: UIViewController {
 	
 	fileprivate struct Messages {
 		
@@ -219,7 +219,7 @@ class WelcomeVC : UIViewController {
 //
 //**************************************************************************************************
 
-extension WelcomeVC : UIScrollViewDelegate {
+extension WelcomeVC: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		let frame = self.view.frame

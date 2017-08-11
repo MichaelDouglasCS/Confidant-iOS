@@ -27,7 +27,7 @@ import UIKit
 //**********************************************************************************************************
 
 @IBDesignable
-class CircularImage : UIImageView {
+class CircularImage: UIImageView {
 
 //**************************************************
 // MARK: - Properties

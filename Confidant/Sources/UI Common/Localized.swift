@@ -80,7 +80,7 @@ extension String {
 	
 	public var renderHTML: NSAttributedString? {
 		guard let stringData = self.data(using: .utf8) else { return nil }
-		let options: [String : Any] = [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+		let options: [String: Any] = [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
 		                               NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue]
 		return try? NSAttributedString(data: stringData, options: options, documentAttributes: nil)
 	}
@@ -180,23 +180,23 @@ extension String {
 			newFont = UIFont.systemFont(ofSize: size)
 		}
 		
-		return [ NSFontAttributeName : newFont ]
+		return [ NSFontAttributeName: newFont ]
 	}
 	
 	public func localizedAttributed(for font: UIFont, underline: CGFloat = 2.0) -> NSAttributedString {
 		
 		let boldStyle = self.attribute(for: font, with: .traitBold)
 		let italicStyle = self.attribute(for: font, with: .traitItalic)
-		let underlineStyle = [NSUnderlineStyleAttributeName : underline]
+		let underlineStyle = [NSUnderlineStyleAttributeName: underline]
 		let replacements = [
-			"\\#.*?\\#" : boldStyle,
-			"\\*.*?\\*" : italicStyle,
-			"\\$.*?\\$" : underlineStyle
+			"\\#.*?\\#": boldStyle,
+			"\\*.*?\\*": italicStyle,
+			"\\$.*?\\$": underlineStyle
 		]
 		
 		let att = NSMutableAttributedString(string: self)
 		let firstRange = NSRange(location: 0, length: self.characters.count)
-		att.setAttributes([ NSFontAttributeName : font ], range: firstRange)
+		att.setAttributes([ NSFontAttributeName: font ], range: firstRange)
 		
 		// Loop through all the replacements once to find every single occurence of the patterns.
 		for (pattern, attributes) in replacements {

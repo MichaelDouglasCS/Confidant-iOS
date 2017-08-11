@@ -27,7 +27,7 @@ import UIKit
 //**********************************************************************************************************
 
 @IBDesignable
-class ChartColumnView : UIView {
+class ChartColumnView: UIView {
 
 //**************************************************
 // MARK: - Properties

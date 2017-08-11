@@ -27,7 +27,7 @@ import UIKit
 //**********************************************************************************************************
 
 @IBDesignable
-class VerticalButton : LocalizedButton {
+class VerticalButton: LocalizedButton {
 
 //**************************************************
 // MARK: - Properties

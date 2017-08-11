@@ -27,7 +27,7 @@ import UIKit
 //**********************************************************************************************************
 
 @IBDesignable
-class LocalizedNavigationItem : UINavigationItem {
+class LocalizedNavigationItem: UINavigationItem {
     
     //**************************************************
     // MARK: - Properties

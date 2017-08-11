@@ -7,6 +7,7 @@ target 'Confidant' do
 
   # Pods for Confidant
   pod 'SwiftyJSON'
+  pod 'ObjectMapper', '~> 2.2'
   pod 'CryptoSwift'
   pod 'Alamofire'
 

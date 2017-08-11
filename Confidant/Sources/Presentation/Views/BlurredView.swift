@@ -27,7 +27,7 @@ import UIKit
 //**********************************************************************************************************
 
 @IBDesignable
-class BlurredView : UIVisualEffectView {
+class BlurredView: UIVisualEffectView {
 
 //**************************************************
 // MARK: - Properties

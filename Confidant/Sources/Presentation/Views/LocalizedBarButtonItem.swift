@@ -27,7 +27,7 @@ import UIKit
 //**********************************************************************************************************
 
 @IBDesignable
-class LocalizedBarButtonItem : UIBarButtonItem {
+class LocalizedBarButtonItem: UIBarButtonItem {
 	
 	//**************************************************
 	// MARK: - Properties

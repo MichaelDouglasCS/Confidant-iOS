@@ -20,14 +20,14 @@ import UIKit
 //
 //**********************************************************************************************************
 
-public protocol XIBDesignableProtocol : NSObjectProtocol {
+public protocol XIBDesignableProtocol: NSObjectProtocol {
 	
 	var ibView: UIView { get }
 	func loadIBView() -> UIView
 	func ibName() -> String
 }
 
-extension XIBDesignableProtocol where Self : UIView {
+extension XIBDesignableProtocol where Self: UIView {
 	
 	fileprivate func setupIB() {
 		let view = self.loadIBView()
@@ -37,7 +37,7 @@ extension XIBDesignableProtocol where Self : UIView {
 		self.ibView.addSubview(view)
 	}
 	
-	public var ibView : UIView {
+	public var ibView: UIView {
 		return self
 	}
 	
@@ -59,7 +59,7 @@ extension XIBDesignableProtocol where Self : UIView {
 //**********************************************************************************************************
 
 @IBDesignable
-open class XIBDesignable : UIView, XIBDesignableProtocol {
+open class XIBDesignable: UIView, XIBDesignableProtocol {
 	
 	convenience public init(frame: CGRect, fromNib: Bool) {
 		self.init(frame: frame)

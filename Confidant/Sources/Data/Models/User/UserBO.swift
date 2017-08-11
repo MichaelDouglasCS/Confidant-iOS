@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SwiftyJSON
+import ObjectMapper
 
 //**************************************************************************************************
 //
@@ -27,7 +27,7 @@ import SwiftyJSON
 //
 //**************************************************************************************************
 
-public class UserBO : ModelBO {
+public class UserBO: Mappable {
 
 //*************************************************
 // MARK: - Properties
@@ -35,45 +35,28 @@ public class UserBO : ModelBO {
 
     public var id: String = ""
 	public var createdDate: TimeInterval = 0
-    public var email: String = ""
-	public var password: String = ""
+	public var email: String = ""
+	public var password: String?
 	public var profile: ProfileBO = ProfileBO()
 	
 //*************************************************
 // MARK: - Constructors
 //*************************************************
-
-//*************************************************
-// MARK: - Protected Methods
-//*************************************************
+	
+	public required init() { }
+	
+	public required init?(map: Map) { }
 
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
-
-//*************************************************
-// MARK: - Overridden Public Methods
-//*************************************************
-
-	override public func decodeJSON(json: JSON) {
-		
-		self.id = json["id"].stringValue
-		self.createdDate = json["createdDate"].doubleValue
-		self.email = json["email"].stringValue
-		self.password = json["password"].stringValue
-		self.profile = ProfileBO(json: json["profile"])
-	}
 	
-	override public func encodeJSON() -> JSON {
-		
-		var json: JSON = ["id": self.id as AnyObject,
-		                  "createdDate": self.createdDate as AnyObject,
-		                  "email": self.email as AnyObject,
-		                  "password": self.password as AnyObject]
-		
-		json["profile"] = self.profile.encodeJSON()
-		
-		return json
+	public func mapping(map: Map) {
+		self.id <- map["id"]
+		self.createdDate <- map["createdDate"]
+		self.email <- map["email"]
+		self.password <- map["password"]
+		self.profile <- map["profile"]
 	}
 }
 

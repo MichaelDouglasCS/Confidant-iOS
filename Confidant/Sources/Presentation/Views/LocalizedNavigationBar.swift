@@ -26,7 +26,7 @@ import UIKit
 //
 //**********************************************************************************************************
 
-class LocalizedNavigationBar : UINavigationBar {
+class LocalizedNavigationBar: UINavigationBar {
 
 //**************************************************
 // MARK: - Properties

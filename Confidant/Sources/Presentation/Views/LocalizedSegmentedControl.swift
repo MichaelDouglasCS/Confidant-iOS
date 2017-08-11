@@ -26,7 +26,7 @@ import UIKit
 //
 //**********************************************************************************************************
 
-class LocalizedSegmentedControl : UISegmentedControl {
+class LocalizedSegmentedControl: UISegmentedControl {
 
 //**************************************************
 // MARK: - Properties

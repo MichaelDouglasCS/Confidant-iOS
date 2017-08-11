@@ -28,7 +28,7 @@ fileprivate let kSignUpToDashboardSegue = "signupToDashboardSegue"
 //
 //**************************************************************************************************
 
-class SignUpVC : UIViewController {
+class SignUpVC: UIViewController {
     
     fileprivate enum SignUpTextFieldsTag: Int {
         case Email = 1
@@ -209,7 +209,7 @@ class SignUpVC : UIViewController {
 //
 //**************************************************************************************************
 
-extension SignUpVC : UITextFieldDelegate {
+extension SignUpVC: UITextFieldDelegate {
     
     //*************************************************
     // MARK: - TextField Delegates
@@ -330,7 +330,7 @@ extension SignUpVC : UITextFieldDelegate {
 //
 //**************************************************************************************************
 
-extension SignUpVC : UIPickerViewDataSource, UIPickerViewDelegate {
+extension SignUpVC: UIPickerViewDataSource, UIPickerViewDelegate {
     
     //*************************************************
     // MARK: - UIPickerView Methods

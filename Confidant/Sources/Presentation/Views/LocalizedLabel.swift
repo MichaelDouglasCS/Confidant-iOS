@@ -27,7 +27,7 @@ import UIKit
 //**********************************************************************************************************
 
 @IBDesignable
-class LocalizedLabel : UILabel {
+class LocalizedLabel: UILabel {
 
 //**************************************************
 // MARK: - Properties

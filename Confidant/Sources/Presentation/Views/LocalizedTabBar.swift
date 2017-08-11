@@ -27,7 +27,7 @@ import UIKit
 //**********************************************************************************************************
 
 @IBDesignable
-class LocalizedTabBar : UITabBar {
+class LocalizedTabBar: UITabBar {
 
 //**************************************************
 // MARK: - Properties

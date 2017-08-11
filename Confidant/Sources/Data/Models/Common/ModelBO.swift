@@ -27,7 +27,7 @@ import SwiftyJSON
 //
 //**********************************************************************************************************
 
-public class ModelBO : NSObject, NSCoding {
+public class ModelBO: NSObject, NSCoding {
 	
 //**************************************************
 // MARK: - Properties

@@ -27,7 +27,7 @@ import UIKit
 //**********************************************************************************************************
 
 @IBDesignable
-class SlicedImage : UIImageView {
+class SlicedImage: UIImageView {
 
 //**************************************************
 // MARK: - Properties

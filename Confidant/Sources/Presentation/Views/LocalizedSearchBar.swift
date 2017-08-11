@@ -27,7 +27,7 @@ import UIKit
 //**********************************************************************************************************
 
 @IBDesignable
-class LocalizedSearchBar : UISearchBar {
+class LocalizedSearchBar: UISearchBar {
     
     //**************************************************
     // MARK: - Properties

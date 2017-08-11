@@ -23,7 +23,7 @@ fileprivate var kPrevKey: Int8 = 0
 //
 //**********************************************************************************************************
 
-public protocol LinkedChain : class {
+public protocol LinkedChain: class {
 	var nextItem: LinkedChain? { get set }
 	var previousItem: LinkedChain? { get }
 }
@@ -128,7 +128,7 @@ public extension LinkedChain {
 //
 //**********************************************************************************************************
 
-extension UIView : LinkedChain {
+extension UIView: LinkedChain {
 	
 	@IBOutlet weak var nextView: UIView? {
 		get {

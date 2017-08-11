@@ -27,7 +27,7 @@ import UIKit
 //**********************************************************************************************************
 
 @IBDesignable
-class DisclosureView : UIView {
+class DisclosureView: UIView {
 	
 	enum Direction: Int {
 		case left, right, up, down
@@ -85,7 +85,7 @@ class DisclosureView : UIView {
 //**********************************************************************************************************
 
 @IBDesignable
-class DisclosureHorizontal : DisclosureView {
+class DisclosureHorizontal: DisclosureView {
 	
 	@IBInspectable var isRight: Bool = true {
 		didSet {
@@ -102,7 +102,7 @@ class DisclosureHorizontal : DisclosureView {
 //**********************************************************************************************************
 
 @IBDesignable
-class DisclosureVertical : DisclosureView {
+class DisclosureVertical: DisclosureView {
 	
 	@IBInspectable var isUp: Bool = true {
 		didSet {
