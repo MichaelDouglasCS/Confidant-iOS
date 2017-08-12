@@ -152,7 +152,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fdf-qV-3UP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cNX-dC-Eoh">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cNX-dC-Eoh">
                                                 <rect key="frame" x="24" y="15" width="327" height="481"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="k0n-cB-Zn5">
@@ -161,7 +161,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3T-9K-MKi" userLabel="SignUpButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="28.5" y="0.0" width="270" height="45"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="TnT-om-O14"/>
+                                                                    <constraint firstAttribute="width" constant="270" id="TnT-om-O14"/>
                                                                     <constraint firstAttribute="height" constant="45" id="fAj-rO-Iun"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="13"/>
@@ -189,31 +189,24 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-E8-nS4" userLabel="EmailView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wyf-kK-AG7">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wyf-kK-AG7">
                                                                         <rect key="frame" x="10" y="5" width="312" height="30"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_email" translatesAutoresizingMaskIntoConstraints="NO" id="0X5-UE-Rcy" userLabel="email-icon">
-                                                                                <rect key="frame" x="0.0" y="7.5" width="21" height="15"/>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_email" translatesAutoresizingMaskIntoConstraints="NO" id="0X5-UE-Rcy" userLabel="email-icon">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="30"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="15" id="8LP-rn-dK9"/>
                                                                                     <constraint firstAttribute="width" constant="21" id="u1x-V9-2aY"/>
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_EMAIL" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="rOj-UW-Br4" userLabel="EmailTextField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
-                                                                                <rect key="frame" x="26" y="9" width="286" height="12"/>
+                                                                                <rect key="frame" x="26" y="0.0" width="286" height="30"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
-                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                                                                 <connections>
                                                                                     <outlet property="delegate" destination="13q-1x-OyM" id="q7H-st-MZS"/>
                                                                                 </connections>
                                                                             </textField>
-                                                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_checkmark_correct" translatesAutoresizingMaskIntoConstraints="NO" id="rzO-3j-epK" userLabel="check-email">
-                                                                                <rect key="frame" x="312" y="8" width="0.0" height="14"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="height" constant="14.000000000000014" id="pfJ-DF-YVE"/>
-                                                                                </constraints>
-                                                                            </imageView>
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
@@ -237,27 +230,20 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedback Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoJ-0B-dFi" userLabel="EmailCheckMessage">
-                                                                <rect key="frame" x="0.0" y="47.5" width="327" height="0.0"/>
-                                                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="10"/>
-                                                                <color key="textColor" red="0.84705882352941175" green="0.0" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAZ-Aj-ZZg" userLabel="NicknameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="55" width="327" height="40"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="x1G-zg-dR2">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="x1G-zg-dR2">
                                                                         <rect key="frame" x="10" y="5" width="312" height="30"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_user" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-zj-KYx">
-                                                                                <rect key="frame" x="0.0" y="4.5" width="21" height="21"/>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_user" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-zj-KYx">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="30"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="21" id="Hro-g0-Do2"/>
-                                                                                    <constraint firstAttribute="height" constant="21" id="xfH-rM-6Va"/>
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_NAME" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="unK-aq-Wct" userLabel="NicknameTextField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
-                                                                                <rect key="frame" x="26" y="9" width="286" height="12"/>
+                                                                                <rect key="frame" x="26" y="0.0" width="286" height="30"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
@@ -291,18 +277,17 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUk-jZ-lPK" userLabel="PasswordView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="110" width="327" height="40"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CbK-vj-cw7">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CbK-vj-cw7">
                                                                         <rect key="frame" x="10" y="5" width="312" height="30"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_password" translatesAutoresizingMaskIntoConstraints="NO" id="ftd-Ze-IVK" userLabel="password-icon">
-                                                                                <rect key="frame" x="0.0" y="4.5" width="21" height="21"/>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_password" translatesAutoresizingMaskIntoConstraints="NO" id="ftd-Ze-IVK" userLabel="password-icon">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="30"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="21" id="5k1-0u-jwV"/>
-                                                                                    <constraint firstAttribute="height" constant="21.000000000000028" id="lzM-LW-6Ba"/>
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_PASSWORD" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Lof-w4-WPc" userLabel="PasswordTextField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
-                                                                                <rect key="frame" x="26" y="9" width="286" height="12"/>
+                                                                                <rect key="frame" x="26" y="0.0" width="286" height="30"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
@@ -336,18 +321,17 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4x-Px-um3" userLabel="DateOfBirthView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="165" width="327" height="40"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OpV-53-Vjj">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OpV-53-Vjj">
                                                                         <rect key="frame" x="10" y="5" width="312" height="30"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_calendar" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-Iw-zVS" userLabel="date-icon">
-                                                                                <rect key="frame" x="0.0" y="4.5" width="21" height="21"/>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_calendar" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-Iw-zVS" userLabel="date-icon">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="30"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="21" id="pwd-4r-Pv5"/>
                                                                                     <constraint firstAttribute="width" constant="21" id="xO2-Ca-Ei5"/>
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_BIRTHDATE" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="vaU-y0-8sj" userLabel="DateOfBirthTextField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
-                                                                                <rect key="frame" x="26" y="9" width="286" height="12"/>
+                                                                                <rect key="frame" x="26" y="0.0" width="286" height="30"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
@@ -381,18 +365,17 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvx-wy-gN9" userLabel="GenderView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="220" width="327" height="40"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8we-V8-ITo">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8we-V8-ITo">
                                                                         <rect key="frame" x="10" y="5" width="312" height="30"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_gender" translatesAutoresizingMaskIntoConstraints="NO" id="YpX-ZL-Pzb" userLabel="gender-icon">
-                                                                                <rect key="frame" x="0.0" y="4" width="21" height="22"/>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_gender" translatesAutoresizingMaskIntoConstraints="NO" id="YpX-ZL-Pzb" userLabel="gender-icon">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="30"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="21" id="Tx0-Re-jwj"/>
-                                                                                    <constraint firstAttribute="height" constant="22" id="jiW-lH-eRf"/>
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_GENDER" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="BUi-85-pya" userLabel="GenderTextField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
-                                                                                <rect key="frame" x="26" y="9" width="286" height="12"/>
+                                                                                <rect key="frame" x="26" y="0.0" width="286" height="30"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
@@ -431,7 +414,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIT-ql-UbD" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="66" y="0.0" width="195" height="45"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" priority="750" constant="195" id="fZE-Ce-vye"/>
+                                                                    <constraint firstAttribute="width" constant="195" id="fZE-Ce-vye"/>
                                                                     <constraint firstAttribute="height" constant="45" id="gBr-yg-dQt"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="15"/>
@@ -460,13 +443,11 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" priority="750" constant="481" id="mG1-L7-iDQ"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="cNX-dC-Eoh" secondAttribute="bottom" priority="750" constant="15" id="2Fv-G0-Fd1"/>
                                             <constraint firstItem="cNX-dC-Eoh" firstAttribute="centerX" secondItem="Fdf-qV-3UP" secondAttribute="centerX" id="4NO-dY-WtZ"/>
                                             <constraint firstItem="cNX-dC-Eoh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Fdf-qV-3UP" secondAttribute="leading" constant="24" id="b5a-9e-OqH"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cNX-dC-Eoh" secondAttribute="trailing" constant="24" id="bcQ-Pt-uky"/>
@@ -475,43 +456,44 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Fdf-qV-3UP" firstAttribute="top" secondItem="vz7-AZ-5gq" secondAttribute="top" id="Epx-ws-lN8"/>
-                                    <constraint firstAttribute="bottom" secondItem="Fdf-qV-3UP" secondAttribute="bottom" constant="187" id="OZ5-zD-Pd3"/>
-                                    <constraint firstItem="Fdf-qV-3UP" firstAttribute="height" secondItem="vz7-AZ-5gq" secondAttribute="height" id="QIP-Uh-WyS"/>
-                                    <constraint firstItem="Fdf-qV-3UP" firstAttribute="leading" secondItem="vz7-AZ-5gq" secondAttribute="leading" id="Uhc-jF-5V0"/>
-                                    <constraint firstItem="Fdf-qV-3UP" firstAttribute="width" secondItem="vz7-AZ-5gq" secondAttribute="width" id="lko-LQ-JLW"/>
-                                    <constraint firstAttribute="trailing" secondItem="Fdf-qV-3UP" secondAttribute="trailing" id="thZ-Tc-XbW"/>
+                                    <constraint firstItem="Fdf-qV-3UP" firstAttribute="top" secondItem="vz7-AZ-5gq" secondAttribute="top" id="7gI-nE-hzW"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fdf-qV-3UP" secondAttribute="bottom" id="TfF-xP-ktD"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fdf-qV-3UP" secondAttribute="trailing" id="Xn6-wa-hQg"/>
+                                    <constraint firstItem="Fdf-qV-3UP" firstAttribute="centerY" secondItem="vz7-AZ-5gq" secondAttribute="centerY" id="mtb-13-ioY"/>
+                                    <constraint firstItem="Fdf-qV-3UP" firstAttribute="centerX" secondItem="vz7-AZ-5gq" secondAttribute="centerX" id="tbt-jl-mSM"/>
+                                    <constraint firstItem="Fdf-qV-3UP" firstAttribute="leading" secondItem="vz7-AZ-5gq" secondAttribute="leading" id="txZ-eY-jC9"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="vz7-AZ-5gq" secondAttribute="trailing" id="8we-7V-KG1"/>
-                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="leading" secondItem="gdj-1r-Aqt" secondAttribute="leading" id="Fhq-cA-Xq0"/>
-                            <constraint firstItem="jMt-T1-JaQ" firstAttribute="top" secondItem="vz7-AZ-5gq" secondAttribute="bottom" id="c7L-Ca-Ha9"/>
-                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="top" secondItem="fkY-NM-19l" secondAttribute="bottom" id="g5R-iS-I7T"/>
+                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="top" secondItem="fkY-NM-19l" secondAttribute="bottom" id="UBf-VC-iPh"/>
+                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="leading" secondItem="gdj-1r-Aqt" secondAttribute="leading" id="WtR-4R-zBD"/>
+                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="bottom" secondItem="jMt-T1-JaQ" secondAttribute="top" id="jdA-LK-msc"/>
+                            <constraint firstAttribute="trailing" secondItem="vz7-AZ-5gq" secondAttribute="trailing" id="pUy-dz-V7N"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UNS-Tc-3Uf">
                         <view key="titleView" contentMode="scaleToFill" id="eN3-k0-jRC">
-                            <rect key="frame" x="105" y="5.5" width="165" height="33"/>
+                            <rect key="frame" x="77.5" y="5.5" width="165" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LB_SIGNUP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cW-hQ-ws2" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="38.333333333333329" y="10.333333333333336" width="88.666666666666657" height="13.666666666666664"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_SIGNUP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cW-hQ-ws2" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                    <rect key="frame" x="38" y="10" width="89" height="14"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="9cW-hQ-ws2" firstAttribute="centerY" secondItem="eN3-k0-jRC" secondAttribute="centerY" id="API-Bz-7Zp"/>
+                                <constraint firstItem="9cW-hQ-ws2" firstAttribute="centerX" secondItem="eN3-k0-jRC" secondAttribute="centerX" id="x4w-tK-Ajt"/>
+                            </constraints>
                         </view>
                     </navigationItem>
                     <connections>
                         <outlet property="birthdateTextField" destination="vaU-y0-8sj" id="TjV-Xe-5ca"/>
-                        <outlet property="checkEmailImageView" destination="rzO-3j-epK" id="C1v-V3-a0T"/>
-                        <outlet property="emailCheckMessageLabel" destination="OoJ-0B-dFi" id="xAJ-ds-quu"/>
                         <outlet property="emailTextField" destination="rOj-UW-Br4" id="ZMm-gk-RvE"/>
                         <outlet property="genderTextField" destination="BUi-85-pya" id="cCT-bn-Qqd"/>
                         <outlet property="nameTextField" destination="unK-aq-Wct" id="wpm-FW-1Lh"/>
@@ -552,7 +534,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRr-Ss-vSD">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uhy-ZU-WQ1">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uhy-ZU-WQ1">
                                                 <rect key="frame" x="24" y="15" width="327" height="285"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zCe-k1-hnx">
@@ -562,7 +544,7 @@
                                                                 <rect key="frame" x="29" y="0.0" width="269" height="45"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="HDS-uZ-ISL"/>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="269" id="jKw-fJ-uIT"/>
+                                                                    <constraint firstAttribute="width" constant="269" id="jKw-fJ-uIT"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="13"/>
                                                                 <state key="normal" title="LB_LOGIN_FACEBOOK" backgroundImage="bg_blue_facebook">
@@ -591,21 +573,20 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgt-wu-RAT" userLabel="UsernameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="f5l-ix-0hH">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="f5l-ix-0hH">
                                                                         <rect key="frame" x="10" y="5" width="312" height="30"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_email" translatesAutoresizingMaskIntoConstraints="NO" id="QiL-Zk-x79">
-                                                                                <rect key="frame" x="0.0" y="4.5" width="21" height="21"/>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_email" translatesAutoresizingMaskIntoConstraints="NO" id="QiL-Zk-x79">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="30"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="21" id="6un-bS-Yxy"/>
-                                                                                    <constraint firstAttribute="height" constant="21" id="kSD-l1-4iu"/>
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_EMAIL" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Xcz-tz-Mlv" userLabel="EmailTextField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
-                                                                                <rect key="frame" x="26" y="9" width="286" height="12"/>
+                                                                                <rect key="frame" x="26" y="0.0" width="286" height="30"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
-                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                                                                 <connections>
                                                                                     <outlet property="delegate" destination="Z3h-2O-sy4" id="bgP-8p-5PK"/>
                                                                                 </connections>
@@ -636,18 +617,17 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSH-vO-l7a" userLabel="PasswordView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="55" width="327" height="40"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oiE-bi-YoX">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oiE-bi-YoX">
                                                                         <rect key="frame" x="10" y="5" width="312" height="30"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_password" translatesAutoresizingMaskIntoConstraints="NO" id="KqY-HR-Izx" userLabel="password-icon">
-                                                                                <rect key="frame" x="0.0" y="4.5" width="21" height="21"/>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_password" translatesAutoresizingMaskIntoConstraints="NO" id="KqY-HR-Izx" userLabel="password-icon">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="30"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="21" id="ZVT-J4-Ksm"/>
                                                                                     <constraint firstAttribute="width" constant="21" id="djM-nr-afP"/>
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_PASSWORD" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="aKC-Pf-sH9" userLabel="PasswordField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
-                                                                                <rect key="frame" x="26" y="9" width="286" height="12"/>
+                                                                                <rect key="frame" x="26" y="0.0" width="286" height="30"/>
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
@@ -718,36 +698,34 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" priority="750" constant="285" id="axg-T9-oXx"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="Uhy-ZU-WQ1" firstAttribute="leading" secondItem="hRr-Ss-vSD" secondAttribute="leading" constant="24" id="09p-Xo-FJ6"/>
                                             <constraint firstItem="Uhy-ZU-WQ1" firstAttribute="centerX" secondItem="hRr-Ss-vSD" secondAttribute="centerX" id="1QX-Ku-IwL"/>
+                                            <constraint firstAttribute="bottom" secondItem="Uhy-ZU-WQ1" secondAttribute="bottom" priority="750" constant="15" id="4iK-t6-Lud"/>
                                             <constraint firstItem="Uhy-ZU-WQ1" firstAttribute="top" secondItem="hRr-Ss-vSD" secondAttribute="top" constant="15" id="upP-ey-WS6"/>
                                             <constraint firstAttribute="trailing" secondItem="Uhy-ZU-WQ1" secondAttribute="trailing" constant="24" id="w5q-uH-d2R"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="hRr-Ss-vSD" secondAttribute="bottom" id="1n9-Ee-0dy"/>
-                                    <constraint firstItem="hRr-Ss-vSD" firstAttribute="width" secondItem="OmL-JK-fhZ" secondAttribute="width" id="7or-aB-oSw"/>
-                                    <constraint firstItem="hRr-Ss-vSD" firstAttribute="height" secondItem="OmL-JK-fhZ" secondAttribute="height" id="PcD-uZ-k1e"/>
-                                    <constraint firstItem="hRr-Ss-vSD" firstAttribute="leading" secondItem="OmL-JK-fhZ" secondAttribute="leading" id="bJO-VX-XFO"/>
-                                    <constraint firstAttribute="trailing" secondItem="hRr-Ss-vSD" secondAttribute="trailing" id="mhh-Ab-85l"/>
-                                    <constraint firstItem="hRr-Ss-vSD" firstAttribute="top" secondItem="OmL-JK-fhZ" secondAttribute="top" id="nfj-DP-8cO"/>
+                                    <constraint firstItem="hRr-Ss-vSD" firstAttribute="centerX" secondItem="OmL-JK-fhZ" secondAttribute="centerX" id="3ub-Q3-W1u"/>
+                                    <constraint firstItem="hRr-Ss-vSD" firstAttribute="leading" secondItem="OmL-JK-fhZ" secondAttribute="leading" id="Lmm-f8-uId"/>
+                                    <constraint firstItem="hRr-Ss-vSD" firstAttribute="top" secondItem="OmL-JK-fhZ" secondAttribute="top" id="V3B-pk-tcZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="hRr-Ss-vSD" secondAttribute="bottom" id="Vpv-w4-UOx"/>
+                                    <constraint firstAttribute="trailing" secondItem="hRr-Ss-vSD" secondAttribute="trailing" id="ldf-Vr-gME"/>
+                                    <constraint firstItem="hRr-Ss-vSD" firstAttribute="centerY" secondItem="OmL-JK-fhZ" secondAttribute="centerY" id="z76-2v-TSm"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hnK-Sc-Vaw" firstAttribute="top" secondItem="OmL-JK-fhZ" secondAttribute="bottom" id="D87-5t-5l5"/>
-                            <constraint firstItem="OmL-JK-fhZ" firstAttribute="top" secondItem="xq4-lH-hgQ" secondAttribute="bottom" id="fc9-Ki-Vv5"/>
-                            <constraint firstAttribute="trailing" secondItem="OmL-JK-fhZ" secondAttribute="trailing" id="gwT-hq-MJP"/>
-                            <constraint firstItem="OmL-JK-fhZ" firstAttribute="leading" secondItem="Ag6-ez-dBn" secondAttribute="leading" id="l81-Ma-dMo"/>
+                            <constraint firstItem="OmL-JK-fhZ" firstAttribute="bottom" secondItem="hnK-Sc-Vaw" secondAttribute="top" id="3aB-vI-rPF"/>
+                            <constraint firstItem="OmL-JK-fhZ" firstAttribute="leading" secondItem="Ag6-ez-dBn" secondAttribute="leading" id="YAO-mQ-XHC"/>
+                            <constraint firstAttribute="trailing" secondItem="OmL-JK-fhZ" secondAttribute="trailing" id="hBb-q0-GY2"/>
+                            <constraint firstItem="OmL-JK-fhZ" firstAttribute="top" secondItem="xq4-lH-hgQ" secondAttribute="bottom" id="qx5-GL-Lve"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eV3-Y4-Hm8">
@@ -756,15 +734,18 @@
                             <rect key="frame" x="105" y="5.5" width="165" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LB_LOGIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpV-a9-LT8" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="43.000000000000007" y="10.000000000000002" width="79.666666666666686" height="13.66666666666667"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_LOGIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpV-a9-LT8" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                    <rect key="frame" x="43" y="10" width="80" height="14"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="HpV-a9-LT8" firstAttribute="centerY" secondItem="pbI-J5-VS2" secondAttribute="centerY" id="DuZ-AM-ZjO"/>
+                                <constraint firstItem="HpV-a9-LT8" firstAttribute="centerX" secondItem="pbI-J5-VS2" secondAttribute="centerX" id="XTN-qc-XWR"/>
+                            </constraints>
                         </view>
                     </navigationItem>
                     <connections>
@@ -784,7 +765,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QU8-uW-fYb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" backIndicatorImage="icn_back" backIndicatorTransitionMaskImage="icn_back" id="FOt-cQ-22d">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="icn_back" backIndicatorTransitionMaskImage="icn_back" id="FOt-cQ-22d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -811,7 +792,6 @@
         <image name="bg_welcome" width="375" height="667"/>
         <image name="icn_back" width="11" height="18"/>
         <image name="icn_calendar" width="21" height="21"/>
-        <image name="icn_checkmark_correct" width="18" height="14"/>
         <image name="icn_email" width="21" height="15"/>
         <image name="icn_gender" width="21" height="22"/>
         <image name="icn_logo_white" width="95" height="95"/>

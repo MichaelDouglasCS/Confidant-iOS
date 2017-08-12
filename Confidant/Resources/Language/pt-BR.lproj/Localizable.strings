@@ -27,6 +27,10 @@
 "ST_RANDOMLY" = "Randomly";
 "ST_VOLUNTARY" = "Voluntary";
 "ST_SCORE" = "Score";
+"ST_FEMALE" = "Female";
+"ST_MALE" = "Male";
+"ST_TERMS_CONDITIONS" = "Terms and Conditions of Use";
+"ST_PRIVACY_POLICY" = "Privacy Policy";
 
 //*************************
 // Messages
@@ -34,7 +38,7 @@
 
 "MSG_FINGER_PRINT" = "Please place your finger over the Home Button sensor to authenticate the current user";
 "MSG_INVALID_FINGER_PRINT" = "It was not possible to authenticate through the sensor, please enter the password manually";
-"MSG_TERMS_AND_CONDITIONS" = "By signing up, you agree to Confidant’s Terms and conditions of Use and Privacy Policy.";
+"MSG_TERMS_AND_CONDITIONS" = "By signing up, you agree to Confidant’s Terms and Conditions of Use and Privacy Policy.";
 "MSG_WELCOME" = "Feel free for help someone or keep someone help you, find your Confidant";
 "MSG_ANONYMOUSLY" = "Don't care about your identity, we assure your securence and anonymity";
 "MSG_RANDOMLY" = "Let us find someone to help you, according to your interests";

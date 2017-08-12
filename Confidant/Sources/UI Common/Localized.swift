@@ -47,6 +47,10 @@ extension String {
 		static var randomly: String { return "ST_RANDOMLY".localized }
 		static var voluntary: String { return "ST_VOLUNTARY".localized }
 		static var score: String { return "ST_SCORE".localized }
+		static var female: String { return "ST_FEMALE".localized }
+		static var male: String { return "ST_MALE".localized }
+		static var termsAndConditions: String { return "ST_TERMS_CONDITIONS".localized }
+		static var privacyPolicy: String { return "ST_PRIVACY_POLICY".localized }
 		
 		//*************************
 		// Messages

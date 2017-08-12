@@ -26,7 +26,7 @@ import UIKit
 //
 //**********************************************************************************************************
 
-class WelcomeVC: UIViewController {
+public class WelcomeVC: UIViewController {
 	
 	fileprivate struct Messages {
 		
@@ -198,7 +198,7 @@ class WelcomeVC: UIViewController {
 // MARK: - Overridden Public Methods
 //*************************************************
 	
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavigationBar()
         self.loadData()
@@ -206,12 +206,12 @@ class WelcomeVC: UIViewController {
         self.startTimer()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 		self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -225,7 +225,7 @@ class WelcomeVC: UIViewController {
 
 extension WelcomeVC: UIScrollViewDelegate {
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		let frame = self.view.frame
 		
         if (scrollView.contentOffset.x == (-frame.size.width)) {
@@ -238,7 +238,7 @@ extension WelcomeVC: UIScrollViewDelegate {
         self.pageControl.currentPage = Int(page)
     }
     
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         self.view.isUserInteractionEnabled = true
     }
 }
