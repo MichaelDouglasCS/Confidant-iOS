@@ -38,14 +38,14 @@ class WelcomeVC: UIViewController {
 		private static let voluntary = ["title": local.voluntary, "text": local.voluntaryMessage]
 		private static let score = ["title": local.score, "text": local.scoreMessage]
 		
-		static func getMessages() -> [Dictionary<String, String>] {
-			let messagesArray = [self.welcome,
+		static func getList() -> [[String: String]] {
+			let messages = [self.welcome,
 			                     self.anonymously,
 			                     self.randomly,
 			                     self.voluntary,
 			                     self.score]
 			
-			return messagesArray
+			return messages
 		}
 	}
 	
@@ -53,11 +53,7 @@ class WelcomeVC: UIViewController {
 // MARK: - Properties
 //*************************************************
 	
-	fileprivate var pagesCount: Int {
-		get {
-			return Messages.getMessages().count
-		}
-	}
+	fileprivate var pagesCount: Int { return Messages.getList().count }
 	private var timer = Timer()
 	
     @IBOutlet weak var scrollView: UIScrollView!
@@ -73,39 +69,48 @@ class WelcomeVC: UIViewController {
     }
 	
 	private func loadData() {
-		let welcomeMessages = Messages.getMessages()
+		let messages = Messages.getList()
 		let frame = self.view.frame
 		let bounds = self.view.bounds
+		
+		self.scrollView.frame = frame
+		
 		let scrollViewFrame = self.scrollView.frame
 		let scrollViewBounds = self.scrollView.bounds
 		
-		self.scrollView.frame = frame
-		self.scrollView.contentSize = CGSize(width: bounds.size.width * (CGFloat(welcomeMessages.count) + 2),
+		
+		self.scrollView.contentSize = CGSize(width: bounds.size.width * (CGFloat(messages.count) + 2),
 		                                     height: self.scrollView.frame.size.height)
 		
-		for (index, message) in welcomeMessages.enumerated() {
+		for (index, message) in messages.enumerated() {
 			//Setup Size and Position MessageView, Title and Text
 			let messageView = UIView(frame: CGRect(x: 0,
 			                                       y: 0,
 			                                       width: CGFloat(scrollViewBounds.size.width),
 			                                       height: CGFloat(scrollViewBounds.size.height)))
-			let messageTitle = UILabel(frame: CGRect(x: CGFloat(messageView.frame.size.width - 300) / 2, y: 0, width: 300, height: 25))
-			let messageText = UILabel(frame: CGRect(x: CGFloat(messageView.frame.size.width - 300) / 2, y: CGFloat(messageTitle.frame.size.height + 3), width: 300, height: 40))
+			let messageTitle = UILabel(frame: CGRect(x: CGFloat(messageView.frame.size.width - 300) / 2,
+			                                         y: 0,
+			                                         width: 300,
+			                                         height: 25))
+			let messageText = UILabel(frame: CGRect(x: CGFloat(messageView.frame.size.width - 300) / 2,
+			                                        y: CGFloat(messageTitle.frame.size.height + 3),
+			                                        width: 300,
+			                                        height: 40))
 			
 			//Configure MessageView Background
 			messageView.backgroundColor = UIColor.clear
 			
-			if index == welcomeMessages.startIndex {
+			if index == messages.startIndex {
 				let firstView = UIView(frame: messageView.frame)
 				let firstTitle = UILabel(frame: messageTitle.frame)
 				let firstText = UILabel(frame: messageText.frame)
 				
-				if let title = welcomeMessages[welcomeMessages.endIndex-1]["title"] {
-					firstTitle.getMessageFormat(title: title)
+				if let title = messages[messages.endIndex-1]["title"] {
+					firstTitle.format(title: title)
 				}
 				
-				if let text = welcomeMessages[welcomeMessages.endIndex-1]["text"] {
-					firstText.getMessageFormat(text: text)
+				if let text = messages[messages.endIndex-1]["text"] {
+					firstText.format(text: text)
 				}
 				
 				firstView.addSubViews(views: [firstTitle, firstText])
@@ -116,11 +121,11 @@ class WelcomeVC: UIViewController {
 			
 			//Configure MessageTitle and MessageText to input in MessageView
 			if let title = message["title"] {
-				messageTitle.getMessageFormat(title: title)
+				messageTitle.format(title: title)
 			}
 			
 			if let text = message["text"] {
-				messageText.getMessageFormat(text: text)
+				messageText.format(text: text)
 			}
 			
 			messageView.addSubViews(views: [messageTitle, messageText])
@@ -128,17 +133,17 @@ class WelcomeVC: UIViewController {
 			
 			self.scrollView.addSubview(messageView)
 			
-			if index == welcomeMessages.endIndex - 1 {
+			if index == messages.endIndex - 1 {
 				let lastView = UIView(frame: messageView.frame)
 				let lastTitle = UILabel(frame: messageTitle.frame)
 				let lastText = UILabel(frame: messageText.frame)
 				
-				if let title = welcomeMessages[welcomeMessages.startIndex]["title"] {
-					lastTitle.getMessageFormat(title: title)
+				if let title = messages[messages.startIndex]["title"] {
+					lastTitle.format(title: title)
 				}
 				
-				if let text = welcomeMessages[welcomeMessages.startIndex]["text"] {
-					lastText.getMessageFormat(text: text)
+				if let text = messages[messages.startIndex]["text"] {
+					lastText.format(text: text)
 				}
 				
 				lastView.addSubViews(views: [lastTitle, lastText])
@@ -210,7 +215,6 @@ class WelcomeVC: UIViewController {
         super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
-    
 }
 
 //**************************************************************************************************
@@ -241,16 +245,18 @@ extension WelcomeVC: UIScrollViewDelegate {
 
 //**************************************************************************************************
 //
-// MARK: - Extension - UILabel - WelcomeMessageFormat
+// MARK: - Extension - UILabel - MessageFormat
 //
 //**************************************************************************************************
 
 extension UILabel {
     
-    fileprivate func getMessageFormat(title: String) {
+    fileprivate func format(title: String) {
         let attributedString = NSMutableAttributedString(string: title)
 		
-        attributedString.addAttribute(NSKernAttributeName, value: -0.5, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(NSKernAttributeName,
+                                      value: -0.5,
+                                      range: NSRange(location: 0, length: attributedString.length))
 		
 		self.attributedText = attributedString
         self.font = UIFont(name: "Gotham-Bold", size: 22)
@@ -258,12 +264,14 @@ extension UILabel {
         self.textAlignment = .center
     }
     
-    fileprivate func getMessageFormat(text: String) {
+    fileprivate func format(text: String) {
         let attributedString = NSMutableAttributedString(string: text)
         let paragraphStyle = NSMutableParagraphStyle()
 		
         paragraphStyle.lineSpacing = 10
-        attributedString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(NSParagraphStyleAttributeName,
+                                      value: paragraphStyle,
+                                      range: NSRange(location: 0, length: attributedString.length))
 		
 		self.attributedText = attributedString
         self.font = UIFont(name: "Gotham-Bold", size: 12)

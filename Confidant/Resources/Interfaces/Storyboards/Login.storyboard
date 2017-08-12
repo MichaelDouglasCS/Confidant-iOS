@@ -65,7 +65,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="95" id="Dh8-UA-LqY"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pnE-n1-8p4">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="pnE-n1-8p4">
                                 <rect key="frame" x="0.0" y="435" width="375" height="168"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P76-oI-xE8" userLabel="MessageScrollView">

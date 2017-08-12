@@ -412,9 +412,9 @@
 		618485751E6862C700854092 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				61F5CE8A1E68F9EE001261C1 /* Login */,
-				618AF4C81E84D0E7008A6A22 /* Dashboard */,
 				61232BBE1E86257900DC64BC /* Chats */,
+				618AF4C81E84D0E7008A6A22 /* Dashboard */,
+				61F5CE8A1E68F9EE001261C1 /* Login */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -573,9 +573,9 @@
 		61F5CE8A1E68F9EE001261C1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				61F5CE8B1E68FA1C001261C1 /* WelcomeVC.swift */,
 				6110E1811E6F72340005A419 /* LogInVC.swift */,
 				61F6D2701E733DC800754866 /* SignUpVC.swift */,
+				61F5CE8B1E68FA1C001261C1 /* WelcomeVC.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
