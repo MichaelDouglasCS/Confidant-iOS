@@ -67,10 +67,6 @@ public class ModelBO: NSObject, NSCoding {
 			self.decodeJSON(json: JSON(data: data))
 		}
 	}
-	
-//**************************************************
-// MARK: - Protected Methods
-//**************************************************
 
 //**************************************************
 // MARK: - Exposed Methods

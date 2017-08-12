@@ -26,7 +26,7 @@ import UIKit
 //
 //**********************************************************************************************************
 
-class LogInVC: UIViewController {
+public class LogInVC: UIViewController {
     
     fileprivate enum TextField: Int {
         case email = 1
@@ -85,12 +85,12 @@ class LogInVC: UIViewController {
 // MARK: - Overriden Public Methods
 //*************************************************
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.registerKeyboardObservers()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override public func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(false)
 		self.deregisterKeyboardObservers()
     }
@@ -104,7 +104,7 @@ class LogInVC: UIViewController {
 
 extension LogInVC: UITextFieldDelegate {
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)
 		
 		switch textField.tag {
@@ -127,7 +127,7 @@ extension LogInVC: UITextFieldDelegate {
         return true
     }
     
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+	public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		switch textField.tag {
 		case TextField.email.rawValue:
 			self.passwordTextField.becomeFirstResponder()
