@@ -40,7 +40,7 @@ public class SignUpVC: UIViewController {
 // MARK: - Properties
 //*************************************************
     
-    @IBOutlet weak var signInScrollView: UIScrollView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -147,7 +147,7 @@ public class SignUpVC: UIViewController {
 	}
 	
 //*************************************************
-// MARK: - Override Public Methods
+// MARK: - Overriden Public Methods
 //*************************************************
     
     override public func viewDidLoad() {
@@ -159,7 +159,7 @@ public class SignUpVC: UIViewController {
     
     override public func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-		
+		self.deregisterKeyboardObservers()
     }
 }
 
@@ -307,15 +307,15 @@ extension SignUpVC {
 			                                                   0.0,
 			                                                   keyboardSize.height,
 			                                                   0.0)
-			self.signInScrollView.contentInset = contentInsets
-			self.signInScrollView.scrollIndicatorInsets = contentInsets
+			self.scrollView.contentInset = contentInsets
+			self.scrollView.scrollIndicatorInsets = contentInsets
 		}
 	}
 	
 	@objc private func keyboardWillBeHidden(notification: NSNotification){
 		//Once keyboard disappears, restore original positions
 		let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
-		self.signInScrollView.contentInset = contentInsets
-		self.signInScrollView.scrollIndicatorInsets = contentInsets
+		self.scrollView.contentInset = contentInsets
+		self.scrollView.scrollIndicatorInsets = contentInsets
 	}
 }

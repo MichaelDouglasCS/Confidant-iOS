@@ -146,17 +146,17 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vz7-AZ-5gq" userLabel="SigninScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vz7-AZ-5gq" userLabel="scrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fdf-qV-3UP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cNX-dC-Eoh">
-                                                <rect key="frame" x="24" y="15" width="327" height="481"/>
+                                                <rect key="frame" x="24" y="15" width="327" height="484"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="k0n-cB-Zn5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="76"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="79"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3T-9K-MKi" userLabel="SignUpButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="28.5" y="0.0" width="270" height="45"/>
@@ -176,7 +176,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_OR_WITH_EMAIL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Lb-7zC" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="98.5" y="65" width="130" height="11"/>
+                                                                <rect key="frame" x="106" y="65" width="115.5" height="14"/>
                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -184,7 +184,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-OW-eyv">
-                                                        <rect key="frame" x="0.0" y="96" width="327" height="260"/>
+                                                        <rect key="frame" x="0.0" y="99" width="327" height="260"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-E8-nS4" userLabel="EmailView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
@@ -409,7 +409,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hUo-UI-cPU">
-                                                        <rect key="frame" x="0.0" y="376" width="327" height="105"/>
+                                                        <rect key="frame" x="0.0" y="379" width="327" height="105"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIT-ql-UbD" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="66" y="0.0" width="195" height="45"/>
@@ -498,7 +498,7 @@
                         <outlet property="genderTextField" destination="BUi-85-pya" id="cCT-bn-Qqd"/>
                         <outlet property="nameTextField" destination="unK-aq-Wct" id="wpm-FW-1Lh"/>
                         <outlet property="passwordTextField" destination="Lof-w4-WPc" id="m2d-AS-ECn"/>
-                        <outlet property="signInScrollView" destination="vz7-AZ-5gq" id="y9g-8M-trO"/>
+                        <outlet property="scrollView" destination="vz7-AZ-5gq" id="y9g-8M-trO"/>
                         <outlet property="signUpButton" destination="FIT-ql-UbD" id="fQy-Ib-4Sh"/>
                         <outlet property="termsAndConditionsTextView" destination="sdy-8P-96b" id="Woh-K7-o4K"/>
                         <segue destination="F1z-lY-87A" kind="presentation" identifier="signupToDashboardSegue" modalTransitionStyle="flipHorizontal" id="niF-Wi-J4x"/>

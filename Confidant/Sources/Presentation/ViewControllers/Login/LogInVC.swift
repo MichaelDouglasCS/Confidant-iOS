@@ -49,63 +49,28 @@ class LogInVC: UIViewController {
 //*************************************************
 // MARK: - Protected Methods
 //*************************************************
-    
-    @objc private func keyboardWasShown(notification: NSNotification){
-        //Need to calculate keyboard exact size due to Apple suggestions
-        var info = notification.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
-        
-        self.scrollView.contentInset = contentInsets
-        self.scrollView.scrollIndicatorInsets = contentInsets
-        
-        var aRect: CGRect = self.view.frame
-        aRect.size.height -= keyboardSize!.height
-        
-        if (!aRect.contains(self.logInButton.frame)){
-            let spaceOfButtonToKeyboard = CGRect(x: self.logInButton.frame.origin.x, y: self.logInButton.frame.origin.y + 20, width: self.logInButton.frame.width, height: self.logInButton.frame.height)
-            self.scrollView.scrollRectToVisible(spaceOfButtonToKeyboard, animated: true)
-        }
-        
-    }
-    
-    @objc private func keyboardWillBeHidden(notification: NSNotification){
-        //Once keyboard disappears, restore original positions
-        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
-        self.scrollView.contentInset = contentInsets
-        self.scrollView.scrollIndicatorInsets = contentInsets
-    }
-    
+	
+	fileprivate func loginWithEmail() {
+		self.dismissKeyboard()
+		self.loadingIndicator(isShow: true)
+		
+		let user = UserBO()
+		user.email = self.emailTextField.text ?? ""
+		user.password = (self.passwordTextField.text ?? "").encryptedPassword
+	}
+	
     private func logged() {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "loginToDashboardSegue", sender: nil)
         }
     }
     
-    fileprivate func loginWithEmail() {
-        self.dismissKeyboard()
-        self.loadingIndicator(isShow: true)
-		
-		let user = UserBO()
-		user.email = self.emailTextField.text ?? ""
-		user.password = (self.passwordTextField.text ?? "").encryptedPassword
-		
-		
-    }
-	
 //*************************************************
-// MARK: - Internal Methods
-//*************************************************
-    
-//*************************************************
-// MARK: - Public Methods
+// MARK: - Exposed Methods
 //*************************************************
     
     @IBAction func logInWithFacebook(_ sender: UIButton) {
-		
 		self.loadingIndicator(isShow: true)
-		
-		
     }
     
     @IBAction func logInWithEmailAndPassword(_ sender: UIButton) {
@@ -117,17 +82,17 @@ class LogInVC: UIViewController {
     }
 
 //*************************************************
-// MARK: - Override Public Methods
+// MARK: - Overriden Public Methods
 //*************************************************
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addKeyboardObservers()
+        self.registerKeyboardObservers()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(false)
-		self.removeObservers()
+		self.deregisterKeyboardObservers()
     }
 }
 
@@ -145,7 +110,7 @@ extension LogInVC: UITextFieldDelegate {
 		switch textField.tag {
         case TextField.email.rawValue:
             if !(textFill.isEmpty && self.passwordTextField.text!.isEmpty) {
-                self.logInButton.isEnabled = true
+				self.logInButton.isEnabled = true
             } else {
                 self.logInButton.isEnabled = false
             }
@@ -180,5 +145,50 @@ extension LogInVC: UITextFieldDelegate {
 		}
 		
 		return true
+	}
+}
+
+//**********************************************************************************************************
+//
+// MARK: - Extension - Keyboard
+//
+//**********************************************************************************************************
+
+extension LogInVC {
+	
+	fileprivate func registerKeyboardObservers() {
+		NotificationCenter.default.addObserver(self,
+		                                       selector: #selector(keyboardWasShown(notification:)),
+		                                       name: NSNotification.Name.UIKeyboardWillShow,
+		                                       object: nil)
+		NotificationCenter.default.addObserver(self,
+		                                       selector: #selector(keyboardWillBeHidden(notification:)),
+		                                       name: NSNotification.Name.UIKeyboardWillHide,
+		                                       object: nil)
+	}
+	
+	fileprivate func deregisterKeyboardObservers() {
+		NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+		NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+	}
+	
+	@objc private func keyboardWasShown(notification: NSNotification){
+		//Need to calculate keyboard exact size due to Apple suggestions
+		if let info = notification.userInfo {
+			let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size ?? CGSize.zero
+			let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0,
+			                                                   0.0,
+			                                                   keyboardSize.height,
+			                                                   0.0)
+			self.scrollView.contentInset = contentInsets
+			self.scrollView.scrollIndicatorInsets = contentInsets
+		}
+	}
+	
+	@objc private func keyboardWillBeHidden(notification: NSNotification){
+		//Once keyboard disappears, restore original positions
+		let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+		self.scrollView.contentInset = contentInsets
+		self.scrollView.scrollIndicatorInsets = contentInsets
 	}
 }
