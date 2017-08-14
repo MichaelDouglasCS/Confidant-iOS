@@ -31,6 +31,7 @@
 "ST_MALE" = "Male";
 "ST_TERMS_CONDITIONS" = "Terms and Conditions of Use";
 "ST_PRIVACY_POLICY" = "Privacy Policy";
+"ST_SORRY" = "Sorry";
 
 //*************************
 // Messages

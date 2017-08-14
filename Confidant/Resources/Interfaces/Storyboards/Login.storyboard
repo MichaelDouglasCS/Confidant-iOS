@@ -41,15 +41,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="V2e-NF-8VW">
                                 <rect key="frame" x="33" y="50" width="309" height="95"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="olQ-0s-RzU">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="olQ-0s-RzU">
                                         <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="olQ-0s-RzU" secondAttribute="height" multiplier="1:1" id="1U6-Iu-tkk"/>
-                                            <constraint firstAttribute="width" constant="95" id="72a-At-Cgp"/>
-                                            <constraint firstAttribute="height" constant="95" id="KNg-PR-hl2"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confidant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFS-ef-fOf" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confidant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="lFS-ef-fOf" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="103" y="0.0" width="206" height="95"/>
                                         <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,7 +60,7 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="95" id="Dh8-UA-LqY"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="95" id="Dh8-UA-LqY"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="pnE-n1-8p4">
@@ -115,13 +113,15 @@
                             <constraint firstAttribute="bottomMargin" secondItem="vlE-fh-E07" secondAttribute="bottom" id="5Wc-rH-SyT"/>
                             <constraint firstItem="V2e-NF-8VW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8W5-ku-3dH"/>
                             <constraint firstAttribute="topMargin" secondItem="vlE-fh-E07" secondAttribute="top" id="CBk-8y-KmX"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="V2e-NF-8VW" secondAttribute="trailing" constant="33" id="H4x-7D-RLo"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pnE-n1-8p4" secondAttribute="bottom" id="cBE-m0-AYh"/>
                             <constraint firstItem="V2e-NF-8VW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="gMA-mm-brk"/>
                             <constraint firstAttribute="trailing" secondItem="pnE-n1-8p4" secondAttribute="trailing" id="hdB-SW-M1O"/>
+                            <constraint firstItem="V2e-NF-8VW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="33" id="jza-Fd-n2r"/>
                             <constraint firstItem="pnE-n1-8p4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pDm-Jy-8IQ"/>
                             <constraint firstAttribute="trailing" secondItem="vlE-fh-E07" secondAttribute="trailing" id="toJ-YZ-U9K"/>
                             <constraint firstItem="vlE-fh-E07" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="w6n-8t-gOc"/>
-                            <constraint firstItem="pnE-n1-8p4" firstAttribute="top" secondItem="V2e-NF-8VW" secondAttribute="bottom" priority="750" constant="290" id="wYy-Nt-XfQ"/>
+                            <constraint firstItem="pnE-n1-8p4" firstAttribute="top" secondItem="V2e-NF-8VW" secondAttribute="bottom" priority="750" constant="350" id="wYy-Nt-XfQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DnS-MR-goq"/>
@@ -735,7 +735,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_LOGIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpV-a9-LT8" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="43" y="10" width="80" height="14"/>
+                                    <rect key="frame" x="43" y="10.5" width="80" height="13.5"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -765,7 +765,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QU8-uW-fYb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" backIndicatorImage="icn_back" backIndicatorTransitionMaskImage="icn_back" id="FOt-cQ-22d">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="icn_back" backIndicatorTransitionMaskImage="icn_back" id="FOt-cQ-22d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -799,6 +799,6 @@
         <image name="icn_user" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Ea-uU-bpZ"/>
+        <segue reference="niF-Wi-J4x"/>
     </inferredMetricsTieBreakers>
 </document>

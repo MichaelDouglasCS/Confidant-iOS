@@ -31,9 +31,9 @@ Showing up the agreed error codes and messages for each of the known scenarios.
 */
 public enum ServerResponse {
 	
-	public enum Error {
-		case unkown
-		case invalidCredentials
+	public enum Error: String {
+		case unkown = "MSG_SERVER_ERROR"
+		case invalidCredentials = "MSG_INVALID_LOGIN"
 	}
 	
 	case success
@@ -42,6 +42,15 @@ public enum ServerResponse {
 	//**************************************************
 	// MARK: - Properties
 	//**************************************************
+	
+	public var localizedError: String {
+		switch self {
+		case .error(let type):
+			return type.rawValue.localized
+		default:
+			return ""
+		}
+	}
 	
 	//**************************************************
 	// MARK: - Constructors
@@ -85,9 +94,10 @@ public enum ServerRequest {
 	}
 	
 	public struct API {
-		static public let register: ServerRequest = .mobile((method: .post, path: "/register"))
-		static public let authenticate: ServerRequest = .mobile((method: .post, path: "/authenticate"))
-		static public let facebook: ServerRequest = .mobile((method: .get, path: "/facebook"))
+		static public let userRegister: ServerRequest = .mobile((method: .post, path: "/user"))
+		static public let userUpdate: ServerRequest = .mobile((method: .put, path: "/user"))
+		static public let userAuthenticate: ServerRequest = .mobile((method: .post, path: "/user/authenticate"))
+		static public let userFacebookAuth: ServerRequest = .mobile((method: .get, path: "/user/facebook"))
 	}
 	
 	//**************************************************
@@ -139,7 +149,8 @@ public enum ServerRequest {
 	}
 	
 	public func execute(aPath: String? = nil,
-	                    params: [String: AnyObject]? = nil,
+	                    params: [String: Any]? = nil,
+	                    headers: HTTPHeaders? = nil,
 	                    completion: @escaping ServerResult) {
 		DispatchQueue.global(qos: .background).async {
 			
@@ -164,7 +175,7 @@ public enum ServerRequest {
 			                      method: method,
 			                      parameters: params,
 			                      encoding: JSONEncoding.default,
-			                      headers: nil).responseJSON(completionHandler: closure)
+			                      headers: headers).responseJSON(completionHandler: closure)
 		}
 	}
 }

@@ -1,5 +1,5 @@
 //
-//  UserBO.swift
+//  UserVO.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 18/03/17.
@@ -27,17 +27,18 @@ import ObjectMapper
 //
 //**************************************************************************************************
 
-public class UserBO: Mappable {
+public class UserVO: Mappable {
 
 //*************************************************
 // MARK: - Properties
 //*************************************************
 
     public var id: String = ""
-	public var createdDate: TimeInterval = 0
 	public var email: String = ""
 	public var password: String?
-	public var profile: ProfileBO = ProfileBO()
+	public var createdDate: TimeInterval = 0
+	public var token: String?
+	public var profile: ProfileVO = ProfileVO()
 	
 //*************************************************
 // MARK: - Constructors
@@ -53,9 +54,10 @@ public class UserBO: Mappable {
 	
 	public func mapping(map: Map) {
 		self.id <- map["id"]
-		self.createdDate <- map["createdDate"]
 		self.email <- map["email"]
 		self.password <- map["password"]
+		self.createdDate <- map["createdDate"]
+		self.token <- map["token"]
 		self.profile <- map["profile"]
 	}
 }

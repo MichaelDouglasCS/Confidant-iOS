@@ -1,5 +1,5 @@
 //
-//  ProfileBO.swift
+//  ProfileVO.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 22/05/17.
@@ -27,7 +27,7 @@ import ObjectMapper
 //
 //**********************************************************************************************************
 
-public class ProfileBO: Mappable {
+public class ProfileVO: Mappable {
 
 	public enum TypeOfUser: String {
 		case user = "User"
@@ -39,9 +39,9 @@ public class ProfileBO: Mappable {
 //*************************************************
 	
 	public var name: String = ""
-	public var birthdate: String?
-	public var gender: String?
-	public var typeOfUser: ProfileBO.TypeOfUser?
+	public var birthdate: String = ""
+	public var gender: String = ""
+	public var typeOfUser: ProfileVO.TypeOfUser?
 
 //*************************************************
 // MARK: - Constructors

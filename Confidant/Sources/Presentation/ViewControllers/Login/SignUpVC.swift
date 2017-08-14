@@ -61,8 +61,12 @@ public class SignUpVC: UIViewController {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
 		toolBar.isTranslucent = true
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButton(barButton:)))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                            target: nil,
+                                            action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                         target: self,
+                                         action: #selector(self.doneButton(barButton:)))
         let titleAttributes: [String: Any] = [NSFontAttributeName: UIFont(name: "GothamMedium", size: 15) ?? UIFont.labelFontSize,
                                               NSForegroundColorAttributeName: UIColor.black]
         
@@ -102,7 +106,6 @@ public class SignUpVC: UIViewController {
     
     private func setupTermsAndConditionsHyperLink() {
 		typealias local = String.Local
-		
         let attributedString = NSMutableAttributedString()
         attributedString.setAttributedString(self.termsAndConditionsTextView.attributedText)
         attributedString.addAttribute(NSLinkAttributeName,
@@ -121,44 +124,63 @@ public class SignUpVC: UIViewController {
     private func logged() {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "signupToDashboardSegue", sender: nil)
+			self.loadingIndicator(isShow: false)
         }
     }
 
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
-    
-    @IBAction func signUpWithFacebook(_ sender: UIButton) {
-        self.loadingIndicator(isShow: true)
+	
+	@IBAction func signUpWithFacebook(_ sender: UIButton) {
+		self.loadingIndicator(isShow: true)
 		
+		UserLO.sharedInstance.authByFacebook() { (result) in
+			switch result {
+			case .success:
+				self.logged()
+			case .error:
+				self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
+				self.loadingIndicator(isShow: false)
+			}
+		}
 	}
 	
 	@IBAction func signUpWithEmail(_ sender: UIButton) {
 		self.dismissKeyboard()
 		self.loadingIndicator(isShow: true)
 		
-		let user = UserBO()
+		let user = UserVO()
 		user.email = self.emailTextField.text ?? ""
 		user.password = (self.passwordTextField.text ?? "").encryptedPassword
 		user.profile.name = self.nameTextField.text ?? ""
 		user.profile.birthdate = self.birthdateTextField.text ?? ""
 		user.profile.gender = self.genderTextField.text ?? ""
 		
+		UserLO.sharedInstance.register(user: user) { (result) in
+			switch result {
+			case .success:
+				self.logged()
+			case .error:
+				self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
+				self.loadingIndicator(isShow: false)
+			}
+		}
 	}
 	
 //*************************************************
 // MARK: - Overriden Public Methods
 //*************************************************
     
-    override public func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.setupDatePickerAndPickerViewKeyboard()
         self.setupTermsAndConditionsHyperLink()
 		self.registerKeyboardObservers()
     }
     
-    override public func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
 		self.deregisterKeyboardObservers()
     }
 }
@@ -226,7 +248,8 @@ extension SignUpVC: UITextFieldDelegate {
             } else {
                 self.signUpButton.isEnabled = false
             }
-        default: break
+        default:
+			break
         }
     }
     

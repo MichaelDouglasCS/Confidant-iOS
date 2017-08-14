@@ -51,6 +51,7 @@ extension String {
 		static var male: String { return "ST_MALE".localized }
 		static var termsAndConditions: String { return "ST_TERMS_CONDITIONS".localized }
 		static var privacyPolicy: String { return "ST_PRIVACY_POLICY".localized }
+		static var sorry: String { return "ST_SORRY".localized }
 		
 		//*************************
 		// Messages
