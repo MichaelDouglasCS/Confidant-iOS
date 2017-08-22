@@ -104,7 +104,7 @@ public final class UserLO {
 	}
 	
 	public func authenticate(user: UserVO, completionHandler: @escaping LogicResult) {
-		
+
 		ServerRequest.API.userAuthenticate.execute(params: user.toJSON()) { (json, result) in
 			self.cacheAndSetCurrent(json: json)
 			completionHandler(result)
@@ -112,11 +112,13 @@ public final class UserLO {
 	}
 	
 	public func authByFacebook(completionHandler: @escaping LogicResult) {
-
-		ServerRequest.API.userFacebookAuth.execute() { (json, result) in
-			self.cacheAndSetCurrent(json: json)
-			completionHandler(result)
-		}
+		let url = URL(string: "http://localhost:3000/confidant/api/v1/user/facebook")
+		
+		UIApplication.shared.open(url!)
+//		ServerRequest.API.userFacebookAuth.execute() { (json, result) in
+//			self.cacheAndSetCurrent(json: json)
+//			completionHandler(result)
+//		}
 	}
 	
 	public func update(user: UserVO, completionHandler: @escaping LogicResult) {

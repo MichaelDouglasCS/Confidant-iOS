@@ -61,7 +61,7 @@ public class LogInVC: UIViewController {
 	
     private func logged() {
         DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "loginToDashboardSegue", sender: nil)
+            self.performSegue(withIdentifier: "showDashboard", sender: nil)
         }
     }
     

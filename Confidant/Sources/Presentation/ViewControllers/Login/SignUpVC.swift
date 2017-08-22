@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 //**********************************************************************************************************
 //
@@ -123,8 +124,7 @@ public class SignUpVC: UIViewController {
     
     private func logged() {
         DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "signupToDashboardSegue", sender: nil)
-			self.loadingIndicator(isShow: false)
+            self.performSegue(withIdentifier: "showDashboard", sender: nil)
         }
     }
 
@@ -134,16 +134,23 @@ public class SignUpVC: UIViewController {
 	
 	@IBAction func signUpWithFacebook(_ sender: UIButton) {
 		self.loadingIndicator(isShow: true)
-		
-		UserLO.sharedInstance.authByFacebook() { (result) in
-			switch result {
-			case .success:
-				self.logged()
-			case .error:
-				self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
-				self.loadingIndicator(isShow: false)
-			}
+		if let url = URL(string: ServerRequest.API.userFacebookAuth.path) {
+			let facebookAuthVC = FacebookAuthVC(url: url)
+			
+			facebookAuthVC.open(target: self, completionHandler: { result in
+				
+			})
 		}
+//		self.authByFacebook()
+//		UserLO.sharedInstance.authByFacebook() { (result) in
+//			switch result {
+//			case .success:
+//				self.logged()
+//			case .error:
+//				self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
+//				self.loadingIndicator(isShow: false)
+//			}
+//		}
 	}
 	
 	@IBAction func signUpWithEmail(_ sender: UIButton) {
@@ -158,13 +165,14 @@ public class SignUpVC: UIViewController {
 		user.profile.gender = self.genderTextField.text ?? ""
 		
 		UserLO.sharedInstance.register(user: user) { (result) in
+			
 			switch result {
 			case .success:
 				self.logged()
 			case .error:
 				self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
-				self.loadingIndicator(isShow: false)
 			}
+			self.loadingIndicator(isShow: false)
 		}
 	}
 	
@@ -193,10 +201,6 @@ public class SignUpVC: UIViewController {
 
 extension SignUpVC: UITextFieldDelegate {
     
-    //*************************************************
-    // MARK: - TextField Delegates
-    //*************************************************
-    
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)
 		
@@ -222,17 +226,16 @@ extension SignUpVC: UITextFieldDelegate {
         default:
 			break
         }
-		
         return true
     }
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField.tag {
         case SignUpTextFieldsTag.birthdate.rawValue:
-            let datePickerView = self.birthdateTextField.inputView as! UIDatePicker
+            let datePickerView = self.birthdateTextField.inputView as? UIDatePicker
             let formatter = DateFormatter()
             formatter.dateStyle = .long
-            self.birthdateTextField.text = formatter.string(from: datePickerView.date)
+            self.birthdateTextField.text = formatter.string(from: datePickerView?.date ?? Date())
             if (!self.emailTextField.text!.isEmpty && !self.nameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
@@ -300,7 +303,7 @@ extension SignUpVC: UIPickerViewDataSource, UIPickerViewDelegate {
 
 //**********************************************************************************************************
 //
-// MARK: - Extension - Keyboard
+// MARK: - Extension - SignUpVC - Keyboard
 //
 //**********************************************************************************************************
 

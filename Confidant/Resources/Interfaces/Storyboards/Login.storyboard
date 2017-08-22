@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="529" y="427"/>
+            <point key="canvasLocation" x="386" y="426"/>
         </scene>
         <!--SignInViewController-->
         <scene sceneID="wBK-8x-eU4">
@@ -479,7 +479,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_SIGNUP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cW-hQ-ws2" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="38" y="10" width="89" height="14"/>
+                                    <rect key="frame" x="38.5" y="10.5" width="88.5" height="13.5"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -501,12 +501,12 @@
                         <outlet property="scrollView" destination="vz7-AZ-5gq" id="y9g-8M-trO"/>
                         <outlet property="signUpButton" destination="FIT-ql-UbD" id="fQy-Ib-4Sh"/>
                         <outlet property="termsAndConditionsTextView" destination="sdy-8P-96b" id="Woh-K7-o4K"/>
-                        <segue destination="F1z-lY-87A" kind="presentation" identifier="signupToDashboardSegue" modalTransitionStyle="flipHorizontal" id="niF-Wi-J4x"/>
+                        <segue destination="F1z-lY-87A" kind="presentation" identifier="showDashboard" modalTransitionStyle="flipHorizontal" id="niF-Wi-J4x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FmY-cg-Ug9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1317.3913043478262" y="118.20652173913044"/>
+            <point key="canvasLocation" x="1310" y="145"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="gT7-uI-BZM">
@@ -514,7 +514,7 @@
                 <viewControllerPlaceholder storyboardName="Dashboard" id="F1z-lY-87A" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dw-oc-SHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1891" y="426"/>
+            <point key="canvasLocation" x="1882" y="432"/>
         </scene>
         <!--LogInVC-->
         <scene sceneID="hP4-R5-Z91">
@@ -753,12 +753,12 @@
                         <outlet property="logInButton" destination="Ln8-Xc-m6n" id="Pxh-M4-E6I"/>
                         <outlet property="passwordTextField" destination="aKC-Pf-sH9" id="bec-2D-Jla"/>
                         <outlet property="scrollView" destination="OmL-JK-fhZ" id="8r4-0L-oUB"/>
-                        <segue destination="F1z-lY-87A" kind="presentation" identifier="loginToDashboardSegue" modalTransitionStyle="flipHorizontal" id="6Ea-uU-bpZ"/>
+                        <segue destination="F1z-lY-87A" kind="presentation" identifier="showDashboard" modalTransitionStyle="flipHorizontal" id="6Ea-uU-bpZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nk6-eC-osl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1318" y="808"/>
+            <point key="canvasLocation" x="1310" y="788"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yjd-iQ-jVb">
@@ -782,7 +782,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8yv-aU-C2I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-207" y="427"/>
+            <point key="canvasLocation" x="-492" y="427"/>
         </scene>
     </scenes>
     <resources>
