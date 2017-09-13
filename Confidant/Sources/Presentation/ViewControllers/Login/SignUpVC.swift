@@ -135,22 +135,12 @@ public class SignUpVC: UIViewController {
 	@IBAction func signUpWithFacebook(_ sender: UIButton) {
 		self.loadingIndicator(isShow: true)
 		if let url = URL(string: ServerRequest.API.userFacebookAuth.path) {
-			let facebookAuthVC = FacebookAuthVC(url: url)
+			let facebookVC = FacebookVC(url: url)
 			
-			facebookAuthVC.open(target: self, completionHandler: { result in
+			facebookVC.auth(target: self, completionHandler: { result in
 				
 			})
 		}
-//		self.authByFacebook()
-//		UserLO.sharedInstance.authByFacebook() { (result) in
-//			switch result {
-//			case .success:
-//				self.logged()
-//			case .error:
-//				self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
-//				self.loadingIndicator(isShow: false)
-//			}
-//		}
 	}
 	
 	@IBAction func signUpWithEmail(_ sender: UIButton) {

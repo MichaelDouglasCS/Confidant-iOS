@@ -19,12 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 	
 	func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+		let isHandled: Bool = UserLO.sharedInstance.handleFacebookUser(from: url)
 		
-		print("URL \(url)")
-		print("HOST \(url.host)")
-		print("PATH \(url.path)")
-		
-		return true
+		return isHandled
 	}
 
     func applicationWillResignActive(_ application: UIApplication) {

@@ -111,14 +111,31 @@ public final class UserLO {
 		}
 	}
 	
-	public func authByFacebook(completionHandler: @escaping LogicResult) {
-		let url = URL(string: "http://localhost:3000/confidant/api/v1/user/facebook")
+	public func handleFacebookUser(from url: URL) -> Bool {
+		var isHandled: Bool = false
 		
-		UIApplication.shared.open(url!)
-//		ServerRequest.API.userFacebookAuth.execute() { (json, result) in
-//			self.cacheAndSetCurrent(json: json)
-//			completionHandler(result)
-//		}
+		if url.scheme == ConfidantApp.scheme {
+			let path = url.path
+			let fullRange = NSRange(location: 0, length: path.characters.count)
+			
+			if let regex = try? NSRegularExpression(pattern: "\\/user\\/", options: []) {
+				let jsonString = regex.stringByReplacingMatches(in: path,
+				                                                options: [],
+				                                                range: fullRange,
+				                                                withTemplate: "")
+				
+				if let data = jsonString.data(using: String.Encoding.utf8) {
+					let json = JSON(data: data)["user"]
+					
+					if json.exists() {
+						self.cacheAndSetCurrent(json: json)
+						isHandled = true
+					}
+				}
+			}
+		}
+		
+		return isHandled
 	}
 	
 	public func update(user: UserVO, completionHandler: @escaping LogicResult) {

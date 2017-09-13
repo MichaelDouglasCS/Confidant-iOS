@@ -72,6 +72,10 @@ public enum ServerResponse {
 	}
 }
 
+struct ConfidantApp {
+	static let scheme: String = "confidant"
+}
+
 //**********************************************************************************************************
 //
 // MARK: - Type -

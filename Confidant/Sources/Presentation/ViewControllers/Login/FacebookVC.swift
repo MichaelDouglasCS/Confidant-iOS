@@ -1,5 +1,5 @@
 //
-//  FacebookAuthVC.swift
+//  FacebookVC.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 17/08/17.
@@ -21,8 +21,8 @@ import SafariServices
 //
 //**********************************************************************************************************
 
-protocol FacebookAuthVCDelegate : class {
-	func authenticate(_ viewController: FacebookAuthVC, didAuthenticate user: UserVO)
+protocol FacebookVCDelegate : class {
+	func authenticate(_ viewController: FacebookVC, didAuthenticate user: UserVO)
 }
 
 //**********************************************************************************************************
@@ -31,13 +31,13 @@ protocol FacebookAuthVCDelegate : class {
 //
 //**********************************************************************************************************
 
-public class FacebookAuthVC: SFSafariViewController {
+public class FacebookVC: SFSafariViewController {
 
 //*************************************************
 // MARK: - Properties
 //*************************************************
 	
-	weak var facebookDelegate: FacebookAuthVCDelegate?
+	weak var facebookDelegate: FacebookVCDelegate?
 	
 //*************************************************
 // MARK: - Constructors
@@ -56,7 +56,7 @@ public class FacebookAuthVC: SFSafariViewController {
 // MARK: - Exposed Methods
 //*************************************************
 	
-	public func open(target viewController: UIViewController, completionHandler: @escaping UserVO) {
+	public func auth(target viewController: UIViewController, completionHandler: @escaping ((UserVO) -> Void)) {
 		viewController.present(self, animated: true)
 	}
 
@@ -75,3 +75,19 @@ public class FacebookAuthVC: SFSafariViewController {
 // MARK: - Extension -
 //
 //**********************************************************************************************************
+
+extension URL {
+	
+	public var queryParameters: [String: String]? {
+		guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true), let queryItems = components.queryItems else {
+			return nil
+		}
+		
+		var parameters = [String: String]()
+		for item in queryItems {
+			parameters[item.name] = item.value
+		}
+		
+		return parameters
+	}
+}
