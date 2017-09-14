@@ -21,10 +21,6 @@ import SafariServices
 //
 //**********************************************************************************************************
 
-protocol FacebookVCDelegate : class {
-	func authenticate(_ viewController: FacebookVC, didAuthenticate user: UserVO)
-}
-
 //**********************************************************************************************************
 //
 // MARK: - Class -
@@ -37,7 +33,7 @@ public class FacebookVC: SFSafariViewController {
 // MARK: - Properties
 //*************************************************
 	
-	weak var facebookDelegate: FacebookVCDelegate?
+	private var completion: LogicResult?
 	
 //*************************************************
 // MARK: - Constructors
@@ -52,11 +48,22 @@ public class FacebookVC: SFSafariViewController {
 		self.preferredControlTintColor = UIColor.Confidant.pink
 	}
 	
+	@objc private func authenticationSuccessful() {
+		self.completion?(.success)
+		self.dismiss(animated: true, completion: nil)
+	}
+	
+	@objc private func authenticationFailed() {
+		self.completion?(.error(.unkown))
+		self.dismiss(animated: true, completion: nil)
+	}
+	
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
 	
-	public func auth(target viewController: UIViewController, completionHandler: @escaping ((UserVO) -> Void)) {
+	public func auth(target viewController: UIViewController, completionHandler: @escaping LogicResult) {
+		self.completion = completionHandler
 		viewController.present(self, animated: true)
 	}
 
@@ -67,27 +74,18 @@ public class FacebookVC: SFSafariViewController {
 	override public func viewDidLoad() {
 		super.viewDidLoad()
 		self.setupSafariBrowser()
+		
+		NotificationCenter.default.addObserver(self,
+		                                       selector: #selector(self.authenticationSuccessful),
+		                                       name: .userDidLoginSuccess,
+		                                       object: nil)
+		NotificationCenter.default.addObserver(self,
+		                                       selector: #selector(self.authenticationFailed),
+		                                       name: .userDidLoginError,
+		                                       object: nil)
 	}
-}
-
-//**********************************************************************************************************
-//
-// MARK: - Extension -
-//
-//**********************************************************************************************************
-
-extension URL {
 	
-	public var queryParameters: [String: String]? {
-		guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true), let queryItems = components.queryItems else {
-			return nil
-		}
-		
-		var parameters = [String: String]()
-		for item in queryItems {
-			parameters[item.name] = item.value
-		}
-		
-		return parameters
+	deinit {
+		NotificationCenter.default.removeObserver(self)
 	}
 }

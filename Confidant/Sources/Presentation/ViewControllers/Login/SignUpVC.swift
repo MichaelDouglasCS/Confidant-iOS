@@ -139,6 +139,14 @@ public class SignUpVC: UIViewController {
 			
 			facebookVC.auth(target: self, completionHandler: { result in
 				
+				switch result {
+				case .success:
+					self.logged()
+				case .error:
+					self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
+				}
+				
+				self.loadingIndicator(isShow: false)
 			})
 		}
 	}
@@ -162,6 +170,7 @@ public class SignUpVC: UIViewController {
 			case .error:
 				self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
 			}
+			
 			self.loadingIndicator(isShow: false)
 		}
 	}
@@ -196,19 +205,22 @@ extension SignUpVC: UITextFieldDelegate {
 		
         switch textField.tag {
         case SignUpTextFieldsTag.email.rawValue:
-            if (!textFill.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+			
+			if (!textFill.isEmpty) && (!self.nameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
         case SignUpTextFieldsTag.nickname.rawValue:
-            if (!textFill.isEmpty) && (!self.emailTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+			
+			if (!textFill.isEmpty) && (!self.emailTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
             }
         case SignUpTextFieldsTag.password.rawValue:
-            if (!textFill.isEmpty) && (!self.emailTextField.text!.isEmpty && !self.nameTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+			
+			if (!textFill.isEmpty) && (!self.emailTextField.text!.isEmpty && !self.nameTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
@@ -216,6 +228,7 @@ extension SignUpVC: UITextFieldDelegate {
         default:
 			break
         }
+		
         return true
     }
     
@@ -224,9 +237,11 @@ extension SignUpVC: UITextFieldDelegate {
         case SignUpTextFieldsTag.birthdate.rawValue:
             let datePickerView = self.birthdateTextField.inputView as? UIDatePicker
             let formatter = DateFormatter()
-            formatter.dateStyle = .long
+			
+			formatter.dateStyle = .long
             self.birthdateTextField.text = formatter.string(from: datePickerView?.date ?? Date())
-            if (!self.emailTextField.text!.isEmpty && !self.nameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+			
+			if (!self.emailTextField.text!.isEmpty && !self.nameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
@@ -235,8 +250,10 @@ extension SignUpVC: UITextFieldDelegate {
             let genderPickerView = self.genderTextField.inputView as! UIPickerView
             let selectedRow = genderPickerView.selectedRow(inComponent: 0)
             let selectedText = genderPickerView.delegate?.pickerView!(genderPickerView, titleForRow: selectedRow, forComponent: 0)
-            self.genderTextField.text = selectedText
-            if (!self.emailTextField.text!.isEmpty && !self.nameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
+			
+			self.genderTextField.text = selectedText
+			
+			if (!self.emailTextField.text!.isEmpty && !self.nameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty){
                 self.signUpButton.isEnabled = true
             } else {
                 self.signUpButton.isEnabled = false
@@ -257,6 +274,7 @@ extension SignUpVC: UITextFieldDelegate {
         default:
 			break
         }
+		
         return true
 	}
 }

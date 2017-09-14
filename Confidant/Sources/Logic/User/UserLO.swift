@@ -21,6 +21,11 @@ import SwiftyJSON
 //
 //**********************************************************************************************************
 
+extension Notification.Name {
+	static let userDidLoginSuccess = Notification.Name(rawValue: "UserDidLoginSuccess")
+	static let userDidLoginError = Notification.Name(rawValue: "UserDidLoginError")
+}
+
 //**********************************************************************************************************
 //
 // MARK: - Class -
@@ -133,6 +138,12 @@ public final class UserLO {
 					}
 				}
 			}
+		}
+		
+		if isHandled {
+			NotificationCenter.default.post(name: .userDidLoginSuccess, object: nil)
+		} else {
+			NotificationCenter.default.post(name: .userDidLoginError, object: nil)
 		}
 		
 		return isHandled
