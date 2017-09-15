@@ -27,12 +27,13 @@ import SafariServices
 //
 //**********************************************************************************************************
 
-public class FacebookVC: SFSafariViewController {
+class FacebookVC: SFSafariViewController {
 
 //*************************************************
 // MARK: - Properties
 //*************************************************
 	
+	private var rootViewController: UIViewController?
 	private var completion: LogicResult?
 	
 //*************************************************
@@ -62,8 +63,11 @@ public class FacebookVC: SFSafariViewController {
 // MARK: - Exposed Methods
 //*************************************************
 	
-	public func auth(target viewController: UIViewController, completionHandler: @escaping LogicResult) {
+	func auth(target viewController: UIViewController, completionHandler: @escaping LogicResult) {
+		self.rootViewController = viewController
 		self.completion = completionHandler
+		self.modalTransitionStyle = .coverVertical
+		self.modalPresentationStyle = .overCurrentContext
 		viewController.present(self, animated: true)
 	}
 
@@ -71,7 +75,7 @@ public class FacebookVC: SFSafariViewController {
 // MARK: - Overridden Public Methods
 //*************************************************
 	
-	override public func viewDidLoad() {
+	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.setupSafariBrowser()
 		
@@ -83,6 +87,11 @@ public class FacebookVC: SFSafariViewController {
 		                                       selector: #selector(self.authenticationFailed),
 		                                       name: .userDidLoginError,
 		                                       object: nil)
+	}
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		self.rootViewController?.loadingIndicator(isShow: false)
 	}
 	
 	deinit {

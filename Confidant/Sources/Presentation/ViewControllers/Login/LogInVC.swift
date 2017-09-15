@@ -26,7 +26,7 @@ import UIKit
 //
 //**********************************************************************************************************
 
-public class LogInVC: UIViewController {
+class LogInVC: UIViewController {
     
     fileprivate enum TextField: Int {
         case email = 1
@@ -57,6 +57,18 @@ public class LogInVC: UIViewController {
 		let user = UserVO()
 		user.email = self.emailTextField.text ?? ""
 		user.password = (self.passwordTextField.text ?? "").encryptedPassword
+		
+		UserLO.sharedInstance.authenticate(user: user) { (result) in
+			
+			switch result {
+			case .success:
+				self.logged()
+			case .error:
+				self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
+			}
+			
+			self.loadingIndicator(isShow: false)
+		}
 	}
 	
     private func logged() {
@@ -71,6 +83,21 @@ public class LogInVC: UIViewController {
     
     @IBAction func logInWithFacebook(_ sender: UIButton) {
 		self.loadingIndicator(isShow: true)
+		if let url = URL(string: ServerRequest.API.userFacebookAuth.path) {
+			let facebookVC = FacebookVC(url: url)
+			
+			facebookVC.auth(target: self, completionHandler: { result in
+				
+				switch result {
+				case .success:
+					self.logged()
+				case .error:
+					self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
+				}
+				
+				self.loadingIndicator(isShow: false)
+			})
+		}
     }
     
     @IBAction func logInWithEmailAndPassword(_ sender: UIButton) {
@@ -85,12 +112,12 @@ public class LogInVC: UIViewController {
 // MARK: - Overriden Public Methods
 //*************************************************
     
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.registerKeyboardObservers()
     }
     
-    override public func viewDidDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(false)
 		self.deregisterKeyboardObservers()
     }
@@ -104,7 +131,7 @@ public class LogInVC: UIViewController {
 
 extension LogInVC: UITextFieldDelegate {
     
-    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)
 		
 		switch textField.tag {
@@ -127,7 +154,7 @@ extension LogInVC: UITextFieldDelegate {
         return true
     }
     
-	public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		switch textField.tag {
 		case TextField.email.rawValue:
 			self.passwordTextField.becomeFirstResponder()

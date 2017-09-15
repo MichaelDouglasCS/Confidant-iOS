@@ -47,7 +47,8 @@
 "MSG_SCORE" = "Be punctuated by people that you help, become the first and share it with everyone";
 "MSG_SERVER_ERROR" = "Server Error";
 "MSG_INVALID_LOGIN" = "Are you sure entered the right username and password?";
-"MSG_EMAIL_ALREADY_EXISTS" = "Email already in use";
+"MSG_INVALID_EMAIL" = "Please, fill the field with a valid email.";
+"MSG_EMAIL_ALREADY_EXISTS" = "The email is already in use.";
 "MSG_TOO_MANY_REQUESTS" = "Too many requests";
 "MSG_USER_NOT_FOUND" = "User not found";
 "MSG_NETWORK_ERROR" = "Network Error";

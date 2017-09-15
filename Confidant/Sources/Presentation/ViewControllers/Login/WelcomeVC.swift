@@ -26,7 +26,7 @@ import UIKit
 //
 //**********************************************************************************************************
 
-public class WelcomeVC: UIViewController {
+class WelcomeVC: UIViewController {
 	
 	fileprivate struct Messages {
 		
@@ -68,7 +68,102 @@ public class WelcomeVC: UIViewController {
         self.navigationItem.backBarButtonItem = barButton
     }
 	
-	private func loadData() {
+    private func addSwipeGesture() {
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
+		
+		swipeRight.direction = .right
+        swipeLeft.direction = .left
+		
+        self.view.addGestureRecognizer(swipeRight)
+        self.view.addGestureRecognizer(swipeLeft)
+    }
+	
+    @objc private func swipeRecognizer(_ gesture: UISwipeGestureRecognizer) {
+        self.view.isUserInteractionEnabled = false
+        self.resetTimer()
+		
+        switch gesture.direction {
+        case UISwipeGestureRecognizerDirection.right:
+            self.scrollView.setContentOffset(CGPoint(x: self.scrollView.contentOffset.x - self.scrollView.frame.size.width, y: 0), animated: true)
+        case UISwipeGestureRecognizerDirection.left:
+            self.scrollView.setContentOffset(CGPoint(x: self.scrollView.contentOffset.x + self.scrollView.frame.size.width, y: 0), animated: true)
+        default: break
+        }
+    }
+	
+	@objc private func swipeAction() {
+		self.view.isUserInteractionEnabled = false
+		self.scrollView.setContentOffset(CGPoint(x: self.scrollView.contentOffset.x + self.scrollView.frame.size.width, y: 0), animated: true)
+	}
+	
+    private func startTimer() {
+        self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.swipeAction), userInfo: nil, repeats: true)
+    }
+    
+    private func resetTimer() {
+        self.timer.invalidate()
+        self.startTimer()
+    }
+
+//*************************************************
+// MARK: - Overridden Public Methods
+//*************************************************
+	
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupNavigationBar()
+        self.loadData()
+        self.addSwipeGesture()
+        self.startTimer()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+		self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+}
+
+//**************************************************************************************************
+//
+// MARK: - Extension - WelcomeVC - UIScrollViewDelegate
+//
+//**************************************************************************************************
+
+extension WelcomeVC: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		let frame = self.view.frame
+		
+        if (scrollView.contentOffset.x == (-frame.size.width)) {
+            self.scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x + scrollView.frame.size.width * CGFloat(self.pagesCount), y: 0), animated: false)
+        } else if (scrollView.contentOffset.x == (frame.size.width * CGFloat(self.pagesCount))) {
+            self.scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x - scrollView.frame.size.width * CGFloat(self.pagesCount), y: 0), animated: false)
+        }
+		
+        let page = scrollView.contentOffset.x / scrollView.frame.size.width
+        self.pageControl.currentPage = Int(page)
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        self.view.isUserInteractionEnabled = true
+    }
+}
+
+//**********************************************************************************************************
+//
+// MARK: - Extension - Load Data
+//
+//**********************************************************************************************************
+
+extension WelcomeVC {
+	
+	fileprivate func loadData() {
 		let messages = Messages.getList()
 		let frame = self.view.frame
 		let bounds = self.view.bounds
@@ -155,92 +250,6 @@ public class WelcomeVC: UIViewController {
 		
 		self.pageControl.numberOfPages = self.pagesCount
 	}
-	
-    private func addSwipeGesture() {
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRecognizer(_:)))
-		
-		swipeRight.direction = .right
-        swipeLeft.direction = .left
-		
-        self.view.addGestureRecognizer(swipeRight)
-        self.view.addGestureRecognizer(swipeLeft)
-    }
-	
-    @objc private func swipeRecognizer(_ gesture: UISwipeGestureRecognizer) {
-        self.view.isUserInteractionEnabled = false
-        self.resetTimer()
-		
-        switch gesture.direction {
-        case UISwipeGestureRecognizerDirection.right:
-            self.scrollView.setContentOffset(CGPoint(x: self.scrollView.contentOffset.x - self.scrollView.frame.size.width, y: 0), animated: true)
-        case UISwipeGestureRecognizerDirection.left:
-            self.scrollView.setContentOffset(CGPoint(x: self.scrollView.contentOffset.x + self.scrollView.frame.size.width, y: 0), animated: true)
-        default: break
-        }
-    }
-	
-	@objc private func swipeAction() {
-		self.view.isUserInteractionEnabled = false
-		self.scrollView.setContentOffset(CGPoint(x: self.scrollView.contentOffset.x + self.scrollView.frame.size.width, y: 0), animated: true)
-	}
-	
-    private func startTimer() {
-        self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.swipeAction), userInfo: nil, repeats: true)
-    }
-    
-    private func resetTimer() {
-        self.timer.invalidate()
-        self.startTimer()
-    }
-
-//*************************************************
-// MARK: - Overridden Public Methods
-//*************************************************
-	
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        self.setupNavigationBar()
-        self.loadData()
-        self.addSwipeGesture()
-        self.startTimer()
-    }
-    
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-		self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    override public func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-}
-
-//**************************************************************************************************
-//
-// MARK: - Extension - WelcomeVC - UIScrollViewDelegate
-//
-//**************************************************************************************************
-
-extension WelcomeVC: UIScrollViewDelegate {
-    
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-		let frame = self.view.frame
-		
-        if (scrollView.contentOffset.x == (-frame.size.width)) {
-            self.scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x + scrollView.frame.size.width * CGFloat(self.pagesCount), y: 0), animated: false)
-        } else if (scrollView.contentOffset.x == (frame.size.width * CGFloat(self.pagesCount))) {
-            self.scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x - scrollView.frame.size.width * CGFloat(self.pagesCount), y: 0), animated: false)
-        }
-		
-        let page = scrollView.contentOffset.x / scrollView.frame.size.width
-        self.pageControl.currentPage = Int(page)
-    }
-    
-    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        self.view.isUserInteractionEnabled = true
-    }
 }
 
 //**************************************************************************************************

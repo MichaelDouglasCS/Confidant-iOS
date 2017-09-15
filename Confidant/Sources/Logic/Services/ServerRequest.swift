@@ -34,6 +34,8 @@ public enum ServerResponse {
 	public enum Error: String {
 		case unkown = "MSG_SERVER_ERROR"
 		case invalidCredentials = "MSG_INVALID_LOGIN"
+		case invalidEmail = "MSG_INVALID_EMAIL"
+		case emailAlreadyExists = "MSG_EMAIL_ALREADY_EXISTS"
 	}
 	
 	case success
@@ -63,6 +65,10 @@ public enum ServerResponse {
 				self = .success
 			case 401:
 				self = .error(.invalidCredentials)
+			case 402:
+				self = .error(.invalidEmail)
+			case 403:
+				self = .error(.emailAlreadyExists)
 			default:
 				self = .error(.unkown)
 			}
@@ -91,8 +97,8 @@ public enum ServerRequest {
 	public struct Domain {
 		static public var mobile: String = Domain.develop
 		
+		static public let local: String = "http://localhost:3000/confidant/api/v1"
 		static public let develop: String = "https://confidant-api.herokuapp.com/confidant/api/v1"
-		static public let beta: String = ""
 		static public let homolog: String = ""
 		static public let production: String = ""
 	}
