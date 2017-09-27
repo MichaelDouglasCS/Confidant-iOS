@@ -7,9 +7,9 @@ target 'Confidant' do
 
   # Pods for Confidant
   pod 'SwiftyJSON'
-  pod 'ObjectMapper'
-  pod 'CryptoSwift', :git => "https://github.com/krzyzanowskim/CryptoSwift", :branch => "master"
-  pod 'Alamofire', '~> 4.5'
+  pod 'ObjectMapper', '~> 2.2'
+  pod 'CryptoSwift', :git => "https://github.com/krzyzanowskim/CryptoSwift", :branch => "swift3"
+  pod 'Alamofire'
 
   target 'ConfidantTests' do
     inherit! :search_paths

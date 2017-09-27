@@ -1,5 +1,5 @@
 //
-//  UserVO.swift
+//  UserBO.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 18/03/17.
@@ -27,7 +27,7 @@ import ObjectMapper
 //
 //**************************************************************************************************
 
-public class UserVO: Mappable {
+public class UserBO: Mappable {
 
 //*************************************************
 // MARK: - Properties
@@ -38,7 +38,7 @@ public class UserVO: Mappable {
 	public var password: String?
 	public var createdDate: TimeInterval = 0
 	public var token: String?
-	public var profile: ProfileVO = ProfileVO()
+	public var profile: ProfileBO = ProfileBO()
 	
 //*************************************************
 // MARK: - Constructors

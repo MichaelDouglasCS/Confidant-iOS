@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-		let isHandled: Bool = UserLO.sharedInstance.handleFacebookUser(from: url)
+		let isHandled: Bool = UsersLO.sharedInstance.handleFacebookUser(from: url)
 		
 		return isHandled
 	}

@@ -54,11 +54,11 @@ class LogInVC: UIViewController {
 		self.dismissKeyboard()
 		self.loadingIndicator(isShow: true)
 		
-		let user = UserVO()
+		let user = UserBO()
 		user.email = self.emailTextField.text ?? ""
 		user.password = (self.passwordTextField.text ?? "").encryptedPassword
 		
-		UserLO.sharedInstance.authenticate(user: user) { (result) in
+		UsersLO.sharedInstance.authenticate(user: user) { (result) in
 			
 			switch result {
 			case .success:

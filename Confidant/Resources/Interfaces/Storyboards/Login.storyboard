@@ -39,16 +39,16 @@
                                 <gestureRecognizers/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="V2e-NF-8VW">
-                                <rect key="frame" x="33" y="50" width="309" height="85"/>
+                                <rect key="frame" x="33" y="50" width="309" height="95"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="olQ-0s-RzU">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="olQ-0s-RzU" secondAttribute="height" multiplier="1:1" id="1U6-Iu-tkk"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confidant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="lFS-ef-fOf" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="93" y="0.0" width="216" height="85"/>
+                                        <rect key="frame" x="103" y="0.0" width="206" height="95"/>
                                         <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>

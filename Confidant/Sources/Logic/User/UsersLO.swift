@@ -1,5 +1,5 @@
 //
-//  UserLO.swift
+//  UsersLO.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 12/08/17.
@@ -32,13 +32,13 @@ extension Notification.Name {
 //
 //**********************************************************************************************************
 
-public final class UserLO {
+public final class UsersLO {
 
 //*************************************************
 // MARK: - Properties
 //*************************************************
 	
-//	public var localUser: UserVO? {
+//	public var localUser: UserBO? {
 //		let modelClass = RealmUserModel.self
 //		
 //		Persistence.dataBaseName = AppSettings.Defaults.dataBase
@@ -46,18 +46,18 @@ public final class UserLO {
 //			
 //			Persistence.dataBaseName = id
 //			if let user = Persistence.load(collection: modelClass)?.first {
-//				return UserVO(raw: user.json)
+//				return UserBO(raw: user.json)
 //			}
 //		}
 //		
 //		return nil
 //	}
 //	
-//	public private(set) lazy var current: UserVO = {
-//		return self.localUser ?? UserVO()
+//	public private(set) lazy var current: UserBO = {
+//		return self.localUser ?? UserBO()
 //	}()
 	
-	static public let sharedInstance: UserLO = UserLO()
+	static public let sharedInstance: UsersLO = UsersLO()
 
 //*************************************************
 // MARK: - Constructors
@@ -71,7 +71,7 @@ public final class UserLO {
 	
 	private func cacheAndSetCurrent(json: JSON) {
 		
-//		let newUser = UserVO(json: json)
+//		let newUser = UserBO(json: json)
 //		
 //		// Only for users with valid ID
 //		if let id = newUser.id, !id.isEmpty {
@@ -100,7 +100,7 @@ public final class UserLO {
 // MARK: - Exposed Methods
 //*************************************************
 	
-	public func register(user: UserVO, completionHandler: @escaping LogicResult) {
+	public func register(user: UserBO, completionHandler: @escaping LogicResult) {
 		
 		ServerRequest.API.userRegister.execute(params: user.toJSON()) { (json, result) in
 			self.cacheAndSetCurrent(json: json)
@@ -108,7 +108,7 @@ public final class UserLO {
 		}
 	}
 	
-	public func authenticate(user: UserVO, completionHandler: @escaping LogicResult) {
+	public func authenticate(user: UserBO, completionHandler: @escaping LogicResult) {
 
 		ServerRequest.API.userAuthenticate.execute(params: user.toJSON()) { (json, result) in
 			self.cacheAndSetCurrent(json: json)
@@ -149,7 +149,7 @@ public final class UserLO {
 		return isHandled
 	}
 	
-	public func update(user: UserVO, completionHandler: @escaping LogicResult) {
+	public func update(user: UserBO, completionHandler: @escaping LogicResult) {
 		
 		ServerRequest.API.userUpdate.execute(params: user.toJSON()) { (json, result) in
 			self.cacheAndSetCurrent(json: json)

@@ -103,14 +103,14 @@ class SignUpVC: UIViewController {
 		self.dismissKeyboard()
 		self.loadingIndicator(isShow: true)
 		
-		let user = UserVO()
+		let user = UserBO()
 		user.email = self.emailTextField.text ?? ""
 		user.password = (self.passwordTextField.text ?? "").encryptedPassword
 		user.profile.name = self.nameTextField.text ?? ""
 		user.profile.birthdate = self.birthdateTextField.text ?? ""
 		user.profile.gender = self.genderTextField.text ?? ""
 		
-		UserLO.sharedInstance.register(user: user) { (result) in
+		UsersLO.sharedInstance.register(user: user) { (result) in
 			
 			switch result {
 			case .success:
