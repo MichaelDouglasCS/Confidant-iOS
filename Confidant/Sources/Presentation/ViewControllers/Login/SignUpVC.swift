@@ -70,6 +70,40 @@ class SignUpVC: UIViewController {
 		}
 	}
 	
+	private func showTermsAlert(completion: @escaping (Bool) -> Void) {
+		typealias local = String.Local
+		let termsAction = UIAlertAction(title: local.termsAndConditions, style: .default) { _ in
+			print("Open Terms And Conditions")
+		}
+		let agreeAction = UIAlertAction(title: local.agree, style: .default) { _ in
+			self.showPrivacyPolicyAlert() { (result) in completion(result) }
+		}
+		let declineAction = UIAlertAction(title: local.decline, style: .destructive) { _ in
+			completion(false)
+		}
+		
+		self.showActionAlert(title: local.terms,
+		                     message: local.termsMessage,
+		                     actions: termsAction, agreeAction, declineAction)
+	}
+	
+	private func showPrivacyPolicyAlert(completion: @escaping (Bool) -> Void) {
+		typealias local = String.Local
+		let privacyPolicyAction = UIAlertAction(title: local.privacyPolicy, style: .default) { _ in
+			print("Open Privacy Policy")
+		}
+		let agreeAction = UIAlertAction(title: local.agree, style: .default) { _ in
+			completion(true)
+		}
+		let declineAction = UIAlertAction(title: local.decline, style: .destructive) { _ in
+			completion(false)
+		}
+		
+		self.showActionAlert(title: local.privacyPolicy,
+		                     message: local.privacyPolicyMessage,
+		                     actions: privacyPolicyAction, agreeAction, declineAction)
+	}
+	
 	private func logged() {
 		DispatchQueue.main.async {
 			self.performSegue(withIdentifier: "showDashboard", sender: nil)
@@ -81,45 +115,60 @@ class SignUpVC: UIViewController {
 //*************************************************
 	
 	@IBAction func signUpWithFacebook(_ sender: UIButton) {
-		self.loadingIndicator(isShow: true)
-		if let url = URL(string: ServerRequest.API.userFacebookAuth.path) {
-			let facebookVC = FacebookVC(url: url)
+		self.showTermsAlert() { (canProceedLogin) in
 			
-			facebookVC.auth(target: self, completionHandler: { result in
+			switch canProceedLogin {
+			case true:
+				self.loadingIndicator(isShow: true)
 				
-				switch result {
-				case .success:
-					self.logged()
-				case .error:
-					self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
+				if let url = URL(string: ServerRequest.API.userFacebookAuth.path) {
+					let facebookVC = FacebookVC(url: url)
+					
+					facebookVC.auth(target: self, completionHandler: { result in
+						
+						switch result {
+						case .success:
+							self.logged()
+						case .error:
+							self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
+						}
+						
+						self.loadingIndicator(isShow: false)
+					})
 				}
-				
-				self.loadingIndicator(isShow: false)
-			})
+			default: break
+			}
 		}
 	}
 	
 	@IBAction func signUpWithEmail(_ sender: UIButton) {
 		self.dismissKeyboard()
-		self.loadingIndicator(isShow: true)
-		
-		let user = UserBO()
-		user.email = self.emailTextField.text ?? ""
-		user.password = (self.passwordTextField.text ?? "").encryptedPassword
-		user.profile.name = self.nameTextField.text ?? ""
-		user.profile.birthdate = self.birthdateTextField.text ?? ""
-		user.profile.gender = self.genderTextField.text ?? ""
-		
-		UsersLO.sharedInstance.register(user: user) { (result) in
+		self.showTermsAlert() { (canProceedLogin) in
 			
-			switch result {
-			case .success:
-				self.logged()
-			case .error:
-				self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
+			switch canProceedLogin {
+			case true:
+				self.loadingIndicator(isShow: true)
+				
+				let user = UserBO()
+				user.email = self.emailTextField.text ?? ""
+				user.password = (self.passwordTextField.text ?? "").encryptedPassword
+				user.profile.name = self.nameTextField.text ?? ""
+				user.profile.birthdate = self.birthdateTextField.text ?? ""
+				user.profile.gender = self.genderTextField.text ?? ""
+				
+				UsersLO.sharedInstance.register(user: user) { (result) in
+					
+					switch result {
+					case .success:
+						self.logged()
+					case .error:
+						self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
+					}
+					
+					self.loadingIndicator(isShow: false)
+				}
+			default: break
 			}
-			
-			self.loadingIndicator(isShow: false)
 		}
 	}
 
@@ -315,7 +364,7 @@ extension SignUpVC {
 		attributedString.setAttributedString(self.termsAndConditionsTextView.attributedText)
 		attributedString.addAttribute(NSLinkAttributeName,
 		                              value: "",
-		                              range:(attributedString.string as NSString).range(of: local.termsAndConditions))
+		                              range:(attributedString.string as NSString).range(of: local.termsAndConditionsUse))
 		attributedString.addAttribute(NSLinkAttributeName,
 		                              value: "",
 		                              range:(attributedString.string as NSString).range(of: local.privacyPolicy))

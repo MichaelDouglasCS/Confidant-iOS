@@ -49,9 +49,13 @@ extension String {
 		static var score: String { return "ST_SCORE".localized }
 		static var female: String { return "ST_FEMALE".localized }
 		static var male: String { return "ST_MALE".localized }
-		static var termsAndConditions: String { return "ST_TERMS_CONDITIONS".localized }
+		static var termsAndConditionsUse: String { return "ST_TERMS_CONDITIONS_USE".localized }
 		static var privacyPolicy: String { return "ST_PRIVACY_POLICY".localized }
 		static var sorry: String { return "ST_SORRY".localized }
+		static var terms: String { return "ST_TERMS".localized }
+		static var termsAndConditions: String { return "ST_TERMS_CONDITIONS".localized }
+		static var decline: String { return "ST_DECLINE".localized }
+		static var agree: String { return "ST_AGREE".localized }
 		
 		//*************************
 		// Messages
@@ -63,6 +67,8 @@ extension String {
 		static var randomlyMessage: String { return "MSG_RANDOMLY".localized }
 		static var voluntaryMessage: String { return "MSG_VOLUNTARY".localized }
 		static var scoreMessage: String { return "MSG_SCORE".localized }
+		static var termsMessage: String { return "MSG_TERMS_CONDITIONS".localized }
+		static var privacyPolicyMessage: String { return "MSG_PRIVACY_POLICY".localized }
 		
 		//*************************
 		// Plurals

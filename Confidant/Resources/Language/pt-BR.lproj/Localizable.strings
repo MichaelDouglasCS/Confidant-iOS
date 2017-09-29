@@ -29,7 +29,11 @@
 "ST_SCORE" = "Score";
 "ST_FEMALE" = "Female";
 "ST_MALE" = "Male";
-"ST_TERMS_CONDITIONS" = "Terms and Conditions of Use";
+"ST_TERMS" = "Terms";
+"ST_TERMS_CONDITIONS_USE" = "Terms and Conditions of Use";
+"ST_TERMS_CONDITIONS" = "Terms and Conditions";
+"ST_DECLINE" = "Decline";
+"ST_AGREE" = "Agree";
 "ST_PRIVACY_POLICY" = "Privacy Policy";
 "ST_SORRY" = "Sorry";
 
@@ -52,4 +56,6 @@
 "MSG_TOO_MANY_REQUESTS" = "Too many requests";
 "MSG_USER_NOT_FOUND" = "User not found";
 "MSG_NETWORK_ERROR" = "Network Error";
+"MSG_TERMS_CONDITIONS" = "By proceeding you agree to Confidant's Terms and Conditions of Use.";
+"MSG_PRIVACY_POLICY" = "By proceeding you agree to Confidant's Privacy Policy.";
 
