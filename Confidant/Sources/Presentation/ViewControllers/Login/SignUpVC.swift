@@ -106,7 +106,7 @@ class SignUpVC: UIViewController {
 	
 	private func logged() {
 		DispatchQueue.main.async {
-			self.performSegue(withIdentifier: "showDashboard", sender: nil)
+			self.performSegue(withIdentifier: "showRegisterSegue", sender: nil)
 		}
 	}
 	
@@ -184,7 +184,7 @@ class SignUpVC: UIViewController {
 	}
 	
 	override func viewDidDisappear(_ animated: Bool) {
-		super.viewDidDisappear(true)
+		super.viewDidDisappear(animated)
 		self.deregisterKeyboardObservers()
 	}
 }

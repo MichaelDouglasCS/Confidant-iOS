@@ -89,6 +89,16 @@ class FacebookVC: SFSafariViewController {
 		                                       object: nil)
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		UIApplication.shared.statusBarStyle = .default
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		UIApplication.shared.statusBarStyle = .lightContent
+	}
+	
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
 		self.rootViewController?.loadingIndicator(isShow: false)

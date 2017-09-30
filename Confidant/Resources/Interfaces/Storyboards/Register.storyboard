@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wyk-j7-h5G">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GOTHAM-LIGHT.TTF">
+            <string>GothamLight</string>
+        </array>
+        <array key="GOTHAM-MEDIUM.TTF">
+            <string>GothamMedium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="qlO-8E-LhF">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="wyk-j7-h5G" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="0sN-Nx-ELH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2sP-vx-rIM" kind="relationship" relationship="rootViewController" id="TvC-1u-Uw9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8pU-Ap-KhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-441" y="83"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0kz-x1-AWP">
+            <objects>
+                <viewController id="2sP-vx-rIM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mXo-eW-anG"/>
+                        <viewControllerLayoutGuide type="bottom" id="QOD-Iy-jJ2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pf6-rV-C2d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_preregister" translatesAutoresizingMaskIntoConstraints="NO" id="kaZ-lV-CZW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="uRU-RV-cPz">
+                                <rect key="frame" x="52" y="259" width="271" height="149.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Let’s make you a profile." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4h2-Pu-r3M" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="271" height="69.5"/>
+                                        <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="36"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineSpace">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGI-di-pOt" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
+                                        <rect key="frame" x="63" y="104.5" width="145" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="dJM-cN-V8m"/>
+                                            <constraint firstAttribute="width" constant="145" id="rKj-Qt-5bJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                        <state key="normal" title="CONTINUE" backgroundImage="bg_pink">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="23"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="geB-CI-rI1" kind="show" id="P8L-wc-zkp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="271" id="E8l-d0-TXv"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uRU-RV-cPz" firstAttribute="centerY" secondItem="pf6-rV-C2d" secondAttribute="centerYWithinMargins" id="RGF-wo-hOh"/>
+                            <constraint firstItem="kaZ-lV-CZW" firstAttribute="leading" secondItem="pf6-rV-C2d" secondAttribute="leading" id="a4A-J9-xEu"/>
+                            <constraint firstItem="uRU-RV-cPz" firstAttribute="centerX" secondItem="pf6-rV-C2d" secondAttribute="centerX" id="ckk-by-fjd"/>
+                            <constraint firstItem="kaZ-lV-CZW" firstAttribute="top" secondItem="pf6-rV-C2d" secondAttribute="topMargin" id="fGJ-eU-D7A"/>
+                            <constraint firstItem="QOD-Iy-jJ2" firstAttribute="top" secondItem="kaZ-lV-CZW" secondAttribute="bottom" id="gpi-JB-7nR"/>
+                            <constraint firstAttribute="trailing" secondItem="kaZ-lV-CZW" secondAttribute="trailing" id="oCq-px-uUp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Uff-99-vri"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dcl-lO-qZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="294" y="82"/>
+        </scene>
+        <!--RegisterVC-->
+        <scene sceneID="mAA-cX-d2b">
+            <objects>
+                <viewController id="geB-CI-rI1" customClass="RegisterVC" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2qh-h3-e3P"/>
+                        <viewControllerLayoutGuide type="bottom" id="QLU-r8-CDl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nJE-rZ-FR5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="09W-cm-kpF">
+                                <rect key="frame" x="0.0" y="98" width="187" height="161.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_eyecry" translatesAutoresizingMaskIntoConstraints="NO" id="2FG-nR-BYu">
+                                        <rect key="frame" x="41.5" y="0.0" width="104" height="104"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="BPx-H1-2cM"/>
+                                            <constraint firstAttribute="height" constant="104" id="nSh-iF-xiW"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugK-IV-EnV">
+                                        <rect key="frame" x="65" y="139" width="57" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="25"/>
+                                        <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgE-D9-HVU">
+                                <rect key="frame" x="187" y="55" width="1" height="537"/>
+                                <color key="backgroundColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="avx-uS-4S2"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="li3-ZF-Xdo">
+                                <rect key="frame" x="188" y="98" width="187" height="161.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_handheart" translatesAutoresizingMaskIntoConstraints="NO" id="ooL-k5-QE0">
+                                        <rect key="frame" x="41.5" y="0.0" width="104" height="104"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="104" id="QCL-cm-23I"/>
+                                            <constraint firstAttribute="width" constant="104" id="UZ2-qx-D27"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confidant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uJ-qw-3qI">
+                                        <rect key="frame" x="31.5" y="139" width="124.5" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="25"/>
+                                        <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8p-wf-kEO" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
+                                <rect key="frame" x="107" y="592" width="161" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="NUc-v6-DnX"/>
+                                    <constraint firstAttribute="width" constant="161" id="w1l-dh-WNn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                <state key="normal" title="CONTINUE" backgroundImage="bg_pink">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="23"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="09W-cm-kpF" firstAttribute="leading" secondItem="nJE-rZ-FR5" secondAttribute="leading" id="1Ea-Xq-3pO"/>
+                            <constraint firstItem="K8p-wf-kEO" firstAttribute="top" secondItem="fgE-D9-HVU" secondAttribute="bottom" id="6L1-J0-ogW"/>
+                            <constraint firstItem="QLU-r8-CDl" firstAttribute="top" secondItem="K8p-wf-kEO" secondAttribute="bottom" constant="30" id="Ljy-MA-48A"/>
+                            <constraint firstItem="li3-ZF-Xdo" firstAttribute="leading" secondItem="fgE-D9-HVU" secondAttribute="trailing" id="Rne-2u-qHx"/>
+                            <constraint firstItem="li3-ZF-Xdo" firstAttribute="top" secondItem="2qh-h3-e3P" secondAttribute="bottom" constant="78" id="aAC-c8-R4j"/>
+                            <constraint firstItem="fgE-D9-HVU" firstAttribute="leading" secondItem="09W-cm-kpF" secondAttribute="trailing" id="bzW-8j-Etn"/>
+                            <constraint firstItem="fgE-D9-HVU" firstAttribute="centerX" secondItem="nJE-rZ-FR5" secondAttribute="centerX" id="iNN-F9-WIX"/>
+                            <constraint firstItem="K8p-wf-kEO" firstAttribute="centerX" secondItem="nJE-rZ-FR5" secondAttribute="centerX" id="sCA-es-Vcm"/>
+                            <constraint firstItem="09W-cm-kpF" firstAttribute="top" secondItem="2qh-h3-e3P" secondAttribute="bottom" constant="78" id="sFa-EM-xFv"/>
+                            <constraint firstItem="fgE-D9-HVU" firstAttribute="top" secondItem="2qh-h3-e3P" secondAttribute="bottom" constant="35" id="tHa-I5-qEc"/>
+                            <constraint firstAttribute="trailing" secondItem="li3-ZF-Xdo" secondAttribute="trailing" id="xO7-Wk-tfS"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eXb-Q9-96w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1032.8" y="81.409295352323838"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg_pink" width="187" height="50"/>
+        <image name="bg_preregister" width="1125" height="2001"/>
+        <image name="icn_eyecry" width="312" height="312"/>
+        <image name="icn_handheart" width="318" height="318"/>
+    </resources>
+</document>
