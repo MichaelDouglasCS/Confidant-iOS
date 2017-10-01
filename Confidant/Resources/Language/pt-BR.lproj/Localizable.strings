@@ -14,6 +14,9 @@
 "LB_OR" = "or";
 "LB_OR_WITH_EMAIL" = "or with e-mail";
 "LB_FORGOT_YOUR_PASSWORD" = "Forgot your password?";
+"LB_CONTINUE" = "CONTINUE";
+"LB_USER" = "User";
+"LB_CONFIDANT" = "Confidant";
 
 //*************************
 // Strings
@@ -58,4 +61,4 @@
 "MSG_NETWORK_ERROR" = "Network Error";
 "MSG_TERMS_CONDITIONS" = "By proceeding you agree to Confidant's Terms and Conditions of Use.";
 "MSG_PRIVACY_POLICY" = "By proceeding you agree to Confidant's Privacy Policy.";
-
+"MSG_MAKE_PROFILE" = "Let’s make you a profile.";

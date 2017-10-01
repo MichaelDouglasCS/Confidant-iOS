@@ -117,7 +117,7 @@ class IBDesigableImageView: UIImageView {
 //*************************************************
 
 @IBDesignable
-class IBDesigableButton: UIButton {
+class IBDesigableButton: LocalizedButton {
     
 //**************************************************
 // MARK: - Properties
@@ -146,34 +146,16 @@ class IBDesigableButton: UIButton {
 // MARK: - Protected Methods
 //*************************************************
 	
-	private func setupView() {
-		
-		// Applying the localization for each preferred style
-		let localizedStates: [UIControlState] = [ .normal, .disabled ]
-		
-		localizedStates.forEach {
-			let localizedTitle = self.title(for: $0)?.localized
-			
-			self.setTitle(localizedTitle, for: $0)
-			self.accessibilityHint = localizedTitle
-			self.accessibilityLabel = localizedTitle
-		}
-		
-		self.setBackgroundImage(self.backgroundImage(for: .normal)?.nineSliced(), for: .normal)
-	}
-	
 //*************************************************
 // MARK: - Override Public Methods
 //*************************************************
 	
 	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
-		self.setupView()
 	}
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		self.setupView()
 	}
 }
 
@@ -315,7 +297,7 @@ class IBDesigableTextView: UITextView {
 //*************************************************
 
 @IBDesignable
-class IBDesigableLabel: UILabel {
+class IBDesigableLabel: LocalizedLabel {
     
 //*************************************************
 // MARK: - Properties
@@ -323,23 +305,35 @@ class IBDesigableLabel: UILabel {
     
     @IBInspectable var letterSpacing: CGFloat = 0 {
         didSet {
-            let attributedString = NSMutableAttributedString(string: self.text!)
-            attributedString.addAttribute(NSKernAttributeName, value: letterSpacing, range: NSRange(location: 0, length: attributedString.length))
-            attributedString.addAttribute(NSFontAttributeName, value: self.font!, range: NSRange(location: 0, length: attributedString.length))
-            attributedString.addAttribute(NSForegroundColorAttributeName, value: self.textColor!, range: NSRange(location: 0, length: attributedString.length))
+            let attributedString = NSMutableAttributedString(string: self.text ?? "")
+            attributedString.addAttribute(NSKernAttributeName,
+                                          value: letterSpacing,
+                                          range: NSRange(location: 0, length: attributedString.length))
+            attributedString.addAttribute(NSFontAttributeName,
+                                          value: self.font ?? UIFont(),
+                                          range: NSRange(location: 0, length: attributedString.length))
+            attributedString.addAttribute(NSForegroundColorAttributeName,
+                                          value: self.textColor ?? UIColor(),
+                                          range: NSRange(location: 0, length: attributedString.length))
             self.attributedText = attributedString
         }
     }
     
     @IBInspectable var lineSpace: CGFloat = 0 {
         didSet {
-            let attributedString = NSMutableAttributedString(string: self.text!)
+            let attributedString = NSMutableAttributedString(string: self.text ?? "")
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = self.textAlignment
             paragraphStyle.lineSpacing = lineSpace
-            attributedString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
-            attributedString.addAttribute(NSFontAttributeName, value: self.font!, range: NSRange(location: 0, length: attributedString.length))
-            attributedString.addAttribute(NSForegroundColorAttributeName, value: self.textColor!, range: NSRange(location: 0, length: attributedString.length))
+            attributedString.addAttribute(NSParagraphStyleAttributeName,
+                                          value: paragraphStyle,
+                                          range: NSRange(location: 0, length: attributedString.length))
+            attributedString.addAttribute(NSFontAttributeName,
+                                          value: self.font ?? UIFont(),
+                                          range: NSRange(location: 0, length: attributedString.length))
+            attributedString.addAttribute(NSForegroundColorAttributeName,
+                                          value: self.textColor ?? UIColor(),
+                                          range: NSRange(location: 0, length: attributedString.length))
             self.attributedText = attributedString;
         }
     }

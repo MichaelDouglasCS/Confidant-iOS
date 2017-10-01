@@ -31,6 +31,10 @@ class RegisterVC: UIViewController {
 //*************************************************
 // MARK: - Properties
 //*************************************************
+	
+	@IBOutlet weak var userButton: UIButton!
+	@IBOutlet weak var confidantButton: UIButton!
+	@IBOutlet weak var continueButton: IBDesigableButton!
 
 //*************************************************
 // MARK: - Constructors
@@ -39,10 +43,36 @@ class RegisterVC: UIViewController {
 //*************************************************
 // MARK: - Protected Methods
 //*************************************************
+	
+	private func changeKind(for sender: UIButton) {
+		self.userButton.isSelected = false
+		self.confidantButton.isSelected = false
+		self.userButton.isUserInteractionEnabled = true
+		self.confidantButton.isUserInteractionEnabled = true
+		self.continueButton.isEnabled = true
+		
+		sender.isSelected = true
+		sender.isUserInteractionEnabled = false
+		
+		switch sender {
+			//TODO:
+		case self.userButton: break
+		case self.continueButton: break
+		default: break
+		}
+	}
 
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
+	
+	@IBAction func userSelectedAction(_ sender: UIButton) {
+		self.changeKind(for: sender)
+	}
+	
+	@IBAction func confidantSelectedAction(_ sender: UIButton) {
+		self.changeKind(for: sender)
+	}
 
 //*************************************************
 // MARK: - Overridden Public Methods
