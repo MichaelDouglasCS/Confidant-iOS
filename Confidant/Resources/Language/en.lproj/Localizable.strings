@@ -8,6 +8,7 @@
 "LB_SIGNUP_FACEBOOK" = "SIGN UP WITH FACEBOOK";
 "LB_EMAIL" = "Email";
 "LB_NAME" = "Name";
+"LB_NICKNAME" = "Nickname";
 "LB_PASSWORD" = "Password";
 "LB_BIRTHDATE" = "Birthdate";
 "LB_GENDER" = "Gender";
@@ -17,6 +18,9 @@
 "LB_CONTINUE" = "CONTINUE";
 "LB_USER" = "User";
 "LB_CONFIDANT" = "Confidant";
+"LB_WHATS_YOUR_PROFILE" = "What is your profile ?";
+"LB_PERSONAL_INFORMATION" = "Personal Information";
+"LB_ADD_PICTURE" = "Add Picture";
 
 //*************************
 // Strings
@@ -62,3 +66,4 @@
 "MSG_TERMS_CONDITIONS" = "By proceeding you agree to Confidant's Terms and Conditions of Use.";
 "MSG_PRIVACY_POLICY" = "By proceeding you agree to Confidant's Privacy Policy.";
 "MSG_MAKE_PROFILE" = "Let’s make you a profile.";
+"MSG_ENTER_NICKNAME_PICTURE" = "Enter your Nickname and add an optional profile picture.";

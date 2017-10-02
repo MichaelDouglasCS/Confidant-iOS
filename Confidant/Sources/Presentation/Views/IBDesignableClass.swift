@@ -297,7 +297,7 @@ class IBDesigableTextView: UITextView {
 //*************************************************
 
 @IBDesignable
-class IBDesigableLabel: LocalizedLabel {
+class IBDesigableLabel: UILabel {
     
 //*************************************************
 // MARK: - Properties
@@ -305,7 +305,7 @@ class IBDesigableLabel: LocalizedLabel {
     
     @IBInspectable var letterSpacing: CGFloat = 0 {
         didSet {
-            let attributedString = NSMutableAttributedString(string: self.text ?? "")
+            let attributedString = NSMutableAttributedString(string: self.text?.localized ?? "")
             attributedString.addAttribute(NSKernAttributeName,
                                           value: letterSpacing,
                                           range: NSRange(location: 0, length: attributedString.length))
@@ -321,7 +321,7 @@ class IBDesigableLabel: LocalizedLabel {
     
     @IBInspectable var lineSpace: CGFloat = 0 {
         didSet {
-            let attributedString = NSMutableAttributedString(string: self.text ?? "")
+            let attributedString = NSMutableAttributedString(string: self.text?.localized ?? "")
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = self.textAlignment
             paragraphStyle.lineSpacing = lineSpace
@@ -337,6 +337,10 @@ class IBDesigableLabel: LocalizedLabel {
             self.attributedText = attributedString;
         }
     }
+	
+//*************************************************
+// MARK: - Protected Methods
+//*************************************************
 	
 //*************************************************
 // MARK: - Override Public Methods
