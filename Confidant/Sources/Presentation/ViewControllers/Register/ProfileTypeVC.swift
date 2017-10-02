@@ -1,5 +1,5 @@
 //
-//  RegisterVC.swift
+//  ProfileTypeVC.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 29/09/17.
@@ -26,7 +26,7 @@ import UIKit
 //
 //**********************************************************************************************************
 
-class RegisterVC: UIViewController {
+class ProfileTypeVC: UIViewController {
 
 //*************************************************
 // MARK: - Properties
@@ -44,7 +44,7 @@ class RegisterVC: UIViewController {
 // MARK: - Protected Methods
 //*************************************************
 	
-	private func changeKind(for sender: UIButton) {
+	private func changeType(for sender: UIButton) {
 		self.userButton.isSelected = false
 		self.confidantButton.isSelected = false
 		self.userButton.isUserInteractionEnabled = true
@@ -67,11 +67,11 @@ class RegisterVC: UIViewController {
 //*************************************************
 	
 	@IBAction func userSelectedAction(_ sender: UIButton) {
-		self.changeKind(for: sender)
+		self.changeType(for: sender)
 	}
 	
 	@IBAction func confidantSelectedAction(_ sender: UIButton) {
-		self.changeKind(for: sender)
+		self.changeType(for: sender)
 	}
 
 //*************************************************

@@ -33,7 +33,7 @@ public class UserBO: Mappable {
 // MARK: - Properties
 //*************************************************
 
-    public var id: String = ""
+    public var id: String?
 	public var email: String = ""
 	public var password: String?
 	public var createdDate: TimeInterval = 0

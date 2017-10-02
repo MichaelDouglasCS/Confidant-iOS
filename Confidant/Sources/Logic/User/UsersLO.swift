@@ -26,74 +26,100 @@ extension Notification.Name {
 	static let userDidLoginError = Notification.Name(rawValue: "UserDidLoginError")
 }
 
+public class RealmUserModel : RealmModel {
+	
+	dynamic public var userID: String = ""
+	
+	convenience init(userID: String, data: Data? = nil) {
+		self.init()
+		self.userID = userID
+		
+		if let jsonData = data {
+			self.data = jsonData
+		}
+	}
+}
+
 //**********************************************************************************************************
 //
 // MARK: - Class -
 //
 //**********************************************************************************************************
 
+/**
+The user logic object is going to save the current userID to the default date base
+and the full user into a separated and specific data base.
+
+```
+|\____/|         |\____/|
+|      |         |      |
+|UserID| 1 ... N | Full |
+|      |         | User |
+|------|         |------|
+```
+
+Throughout the app, everything related to the user will now be saved on its own data base.
+Allowing the app to store multiple users and manage the current user on the default data base.
+
+Invalid authentications or updates will make the curernt cached user to be erased.
+
+The lazy initialized `current` is going to return the cached user automatically, if there is one.
+*/
 public final class UsersLO {
 
-//*************************************************
+//**************************************************
 // MARK: - Properties
-//*************************************************
+//**************************************************
 	
-//	public var localUser: UserBO? {
-//		let modelClass = RealmUserModel.self
-//		
-//		Persistence.dataBaseName = AppSettings.Defaults.dataBase
-//		if let id = Persistence.load(collection: modelClass)?.first?.userID, !id.isEmpty {
-//			
-//			Persistence.dataBaseName = id
-//			if let user = Persistence.load(collection: modelClass)?.first {
-//				return UserBO(raw: user.json)
-//			}
-//		}
-//		
-//		return nil
-//	}
-//	
-//	public private(set) lazy var current: UserBO = {
-//		return self.localUser ?? UserBO()
-//	}()
+	static private let db: String = "User"
+	
+	private var localUser: UserBO? {
+		let modelClass = RealmUserModel.self
+		
+		Persistence.dataBaseName = UsersLO.db
+		
+		if let id = Persistence.load(collection: modelClass)?.first?.userID, !id.isEmpty {
+			
+			Persistence.dataBaseName = id
+			
+			if let user = Persistence.load(collection: modelClass)?.first {
+				return UserBO(JSON: JSON(data: user.data).dictionaryObject ?? [:])
+			}
+		}
+		
+		return nil
+	}
+	
+	public lazy var current: UserBO = {
+		return self.localUser ?? UserBO()
+	}()
 	
 	static public let sharedInstance: UsersLO = UsersLO()
-
-//*************************************************
+	
+//**************************************************
 // MARK: - Constructors
-//*************************************************
+//**************************************************
 	
 	private init() { }
 
-//*************************************************
+//**************************************************
 // MARK: - Protected Methods
-//*************************************************
+//**************************************************
 	
 	private func cacheAndSetCurrent(json: JSON) {
+		let newUser = UserBO(JSON: json.dictionaryObject ?? [:]) ?? UserBO()
 		
-//		let newUser = UserBO(json: json)
-//		
-//		// Only for users with valid ID
-//		if let id = newUser.id, !id.isEmpty {
-//			let cache = RealmUserModel()
-//			let model = RealmUserModel()
-//			
-//			cache.userID = id
-//			model.userID = id
-//			model.json = newUser.raw
-//			
-//			// Saving the current user only
-//			Persistence.dataBaseName = AppSettings.Defaults.dataBase
-//			Persistence.save(model: cache)
-//			
-//			// Saving the current user in its personal data base
-//			Persistence.dataBaseName = id
-//			Persistence.save(model: model)
-//		}
-//		
-//		// Current user is always set, even when the new one is empty.
-//		// That means the current user is no longer valid.
-//		self.current = newUser
+		// Only for users with valid ID
+		if let id = newUser.id, !id.isEmpty {
+			// Saving the current user in its personal data base
+			Persistence.dataBaseName = id
+			Persistence.save(model: RealmUserModel(userID: id, data: try? JSON(newUser).rawData()))
+			Persistence.save(model: RealmUserModel(userID: id), at: UsersLO.db)
+		}
+		
+		// Current user is always set, even when the new one is empty.
+		// That means the current user is no longer valid.
+		self.current = newUser
 	}
 
 //*************************************************
