@@ -113,7 +113,7 @@ public final class UsersLO {
 		if let id = newUser.id, !id.isEmpty {
 			// Saving the current user in its personal data base
 			Persistence.dataBaseName = id
-			Persistence.save(model: RealmUserModel(userID: id, data: try? JSON(newUser).rawData()))
+			Persistence.save(model: RealmUserModel(userID: id, data: try? JSON(newUser.toJSON()).rawData()))
 			Persistence.save(model: RealmUserModel(userID: id), at: UsersLO.db)
 		}
 		
@@ -181,6 +181,12 @@ public final class UsersLO {
 			self.cacheAndSetCurrent(json: json)
 			completionHandler(result)
 		}
+	}
+	
+	public func logout() {
+		Persistence.dataBaseName = UsersLO.db
+		Persistence.delete(collection: RealmUserModel.self)
+		self.cacheAndSetCurrent(json: JSON([:]))
 	}
 
 //*************************************************

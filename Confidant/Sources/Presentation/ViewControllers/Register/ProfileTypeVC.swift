@@ -46,8 +46,8 @@ class ProfileTypeVC: UIViewController {
 	
 	private func changeType(for sender: UIButton) {
 		self.userButton.isSelected = false
-		self.confidantButton.isSelected = false
 		self.userButton.isUserInteractionEnabled = true
+		self.confidantButton.isSelected = false
 		self.confidantButton.isUserInteractionEnabled = true
 		self.continueButton.isEnabled = true
 		
@@ -55,10 +55,12 @@ class ProfileTypeVC: UIViewController {
 		sender.isUserInteractionEnabled = false
 		
 		switch sender {
-			//TODO:
-		case self.userButton: break
-		case self.continueButton: break
-		default: break
+		case self.userButton:
+			UsersLO.sharedInstance.current.profile.typeOfUser = .user
+		case self.confidantButton:
+			UsersLO.sharedInstance.current.profile.typeOfUser = .confidant
+		default:
+			break
 		}
 	}
 
