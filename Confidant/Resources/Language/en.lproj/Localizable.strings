@@ -21,6 +21,7 @@
 "LB_WHATS_YOUR_PROFILE" = "What is your profile ?";
 "LB_PERSONAL_INFORMATION" = "Personal Information";
 "LB_ADD_PICTURE" = "Add Picture";
+"LB_CANCEL" = "Cancel";
 
 //*************************
 // Strings
@@ -43,6 +44,10 @@
 "ST_AGREE" = "Agree";
 "ST_PRIVACY_POLICY" = "Privacy Policy";
 "ST_SORRY" = "Sorry";
+"ST_PICTURE_SOURCE" = "What would be the picture's source?";
+"ST_CAMERA" = "Camera";
+"ST_PHOTO_LIBRARY" = "Photo library";
+"ST_REMOVE_PHOTO" = "Remove photo";
 
 //*************************
 // Messages

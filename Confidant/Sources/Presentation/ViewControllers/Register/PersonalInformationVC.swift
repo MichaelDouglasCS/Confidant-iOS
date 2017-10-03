@@ -58,7 +58,13 @@ class PersonalInformationVC: UIViewController {
 	
 	@objc private func choosePicture() {
 		//TODO: Add "picture" to backend
-		print("OPEN")
+		let camera = CameraController()
+		let options = [.camera, .photoLibrary] as [UIImagePickerControllerSourceType]
+		let hasPhoto = self.profilePicture.image != nil
+		
+		camera.presentOptions(at: self, options: options, remove: hasPhoto) { (image: UIImage?) in
+			self.profilePicture.image = image
+		}
 	}
 	
 	fileprivate func continueAction() {

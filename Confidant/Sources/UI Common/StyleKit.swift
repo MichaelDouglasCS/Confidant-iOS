@@ -103,6 +103,59 @@ extension UIImage {
 		
 		return self.resizableImage(withCapInsets: edge)
 	}
+	
+	/**
+	Resizes the image to the size passed in.
+	CGInterpolationQuality.Default is the interpolation quality used.
+	
+	- parameter size: New size that the image should assume.
+	
+	- returns: The resizd image.
+	*/
+	public func resize(_ size: CGSize) -> UIImage {
+		
+		if size.width < 0 || size.height < 0 {
+			return UIImage()
+		}
+		
+		UIGraphicsBeginImageContextWithOptions(size, false, self.scale)
+		
+		self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+		let image = UIGraphicsGetImageFromCurrentImageContext();
+		
+		UIGraphicsEndImageContext()
+		
+		return image ?? UIImage()
+	}
+	
+	/**
+	Resizes the image based on the scale passed in. A new size is computed from the scale and the method
+	`resize(size: CGSize) -> UIImage` is called with the new calculated size.
+	A scale of 2 produces an image with double the original size.
+	
+	- parameter scale: The scale to take the image.
+	
+	- returns: Returns image resized.
+	*/
+	public func resizeWithScale(_ scale: CGFloat) -> UIImage {
+		
+		let newSize = CGSize(width: self.size.width * scale, height: self.size.height * scale)
+		
+		return self.resize(newSize)
+	}
+	
+	public func clamped(to value: CGFloat) -> UIImage {
+		
+		let largest = max(self.size.width, self.size.height)
+		let limit = CGFloat(value)
+		
+		if largest > limit {
+			let scale = limit / largest
+			return self.resizeWithScale(scale)
+		}
+		
+		return self
+	}
 
 	public func base64EncodedString(format: UIImage.Format = .jpg, quality: CGFloat = 0.8) -> String {
 		let data: Data?
