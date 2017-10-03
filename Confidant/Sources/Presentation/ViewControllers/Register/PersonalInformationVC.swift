@@ -56,14 +56,27 @@ class PersonalInformationVC: UIViewController {
 // MARK: - Protected Methods
 //*************************************************
 	
-	fileprivate func continueAction() {
-		//TODO: Add "nickname" to backend
-		self.performSegue(withIdentifier: "showKnowledgeSegue", sender: nil)
-	}
-	
 	@objc private func choosePicture() {
 		//TODO: Add "picture" to backend
 		print("OPEN")
+	}
+	
+	fileprivate func continueAction() {
+		UsersLO.sharedInstance.current.profile.nickname = self.nicknameTextField.text
+		let user = UsersLO.sharedInstance.current
+		
+		UsersLO.sharedInstance.update(user: user) { (result) in
+			
+			switch result {
+			case .success:
+				
+				DispatchQueue.main.async {
+					self.performSegue(withIdentifier: "showKnowledgeSegue", sender: nil)
+				}
+			case .error(let error):
+				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
+			}
+		}
 	}
 	
 //*************************************************

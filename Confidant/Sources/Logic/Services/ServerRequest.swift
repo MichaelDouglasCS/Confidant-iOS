@@ -36,6 +36,9 @@ public enum ServerResponse {
 		case invalidCredentials = "MSG_INVALID_LOGIN"
 		case invalidEmail = "MSG_INVALID_EMAIL"
 		case emailAlreadyExists = "MSG_EMAIL_ALREADY_EXISTS"
+		case facebookError = "MSG_FACEBOOK_ERROR"
+		case tokenNotInformed = "MSG_TOKEN_NOT_INFORMED"
+		case invalidToken = "MSG_INVALID_TOKEN"
 	}
 	
 	case success
@@ -63,12 +66,18 @@ public enum ServerResponse {
 			switch httpResponse.statusCode {
 			case 200..<300:
 				self = .success
-			case 401:
+			case 401, 404:
 				self = .error(.invalidCredentials)
 			case 402:
 				self = .error(.invalidEmail)
 			case 403:
 				self = .error(.emailAlreadyExists)
+			case 40:
+				self = .error(.facebookError)
+			case 407:
+				self = .error(.tokenNotInformed)
+			case 408:
+				self = .error(.invalidToken)
 			default:
 				self = .error(.unkown)
 			}
@@ -95,7 +104,7 @@ public enum ServerRequest {
 	public typealias RESTContract = (method: HTTPMethod, path: String)
 	
 	public struct Domain {
-		static public var mobile: String = Domain.develop
+		static public var mobile: String = Domain.local
 		
 		static public let local: String = "http://localhost:3000/confidant/api/v1"
 		static public let develop: String = "https://confidant-api.herokuapp.com/confidant/api/v1"
@@ -109,14 +118,14 @@ public enum ServerRequest {
 		static public let userAuthenticate: ServerRequest = .mobile((method: .post, path: "/user/authenticate"))
 		static public let userFacebookAuth: ServerRequest = .mobile((method: .get, path: "/user/facebook"))
 	}
-	
-	//**************************************************
-	// MARK: - Protected Methods
-	//**************************************************
-	
-	//**************************************************
-	// MARK: - Exposed Methods
-	//**************************************************
+
+//**************************************************
+// MARK: - Protected Methods
+//**************************************************
+
+//**************************************************
+// MARK: - Exposed Methods
+//**************************************************
 	
 	public var method: HTTPMethod {
 		switch self {
@@ -160,7 +169,6 @@ public enum ServerRequest {
 	
 	public func execute(aPath: String? = nil,
 	                    params: [String: Any]? = nil,
-	                    headers: HTTPHeaders? = nil,
 	                    completion: @escaping ServerResult) {
 		DispatchQueue.global(qos: .background).async {
 			
@@ -179,6 +187,14 @@ public enum ServerRequest {
 				}
 				
 				completion(json, ServerResponse(httpResponse))
+			}
+			
+			var headers = Alamofire.SessionManager.defaultHTTPHeaders
+			
+			if let token = UsersLO.sharedInstance.current.token {
+				headers["Authorization"] = "Bearer \(token)"
+			} else {
+				headers.removeValue(forKey: "Authorization")
 			}
 			
 			_ = Alamofire.request(finalPath,

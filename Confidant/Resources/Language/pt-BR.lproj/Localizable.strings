@@ -57,6 +57,9 @@
 "MSG_VOLUNTARY" = "How about you being a volunteer?";
 "MSG_SCORE" = "Be punctuated by people that you help, become the first and share it with everyone";
 "MSG_SERVER_ERROR" = "Server Error";
+"MSG_FACEBOOK_ERROR" = "Sorry! Occurred an error on Facebook, please, try again.";
+"MSG_TOKEN_NOT_INFORMED" = "Access forbidden, no token informed.";
+"MSG_INVALID_TOKEN" = "Informed token is invalid.";
 "MSG_INVALID_LOGIN" = "Are you sure entered the right username and password?";
 "MSG_INVALID_EMAIL" = "Please, fill the field with a valid email.";
 "MSG_EMAIL_ALREADY_EXISTS" = "The email is already in use.";

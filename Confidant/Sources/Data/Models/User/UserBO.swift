@@ -34,7 +34,7 @@ public class UserBO: Mappable {
 //*************************************************
 
     public var id: String?
-	public var email: String = ""
+	public var email: String?
 	public var password: String?
 	public var createdDate: TimeInterval = 0
 	public var token: String?

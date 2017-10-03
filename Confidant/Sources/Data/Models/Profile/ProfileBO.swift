@@ -38,9 +38,10 @@ public class ProfileBO: Mappable {
 // MARK: - Properties
 //*************************************************
 	
-	public var name: String = ""
-	public var birthdate: String = ""
-	public var gender: String = ""
+	public var name: String?
+	public var nickname: String?
+	public var birthdate: String?
+	public var gender: String?
 	public var typeOfUser: ProfileBO.TypeOfUser?
 
 //*************************************************
@@ -57,6 +58,7 @@ public class ProfileBO: Mappable {
 	
 	public func mapping(map: Map) {
 		self.name <- map["name"]
+		self.nickname <- map["nickname"]
 		self.birthdate <- map["birthdate"]
 		self.gender <- map["gender"]
 		self.typeOfUser <- map["typeOfUser"]

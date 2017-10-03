@@ -176,9 +176,8 @@ public final class UsersLO {
 	}
 	
 	public func update(user: UserBO, completionHandler: @escaping LogicResult) {
-		
-		ServerRequest.API.userUpdate.execute(params: user.toJSON()) { (json, result) in
-			self.cacheAndSetCurrent(json: json)
+
+		ServerRequest.API.userUpdate.execute(params: user.toJSON()) { (_, result) in
 			completionHandler(result)
 		}
 	}
