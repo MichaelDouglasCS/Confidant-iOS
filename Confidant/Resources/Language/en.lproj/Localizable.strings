@@ -45,9 +45,9 @@
 "ST_PRIVACY_POLICY" = "Privacy Policy";
 "ST_SORRY" = "Sorry";
 "ST_PICTURE_SOURCE" = "What would be the picture's source?";
-"ST_CAMERA" = "Camera";
-"ST_PHOTO_LIBRARY" = "Photo library";
-"ST_REMOVE_PHOTO" = "Remove photo";
+"ST_TAKE_PHOTO" = "Take Photo";
+"ST_CHOOSE_PHOTO" = "Choose Photo";
+"ST_DELETE_PHOTO" = "Delete photo";
 
 //*************************
 // Messages

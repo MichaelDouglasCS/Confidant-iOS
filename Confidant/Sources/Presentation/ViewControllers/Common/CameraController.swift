@@ -8,6 +8,7 @@
 
 
 import UIKit
+import RSKImageCropper
 
 //**********************************************************************************************************
 //
@@ -29,7 +30,7 @@ typealias CameraCompletion = (_ image: UIImage?) -> Void
 //
 //**********************************************************************************************************
 
-class CameraController : NSObject {
+class CameraController : UIImagePickerController {
 
 //**************************************************
 // MARK: - Properties
@@ -61,15 +62,13 @@ class CameraController : NSObject {
 	*/
 	func present(at target: UIViewController,
 	             sourceType: UIImagePickerControllerSourceType,
-	             delegate: (UIImagePickerControllerDelegate & UINavigationControllerDelegate)?,
+	             delegate: (UIImagePickerControllerDelegate & UINavigationControllerDelegate & RSKImageCropViewControllerDelegate)?,
 	             canEdit: Bool = true) {
 		
 		if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-			let imagePicker = UIImagePickerController()
-			imagePicker.sourceType = sourceType
-			imagePicker.allowsEditing = canEdit
-			imagePicker.delegate = delegate
-			target.present(imagePicker, animated: true, completion: nil)
+			self.sourceType = sourceType
+			self.delegate = delegate
+			target.present(self, animated: true, completion: nil)
 		}
 	}
 	
@@ -106,11 +105,11 @@ class CameraController : NSObject {
 			
 			switch item {
 			case .camera:
-				title = String.Local.camera
+				title = String.Local.takePhoto
 			case .savedPhotosAlbum:
 				fallthrough
 			case .photoLibrary:
-				title = String.Local.photoLibrary
+				title = String.Local.choosePhoto
 			}
 			
 			let action = UIAlertAction(title: title, style: .default) { (alert : UIAlertAction) in
@@ -121,7 +120,7 @@ class CameraController : NSObject {
 		}
 		
 		if remove {
-			let text = String.Local.removePhoto
+			let text = String.Local.deletePhoto
 			let delete = UIAlertAction(title: text, style: .destructive) { (alert : UIAlertAction) in
 				DispatchQueue.main.async {
 					self.completion?(nil)
@@ -164,15 +163,43 @@ extension CameraController : UIImagePickerControllerDelegate, UINavigationContro
 	
 	func imagePickerController(_ picker: UIImagePickerController,
 	                           didFinishPickingMediaWithInfo info: [String : Any]) {
-		var finalImage: UIImage?
+		var selectedImage: UIImage?
 		
-		finalImage = info[UIImagePickerControllerEditedImage] as? UIImage
-		finalImage = finalImage ?? info[UIImagePickerControllerOriginalImage] as? UIImage
-		finalImage = finalImage?.clamped(to: 1024.0)
-		picker.dismiss(animated: true, completion: nil)
+		selectedImage = selectedImage ?? info[UIImagePickerControllerOriginalImage] as? UIImage
+		
+		let imageCropVC = RSKImageCropViewController(image: selectedImage ?? UIImage(), cropMode: RSKImageCropMode.circle)
+		imageCropVC.delegate = self
+		imageCropVC.modalTransitionStyle = .crossDissolve
+		
+		self.present(imageCropVC, animated: true)
+	}
+}
+
+//**********************************************************************************************************
+//
+// MARK: - Extension - RSKImageCropViewControllerDelegate
+//
+//**********************************************************************************************************
+
+extension CameraController : RSKImageCropViewControllerDelegate {
+
+	func imageCropViewControllerDidCancelCrop(_ controller: RSKImageCropViewController) {
+		controller.dismiss(animated: true)
 		
 		DispatchQueue.main.async {
-			self.completion?(finalImage)
+			self.completion?(nil)
+			self.strongSelf = nil
+		}
+	}
+	
+	func imageCropViewController(_ controller: RSKImageCropViewController,
+	                             didCropImage croppedImage: UIImage,
+	                             usingCropRect cropRect: CGRect) {
+		controller.dismiss(animated: true)
+		self.dismiss(animated: true)
+		
+		DispatchQueue.main.async {
+			self.completion?(croppedImage)
 			self.strongSelf = nil
 		}
 	}

@@ -57,9 +57,9 @@ extension String {
 		static var decline: String { return "ST_DECLINE".localized }
 		static var agree: String { return "ST_AGREE".localized }
 		static var pictureSource: String { return "ST_PICTURE_SOURCE".localized }
-		static var camera: String { return "ST_CAMERA".localized }
-		static var photoLibrary: String { return "ST_PHOTO_LIBRARY".localized }
-		static var removePhoto: String { return "ST_REMOVE_PHOTO".localized }
+		static var takePhoto: String { return "ST_TAKE_PHOTO".localized }
+		static var choosePhoto: String { return "ST_CHOOSE_PHOTO".localized }
+		static var deletePhoto: String { return "ST_DELETE_PHOTO".localized }
 		static var cancel: String { return "LB_CANCEL".localized }
 		
 		//*************************

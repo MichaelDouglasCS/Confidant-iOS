@@ -11,6 +11,7 @@ target 'Confidant' do
   pod 'CryptoSwift', :git => "https://github.com/krzyzanowskim/CryptoSwift", :branch => "swift3"
   pod 'Alamofire'
   pod 'RealmSwift'
+  pod 'RSKImageCropper'
 
   target 'ConfidantTests' do
     inherit! :search_paths

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 //**********************************************************************************************************
 //
@@ -60,7 +61,7 @@ class PersonalInformationVC: UIViewController {
 		//TODO: Add "picture" to backend
 		let camera = CameraController()
 		let options = [.camera, .photoLibrary] as [UIImagePickerControllerSourceType]
-		let hasPhoto = self.profilePicture.image != nil
+		let hasPhoto = !(UsersLO.sharedInstance.current.profile.pictureURL?.isEmpty ?? true)
 		
 		camera.presentOptions(at: self, options: options, remove: hasPhoto) { (image: UIImage?) in
 			self.profilePicture.image = image
