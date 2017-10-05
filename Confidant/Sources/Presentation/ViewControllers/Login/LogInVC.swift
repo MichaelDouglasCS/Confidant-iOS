@@ -10,18 +10,6 @@ import UIKit
 
 //**********************************************************************************************************
 //
-// MARK: - Constants -
-//
-//**********************************************************************************************************
-
-//**********************************************************************************************************
-//
-// MARK: - Definitions -
-//
-//**********************************************************************************************************
-
-//**********************************************************************************************************
-//
 // MARK: - Class -
 //
 //**********************************************************************************************************
@@ -41,10 +29,6 @@ class LogInVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
-    
-//*************************************************
-// MARK: - Constructors
-//*************************************************
 
 //*************************************************
 // MARK: - Protected Methods
@@ -83,7 +67,7 @@ class LogInVC: UIViewController {
     
     @IBAction func logInWithFacebook(_ sender: UIButton) {
 		self.loadingIndicator(isShow: true)
-		if let url = URL(string: ServerRequest.API.userFacebookAuth.path) {
+		if let url = URL(string: ServerRequest.User.facebookAuth.path) {
 			let facebookVC = FacebookVC(url: url)
 			
 			facebookVC.auth(target: self, completionHandler: { result in

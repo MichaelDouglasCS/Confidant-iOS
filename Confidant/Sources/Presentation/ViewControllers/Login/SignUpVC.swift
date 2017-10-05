@@ -11,18 +11,6 @@ import SafariServices
 
 //**********************************************************************************************************
 //
-// MARK: - Constants -
-//
-//**********************************************************************************************************
-
-//**********************************************************************************************************
-//
-// MARK: - Definitions -
-//
-//**********************************************************************************************************
-
-//**********************************************************************************************************
-//
 // MARK: - Class -
 //
 //**********************************************************************************************************
@@ -49,10 +37,6 @@ class SignUpVC: UIViewController {
 	@IBOutlet weak var genderTextField: UITextField!
 	@IBOutlet weak var signUpButton: UIButton!
 	@IBOutlet weak var termsAndConditionsTextView: UITextView!
-	
-//*************************************************
-// MARK: - Constructors
-//*************************************************
 
 //*************************************************
 // MARK: - Protected Methods
@@ -121,7 +105,7 @@ class SignUpVC: UIViewController {
 			case true:
 				self.loadingIndicator(isShow: true)
 				
-				if let url = URL(string: ServerRequest.API.userFacebookAuth.path) {
+				if let url = URL(string: ServerRequest.User.facebookAuth.path) {
 					let facebookVC = FacebookVC(url: url)
 					
 					facebookVC.auth(target: self, completionHandler: { result in

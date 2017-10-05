@@ -8,12 +8,7 @@
 
 import Foundation
 import SwiftyJSON
-
-//**********************************************************************************************************
-//
-// MARK: - Constants -
-//
-//**********************************************************************************************************
+import Alamofire
 
 //**********************************************************************************************************
 //
@@ -128,7 +123,7 @@ public final class UsersLO {
 	
 	public func register(user: UserBO, completionHandler: @escaping LogicResult) {
 		
-		ServerRequest.API.userRegister.execute(params: user.toJSON()) { (json, result) in
+		ServerRequest.User.register.execute(params: user.toJSON()) { (json, result) in
 			self.cacheAndSetCurrent(json: json)
 			completionHandler(result)
 		}
@@ -136,8 +131,15 @@ public final class UsersLO {
 	
 	public func authenticate(user: UserBO, completionHandler: @escaping LogicResult) {
 
-		ServerRequest.API.userAuthenticate.execute(params: user.toJSON()) { (json, result) in
+		ServerRequest.User.authenticate.execute(params: user.toJSON()) { (json, result) in
 			self.cacheAndSetCurrent(json: json)
+			completionHandler(result)
+		}
+	}
+	
+	public func update(user: UserBO, completionHandler: @escaping LogicResult) {
+
+		ServerRequest.User.update.execute(params: user.toJSON()) { (_, result) in
 			completionHandler(result)
 		}
 	}
@@ -175,27 +177,73 @@ public final class UsersLO {
 		return isHandled
 	}
 	
-	public func update(user: UserBO, completionHandler: @escaping LogicResult) {
-
-		ServerRequest.API.userUpdate.execute(params: user.toJSON()) { (_, result) in
-			completionHandler(result)
-		}
-	}
-	
 	public func logout() {
 		Persistence.dataBaseName = UsersLO.db
 		Persistence.delete(collection: RealmUserModel.self)
 		self.cacheAndSetCurrent(json: JSON([:]))
 	}
-
-//*************************************************
-// MARK: - Overridden Public Methods
-//*************************************************
-
 }
 
 //**********************************************************************************************************
 //
-// MARK: - Extension -
+// MARK: - Extension - UsersLO - Picture
 //
 //**********************************************************************************************************
+
+extension UsersLO {
+	
+	public func upload(picture: UIImage) {
+		let url = ServerRequest.Media.upload.path
+		var headers = Alamofire.SessionManager.defaultHTTPHeaders
+		
+		if let token = UsersLO.sharedInstance.current.token {
+			headers["Authorization"] = "Bearer \(token)"
+		} else {
+			headers.removeValue(forKey: "Authorization")
+		}
+		
+		if let imageData = UIImagePNGRepresentation(picture),
+			let imageID = self.current.id {
+			
+			Alamofire.upload(multipartFormData: { (multipartFormData) in
+				multipartFormData.append(imageData,
+				                         withName: "picture",
+				                         fileName: "\(imageID).jpg",
+				                         mimeType: "image/PNG")
+				multipartFormData
+			}, to: url, method: .post, headers: headers)
+			{ (result) in
+				
+				switch result {
+				case .success(let upload, _, _):
+					
+					upload.uploadProgress(closure: { (Progress) in
+						print("Upload Progress: \(Progress.fractionCompleted)")
+					})
+					
+					upload.responseJSON { response in
+						//self.delegate?.showSuccessAlert()
+						print(response.request)  // original URL request
+						print(response.response) // URL response
+						print(response.data)     // server data
+						print(response.result)   // result of response serialization
+						//                        self.showSuccesAlert()
+						//self.removeImage("frame", fileExtension: "txt")
+						if let JSON = response.result.value {
+							print("JSON: \(JSON)")
+						}
+					}
+					
+				case .failure(let encodingError):
+					//self.delegate?.showFailAlert()
+					print(encodingError)
+				}
+				
+			}
+		}
+	}
+	
+	public func downloadPicture() {
+		
+	}
+}

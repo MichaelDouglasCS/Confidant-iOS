@@ -12,12 +12,6 @@ import SwiftyJSON
 
 //**********************************************************************************************************
 //
-// MARK: - Constants -
-//
-//**********************************************************************************************************
-
-//**********************************************************************************************************
-//
 // MARK: - Definitions -
 //
 //**********************************************************************************************************
@@ -112,16 +106,16 @@ public enum ServerRequest {
 		static public let production: String = ""
 	}
 	
-	public struct API {
-		static public let userRegister: ServerRequest = .mobile((method: .post, path: "/user"))
-		static public let userUpdate: ServerRequest = .mobile((method: .put, path: "/user"))
-		static public let userAuthenticate: ServerRequest = .mobile((method: .post, path: "/user/authenticate"))
-		static public let userFacebookAuth: ServerRequest = .mobile((method: .get, path: "/user/facebook"))
+	public struct User {
+		static public let register: ServerRequest = .mobile((method: .post, path: "/user"))
+		static public let update: ServerRequest = .mobile((method: .put, path: "/user"))
+		static public let authenticate: ServerRequest = .mobile((method: .post, path: "/user/authenticate"))
+		static public let facebookAuth: ServerRequest = .mobile((method: .get, path: "/user/facebook"))
 	}
-
-//**************************************************
-// MARK: - Protected Methods
-//**************************************************
+	
+	public struct Media {
+		static public let upload: ServerRequest = .mobile((method: .post, path: "/media/picture"))
+	}
 
 //**************************************************
 // MARK: - Exposed Methods
