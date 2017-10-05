@@ -74,6 +74,7 @@ extension String {
 		static var scoreMessage: String { return "MSG_SCORE".localized }
 		static var termsMessage: String { return "MSG_TERMS_CONDITIONS".localized }
 		static var privacyPolicyMessage: String { return "MSG_PRIVACY_POLICY".localized }
+		static var pictureNotUpdated: String { return "MSG_PICTURE_NOT_UPDATED".localized }
 		
 		//*************************
 		// Plurals

@@ -2,11 +2,13 @@
 //  MediaLO.swift
 //  Confidant
 //
-//  Created by Michael Douglas on 04/10/17.
+//  Created by Michael Douglas on 05/10/17.
 //  Copyright © 2017 Watermelon. All rights reserved.
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 
 //**********************************************************************************************************
 //
@@ -27,13 +29,31 @@ public final class MediaLO {
 //*************************************************
 // MARK: - Protected Methods
 //*************************************************
+	
+	private class func parse(json: JSON) -> MediaBO {
+		let media = MediaBO(JSON: json.dictionaryObject ?? [:])
+		
+		return media ?? MediaBO()
+	}
 
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
 	
-	class func upload() {
+	public class func upload(data: Data,
+	                         fieldName: String,
+	                         fileName: String,
+	                         mimeType: String,
+	                         completionHandler: @escaping (MediaBO, ServerResponse) -> Void) {
 		
+		ServerRequest.Media.upload.execute(data: data,
+		                                   fieldName: fieldName,
+		                                   fileName: fileName,
+		                                   mimeType: mimeType) { (json, result) in
+											
+											let media = self.parse(json: json)
+											completionHandler(media, result)
+		}
 	}
 
 //*************************************************

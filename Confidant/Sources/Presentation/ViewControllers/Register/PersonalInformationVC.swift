@@ -21,13 +21,9 @@ class PersonalInformationVC: UIViewController {
 // MARK: - Properties
 //*************************************************
 	
-	@IBOutlet weak var backButton: LocalizedButton!
-	@IBOutlet weak var profilePictureView: UIStackView!
-	@IBOutlet weak var profilePicture: IBDesigableImageView!
-	@IBOutlet weak var nicknameTextField: LocalizedTextField!
-	@IBOutlet weak var continueButton: IBDesigableButton!
+	fileprivate var isUploading: Bool = false
 	
-	var isConfirmEnabled: Bool {
+	fileprivate var isConfirmEnabled: Bool {
 		get {
 			return self.continueButton.isEnabled
 		}
@@ -36,6 +32,12 @@ class PersonalInformationVC: UIViewController {
 			self.continueButton.isEnabled = newValue
 		}
 	}
+	
+	@IBOutlet weak var backButton: LocalizedButton!
+	@IBOutlet weak var profilePictureView: UIStackView!
+	@IBOutlet weak var profilePicture: IBDesigableImageView!
+	@IBOutlet weak var nicknameTextField: LocalizedTextField!
+	@IBOutlet weak var continueButton: IBDesigableButton!
 
 //*************************************************
 // MARK: - Protected Methods
@@ -48,10 +50,30 @@ class PersonalInformationVC: UIViewController {
 		let hasPhoto = !(UsersLO.sharedInstance.current.profile.pictureURL?.isEmpty ?? true)
 		
 		camera.presentOptions(at: self, options: options, remove: hasPhoto) { (image: UIImage?) in
+			self.profilePicture.loadingIndicatorView(isShow: true, at: nil)
+			self.isConfirmEnabled = false
 			
 			if let image = image {
-				self.profilePicture.image = image
-				UsersLO.sharedInstance.upload(picture: image)
+				self.isUploading = true
+				UsersLO.sharedInstance.upload(picture: image) { (result) in
+					
+					switch result {
+					case .success:
+						self.profilePicture.image = image
+					case .error(let error):
+						self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
+					}
+					
+					self.profilePicture.loadingIndicatorView(isShow: false, at: nil)
+					self.isConfirmEnabled = self.nicknameTextField.hasText
+					self.isUploading = false
+				}
+			} else {
+				self.profilePicture.loadingIndicatorView(isShow: false, at: nil)
+				self.isConfirmEnabled = self.nicknameTextField.hasText
+				self.profilePicture.image = UIImage(named: "icn_anchor_gray")
+				
+				UsersLO.sharedInstance.current.profile.pictureURL = nil
 			}
 		}
 	}
@@ -92,6 +114,7 @@ class PersonalInformationVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.makeTapGestureEndEditing()
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -122,7 +145,7 @@ extension PersonalInformationVC: UITextFieldDelegate {
 		
 		switch textField {
 		case self.nicknameTextField:
-			self.isConfirmEnabled = !textFill.isEmpty
+			self.isConfirmEnabled = !textFill.isEmpty && !self.isUploading
 		default:
 			break
 		}
@@ -132,7 +155,7 @@ extension PersonalInformationVC: UITextFieldDelegate {
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		switch textField {
 		case self.nicknameTextField:
-			self.continueAction()
+			self.dismissKeyboard()
 		default:
 			break
 		}

@@ -75,3 +75,4 @@
 "MSG_PRIVACY_POLICY" = "By proceeding you agree to Confidant's Privacy Policy.";
 "MSG_MAKE_PROFILE" = "Let’s make you a profile.";
 "MSG_ENTER_NICKNAME_PICTURE" = "Enter your Nickname and add an optional profile picture.";
+"MSG_PICTURE_NOT_UPDATED" = "Could not update your profile picture. Please try again later.";

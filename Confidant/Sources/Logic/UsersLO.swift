@@ -192,54 +192,23 @@ public final class UsersLO {
 
 extension UsersLO {
 	
-	public func upload(picture: UIImage) {
-		let url = ServerRequest.Media.upload.path
-		var headers = Alamofire.SessionManager.defaultHTTPHeaders
-		
-		if let token = UsersLO.sharedInstance.current.token {
-			headers["Authorization"] = "Bearer \(token)"
-		} else {
-			headers.removeValue(forKey: "Authorization")
-		}
-		
-		if let imageData = UIImagePNGRepresentation(picture),
+	public func upload(picture: UIImage, completionHandler: @escaping LogicResult) {
+		if let imageData = UIImageJPEGRepresentation(picture, 0.5),
 			let imageID = self.current.id {
+			let fieldName = "file"
+			let fileName = "\(imageID).jpg"
+			let mimeType = "image/jpeg"
 			
-			Alamofire.upload(multipartFormData: { (multipartFormData) in
-				multipartFormData.append(imageData,
-				                         withName: "picture",
-				                         fileName: "\(imageID).jpg",
-				                         mimeType: "image/PNG")
-				multipartFormData
-			}, to: url, method: .post, headers: headers)
-			{ (result) in
-				
-				switch result {
-				case .success(let upload, _, _):
-					
-					upload.uploadProgress(closure: { (Progress) in
-						print("Upload Progress: \(Progress.fractionCompleted)")
-					})
-					
-					upload.responseJSON { response in
-						//self.delegate?.showSuccessAlert()
-						print(response.request)  // original URL request
-						print(response.response) // URL response
-						print(response.data)     // server data
-						print(response.result)   // result of response serialization
-						//                        self.showSuccesAlert()
-						//self.removeImage("frame", fileExtension: "txt")
-						if let JSON = response.result.value {
-							print("JSON: \(JSON)")
-						}
-					}
-					
-				case .failure(let encodingError):
-					//self.delegate?.showFailAlert()
-					print(encodingError)
-				}
-				
+			MediaLO.upload(data: imageData,
+			               fieldName: fieldName,
+			               fileName: fileName,
+			               mimeType: mimeType) { (media, result) in
+							
+							self.current.profile.pictureURL = media.fileURL
+							completionHandler(result)
 			}
+		} else {
+			completionHandler(.error(ServerResponse.Error.pictureNotUpdated))
 		}
 	}
 	

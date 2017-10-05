@@ -33,6 +33,7 @@ public enum ServerResponse {
 		case facebookError = "MSG_FACEBOOK_ERROR"
 		case tokenNotInformed = "MSG_TOKEN_NOT_INFORMED"
 		case invalidToken = "MSG_INVALID_TOKEN"
+		case pictureNotUpdated = "MSG_PICTURE_NOT_UPDATED"
 	}
 	
 	case success
@@ -114,7 +115,23 @@ public enum ServerRequest {
 	}
 	
 	public struct Media {
-		static public let upload: ServerRequest = .mobile((method: .post, path: "/media/picture"))
+		static public let upload: ServerRequest = .mobile((method: .post, path: "/media/"))
+	}
+	
+//**************************************************
+// MARK: - Protected Methods
+//**************************************************
+	
+	private func getHeader() -> HTTPHeaders {
+		var headers = Alamofire.SessionManager.defaultHTTPHeaders
+		
+		if let token = UsersLO.sharedInstance.current.token {
+			headers["Authorization"] = "Bearer \(token)"
+		} else {
+			headers.removeValue(forKey: "Authorization")
+		}
+		
+		return headers
 	}
 
 //**************************************************
@@ -183,19 +200,63 @@ public enum ServerRequest {
 				completion(json, ServerResponse(httpResponse))
 			}
 			
-			var headers = Alamofire.SessionManager.defaultHTTPHeaders
-			
-			if let token = UsersLO.sharedInstance.current.token {
-				headers["Authorization"] = "Bearer \(token)"
-			} else {
-				headers.removeValue(forKey: "Authorization")
-			}
+			let headers = self.getHeader()
 			
 			_ = Alamofire.request(finalPath,
 			                      method: method,
 			                      parameters: params,
 			                      encoding: JSONEncoding.default,
 			                      headers: headers).responseJSON(completionHandler: closure)
+		}
+	}
+	
+	public func execute(aPath: String? = nil,
+	                   data: Data,
+	                   fieldName: String,
+	                   fileName: String,
+	                   mimeType: String,
+	                   completion: @escaping ServerResult) {
+		DispatchQueue.global(qos: .background).async {
+			
+			let method = self.method
+			let finalPath = aPath ?? self.path
+			let closure = { (_ dataResponse: DataResponse<Any>) in
+				
+				var json: JSON = [:]
+				let httpResponse = dataResponse.response
+				
+				switch dataResponse.result {
+				case .success(let data):
+					json = JSON(data)
+				default:
+					break
+				}
+				
+				completion(json, ServerResponse(httpResponse))
+			}
+			
+			let headers = self.getHeader()
+			
+			Alamofire.upload(multipartFormData: { (multipartFormData) in
+				multipartFormData.append(data,
+				                         withName: fieldName,
+				                         fileName: fileName,
+				                         mimeType: mimeType)
+			}, to: finalPath,
+			   method: method,
+			   headers: headers) { (result) in
+				
+				switch result {
+				case .success(let upload, _, _):
+					upload.responseJSON(completionHandler: closure)
+				case .failure:
+					let json: JSON = [:]
+					
+					completion(json, .error(ServerResponse.Error.unkown))
+				}
+				
+			}
+			
 		}
 	}
 }

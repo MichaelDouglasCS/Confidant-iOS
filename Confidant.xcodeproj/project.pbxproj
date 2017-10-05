@@ -50,11 +50,12 @@
 		61A35AF51E7DCB1F0010A01D /* UserBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A35AF41E7DCB1F0010A01D /* UserBO.swift */; };
 		61B4EC3D1F81A3C200FA5296 /* PersistenceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B4EC3B1F81A3C200FA5296 /* PersistenceModels.swift */; };
 		61B4EC3E1F81A3C200FA5296 /* PersistenceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B4EC3C1F81A3C200FA5296 /* PersistenceStore.swift */; };
-		61B5F3D81F85C562002A143F /* MediaLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B5F3D71F85C562002A143F /* MediaLO.swift */; };
 		61BE69461ED3409F0036EDBB /* ProfileBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BE69451ED3409F0036EDBB /* ProfileBO.swift */; };
 		61BE69481ED3413E0036EDBB /* ModelBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BE69471ED3413E0036EDBB /* ModelBO.swift */; };
 		61CC4EC71E80DE6A00ED4DB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61CC4EC61E80DE6A00ED4DB6 /* Assets.xcassets */; };
 		61CDB4371E87038E00E792F6 /* UITextFieldKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CDB4361E87038E00E792F6 /* UITextFieldKit.swift */; };
+		61D0FAEE1F85DB57009399C0 /* MediaLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D0FAED1F85DB57009399C0 /* MediaLO.swift */; };
+		61D0FAF21F85DD04009399C0 /* MediaBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D0FAF11F85DD04009399C0 /* MediaBO.swift */; };
 		61D271901F842D6D0071F1BA /* FacebookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2718F1F842D6D0071F1BA /* FacebookVC.swift */; };
 		61F127891EA6FFA200F14A17 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61F1278B1EA6FFA200F14A17 /* Localizable.strings */; };
 		61F127981EA7015F00F14A17 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1278D1EA7015E00F14A17 /* Alerts.swift */; };
@@ -156,11 +157,12 @@
 		61A35AF41E7DCB1F0010A01D /* UserBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBO.swift; sourceTree = "<group>"; };
 		61B4EC3B1F81A3C200FA5296 /* PersistenceModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceModels.swift; sourceTree = "<group>"; };
 		61B4EC3C1F81A3C200FA5296 /* PersistenceStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceStore.swift; sourceTree = "<group>"; };
-		61B5F3D71F85C562002A143F /* MediaLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLO.swift; sourceTree = "<group>"; };
 		61BE69451ED3409F0036EDBB /* ProfileBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileBO.swift; path = Confidant/Sources/Data/Models/Profile/ProfileBO.swift; sourceTree = SOURCE_ROOT; };
 		61BE69471ED3413E0036EDBB /* ModelBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelBO.swift; sourceTree = "<group>"; };
 		61CC4EC61E80DE6A00ED4DB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61CDB4361E87038E00E792F6 /* UITextFieldKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldKit.swift; sourceTree = "<group>"; };
+		61D0FAED1F85DB57009399C0 /* MediaLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLO.swift; sourceTree = "<group>"; };
+		61D0FAF11F85DD04009399C0 /* MediaBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaBO.swift; sourceTree = "<group>"; };
 		61D2718F1F842D6D0071F1BA /* FacebookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookVC.swift; sourceTree = "<group>"; };
 		61F1278A1EA6FFA200F14A17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		61F1278C1EA6FFE600F14A17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 		6184857D1E68633B00854092 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				61D0FAF01F85DCED009399C0 /* Media */,
 				618BF5AE1F3D6F2D00A3E163 /* Common */,
 				618BF5AC1F3D6EC500A3E163 /* Profile */,
 				618BF5AD1F3D6EF400A3E163 /* User */,
@@ -543,7 +546,7 @@
 		61B24EB41EA5265D005088A7 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
-				61B5F3D71F85C562002A143F /* MediaLO.swift */,
+				61D0FAED1F85DB57009399C0 /* MediaLO.swift */,
 				618485791E6862FE00854092 /* Services */,
 				6183376B1F3ECFC0008380AF /* UsersLO.swift */,
 			);
@@ -576,6 +579,14 @@
 				DD97E1C90FC513F69B93AE4F /* Pods-ConfidantUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		61D0FAF01F85DCED009399C0 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				61D0FAF11F85DD04009399C0 /* MediaBO.swift */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 		61D2718E1F842CC90071F1BA /* Common */ = {
@@ -947,6 +958,7 @@
 				61F127B81EA7034D00F14A17 /* LocalizedLabel.swift in Sources */,
 				6155F23F1ECBAF29000445D1 /* DisclosureView.swift in Sources */,
 				61F127B31EA7034D00F14A17 /* IBDesignableClass.swift in Sources */,
+				61D0FAF21F85DD04009399C0 /* MediaBO.swift in Sources */,
 				6155F2481ECBAF29000445D1 /* LocalizedWebView.swift in Sources */,
 				6183376C1F3ECFC0008380AF /* UsersLO.swift in Sources */,
 				61F127B61EA7034D00F14A17 /* LocalizedBarButtonItem.swift in Sources */,
@@ -967,7 +979,7 @@
 				613A8B471E6F1159000DD11D /* UIViewKit.swift in Sources */,
 				61F127B41EA7034D00F14A17 /* LinedView.swift in Sources */,
 				6158AD761F7F283300BB5EE3 /* ProfileTypeVC.swift in Sources */,
-				61B5F3D81F85C562002A143F /* MediaLO.swift in Sources */,
+				61D0FAEE1F85DB57009399C0 /* MediaLO.swift in Sources */,
 				61F127B11EA7034D00F14A17 /* BlurredView.swift in Sources */,
 				6155F2461ECBAF29000445D1 /* LocalizedTabBar.swift in Sources */,
 				61F127BE1EA7034D00F14A17 /* VerticalButton.swift in Sources */,
