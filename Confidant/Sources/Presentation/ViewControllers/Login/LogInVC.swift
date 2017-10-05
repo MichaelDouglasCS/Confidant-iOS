@@ -36,11 +36,11 @@ class LogInVC: UIViewController {
 	
 	fileprivate func loginWithEmail() {
 		self.dismissKeyboard()
-		self.loadingIndicator(isShow: true)
+		self.loadingIndicatorCustom(isShow: true)
 		
 		let user = UserBO()
 		user.email = self.emailTextField.text ?? ""
-		user.password = (self.passwordTextField.text ?? "").encryptedPassword
+		user.password = self.passwordTextField.text ?? ""
 		
 		UsersLO.sharedInstance.authenticate(user: user) { (result) in
 			
@@ -51,7 +51,7 @@ class LogInVC: UIViewController {
 				self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
 			}
 			
-			self.loadingIndicator(isShow: false)
+			self.loadingIndicatorCustom(isShow: false)
 		}
 	}
 	
@@ -66,11 +66,11 @@ class LogInVC: UIViewController {
 //*************************************************
     
     @IBAction func logInWithFacebook(_ sender: UIButton) {
-		self.loadingIndicator(isShow: true)
+		self.loadingIndicatorCustom(isShow: true)
 		if let url = URL(string: ServerRequest.User.facebookAuth.path) {
 			let facebookVC = FacebookVC(url: url)
 			
-			facebookVC.auth(target: self, completionHandler: { result in
+			facebookVC.auth(target: self) { (result) in
 				
 				switch result {
 				case .success:
@@ -79,8 +79,8 @@ class LogInVC: UIViewController {
 					self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
 				}
 				
-				self.loadingIndicator(isShow: false)
-			})
+				self.loadingIndicatorCustom(isShow: false)
+			}
 		}
     }
     

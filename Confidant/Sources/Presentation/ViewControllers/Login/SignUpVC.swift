@@ -103,12 +103,12 @@ class SignUpVC: UIViewController {
 			
 			switch canProceedLogin {
 			case true:
-				self.loadingIndicator(isShow: true)
+				self.loadingIndicatorCustom(isShow: true)
 				
 				if let url = URL(string: ServerRequest.User.facebookAuth.path) {
 					let facebookVC = FacebookVC(url: url)
 					
-					facebookVC.auth(target: self, completionHandler: { result in
+					facebookVC.auth(target: self) { (result) in
 						
 						switch result {
 						case .success:
@@ -117,8 +117,8 @@ class SignUpVC: UIViewController {
 							self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
 						}
 						
-						self.loadingIndicator(isShow: false)
-					})
+						self.loadingIndicatorCustom(isShow: false)
+					}
 				}
 			default: break
 			}
@@ -131,11 +131,11 @@ class SignUpVC: UIViewController {
 			
 			switch canProceedLogin {
 			case true:
-				self.loadingIndicator(isShow: true)
+				self.loadingIndicatorCustom(isShow: true)
 				
 				let user = UserBO()
 				user.email = self.emailTextField.text ?? ""
-				user.password = (self.passwordTextField.text ?? "").encryptedPassword
+				user.password = self.passwordTextField.text ?? ""
 				user.profile.name = self.nameTextField.text ?? ""
 				user.profile.birthdate = self.birthdateTextField.text ?? ""
 				user.profile.gender = self.genderTextField.text ?? ""
@@ -149,7 +149,7 @@ class SignUpVC: UIViewController {
 						self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
 					}
 					
-					self.loadingIndicator(isShow: false)
+					self.loadingIndicatorCustom(isShow: false)
 				}
 			default: break
 			}

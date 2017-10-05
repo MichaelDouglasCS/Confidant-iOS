@@ -31,16 +31,23 @@ class FacebookVC: SFSafariViewController {
 	private func setupSafariBrowser() {
 		self.preferredBarTintColor = .white
 		self.preferredControlTintColor = UIColor.Confidant.pink
+		self.definesPresentationContext = true
 	}
 	
 	@objc private func authenticationSuccessful() {
-		self.completion?(.success)
-		self.dismiss(animated: true, completion: nil)
+		
+		self.dismiss(animated: true) { _ in
+			
+			UsersLO.sharedInstance.load() { (result) in
+				self.completion?(result)
+			}
+		}
 	}
 	
 	@objc private func authenticationFailed() {
-		self.completion?(.error(.unkown))
-		self.dismiss(animated: true, completion: nil)
+		self.dismiss(animated: true) { _ in
+			self.completion?(.error(.unkown))
+		}
 	}
 	
 //*************************************************
@@ -50,8 +57,10 @@ class FacebookVC: SFSafariViewController {
 	func auth(target viewController: UIViewController, completionHandler: @escaping LogicResult) {
 		self.rootViewController = viewController
 		self.completion = completionHandler
+		
 		self.modalTransitionStyle = .coverVertical
-		self.modalPresentationStyle = .overCurrentContext
+		self.modalPresentationStyle = .overFullScreen
+		
 		viewController.present(self, animated: true)
 	}
 
@@ -85,7 +94,7 @@ class FacebookVC: SFSafariViewController {
 	
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
-		self.rootViewController?.loadingIndicator(isShow: false)
+		self.rootViewController?.loadingIndicatorCustom(isShow: false)
 	}
 	
 	deinit {

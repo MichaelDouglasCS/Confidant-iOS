@@ -25,7 +25,7 @@
 		6155F24B1ECBAF29000445D1 /* TiledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155F2331ECBAF29000445D1 /* TiledView.swift */; };
 		6155F24C1ECBAF29000445D1 /* UIBoxGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155F2341ECBAF29000445D1 /* UIBoxGroup.swift */; };
 		6158AD761F7F283300BB5EE3 /* ProfileTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6158AD751F7F283300BB5EE3 /* ProfileTypeVC.swift */; };
-		616FB2A71F82D798003F1445 /* PersonalInformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FB2A61F82D798003F1445 /* PersonalInformationVC.swift */; };
+		616FB2A71F82D798003F1445 /* PersonalInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FB2A61F82D798003F1445 /* PersonalInfoVC.swift */; };
 		61705D931F843E0B000044B0 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61705D921F843E0B000044B0 /* CameraController.swift */; };
 		61790EE21E6A0A520095482F /* GOTHAM-BLACK.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC01E6A0A520095482F /* GOTHAM-BLACK.TTF */; };
 		61790EE41E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC21E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF */; };
@@ -132,7 +132,7 @@
 		6155F2331ECBAF29000445D1 /* TiledView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledView.swift; sourceTree = "<group>"; };
 		6155F2341ECBAF29000445D1 /* UIBoxGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBoxGroup.swift; sourceTree = "<group>"; };
 		6158AD751F7F283300BB5EE3 /* ProfileTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTypeVC.swift; sourceTree = "<group>"; };
-		616FB2A61F82D798003F1445 /* PersonalInformationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationVC.swift; sourceTree = "<group>"; };
+		616FB2A61F82D798003F1445 /* PersonalInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoVC.swift; sourceTree = "<group>"; };
 		61705D921F843E0B000044B0 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		61790EC01E6A0A520095482F /* GOTHAM-BLACK.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BLACK.TTF"; sourceTree = "<group>"; };
 		61790EC21E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BLACKITALIC.TTF"; sourceTree = "<group>"; };
@@ -337,7 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				6158AD751F7F283300BB5EE3 /* ProfileTypeVC.swift */,
-				616FB2A61F82D798003F1445 /* PersonalInformationVC.swift */,
+				616FB2A61F82D798003F1445 /* PersonalInfoVC.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -968,7 +968,7 @@
 				6155F23B1ECBAF29000445D1 /* ChartLineView.swift in Sources */,
 				61CDB4371E87038E00E792F6 /* UITextFieldKit.swift in Sources */,
 				61F127B71EA7034D00F14A17 /* LocalizedButton.swift in Sources */,
-				616FB2A71F82D798003F1445 /* PersonalInformationVC.swift in Sources */,
+				616FB2A71F82D798003F1445 /* PersonalInfoVC.swift in Sources */,
 				61B4EC3D1F81A3C200FA5296 /* PersistenceModels.swift in Sources */,
 				61F127A21EA7015F00F14A17 /* XIBDesignable.swift in Sources */,
 				61D271901F842D6D0071F1BA /* FacebookVC.swift in Sources */,

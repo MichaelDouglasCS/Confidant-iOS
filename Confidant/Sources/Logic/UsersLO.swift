@@ -157,8 +157,8 @@ public final class UsersLO {
 				                                                range: fullRange,
 				                                                withTemplate: "")
 				
-				if let data = jsonString.data(using: String.Encoding.utf8) {
-					let json = JSON(data: data)["user"]
+				if let data = jsonString.data(using: .utf8) {
+					let json = JSON(data: data)
 					
 					if json.exists() {
 						self.cacheAndSetCurrent(json: json)
@@ -175,6 +175,15 @@ public final class UsersLO {
 		}
 		
 		return isHandled
+	}
+	
+	public func load(completionHandler: @escaping LogicResult) {
+		let url = ServerRequest.User.load.url(params: "\(self.current.email ?? "")")
+		
+		ServerRequest.User.load.execute(aPath: url?.absoluteString) { (json, result) in
+			self.cacheAndSetCurrent(json: json)
+			completionHandler(result)
+		}
 	}
 	
 	public func logout() {

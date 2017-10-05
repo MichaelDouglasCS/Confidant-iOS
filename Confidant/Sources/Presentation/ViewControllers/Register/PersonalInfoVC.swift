@@ -1,5 +1,5 @@
 //
-//  PersonalInformationVC.swift
+//  PersonalInfoVC.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 02/10/17.
@@ -15,7 +15,7 @@ import Alamofire
 //
 //**********************************************************************************************************
 
-class PersonalInformationVC: UIViewController {
+class PersonalInfoVC: UIViewController {
 	
 //*************************************************
 // MARK: - Properties
@@ -78,9 +78,10 @@ class PersonalInformationVC: UIViewController {
 		}
 	}
 	
-	fileprivate func continueAction() {
-		UsersLO.sharedInstance.current.profile.nickname = self.nicknameTextField.text
+	private func updateAndContinue() {
 		let user = UsersLO.sharedInstance.current
+		
+		self.loadingIndicatorCustom(isShow: true)
 		
 		UsersLO.sharedInstance.update(user: user) { (result) in
 			
@@ -93,6 +94,8 @@ class PersonalInformationVC: UIViewController {
 			case .error(let error):
 				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
 			}
+			
+			self.loadingIndicatorCustom(isShow: false)
 		}
 	}
 	
@@ -105,7 +108,7 @@ class PersonalInformationVC: UIViewController {
 	}
 
 	@IBAction func continueButtonAction(_ sender: IBDesigableButton) {
-		self.continueAction()
+		self.updateAndContinue()
 	}
 	
 //*************************************************
@@ -115,6 +118,9 @@ class PersonalInformationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.makeTapGestureEndEditing()
+		
+		//LoadImageHere
+//		self.profilePicture.image
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -136,7 +142,7 @@ class PersonalInformationVC: UIViewController {
 //
 //**********************************************************************************************************
 
-extension PersonalInformationVC: UITextFieldDelegate {
+extension PersonalInfoVC: UITextFieldDelegate {
 	
 	func textField(_ textField: UITextField,
 	               shouldChangeCharactersIn range: NSRange,

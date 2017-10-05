@@ -47,6 +47,27 @@ class ProfileTypeVC: UIViewController {
 			break
 		}
 	}
+	
+	private func updateAndContinue() {
+		let user = UsersLO.sharedInstance.current
+		
+		self.loadingIndicatorCustom(isShow: true)
+		
+		UsersLO.sharedInstance.update(user: user) { (result) in
+			
+			switch result {
+			case .success:
+				
+				DispatchQueue.main.async {
+					self.performSegue(withIdentifier: "showPersonalInfoSegue", sender: nil)
+				}
+			case .error(let error):
+				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
+			}
+			
+			self.loadingIndicatorCustom(isShow: false)
+		}
+	}
 
 //*************************************************
 // MARK: - Exposed Methods
@@ -60,6 +81,10 @@ class ProfileTypeVC: UIViewController {
 		self.changeType(for: sender)
 	}
 
+	@IBAction func continueAction(_ sender: IBDesigableButton) {
+		self.updateAndContinue()
+	}
+	
 //*************************************************
 // MARK: - Overridden Public Methods
 //*************************************************

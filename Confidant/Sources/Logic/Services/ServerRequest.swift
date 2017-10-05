@@ -112,6 +112,7 @@ public enum ServerRequest {
 		static public let update: ServerRequest = .mobile((method: .put, path: "/user"))
 		static public let authenticate: ServerRequest = .mobile((method: .post, path: "/user/authenticate"))
 		static public let facebookAuth: ServerRequest = .mobile((method: .get, path: "/user/facebook"))
+		static public let load: ServerRequest = .mobile((method: .get, path: "/user/{email}"))
 	}
 	
 	public struct Media {
