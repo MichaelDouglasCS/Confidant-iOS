@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import AlamofireImage
 import SwiftyJSON
 
 //**********************************************************************************************************
@@ -53,6 +54,15 @@ public final class MediaLO {
 											
 											let media = self.parse(json: json)
 											completionHandler(media, result)
+		}
+	}
+	
+	public class func downloadImage(from url: String,
+	                         completionHandler: @escaping (UIImage?, ServerResponse) -> Void) {
+		
+		Alamofire.request(url).responseImage { response in
+			
+			completionHandler(response.result.value, ServerResponse(response.response))
 		}
 	}
 

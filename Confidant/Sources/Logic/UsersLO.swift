@@ -223,7 +223,14 @@ extension UsersLO {
 		}
 	}
 	
-	public func downloadPicture() {
+	public func downloadPicture(completionHandler: @escaping LogicResult) {
 		
+		MediaLO.downloadImage(from: self.current.profile.picture?.fileURL ?? "") { (image, result) in
+			
+			self.current.profile.picture?.base64 = image?.base64EncodedString(format: .jpg,
+			                                                                 quality: 0.5)
+			
+			completionHandler(result)
+		}
 	}
 }

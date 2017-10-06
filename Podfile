@@ -10,6 +10,7 @@ target 'Confidant' do
   pod 'ObjectMapper', '~> 2.2'
   pod 'CryptoSwift', :git => "https://github.com/krzyzanowskim/CryptoSwift", :branch => "swift3"
   pod 'Alamofire'
+  pod 'AlamofireImage', '~> 3.3'
   pod 'RealmSwift'
   pod 'RSKImageCropper'
 

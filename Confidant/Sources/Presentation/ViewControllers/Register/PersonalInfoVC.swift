@@ -50,7 +50,19 @@ class PersonalInfoVC: UIViewController {
 			if let localImage = picture.localImage {
 				self.profilePicture.image = localImage
 			} else {
+				self.profilePicture.loadingIndicatorView(isShow: true, at: nil)
 				
+				UsersLO.sharedInstance.downloadPicture() { (result) in
+					
+					switch result {
+					case .success:
+						self.profilePicture.image = picture.localImage
+					case .error(let error):
+						self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
+					}
+					
+					self.profilePicture.loadingIndicatorView(isShow: false, at: nil)
+				}
 			}
 		}
 	}
