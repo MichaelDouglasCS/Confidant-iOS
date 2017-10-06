@@ -22,6 +22,20 @@ public class MediaBO: Mappable {
 //*************************************************
 	
 	public var fileURL: String?
+	public var base64: String?
+	
+	public var hasMedia: Bool {
+		return self.base64 != nil || self.fileURL != nil
+	}
+	
+	public var localImage: UIImage? {
+		
+		if let encoded = self.base64 {
+			return UIImage(base64EncodedString: encoded)
+		}
+		
+		return nil
+	}
 	
 //*************************************************
 // MARK: - Constructors
@@ -30,6 +44,12 @@ public class MediaBO: Mappable {
 	public required init() { }
 	
 	public required init?(map: Map) { }
+	
+	public convenience init(image: UIImage?, fileURL: String?) {
+		self.init()
+		self.base64 = image?.base64EncodedString() ?? ""
+		self.fileURL = fileURL
+	}
 	
 //*************************************************
 // MARK: - Exposed Methods

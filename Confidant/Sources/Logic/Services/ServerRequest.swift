@@ -179,6 +179,12 @@ public enum ServerRequest {
 		return nil
 	}
 	
+	/// This method is used to Execute Requests
+	///
+	/// - Parameters:
+	///   - aPath: Custom Path for your Request.
+	///   - params: Params of your Request
+	///   - completion: This method produces (JSON, ServerResponse) -> Void
 	public func execute(aPath: String? = nil,
 	                    params: [String: Any]? = nil,
 	                    completion: @escaping ServerResult) {
@@ -211,6 +217,16 @@ public enum ServerRequest {
 		}
 	}
 	
+	
+	/// This method is used to Upload Files
+	///
+	/// - Parameters:
+	///   - aPath: Custom Path to Upload your File
+	///   - data: Data to be Uploaded
+	///   - fieldName: Name of the field, ***default = "file"***
+	///   - fileName: Name of the File
+	///   - mimeType: Type of your File
+	///   - completion: This method produces (JSON, ServerResponse) -> Void
 	public func execute(aPath: String? = nil,
 	                   data: Data,
 	                   fieldName: String,

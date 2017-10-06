@@ -213,7 +213,9 @@ extension UsersLO {
 			               fileName: fileName,
 			               mimeType: mimeType) { (media, result) in
 							
-							self.current.profile.pictureURL = media.fileURL
+							self.current.profile.picture = media
+							self.current.profile.picture?.base64 = picture.base64EncodedString(format: .jpg,
+							                                                                   quality: 0.5)
 							completionHandler(result)
 			}
 		} else {

@@ -94,7 +94,6 @@ class FacebookVC: SFSafariViewController {
 	
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
-		self.rootViewController?.loadingIndicatorCustom(isShow: false)
 	}
 	
 	deinit {

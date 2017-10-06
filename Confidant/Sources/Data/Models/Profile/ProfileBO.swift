@@ -28,7 +28,7 @@ public class ProfileBO: Mappable {
 	
 	public var name: String?
 	public var nickname: String?
-	public var pictureURL: String?
+	public var picture: MediaBO?
 	public var birthdate: String?
 	public var gender: String?
 	public var typeOfUser: ProfileBO.TypeOfUser?
@@ -48,7 +48,7 @@ public class ProfileBO: Mappable {
 	public func mapping(map: Map) {
 		self.name <- map["name"]
 		self.nickname <- map["nickname"]
-		self.pictureURL <- map["pictureURL"]
+		self.picture <- map["picture"]
 		self.birthdate <- map["birthdate"]
 		self.gender <- map["gender"]
 		self.typeOfUser <- map["typeOfUser"]

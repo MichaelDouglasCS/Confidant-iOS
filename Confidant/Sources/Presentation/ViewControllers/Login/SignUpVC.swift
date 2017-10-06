@@ -114,10 +114,9 @@ class SignUpVC: UIViewController {
 						case .success:
 							self.logged()
 						case .error:
+							self.loadingIndicatorCustom(isShow: false)
 							self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
 						}
-						
-						self.loadingIndicatorCustom(isShow: false)
 					}
 				}
 			default: break
@@ -146,10 +145,9 @@ class SignUpVC: UIViewController {
 					case .success:
 						self.logged()
 					case .error:
+						self.loadingIndicatorCustom(isShow: false)
 						self.showInfoAlert(title: String.Local.sorry, message: result.localizedError)
 					}
-					
-					self.loadingIndicatorCustom(isShow: false)
 				}
 			default: break
 			}
@@ -169,6 +167,7 @@ class SignUpVC: UIViewController {
 	
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
+		self.loadingIndicatorCustom(isShow: false)
 		self.deregisterKeyboardObservers()
 	}
 }

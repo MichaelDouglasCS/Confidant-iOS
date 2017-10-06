@@ -43,16 +43,28 @@ class PersonalInfoVC: UIViewController {
 // MARK: - Protected Methods
 //*************************************************
 	
+	private func loadData() {
+		
+		if let picture = UsersLO.sharedInstance.current.profile.picture {
+			
+			if let localImage = picture.localImage {
+				self.profilePicture.image = localImage
+			} else {
+				
+			}
+		}
+	}
+	
 	@objc private func choosePicture() {
 		//TODO: Add "picture" to backend
 		let camera = CameraController()
 		let options = [.camera, .photoLibrary] as [UIImagePickerControllerSourceType]
-		let hasPhoto = !(UsersLO.sharedInstance.current.profile.pictureURL?.isEmpty ?? true)
+		let hasPhoto = UsersLO.sharedInstance.current.profile.picture?.hasMedia ?? false
 		
 		camera.presentOptions(at: self, options: options, remove: hasPhoto) { (image: UIImage?) in
 			self.profilePicture.loadingIndicatorView(isShow: true, at: nil)
 			self.isConfirmEnabled = false
-			
+
 			if let image = image {
 				self.isUploading = true
 				UsersLO.sharedInstance.upload(picture: image) { (result) in
@@ -73,7 +85,7 @@ class PersonalInfoVC: UIViewController {
 				self.isConfirmEnabled = self.nicknameTextField.hasText
 				self.profilePicture.image = UIImage(named: "icn_anchor_gray")
 				
-				UsersLO.sharedInstance.current.profile.pictureURL = nil
+				UsersLO.sharedInstance.current.profile.picture = nil
 			}
 		}
 	}
@@ -117,10 +129,8 @@ class PersonalInfoVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.makeTapGestureEndEditing()
 		
-		//LoadImageHere
-//		self.profilePicture.image
+		self.loadData()
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -128,9 +138,11 @@ class PersonalInfoVC: UIViewController {
 		
 		let tap = UITapGestureRecognizer(target: self, action: #selector(self.choosePicture))
 		self.profilePictureView.addGestureRecognizer(tap)
+		self.makeTapGestureEndEditing()
 	}
 	
 	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
 		self.removeObservers()
 		self.profilePictureView.gestureRecognizers?.removeAll()
 	}
