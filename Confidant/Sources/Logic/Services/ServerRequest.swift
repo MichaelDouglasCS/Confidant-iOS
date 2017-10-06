@@ -99,7 +99,7 @@ public enum ServerRequest {
 	public typealias RESTContract = (method: HTTPMethod, path: String)
 	
 	public struct Domain {
-		static public var mobile: String = Domain.local
+		static public var mobile: String = Domain.develop
 		
 		static public let local: String = "http://localhost:3000/confidant/api/v1"
 		static public let develop: String = "https://confidant-api.herokuapp.com/confidant/api/v1"
