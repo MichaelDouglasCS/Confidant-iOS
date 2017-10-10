@@ -96,8 +96,6 @@ class PersonalInfoVC: UIViewController {
 				self.profilePicture.loadingIndicatorView(isShow: false, at: nil)
 				self.isConfirmEnabled = self.nicknameTextField.hasText
 				self.profilePicture.image = UIImage(named: "icn_anchor_gray")
-				
-				UsersLO.sharedInstance.current.profile.picture = nil
 			}
 		}
 	}
@@ -106,7 +104,6 @@ class PersonalInfoVC: UIViewController {
 		let user = UsersLO.sharedInstance.current
 		
 		self.loadingIndicatorCustom(isShow: true)
-		
 		UsersLO.sharedInstance.update(user: user) { (result) in
 			
 			switch result {
@@ -118,7 +115,6 @@ class PersonalInfoVC: UIViewController {
 			case .error(let error):
 				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
 			}
-			
 			self.loadingIndicatorCustom(isShow: false)
 		}
 	}
@@ -155,6 +151,7 @@ class PersonalInfoVC: UIViewController {
 	
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
+		
 		self.removeObservers()
 		self.profilePictureView.gestureRecognizers?.removeAll()
 	}
