@@ -110,7 +110,7 @@ class PersonalInfoVC: UIViewController {
 			case .success:
 				
 				DispatchQueue.main.async {
-					self.performSegue(withIdentifier: "showKnowledgeSegue", sender: nil)
+					self.performSegue(withIdentifier: "showTopicsSegue", sender: nil)
 				}
 			case .error(let error):
 				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)

@@ -22,6 +22,9 @@
 "LB_PERSONAL_INFORMATION" = "Personal Information";
 "LB_ADD_PICTURE" = "Add Picture";
 "LB_CANCEL" = "Cancel";
+"LB_WHAT_TOPICS" = "What topics are you a Confidant?";
+"LB_SELECT_ONE_OR_MORE" = "Select one or more";
+"LB_SEARCH" = "Search";
 
 //*************************
 // Strings
