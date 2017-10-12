@@ -59,6 +59,7 @@ class PersonalInfoVC: UIViewController {
 						self.profilePicture.image = picture.localImage
 					case .error(let error):
 						self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
+						UsersLO.sharedInstance.current.profile.picture = nil
 					}
 					
 					self.profilePicture.loadingIndicatorView(isShow: false, at: nil)

@@ -99,7 +99,7 @@ public enum ServerRequest {
 	public typealias RESTContract = (method: HTTPMethod, path: String)
 	
 	public struct Domain {
-		static public var mobile: String = Domain.develop
+		static public var mobile: String = Domain.local
 		
 		static public let local: String = "http://localhost:3000/confidant/api/v1"
 		static public let develop: String = "https://confidant-api.herokuapp.com/confidant/api/v1"
@@ -108,11 +108,11 @@ public enum ServerRequest {
 	}
 	
 	public struct User {
-		static public let register: ServerRequest = .mobile((method: .post, path: "/user"))
-		static public let update: ServerRequest = .mobile((method: .put, path: "/user"))
-		static public let authenticate: ServerRequest = .mobile((method: .post, path: "/user/authenticate"))
-		static public let facebookAuth: ServerRequest = .mobile((method: .get, path: "/user/facebook"))
-		static public let load: ServerRequest = .mobile((method: .get, path: "/user/{email}"))
+		static public let register: ServerRequest = .mobile((method: .post, path: "/users"))
+		static public let update: ServerRequest = .mobile((method: .put, path: "/users"))
+		static public let authenticate: ServerRequest = .mobile((method: .post, path: "/users/authenticate"))
+		static public let facebookAuth: ServerRequest = .mobile((method: .get, path: "/users/facebook"))
+		static public let load: ServerRequest = .mobile((method: .get, path: "/users/{email}"))
 	}
 	
 	public struct Media {

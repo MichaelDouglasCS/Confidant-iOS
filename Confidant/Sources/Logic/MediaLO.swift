@@ -62,7 +62,7 @@ public final class MediaLO {
 		
 		Alamofire.request(url).responseImage { response in
 			
-			completionHandler(response.result.value, ServerResponse(response.response))
+			completionHandler(response.result.value, .error(.pictureNotUpdated))
 		}
 	}
 

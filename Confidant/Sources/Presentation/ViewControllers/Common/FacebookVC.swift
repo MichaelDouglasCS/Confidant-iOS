@@ -22,7 +22,7 @@ class FacebookVC: SFSafariViewController {
 //*************************************************
 	
 	private var rootViewController: UIViewController?
-	private var completion: LogicResult?
+	fileprivate var completion: LogicResult?
 
 //*************************************************
 // MARK: - Protected Methods
@@ -32,6 +32,7 @@ class FacebookVC: SFSafariViewController {
 		self.preferredBarTintColor = .white
 		self.preferredControlTintColor = UIColor.Confidant.pink
 		self.definesPresentationContext = true
+		self.delegate = self
 	}
 	
 	@objc private func authenticationSuccessful() {
@@ -45,6 +46,7 @@ class FacebookVC: SFSafariViewController {
 	}
 	
 	@objc private func authenticationFailed() {
+		
 		self.dismiss(animated: true) { _ in
 			self.completion?(.error(.unkown))
 		}
@@ -98,5 +100,18 @@ class FacebookVC: SFSafariViewController {
 	
 	deinit {
 		NotificationCenter.default.removeObserver(self)
+	}
+}
+
+//**********************************************************************************************************
+//
+// MARK: - Extension - SFSafariViewControllerDelegate
+//
+//**********************************************************************************************************
+
+extension FacebookVC : SFSafariViewControllerDelegate {
+	
+	func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+		self.completion?(.error(.facebookError))
 	}
 }
