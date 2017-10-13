@@ -32,6 +32,7 @@ public class ProfileBO: Mappable {
 	public var birthdate: String?
 	public var gender: String?
 	public var typeOfUser: ProfileBO.TypeOfUser?
+	public var knowledges: [KnowledgeBO]?
 
 //*************************************************
 // MARK: - Constructors
@@ -52,5 +53,6 @@ public class ProfileBO: Mappable {
 		self.birthdate <- map["birthdate"]
 		self.gender <- map["gender"]
 		self.typeOfUser <- map["typeOfUser"]
+		self.knowledges <- map["knowledges"]
 	}
 }

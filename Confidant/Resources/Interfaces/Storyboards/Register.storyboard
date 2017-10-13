@@ -52,7 +52,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="uRU-RV-cPz">
-                                <rect key="frame" x="52" y="259.5" width="271" height="149.5"/>
+                                <rect key="frame" x="52" y="259" width="271" height="149.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="MSG_MAKE_PROFILE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4h2-Pu-r3M" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="6" y="0.0" width="259.5" height="69.5"/>
@@ -122,7 +122,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_WHATS_YOUR_PROFILE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fe-4b-Nn4" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                <rect key="frame" x="56" y="45" width="264" height="16.5"/>
+                                <rect key="frame" x="55.5" y="45" width="264" height="16.5"/>
                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.3529411764705882" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -299,7 +299,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_PERSONAL_INFORMATION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKS-qQ-SWH" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                <rect key="frame" x="45" y="45" width="286.5" height="16.5"/>
+                                <rect key="frame" x="44.5" y="45" width="286.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                 <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -429,10 +429,10 @@
             </objects>
             <point key="canvasLocation" x="1777" y="81"/>
         </scene>
-        <!--View Controller-->
+        <!--KnowledgeVC-->
         <scene sceneID="eL5-9T-Cd7">
             <objects>
-                <viewController id="FPN-hF-c5r" sceneMemberID="viewController">
+                <viewController id="FPN-hF-c5r" customClass="KnowledgeVC" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hDu-fJ-8EI"/>
                         <viewControllerLayoutGuide type="bottom" id="ihA-DW-rDu"/>
@@ -451,6 +451,9 @@
                                     <constraint firstAttribute="width" constant="35" id="yHl-6w-fv1"/>
                                 </constraints>
                                 <state key="normal" image="icn_back_pink"/>
+                                <connections>
+                                    <action selector="backAction:" destination="FPN-hF-c5r" eventType="touchUpInside" id="V2E-Rf-Q4Z"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_WHAT_TOPICS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNe-D9-bWw" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
                                 <rect key="frame" x="50" y="45" width="276" height="16.5"/>
@@ -493,20 +496,55 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TA4-gd-Snq">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="506.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="php-Jd-gXu">
-                                            <size key="itemSize" width="50" height="50"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="15" id="php-Jd-gXu">
+                                            <size key="itemSize" width="70" height="35"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7jY-9p-IFx">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KnowledgeCell" id="Wqd-0a-3Vo" customClass="KnowledgeCell" customModule="Confidant" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="20" width="70" height="35"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzA-58-fRS" customClass="TopicButton" customModule="Confidant" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="35" id="BDi-bA-3Iq"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                            <state key="normal" title="Topic">
+                                                                <color key="titleColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <state key="selected">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="18"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
+                                                    </subviews>
                                                 </view>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="fzA-58-fRS" secondAttribute="bottom" id="3NK-il-K32"/>
+                                                    <constraint firstItem="fzA-58-fRS" firstAttribute="leading" secondItem="Wqd-0a-3Vo" secondAttribute="leading" id="4um-ps-Elp"/>
+                                                    <constraint firstItem="fzA-58-fRS" firstAttribute="top" secondItem="Wqd-0a-3Vo" secondAttribute="top" id="YgM-bL-LNR"/>
+                                                    <constraint firstAttribute="trailing" secondItem="fzA-58-fRS" secondAttribute="trailing" id="Z9T-yD-mUa"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="topicButton" destination="fzA-58-fRS" id="piR-V0-Yob"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                         <connections>
@@ -557,6 +595,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="TA4-gd-Snq" id="wXc-uJ-uT3"/>
                         <outlet property="searchDisplayController" destination="Loh-Ou-1wQ" id="vD7-FB-C1S"/>
                     </connections>
                 </viewController>

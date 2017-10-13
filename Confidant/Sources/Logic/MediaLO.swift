@@ -20,14 +20,6 @@ import SwiftyJSON
 public final class MediaLO {
 
 //*************************************************
-// MARK: - Properties
-//*************************************************
-
-//*************************************************
-// MARK: - Constructors
-//*************************************************
-
-//*************************************************
 // MARK: - Protected Methods
 //*************************************************
 	
@@ -51,8 +43,8 @@ public final class MediaLO {
 		                                   fieldName: fieldName,
 		                                   fileName: fileName,
 		                                   mimeType: mimeType) { (json, result) in
-											
 											let media = self.parse(json: json)
+											
 											completionHandler(media, result)
 		}
 	}
@@ -61,13 +53,14 @@ public final class MediaLO {
 	                         completionHandler: @escaping (UIImage?, ServerResponse) -> Void) {
 		
 		Alamofire.request(url).responseImage { response in
+			let serverResponse = ServerResponse(response.response)
 			
-			completionHandler(response.result.value, .error(.pictureNotUpdated))
+			switch serverResponse {
+			case .success:
+				completionHandler(response.result.value, serverResponse)
+			case .error:
+				completionHandler(response.result.value, .error(.pictureNotUpdated))
+			}
 		}
 	}
-
-//*************************************************
-// MARK: - Overridden Public Methods
-//*************************************************
-
 }

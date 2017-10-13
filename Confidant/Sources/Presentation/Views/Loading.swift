@@ -91,11 +91,14 @@ extension UIButton {
 
 extension UIView {
     
-    func loadingIndicatorView(isShow: Bool, at point: CGPoint?) {
+	func loadingIndicatorView(isShow: Bool,
+	                          at point: CGPoint? = nil,
+	                          isLarge: Bool = false, color: UIColor? = nil) {
         if isShow {
             let indicator = UIActivityIndicatorView()
             indicator.tag = kLoadingViewTag
-            indicator.color = UIColor.lightGray
+			indicator.activityIndicatorViewStyle = isLarge ? .whiteLarge : .white
+			indicator.color = color ?? UIColor.lightGray
             let viewHeight = self.frame.height
             let viewWidth = self.frame.width
             indicator.center = CGPoint(x: point?.x ?? (viewWidth/2), y: point?.y ?? (viewHeight/2))

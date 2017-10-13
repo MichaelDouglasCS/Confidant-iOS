@@ -178,9 +178,9 @@ public final class UsersLO {
 	}
 	
 	public func load(completionHandler: @escaping LogicResult) {
-		let url = ServerRequest.User.load.url(params: "\(self.current.email ?? "")")
+		let url = ServerRequest.User.getByEmail.url(params: "\(self.current.email ?? "")")
 		
-		ServerRequest.User.load.execute(aPath: url?.absoluteString) { (json, result) in
+		ServerRequest.User.getByEmail.execute(aPath: url?.absoluteString) { (json, result) in
 			self.cacheAndSetCurrent(json: json)
 			completionHandler(result)
 		}
@@ -219,7 +219,7 @@ extension UsersLO {
 							completionHandler(result)
 			}
 		} else {
-			completionHandler(.error(ServerResponse.Error.pictureNotUpdated))
+			completionHandler(.error(.pictureNotUpdated))
 		}
 	}
 	

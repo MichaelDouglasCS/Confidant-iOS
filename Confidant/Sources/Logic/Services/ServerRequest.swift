@@ -112,11 +112,17 @@ public enum ServerRequest {
 		static public let update: ServerRequest = .mobile((method: .put, path: "/users"))
 		static public let authenticate: ServerRequest = .mobile((method: .post, path: "/users/authenticate"))
 		static public let facebookAuth: ServerRequest = .mobile((method: .get, path: "/users/facebook"))
-		static public let load: ServerRequest = .mobile((method: .get, path: "/users/{email}"))
+		static public let getByEmail: ServerRequest = .mobile((method: .get, path: "/users/{email}"))
 	}
 	
 	public struct Media {
 		static public let upload: ServerRequest = .mobile((method: .post, path: "/media/"))
+	}
+	
+	public struct Knowledge {
+		static public let insert: ServerRequest = .mobile((method: .post, path: "/knowledges"))
+		static public let listAll: ServerRequest = .mobile((method: .get, path: "/knowledges"))
+		static public let deleteByID: ServerRequest = .mobile((method: .delete, path: "/knowledges/{id}"))
 	}
 	
 //**************************************************

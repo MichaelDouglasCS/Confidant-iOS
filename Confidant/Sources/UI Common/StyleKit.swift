@@ -19,6 +19,7 @@ extension UIColor {
 	struct Confidant {
 		static var pink: UIColor { return UIColor(hexadecimal: 0xE15AD7) }
 		static var lightGray: UIColor { return UIColor(red: 0, green: 0, blue: 0, alpha: 0.5) }
+		static var condensedGray: UIColor { return UIColor(hexadecimal: 0xF0F0F0) }
 	}
 	
 	convenience init(hexadecimal: Int) {
