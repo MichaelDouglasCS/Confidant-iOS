@@ -65,7 +65,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGI-di-pOt" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGI-di-pOt" userLabel="Continue" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="63" y="104.5" width="145" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="dJM-cN-V8m"/>
@@ -208,7 +208,7 @@
                                     <action selector="confidantSelectedAction:" destination="geB-CI-rI1" eventType="touchUpInside" id="05i-P0-2Dv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8p-wf-kEO" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8p-wf-kEO" userLabel="Continue" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                 <rect key="frame" x="107" y="602" width="161" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="NUc-v6-DnX"/>
@@ -376,7 +376,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Kh-dC-Nz8" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Kh-dC-Nz8" userLabel="Continue" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                 <rect key="frame" x="107" y="306" width="161" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="161" id="6rK-aL-mWC"/>
@@ -491,10 +491,10 @@
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DpQ-E8-nni">
-                                <rect key="frame" x="0.0" y="160" width="375" height="506.5"/>
+                                <rect key="frame" x="0.0" y="160" width="375" height="422"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TA4-gd-Snq">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="506.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="422"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="15" id="php-Jd-gXu">
@@ -568,13 +568,41 @@
                                     <constraint firstAttribute="height" constant="1" id="sp9-aV-L3Z"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ax4-8N-JqL" userLabel="Separator">
+                                <rect key="frame" x="0.0" y="581" width="375" height="1"/>
+                                <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Oyv-CH-IzM"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tP-ut-lk9" userLabel="Continue" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
+                                <rect key="frame" x="107" y="602" width="161" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="161" id="Vsj-O0-jUp"/>
+                                    <constraint firstAttribute="height" constant="45" id="hRe-aX-JDY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                <state key="normal" title="LB_CONTINUE" backgroundImage="bg_pink">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="23"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continueAction:" destination="FPN-hF-c5r" eventType="touchUpInside" id="kwb-e4-anY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jNe-D9-bWw" firstAttribute="top" secondItem="hDu-fJ-8EI" secondAttribute="bottom" constant="25" id="3QF-UP-PU3"/>
-                            <constraint firstItem="ihA-DW-rDu" firstAttribute="top" secondItem="DpQ-E8-nni" secondAttribute="bottom" id="6CM-Fl-gHw"/>
+                            <constraint firstItem="6tP-ut-lk9" firstAttribute="centerX" secondItem="qMo-xy-28k" secondAttribute="centerX" id="3h2-zx-q08"/>
+                            <constraint firstItem="ax4-8N-JqL" firstAttribute="leading" secondItem="qMo-xy-28k" secondAttribute="leading" id="5Bp-Pw-VFg"/>
                             <constraint firstAttribute="trailing" secondItem="DpQ-E8-nni" secondAttribute="trailing" id="CwD-RG-9B9"/>
                             <constraint firstItem="DpQ-E8-nni" firstAttribute="top" secondItem="sYn-ql-vJt" secondAttribute="bottom" constant="15" id="Eua-J8-gfe"/>
+                            <constraint firstItem="ax4-8N-JqL" firstAttribute="bottom" secondItem="DpQ-E8-nni" secondAttribute="bottom" id="F21-hn-dSg"/>
                             <constraint firstItem="sYn-ql-vJt" firstAttribute="top" secondItem="bKp-yf-M9e" secondAttribute="bottom" constant="15" id="FM7-Zu-U2T"/>
                             <constraint firstItem="jNe-D9-bWw" firstAttribute="leading" secondItem="uCV-jw-yyy" secondAttribute="trailing" constant="10" id="Lai-7S-HwQ"/>
                             <constraint firstItem="uCV-jw-yyy" firstAttribute="leading" secondItem="qMo-xy-28k" secondAttribute="leading" constant="5" id="Nom-D5-3nL"/>
@@ -582,8 +610,11 @@
                             <constraint firstItem="ihA-DW-rDu" firstAttribute="top" secondItem="w6k-vx-CcR" secondAttribute="bottom" id="QCj-7x-bmG"/>
                             <constraint firstItem="w6k-vx-CcR" firstAttribute="top" secondItem="qMo-xy-28k" secondAttribute="topMargin" id="RJW-u6-Ch3"/>
                             <constraint firstAttribute="trailing" secondItem="sYn-ql-vJt" secondAttribute="trailing" constant="24" id="ZtF-fm-880"/>
+                            <constraint firstAttribute="trailing" secondItem="ax4-8N-JqL" secondAttribute="trailing" id="c9E-3y-Beg"/>
                             <constraint firstItem="bKp-yf-M9e" firstAttribute="top" secondItem="jNe-D9-bWw" secondAttribute="bottom" constant="15" id="cyx-Yi-Phz"/>
+                            <constraint firstItem="ihA-DW-rDu" firstAttribute="top" secondItem="6tP-ut-lk9" secondAttribute="bottom" constant="20" id="eLS-RG-fOU"/>
                             <constraint firstItem="w6k-vx-CcR" firstAttribute="leading" secondItem="qMo-xy-28k" secondAttribute="leading" id="fbn-xa-pWK"/>
+                            <constraint firstItem="6tP-ut-lk9" firstAttribute="top" secondItem="DpQ-E8-nni" secondAttribute="bottom" constant="20" id="gaY-PN-VwU"/>
                             <constraint firstItem="DpQ-E8-nni" firstAttribute="leading" secondItem="qMo-xy-28k" secondAttribute="leading" id="h8W-mU-lEv"/>
                             <constraint firstAttribute="trailing" secondItem="BPE-eb-fbS" secondAttribute="trailing" id="heb-ZW-fcP"/>
                             <constraint firstItem="BPE-eb-fbS" firstAttribute="leading" secondItem="qMo-xy-28k" secondAttribute="leading" id="hmJ-T7-nLP"/>
@@ -596,6 +627,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="TA4-gd-Snq" id="wXc-uJ-uT3"/>
+                        <outlet property="continueButton" destination="6tP-ut-lk9" id="noB-M8-Z1T"/>
                         <outlet property="searchDisplayController" destination="Loh-Ou-1wQ" id="vD7-FB-C1S"/>
                     </connections>
                 </viewController>

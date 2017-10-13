@@ -24,6 +24,16 @@ class LogInVC: UIViewController {
 //*************************************************
 // MARK: - Properties
 //*************************************************
+	
+	fileprivate var isLoginEnabled: Bool {
+		get {
+			return self.logInButton.isEnabled
+		}
+		
+		set {
+			self.logInButton.isEnabled = newValue
+		}
+	}
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var emailTextField: UITextField!
@@ -123,19 +133,11 @@ extension LogInVC: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)
 		
-		switch textField.tag {
-        case TextField.email.rawValue:
-            if !(textFill.isEmpty && self.passwordTextField.text!.isEmpty) {
-				self.logInButton.isEnabled = true
-            } else {
-                self.logInButton.isEnabled = false
-            }
-        case TextField.password.rawValue:
-            if !(textFill.isEmpty && self.emailTextField.text!.isEmpty) {
-                self.logInButton.isEnabled = true
-            } else {
-                self.logInButton.isEnabled = false
-            }
+		switch textField {
+        case self.emailTextField:
+            self.isLoginEnabled = !textFill.isEmpty && !self.passwordTextField.text!.isEmpty
+        case self.passwordTextField:
+            self.isLoginEnabled = !textFill.isEmpty && !self.emailTextField.text!.isEmpty
 		default:
 			break
         }
@@ -144,10 +146,10 @@ extension LogInVC: UITextFieldDelegate {
     }
     
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		switch textField.tag {
-		case TextField.email.rawValue:
+		switch textField {
+		case self.emailTextField:
 			self.passwordTextField.becomeFirstResponder()
-		case TextField.password.rawValue:
+		case self.passwordTextField:
 			if self.emailTextField.text?.isEmpty == true {
 				self.emailTextField.becomeFirstResponder()
 			} else if self.passwordTextField.text?.isEmpty == true {

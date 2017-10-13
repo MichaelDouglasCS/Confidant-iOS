@@ -23,7 +23,7 @@ class PersonalInfoVC: UIViewController {
 	
 	fileprivate var isUploading: Bool = false
 	
-	fileprivate var isConfirmEnabled: Bool {
+	fileprivate var isContinueEnabled: Bool {
 		get {
 			return self.continueButton.isEnabled
 		}
@@ -76,7 +76,7 @@ class PersonalInfoVC: UIViewController {
 		
 		camera.presentOptions(at: self, options: options, remove: hasPhoto) { (image: UIImage?) in
 			self.profilePicture.loadingIndicatorView(isShow: true, at: nil)
-			self.isConfirmEnabled = false
+			self.isContinueEnabled = false
 
 			if let image = image {
 				self.isUploading = true
@@ -90,12 +90,12 @@ class PersonalInfoVC: UIViewController {
 					}
 					
 					self.profilePicture.loadingIndicatorView(isShow: false, at: nil)
-					self.isConfirmEnabled = self.nicknameTextField.hasText
+					self.isContinueEnabled = self.nicknameTextField.hasText
 					self.isUploading = false
 				}
 			} else {
 				self.profilePicture.loadingIndicatorView(isShow: false, at: nil)
-				self.isConfirmEnabled = self.nicknameTextField.hasText
+				self.isContinueEnabled = self.nicknameTextField.hasText
 				self.profilePicture.image = UIImage(named: "icn_anchor_gray")
 			}
 		}
@@ -173,7 +173,7 @@ extension PersonalInfoVC: UITextFieldDelegate {
 		
 		switch textField {
 		case self.nicknameTextField:
-			self.isConfirmEnabled = !textFill.isEmpty && !self.isUploading
+			self.isContinueEnabled = !textFill.isEmpty && !self.isUploading
 		default:
 			break
 		}

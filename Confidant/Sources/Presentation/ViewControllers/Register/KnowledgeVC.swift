@@ -35,6 +35,7 @@ class KnowledgeVC: UIViewController {
 	fileprivate var knowledgeData: [KnowledgeBO] = []
 	
 	@IBOutlet weak var collectionView: UICollectionView!
+	@IBOutlet weak var continueButton: IBDesigableButton!
 
 //*************************************************
 // MARK: - Constructors
@@ -82,6 +83,10 @@ class KnowledgeVC: UIViewController {
 			}
 		}
 	}
+	
+	fileprivate func isContinueEnabled() {
+		self.continueButton.isEnabled = UsersLO.sharedInstance.current.profile.knowledges?.count != 0
+	}
 
 //*************************************************
 // MARK: - Exposed Methods
@@ -91,6 +96,9 @@ class KnowledgeVC: UIViewController {
 		self.navigationController?.popViewController(animated: true)
 	}
 
+	@IBAction func continueAction(_ sender: IBDesigableButton) {
+	}
+	
 //*************************************************
 // MARK: - Overridden Public Methods
 //*************************************************
@@ -142,6 +150,7 @@ extension KnowledgeVC : UICollectionViewDelegate {
 		}
 		
 		UsersLO.sharedInstance.current.profile.knowledges?.append(self.knowledgeData[indexPath.row])
+		self.isContinueEnabled()
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -149,6 +158,7 @@ extension KnowledgeVC : UICollectionViewDelegate {
 		
 		if let index = UsersLO.sharedInstance.current.profile.knowledges?.index(where: {$0.topic == knowledge.topic}) {
 			UsersLO.sharedInstance.current.profile.knowledges?.remove(at: index)
+			self.isContinueEnabled()
 		}
 	}
 }
