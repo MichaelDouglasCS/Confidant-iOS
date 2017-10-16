@@ -132,6 +132,17 @@ extension KnowledgeVC : UICollectionViewDataSource {
 			cell = knowledgeCell
 		}
 		
+		if let knowledges = UsersLO.sharedInstance.current.profile.knowledges {
+			
+			knowledges.forEach({ (knowledge) in
+				
+				if knowledge.topic == self.knowledgeData[indexPath.row].topic {
+					collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+					cell.isSelected = true
+				}
+			})
+		}
+		
 		return cell
 	}
 }
