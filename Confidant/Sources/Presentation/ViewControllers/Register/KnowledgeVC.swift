@@ -33,6 +33,7 @@ class KnowledgeVC: UIViewController {
 //*************************************************
 	
 	fileprivate var knowledgeData: [KnowledgeBO] = []
+	private let searchSegue: String = "showSearchSegue"
 	
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var continueButton: IBDesigableButton!
@@ -53,6 +54,10 @@ class KnowledgeVC: UIViewController {
 		}
 	}
 	
+	fileprivate func isContinueEnabled() {
+		self.continueButton.isEnabled = UsersLO.sharedInstance.current.profile.knowledges?.count != 0
+	}
+	
 	@objc private func loadData() {
 		self.collectionView.loadingIndicatorView(isShow: true, isLarge: true)
 		
@@ -61,7 +66,7 @@ class KnowledgeVC: UIViewController {
 			switch result {
 			case .success:
 				self.knowledgeData = knowledges
-				self.didReload()
+				self.didReloadData()
 			case .error(let error):
 				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue)
 			}
@@ -70,7 +75,7 @@ class KnowledgeVC: UIViewController {
 		}
 	}
 	
-	private func didReload() {
+	private func didReloadData() {
 		let selections = self.collectionView.indexPathsForSelectedItems
 		
 		self.collectionView.reloadSections(IndexSet(integer: 0))
@@ -79,13 +84,15 @@ class KnowledgeVC: UIViewController {
 				$0.row < self.collectionView.numberOfItems(inSection: $0.section) {
 				self.collectionView.selectItem(at: $0,
 				                               animated: false,
-				                               scrollPosition: .left)
+				                               scrollPosition: .top)
 			}
 		}
+
+		self.isContinueEnabled()
 	}
 	
-	fileprivate func isContinueEnabled() {
-		self.continueButton.isEnabled = UsersLO.sharedInstance.current.profile.knowledges?.count != 0
+	fileprivate func searchAction() {
+		self.performSegue(withIdentifier: self.searchSegue, sender: nil)
 	}
 
 //*************************************************
@@ -108,6 +115,32 @@ class KnowledgeVC: UIViewController {
 		self.setupCollectionView()
 		self.loadData()
     }
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		
+		if segue.identifier == self.searchSegue {
+			
+			if let searchVC = segue.destination as? SearchKnowledgesVC,
+				let selectedKnowledges = UsersLO.sharedInstance.current.profile.knowledges {
+				
+				searchVC.knowledgeData = self.knowledgeData.filter({ !selectedKnowledges.contains($0) })
+			}
+		}
+	}
+}
+
+//**********************************************************************************************************
+//
+// MARK: - Extension - UISearchBarDelegate
+//
+//**********************************************************************************************************
+
+extension KnowledgeVC: UISearchBarDelegate {
+	
+	func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+		self.searchAction()
+		return false
+	}
 }
 
 //**********************************************************************************************************
@@ -116,7 +149,7 @@ class KnowledgeVC: UIViewController {
 //
 //**********************************************************************************************************
 
-extension KnowledgeVC : UICollectionViewDataSource {
+extension KnowledgeVC: UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return self.knowledgeData.count
@@ -153,7 +186,7 @@ extension KnowledgeVC : UICollectionViewDataSource {
 //
 //**********************************************************************************************************
 
-extension KnowledgeVC : UICollectionViewDelegate {
+extension KnowledgeVC: UICollectionViewDelegate {
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		if UsersLO.sharedInstance.current.profile.knowledges == nil {

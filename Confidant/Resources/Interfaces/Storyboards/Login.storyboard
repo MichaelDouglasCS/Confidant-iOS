@@ -773,7 +773,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QU8-uW-fYb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" backIndicatorImage="icn_back" backIndicatorTransitionMaskImage="icn_back" id="FOt-cQ-22d">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="icn_back" backIndicatorTransitionMaskImage="icn_back" id="FOt-cQ-22d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

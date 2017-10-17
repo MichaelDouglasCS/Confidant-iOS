@@ -32,6 +32,11 @@ public class KnowledgeBO: Mappable {
 	
 	public required init?(map: Map) { }
 	
+	convenience init(topic: String?) {
+		self.init()
+		self.topic = topic
+	}
+	
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
@@ -39,5 +44,26 @@ public class KnowledgeBO: Mappable {
 	public func mapping(map: Map) {
 		self.id <- map["id"]
 		self.topic <- map["topic"]
+	}
+}
+
+//**********************************************************************************************************
+//
+// MARK: - Extension -
+//
+//**********************************************************************************************************
+
+extension KnowledgeBO: Equatable {
+	
+	/// Returns a Boolean value indicating whether two values are equal.
+	///
+	/// Equality is the inverse of inequality. For any values `a` and `b`,
+	/// `a == b` implies that `a != b` is `false`.
+	///
+	/// - Parameters:
+	///   - lhs: A value to compare.
+	///   - rhs: Another value to compare.
+	public static func ==(lhs: KnowledgeBO, rhs: KnowledgeBO) -> Bool {
+		return lhs.id == rhs.id
 	}
 }
