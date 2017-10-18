@@ -38,10 +38,6 @@ class KnowledgeVC: UIViewController {
 		}
 	}
 	
-	fileprivate func isContinueEnabled() {
-		self.continueButton.isEnabled = UsersLO.sharedInstance.current.profile.knowledges.count != 0
-	}
-	
 	@objc private func loadData() {
 		self.collectionView.loadingIndicatorView(isShow: true, isLarge: true)
 		
@@ -57,6 +53,10 @@ class KnowledgeVC: UIViewController {
 			
 			self.collectionView.loadingIndicatorView(isShow: false)
 		}
+	}
+	
+	fileprivate func isContinueEnabled() {
+		self.continueButton.isEnabled = UsersLO.sharedInstance.current.profile.knowledges.count != 0
 	}
 	
 	fileprivate func didReloadData() {
