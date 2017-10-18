@@ -64,6 +64,8 @@ extension KnowledgeBO: Equatable {
 	///   - lhs: A value to compare.
 	///   - rhs: Another value to compare.
 	public static func ==(lhs: KnowledgeBO, rhs: KnowledgeBO) -> Bool {
-		return lhs.id == rhs.id
+		let isTopicEqual = lhs.topic?.range(of: rhs.topic ?? "", options: .caseInsensitive) != nil
+		
+		return lhs.id == rhs.id && isTopicEqual
 	}
 }

@@ -104,6 +104,7 @@ class PersonalInfoVC: UIViewController {
 	private func updateAndContinue() {
 		let user = UsersLO.sharedInstance.current
 		
+		self.dismissKeyboard()
 		self.loadingIndicatorCustom(isShow: true)
 		UsersLO.sharedInstance.update(user: user) { (result) in
 			

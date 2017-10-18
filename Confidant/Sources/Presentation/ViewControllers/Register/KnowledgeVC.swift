@@ -10,18 +10,6 @@ import UIKit
 
 //**********************************************************************************************************
 //
-// MARK: - Constants -
-//
-//**********************************************************************************************************
-
-//**********************************************************************************************************
-//
-// MARK: - Definitions -
-//
-//**********************************************************************************************************
-
-//**********************************************************************************************************
-//
 // MARK: - Class -
 //
 //**********************************************************************************************************
@@ -39,10 +27,6 @@ class KnowledgeVC: UIViewController {
 	@IBOutlet weak var continueButton: IBDesigableButton!
 
 //*************************************************
-// MARK: - Constructors
-//*************************************************
-
-//*************************************************
 // MARK: - Protected Methods
 //*************************************************
 	
@@ -55,7 +39,7 @@ class KnowledgeVC: UIViewController {
 	}
 	
 	fileprivate func isContinueEnabled() {
-		self.continueButton.isEnabled = UsersLO.sharedInstance.current.profile.knowledges?.count != 0
+		self.continueButton.isEnabled = UsersLO.sharedInstance.current.profile.knowledges.count != 0
 	}
 	
 	@objc private func loadData() {
@@ -68,31 +52,60 @@ class KnowledgeVC: UIViewController {
 				self.knowledgeData = knowledges
 				self.didReloadData()
 			case .error(let error):
-				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue)
+				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
 			}
 			
 			self.collectionView.loadingIndicatorView(isShow: false)
 		}
 	}
 	
-	private func didReloadData() {
-		let selections = self.collectionView.indexPathsForSelectedItems
-		
+	fileprivate func didReloadData() {
+		self.knowledgeData = self.knowledgeData.knowledgeSorted()
 		self.collectionView.reloadSections(IndexSet(integer: 0))
-		selections?.forEach {
-			if $0.section < self.collectionView.numberOfSections &&
-				$0.row < self.collectionView.numberOfItems(inSection: $0.section) {
-				self.collectionView.selectItem(at: $0,
-				                               animated: false,
-				                               scrollPosition: .top)
-			}
-		}
-
 		self.isContinueEnabled()
 	}
 	
 	fileprivate func searchAction() {
 		self.performSegue(withIdentifier: self.searchSegue, sender: nil)
+	}
+	
+	private func updateUser() {
+		let user = UsersLO.sharedInstance.current
+		
+		UsersLO.sharedInstance.update(user: user) { (result) in
+			
+			switch result {
+			case .success:
+				print("USER UPDATE")
+				break
+			case .error(let error):
+				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
+			}
+		}
+	}
+	
+	private func updateAndContinue() {
+		let newKnowledges = self.knowledgeData.filter({ $0.id == nil && $0.isSelected })
+		
+		if newKnowledges.count != 0 {
+			KnowledgeLO.insert(knowledges: newKnowledges) { (knowledges, result) in
+				
+				switch result {
+				case .success:
+					self.knowledgeData = knowledges
+					
+					knowledges.forEach({ knowledge in
+						UsersLO.sharedInstance.current.profile.knowledges.update(knowledge)
+					})
+					
+					self.updateUser()
+				case .error(let error):
+					self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
+				}
+			}
+		} else {
+			self.updateUser()
+		}
 	}
 
 //*************************************************
@@ -104,6 +117,7 @@ class KnowledgeVC: UIViewController {
 	}
 
 	@IBAction func continueAction(_ sender: IBDesigableButton) {
+		self.updateAndContinue()
 	}
 	
 //*************************************************
@@ -120,9 +134,10 @@ class KnowledgeVC: UIViewController {
 		
 		if segue.identifier == self.searchSegue {
 			
-			if let searchVC = segue.destination as? SearchKnowledgesVC,
-				let selectedKnowledges = UsersLO.sharedInstance.current.profile.knowledges {
+			if let searchVC = segue.destination as? SearchKnowledgesVC {
+				let selectedKnowledges = UsersLO.sharedInstance.current.profile.knowledges
 				
+				searchVC.delegate = self
 				searchVC.knowledgeData = self.knowledgeData.filter({ !selectedKnowledges.contains($0) })
 			}
 		}
@@ -140,6 +155,34 @@ extension KnowledgeVC: UISearchBarDelegate {
 	func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
 		self.searchAction()
 		return false
+	}
+}
+
+//**********************************************************************************************************
+//
+// MARK: - Extension - SearchKnowledgesDelegate
+//
+//**********************************************************************************************************
+
+extension KnowledgeVC: SearchKnowledgesDelegate {
+	
+	func search(_ search: SearchKnowledgesVC, didUpdateKnowledges newKnowledge: KnowledgeBO) {
+
+		if self.knowledgeData.contains(newKnowledge) {
+			
+			if let index = self.knowledgeData.index(where: { $0.topic?.range(of: newKnowledge.topic ?? "",
+			                                                               options: .caseInsensitive) != nil }) {
+				
+				if !self.knowledgeData[index].isSelected {
+					UsersLO.sharedInstance.current.profile.knowledges.append(self.knowledgeData[index])
+				}
+			}
+		} else {
+			self.knowledgeData.append(newKnowledge)
+			UsersLO.sharedInstance.current.profile.knowledges.append(newKnowledge)
+		}
+		
+		self.didReloadData()
 	}
 }
 
@@ -165,15 +208,9 @@ extension KnowledgeVC: UICollectionViewDataSource {
 			cell = knowledgeCell
 		}
 		
-		if let knowledges = UsersLO.sharedInstance.current.profile.knowledges {
-			
-			knowledges.forEach({ (knowledge) in
-				
-				if knowledge.topic == self.knowledgeData[indexPath.row].topic {
-					collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
-					cell.isSelected = true
-				}
-			})
+		if self.knowledgeData[indexPath.row].isSelected {
+			collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+			cell.isSelected = true
 		}
 		
 		return cell
@@ -189,19 +226,17 @@ extension KnowledgeVC: UICollectionViewDataSource {
 extension KnowledgeVC: UICollectionViewDelegate {
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		if UsersLO.sharedInstance.current.profile.knowledges == nil {
-			UsersLO.sharedInstance.current.profile.knowledges = []
-		}
-		
-		UsersLO.sharedInstance.current.profile.knowledges?.append(self.knowledgeData[indexPath.row])
+		UsersLO.sharedInstance.current.profile.knowledges.append(self.knowledgeData[indexPath.row])
 		self.isContinueEnabled()
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
 		let knowledge = self.knowledgeData[indexPath.row]
+		let knowledges = UsersLO.sharedInstance.current.profile.knowledges
 		
-		if let index = UsersLO.sharedInstance.current.profile.knowledges?.index(where: {$0.topic == knowledge.topic}) {
-			UsersLO.sharedInstance.current.profile.knowledges?.remove(at: index)
+		if let index = knowledges.index(where: { $0.topic?.range(of: knowledge.topic ?? "",
+		                                                        options: .caseInsensitive) != nil }) {
+			UsersLO.sharedInstance.current.profile.knowledges.remove(at: index)
 			self.isContinueEnabled()
 		}
 	}

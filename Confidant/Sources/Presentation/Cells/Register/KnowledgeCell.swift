@@ -60,4 +60,5 @@ class KnowledgeCell: UICollectionViewCell {
 //*************************************************
 // MARK: - Overridden Public Methods
 //*************************************************
+	
 }

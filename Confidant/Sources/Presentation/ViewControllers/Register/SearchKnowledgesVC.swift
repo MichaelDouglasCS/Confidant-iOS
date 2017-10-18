@@ -10,6 +10,16 @@ import UIKit
 
 //**********************************************************************************************************
 //
+// MARK: - Definitions -
+//
+//**********************************************************************************************************
+
+protocol SearchKnowledgesDelegate : class {
+	func search(_ search: SearchKnowledgesVC, didUpdateKnowledges newKnowledge: KnowledgeBO)
+}
+
+//**********************************************************************************************************
+//
 // MARK: - Class -
 //
 //**********************************************************************************************************
@@ -20,13 +30,14 @@ class SearchKnowledgesVC: UIViewController {
 // MARK: - Properties
 //*************************************************
 	
-	fileprivate var searchTopic: String = ""
 	fileprivate var knowledgeFiltered: [KnowledgeBO] = []
 	
 	@IBOutlet weak var searchBar: LocalizedSearchBar!
 	@IBOutlet weak var collectionView: UICollectionView!
 	
 	var knowledgeData: [KnowledgeBO] = []
+	
+	weak var delegate: SearchKnowledgesDelegate?
 
 //*************************************************
 // MARK: - Constructors
@@ -51,6 +62,7 @@ class SearchKnowledgesVC: UIViewController {
 	
 	fileprivate func didReloadData() {
 		UIView.performWithoutAnimation {
+			self.knowledgeFiltered = self.knowledgeFiltered.knowledgeSorted()
 			self.collectionView.reloadSections(IndexSet(integer: 0))
 		}
 	}
@@ -104,19 +116,24 @@ extension SearchKnowledgesVC: UISearchBarDelegate {
 	}
 	
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		self.searchTopic = searchText
-		self.knowledgeFiltered = self.knowledgeData.filter({ (knowledge) in
+		var filtered = self.knowledgeData.filter({ (knowledge) in
 			let topic = knowledge.topic as NSString?
 			let range = topic?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
 			
 			return range?.location != NSNotFound
 		})
 		
+		if filtered.isEmpty && !searchText.isEmpty {
+			filtered.append(KnowledgeBO(topic: searchText))
+		}
+		
+		self.knowledgeFiltered = filtered
+		
 		self.didReloadData()
 	}
 	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-		self.view.endEditing(true)
+		self.dismissKeyboard()
 		self.enableCancelButton(searchBar: searchBar)
 	}
 	
@@ -134,8 +151,7 @@ extension SearchKnowledgesVC: UISearchBarDelegate {
 extension SearchKnowledgesVC: UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		let numberOfItems = !self.knowledgeFiltered.isEmpty || self.searchTopic.isEmpty ? self.knowledgeFiltered.count : 1
-		return numberOfItems
+		return self.knowledgeFiltered.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView,
@@ -144,15 +160,7 @@ extension SearchKnowledgesVC: UICollectionViewDataSource {
 		
 		if let knowledgeCell = collectionView.dequeueReusableCell(withReuseIdentifier: CellID.knowledgeCell,
 		                                                          for: indexPath) as? KnowledgeCell {
-			var model: KnowledgeBO?
-			
-			if !self.knowledgeFiltered.isEmpty {
-				model = self.knowledgeFiltered[indexPath.row]
-			} else {
-				model = KnowledgeBO(topic: self.searchTopic)
-			}
-			
-			knowledgeCell.updateLayout(for: model)
+			knowledgeCell.updateLayout(for: self.knowledgeFiltered[indexPath.row])
 			cell = knowledgeCell
 		}
 		
@@ -169,10 +177,8 @@ extension SearchKnowledgesVC: UICollectionViewDataSource {
 extension SearchKnowledgesVC: UICollectionViewDelegate {
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		if UsersLO.sharedInstance.current.profile.knowledges == nil {
-			UsersLO.sharedInstance.current.profile.knowledges = []
-		}
-		
-		UsersLO.sharedInstance.current.profile.knowledges?.append(self.knowledgeData[indexPath.row])
+		self.dismissKeyboard()
+		self.delegate?.search(self, didUpdateKnowledges: self.knowledgeFiltered[indexPath.row])
+		self.dismiss(animated: true, completion: nil)
 	}
 }
