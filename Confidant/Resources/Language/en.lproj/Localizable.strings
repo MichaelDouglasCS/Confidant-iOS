@@ -25,6 +25,8 @@
 "LB_WHAT_TOPICS" = "What topics are you a Confidant?";
 "LB_SELECT_ONE_OR_MORE" = "Select one or more";
 "LB_SEARCH" = "Search";
+"LB_GO_ONLINE" = "GO ONLINE";
+"LB_TO_GO_ONLINE" = "GO ONLINE";
 
 //*************************
 // Strings
@@ -79,3 +81,5 @@
 "MSG_MAKE_PROFILE" = "Let’s make you a profile.";
 "MSG_ENTER_NICKNAME_PICTURE" = "Enter your Nickname and add an optional profile picture.";
 "MSG_PICTURE_NOT_UPDATED" = "Could not update your profile picture. Please try again later.";
+"MSG_ALMOST_DONE" = "We are almost done! :-)";
+"MSG_LET_PEOPLE_KNOW" = "Let people know when you are available to help them!";

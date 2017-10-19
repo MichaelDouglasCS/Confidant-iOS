@@ -66,6 +66,7 @@
 		61D0FAEE1F85DB57009399C0 /* MediaLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D0FAED1F85DB57009399C0 /* MediaLO.swift */; };
 		61D0FAF21F85DD04009399C0 /* MediaBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D0FAF11F85DD04009399C0 /* MediaBO.swift */; };
 		61D271901F842D6D0071F1BA /* FacebookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2718F1F842D6D0071F1BA /* FacebookVC.swift */; };
+		61D7C85E1F98469500F467A7 /* GoOnlineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D7C85D1F98469500F467A7 /* GoOnlineVC.swift */; };
 		61F127891EA6FFA200F14A17 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61F1278B1EA6FFA200F14A17 /* Localizable.strings */; };
 		61F127981EA7015F00F14A17 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1278D1EA7015E00F14A17 /* Alerts.swift */; };
 		61F1279B1EA7015F00F14A17 /* DateKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F127901EA7015E00F14A17 /* DateKit.swift */; };
@@ -182,6 +183,7 @@
 		61D0FAED1F85DB57009399C0 /* MediaLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLO.swift; sourceTree = "<group>"; };
 		61D0FAF11F85DD04009399C0 /* MediaBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaBO.swift; sourceTree = "<group>"; };
 		61D2718F1F842D6D0071F1BA /* FacebookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookVC.swift; sourceTree = "<group>"; };
+		61D7C85D1F98469500F467A7 /* GoOnlineVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoOnlineVC.swift; sourceTree = "<group>"; };
 		61F1278A1EA6FFA200F14A17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		61F1278C1EA6FFE600F14A17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		61F1278D1EA7015E00F14A17 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 		6158AD741F7F277E00BB5EE3 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				61D7C85D1F98469500F467A7 /* GoOnlineVC.swift */,
 				61796F561F8FBF0500B89312 /* KnowledgeVC.swift */,
 				616FB2A61F82D798003F1445 /* PersonalInfoVC.swift */,
 				6158AD751F7F283300BB5EE3 /* ProfileTypeVC.swift */,
@@ -1051,6 +1054,7 @@
 				61494DFA1E685AB400D4DF13 /* AppDelegate.swift in Sources */,
 				61F127981EA7015F00F14A17 /* Alerts.swift in Sources */,
 				61F1279D1EA7015F00F14A17 /* KeyboardToolbar.swift in Sources */,
+				61D7C85E1F98469500F467A7 /* GoOnlineVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

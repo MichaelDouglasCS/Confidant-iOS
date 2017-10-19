@@ -69,6 +69,12 @@ class KnowledgeVC: UIViewController {
 		self.performSegue(withIdentifier: self.searchSegue, sender: nil)
 	}
 	
+	private func showNextVC() {
+		DispatchQueue.main.async {
+			self.performSegue(withIdentifier: "showGoOnlineSegue", sender: nil)
+		}
+	}
+	
 	private func updateUser() {
 		let user = UsersLO.sharedInstance.current
 		
@@ -76,15 +82,17 @@ class KnowledgeVC: UIViewController {
 			
 			switch result {
 			case .success:
-				print("USER UPDATE")
-				break
+				self.showNextVC()
 			case .error(let error):
 				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
 			}
+			
+			self.loadingIndicatorCustom(isShow: false)
 		}
 	}
 	
-	private func updateAndContinue() {
+	private func updateKnowledges() {
+		self.loadingIndicatorCustom(isShow: true)
 		let newKnowledges = self.knowledgeData.filter({ $0.id == nil && $0.isSelected })
 		
 		if newKnowledges.count != 0 {
@@ -117,7 +125,7 @@ class KnowledgeVC: UIViewController {
 	}
 
 	@IBAction func continueAction(_ sender: IBDesigableButton) {
-		self.updateAndContinue()
+		self.updateKnowledges()
 	}
 	
 //*************************************************

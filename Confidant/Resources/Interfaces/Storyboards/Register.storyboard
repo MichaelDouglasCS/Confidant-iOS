@@ -52,7 +52,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="uRU-RV-cPz">
-                                <rect key="frame" x="52" y="259.5" width="271" height="149.5"/>
+                                <rect key="frame" x="52" y="259" width="271" height="149.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="MSG_MAKE_PROFILE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4h2-Pu-r3M" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="6" y="0.0" width="259.5" height="69.5"/>
@@ -299,7 +299,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_PERSONAL_INFORMATION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKS-qQ-SWH" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                <rect key="frame" x="45" y="45" width="286.5" height="16.5"/>
+                                <rect key="frame" x="44.5" y="45" width="286.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                 <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -629,11 +629,104 @@
                         <outlet property="collectionView" destination="TA4-gd-Snq" id="wXc-uJ-uT3"/>
                         <outlet property="continueButton" destination="6tP-ut-lk9" id="noB-M8-Z1T"/>
                         <segue destination="TMn-rX-at4" kind="presentation" identifier="showSearchSegue" modalTransitionStyle="crossDissolve" id="rwm-QR-DtS"/>
+                        <segue destination="1vL-bX-pdj" kind="show" identifier="showGoOnlineSegue" id="8Wl-PY-hiz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgb-oH-czM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2525.5999999999999" y="80.50974512743629"/>
+        </scene>
+        <!--Go OnlineVC-->
+        <scene sceneID="pzq-n3-37Y">
+            <objects>
+                <viewController id="1vL-bX-pdj" customClass="GoOnlineVC" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xpz-0E-rA0"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Sp-KN-sZS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d7m-Bf-7uS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aL-S6-C8q" userLabel="HeaderBar">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OxP-Ok-gFl">
+                                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="barTintColor" red="0.88235294117647056" green="0.3529411764705882" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
+                                        <textAttributes key="titleTextAttributes">
+                                            <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </textAttributes>
+                                        <items>
+                                            <navigationItem title="LB_TO_GO_ONLINE" id="wts-5D-iGy" customClass="LocalizedNavigationItem" customModule="Confidant" customModuleProvider="target"/>
+                                        </items>
+                                    </navigationBar>
+                                </subviews>
+                                <color key="backgroundColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="emb-Ub-pEg"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="MSG_ALMOST_DONE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQA-Cc-zxs" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
+                                <rect key="frame" x="40" y="104" width="295" height="77.5"/>
+                                <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="35"/>
+                                <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineSpace">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="MSG_LET_PEOPLE_KNOW" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zB-ss-MAt" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
+                                <rect key="frame" x="40" y="344" width="295" height="51"/>
+                                <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="23"/>
+                                <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineSpace">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfe-gQ-xZo" userLabel="Continue" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
+                                <rect key="frame" x="93" y="568" width="189" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="189" id="6rq-4U-60B"/>
+                                    <constraint firstAttribute="height" constant="55" id="JP2-GL-w0h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                <state key="normal" title="LB_GO_ONLINE" backgroundImage="bg_blue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9zB-ss-MAt" firstAttribute="leading" secondItem="d7m-Bf-7uS" secondAttribute="leading" constant="40" id="8qb-zJ-Bbq"/>
+                            <constraint firstAttribute="topMargin" secondItem="3aL-S6-C8q" secondAttribute="top" id="GMy-MA-QWg"/>
+                            <constraint firstAttribute="trailing" secondItem="CQA-Cc-zxs" secondAttribute="trailing" constant="40" id="JVC-z9-nkm"/>
+                            <constraint firstItem="kfe-gQ-xZo" firstAttribute="centerX" secondItem="d7m-Bf-7uS" secondAttribute="centerX" id="a55-LC-fQB"/>
+                            <constraint firstItem="4Sp-KN-sZS" firstAttribute="top" secondItem="kfe-gQ-xZo" secondAttribute="bottom" constant="44" id="duU-2c-B9X"/>
+                            <constraint firstAttribute="trailing" secondItem="9zB-ss-MAt" secondAttribute="trailing" constant="40" id="guz-xu-ue1"/>
+                            <constraint firstItem="3aL-S6-C8q" firstAttribute="leading" secondItem="d7m-Bf-7uS" secondAttribute="leading" id="pR1-5V-CjZ"/>
+                            <constraint firstAttribute="trailing" secondItem="3aL-S6-C8q" secondAttribute="trailing" id="qJ3-1G-DPx"/>
+                            <constraint firstItem="9zB-ss-MAt" firstAttribute="centerY" secondItem="d7m-Bf-7uS" secondAttribute="centerY" constant="36" id="rvG-FM-Ye6"/>
+                            <constraint firstItem="CQA-Cc-zxs" firstAttribute="top" secondItem="3aL-S6-C8q" secondAttribute="bottom" constant="40" id="xPH-DO-11p"/>
+                            <constraint firstItem="CQA-Cc-zxs" firstAttribute="leading" secondItem="d7m-Bf-7uS" secondAttribute="leading" constant="40" id="ymb-gi-oxq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RNG-kP-R0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3310" y="332"/>
         </scene>
         <!--Search KnowledgesVC-->
         <scene sceneID="80a-YF-Mv0">
@@ -750,6 +843,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg_blue" width="189" height="50"/>
         <image name="bg_pink" width="187" height="50"/>
         <image name="bg_preregister" width="1125" height="2001"/>
         <image name="icn_anchor_gray" width="104" height="104"/>
