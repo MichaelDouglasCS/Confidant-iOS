@@ -121,17 +121,19 @@ class KnowledgeVC: UIViewController {
 //*************************************************
 	
 	@IBAction func backAction(_ sender: LocalizedButton) {
-		let knowledges = UsersLO.sharedInstance.current.profile.knowledges
+		var knowledges = UsersLO.sharedInstance.current.profile.knowledges
 		
 		knowledges?.forEach({
 			
 			if $0.id == nil {
 				
 				if let index = knowledges?.index(of: $0) {
-					UsersLO.sharedInstance.current.profile.knowledges?.remove(at: index)
+					knowledges?.remove(at: index)
 				}
 			}
 		})
+		
+		UsersLO.sharedInstance.current.profile.knowledges = knowledges
 		
 		self.navigationController?.popViewController(animated: true)
 	}
