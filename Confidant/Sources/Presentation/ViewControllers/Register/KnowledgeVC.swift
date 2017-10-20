@@ -38,6 +38,20 @@ class KnowledgeVC: UIViewController {
 		}
 	}
 	
+	fileprivate func isContinueEnabled() {
+		self.continueButton.isEnabled = UsersLO.sharedInstance.current.profile.knowledges?.count != 0
+	}
+	
+	fileprivate func searchAction() {
+		self.performSegue(withIdentifier: self.searchSegue, sender: nil)
+	}
+	
+	private func showNextVC() {
+		DispatchQueue.main.async {
+			self.performSegue(withIdentifier: "showGoOnlineSegue", sender: nil)
+		}
+	}
+	
 	@objc private func loadData() {
 		self.collectionView.loadingIndicatorView(isShow: true, isLarge: true)
 		
@@ -55,24 +69,10 @@ class KnowledgeVC: UIViewController {
 		}
 	}
 	
-	fileprivate func isContinueEnabled() {
-		self.continueButton.isEnabled = UsersLO.sharedInstance.current.profile.knowledges?.count != 0
-	}
-	
 	fileprivate func didReloadData() {
 		self.knowledgeData = self.knowledgeData.knowledgeSorted()
 		self.collectionView.reloadSections(IndexSet(integer: 0))
 		self.isContinueEnabled()
-	}
-	
-	fileprivate func searchAction() {
-		self.performSegue(withIdentifier: self.searchSegue, sender: nil)
-	}
-	
-	private func showNextVC() {
-		DispatchQueue.main.async {
-			self.performSegue(withIdentifier: "showGoOnlineSegue", sender: nil)
-		}
 	}
 	
 	private func updateUser() {
@@ -92,20 +92,20 @@ class KnowledgeVC: UIViewController {
 	}
 	
 	private func updateKnowledges() {
-		self.loadingIndicatorCustom(isShow: true)
 		let newKnowledges = self.knowledgeData.filter({ $0.id == nil && $0.isSelected })
 		
+		self.loadingIndicatorCustom(isShow: true)
+		
 		if newKnowledges.count != 0 {
+			
 			KnowledgeLO.insert(knowledges: newKnowledges) { (knowledges, result) in
 				
 				switch result {
 				case .success:
 					self.knowledgeData = knowledges
-					
 					knowledges.forEach({ knowledge in
 						UsersLO.sharedInstance.current.profile.knowledges?.update(knowledge)
 					})
-					
 					self.updateUser()
 				case .error(let error):
 					self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)

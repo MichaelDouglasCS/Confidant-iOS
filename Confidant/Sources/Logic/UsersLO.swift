@@ -247,7 +247,7 @@ extension UsersLO {
 		let url = ServerRequest.User.changeAvailability.url(params: "\(self.current.id ?? "")")
 		
 		ServerRequest.User.changeAvailability.execute(aPath: url?.absoluteString) { (json, result) in
-			self.cacheAndSetCurrent(json: json)
+			self.current.profile.isAvailable = json.bool
 			completionHandler(result)
 		}
 	}

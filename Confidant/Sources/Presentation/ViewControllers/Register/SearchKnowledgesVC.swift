@@ -78,7 +78,6 @@ class SearchKnowledgesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.setupCollectionView()
-		
 		UIApplication.shared.statusBarStyle = .lightContent
     }
 	
@@ -89,7 +88,6 @@ class SearchKnowledgesVC: UIViewController {
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		
 		UIApplication.shared.statusBarStyle = .default
 	}
 }
@@ -103,9 +101,13 @@ class SearchKnowledgesVC: UIViewController {
 extension SearchKnowledgesVC: UISearchBarDelegate {
 	
 	fileprivate func enableCancelButton (searchBar : UISearchBar) {
+		
 		for searchSubview in searchBar.subviews {
+			
 			for view in searchSubview.subviews {
+				
 				if view.isKind(of: UIButton.self) {
+					
 					if let button = view as? UIButton {
 						button.isEnabled = true
 						button.isUserInteractionEnabled = true
@@ -128,7 +130,6 @@ extension SearchKnowledgesVC: UISearchBarDelegate {
 		}
 		
 		self.knowledgeFiltered = filtered
-		
 		self.didReloadData()
 	}
 	

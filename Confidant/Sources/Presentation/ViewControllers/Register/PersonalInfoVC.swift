@@ -27,7 +27,6 @@ class PersonalInfoVC: UIViewController {
 		get {
 			return self.continueButton.isEnabled
 		}
-		
 		set {
 			self.continueButton.isEnabled = newValue
 		}
@@ -69,7 +68,6 @@ class PersonalInfoVC: UIViewController {
 	}
 	
 	@objc private func choosePicture() {
-		//TODO: Add "picture" to backend
 		let camera = CameraController()
 		let options = [.camera, .photoLibrary] as [UIImagePickerControllerSourceType]
 		let hasPhoto = UsersLO.sharedInstance.current.profile.picture?.hasMedia ?? false
@@ -94,9 +92,9 @@ class PersonalInfoVC: UIViewController {
 					self.isUploading = false
 				}
 			} else {
-				self.profilePicture.loadingIndicatorView(isShow: false, at: nil)
-				self.isContinueEnabled = self.nicknameTextField.hasText
 				self.profilePicture.image = UIImage(named: "icn_anchor_gray")
+				self.isContinueEnabled = self.nicknameTextField.hasText
+				self.profilePicture.loadingIndicatorView(isShow: false, at: nil)
 			}
 		}
 	}
@@ -104,19 +102,20 @@ class PersonalInfoVC: UIViewController {
 	private func updateAndContinue() {
 		let user = UsersLO.sharedInstance.current
 		
-		self.dismissKeyboard()
 		self.loadingIndicatorCustom(isShow: true)
+		self.dismissKeyboard()
+		
 		UsersLO.sharedInstance.update(user: user) { (result) in
 			
 			switch result {
 			case .success:
-				
 				DispatchQueue.main.async {
 					self.performSegue(withIdentifier: "showTopicsSegue", sender: nil)
 				}
 			case .error(let error):
 				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
 			}
+			
 			self.loadingIndicatorCustom(isShow: false)
 		}
 	}
@@ -139,7 +138,6 @@ class PersonalInfoVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		
 		self.loadData()
     }
 	
@@ -178,10 +176,12 @@ extension PersonalInfoVC: UITextFieldDelegate {
 		default:
 			break
 		}
+		
 		return true
 	}
 	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		
 		switch textField {
 		case self.nicknameTextField:
 			self.dismissKeyboard()

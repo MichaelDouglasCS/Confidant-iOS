@@ -30,6 +30,7 @@ class ProfileTypeVC: UIViewController {
 	
 	private func changeType(for sender: UIButton) {
 		let userInstance = UsersLO.sharedInstance
+		
 		self.userButton.isSelected = false
 		self.userButton.isUserInteractionEnabled = true
 		self.confidantButton.isSelected = false
@@ -45,17 +46,12 @@ class ProfileTypeVC: UIViewController {
 			userInstance.current.profile.isAvailable = false
 		case self.confidantButton:
 			userInstance.current.profile.typeOfUser = .confidant
+			userInstance.current.profile.isAvailable = false
 			
 			if let knowledges = userInstance.current.profile.knowledges {
 				userInstance.current.profile.knowledges = knowledges
 			} else {
 				userInstance.current.profile.knowledges = []
-			}
-			
-			if let isAvailable = userInstance.current.profile.isAvailable {
-				userInstance.current.profile.isAvailable = isAvailable
-			} else {
-				userInstance.current.profile.isAvailable = false
 			}
 		default:
 			break
