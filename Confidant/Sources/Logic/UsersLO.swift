@@ -101,7 +101,7 @@ public final class UsersLO {
 // MARK: - Protected Methods
 //**************************************************
 	
-	private func cacheAndSetCurrent(json: JSON) {
+	fileprivate func cacheAndSetCurrent(json: JSON) {
 		let newUser = UserBO(JSON: json.dictionaryObject ?? [:]) ?? UserBO()
 		
 		// Only for users with valid ID
@@ -230,6 +230,24 @@ extension UsersLO {
 			self.current.profile.picture?.base64 = image?.base64EncodedString(format: .jpg,
 			                                                                  quality: 0.5)
 			
+			completionHandler(result)
+		}
+	}
+}
+
+//**********************************************************************************************************
+//
+// MARK: - Extension - UsersLO - Confidant
+//
+//**********************************************************************************************************
+
+extension UsersLO {
+	
+	public func changeAvailability(completionHandler: @escaping LogicResult) {
+		let url = ServerRequest.User.changeAvailability.url(params: "\(self.current.id ?? "")")
+		
+		ServerRequest.User.changeAvailability.execute(aPath: url?.absoluteString) { (json, result) in
+			self.cacheAndSetCurrent(json: json)
 			completionHandler(result)
 		}
 	}

@@ -56,7 +56,7 @@ class KnowledgeVC: UIViewController {
 	}
 	
 	fileprivate func isContinueEnabled() {
-		self.continueButton.isEnabled = UsersLO.sharedInstance.current.profile.knowledges.count != 0
+		self.continueButton.isEnabled = UsersLO.sharedInstance.current.profile.knowledges?.count != 0
 	}
 	
 	fileprivate func didReloadData() {
@@ -103,7 +103,7 @@ class KnowledgeVC: UIViewController {
 					self.knowledgeData = knowledges
 					
 					knowledges.forEach({ knowledge in
-						UsersLO.sharedInstance.current.profile.knowledges.update(knowledge)
+						UsersLO.sharedInstance.current.profile.knowledges?.update(knowledge)
 					})
 					
 					self.updateUser()
@@ -121,6 +121,18 @@ class KnowledgeVC: UIViewController {
 //*************************************************
 	
 	@IBAction func backAction(_ sender: LocalizedButton) {
+		let knowledges = UsersLO.sharedInstance.current.profile.knowledges
+		
+		knowledges?.forEach({
+			
+			if $0.id == nil {
+				
+				if let index = knowledges?.index(of: $0) {
+					UsersLO.sharedInstance.current.profile.knowledges?.remove(at: index)
+				}
+			}
+		})
+		
 		self.navigationController?.popViewController(animated: true)
 	}
 
@@ -142,8 +154,8 @@ class KnowledgeVC: UIViewController {
 		
 		if segue.identifier == self.searchSegue {
 			
-			if let searchVC = segue.destination as? SearchKnowledgesVC {
-				let selectedKnowledges = UsersLO.sharedInstance.current.profile.knowledges
+			if let searchVC = segue.destination as? SearchKnowledgesVC,
+				let selectedKnowledges = UsersLO.sharedInstance.current.profile.knowledges{
 				
 				searchVC.delegate = self
 				searchVC.knowledgeData = self.knowledgeData.filter({ !selectedKnowledges.contains($0) })
@@ -182,12 +194,12 @@ extension KnowledgeVC: SearchKnowledgesDelegate {
 			                                                               options: .caseInsensitive) != nil }) {
 				
 				if !self.knowledgeData[index].isSelected {
-					UsersLO.sharedInstance.current.profile.knowledges.append(self.knowledgeData[index])
+					UsersLO.sharedInstance.current.profile.knowledges?.append(self.knowledgeData[index])
 				}
 			}
 		} else {
 			self.knowledgeData.append(newKnowledge)
-			UsersLO.sharedInstance.current.profile.knowledges.append(newKnowledge)
+			UsersLO.sharedInstance.current.profile.knowledges?.append(newKnowledge)
 		}
 		
 		self.didReloadData()
@@ -234,7 +246,7 @@ extension KnowledgeVC: UICollectionViewDataSource {
 extension KnowledgeVC: UICollectionViewDelegate {
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		UsersLO.sharedInstance.current.profile.knowledges.append(self.knowledgeData[indexPath.row])
+		UsersLO.sharedInstance.current.profile.knowledges?.append(self.knowledgeData[indexPath.row])
 		self.isContinueEnabled()
 	}
 	
@@ -242,9 +254,9 @@ extension KnowledgeVC: UICollectionViewDelegate {
 		let knowledge = self.knowledgeData[indexPath.row]
 		let knowledges = UsersLO.sharedInstance.current.profile.knowledges
 		
-		if let index = knowledges.index(where: { $0.topic?.range(of: knowledge.topic ?? "",
+		if let index = knowledges?.index(where: { $0.topic?.range(of: knowledge.topic ?? "",
 		                                                        options: .caseInsensitive) != nil }) {
-			UsersLO.sharedInstance.current.profile.knowledges.remove(at: index)
+			UsersLO.sharedInstance.current.profile.knowledges?.remove(at: index)
 			self.isContinueEnabled()
 		}
 	}

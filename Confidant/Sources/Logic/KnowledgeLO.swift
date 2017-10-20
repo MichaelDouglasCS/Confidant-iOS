@@ -69,7 +69,7 @@ public final class KnowledgeLO {
 extension KnowledgeBO {
 	
 	public var isSelected: Bool {
-		return UsersLO.sharedInstance.current.profile.knowledges.contains(self)
+		return UsersLO.sharedInstance.current.profile.knowledges?.contains(self) ?? false
 	}
 }
 

@@ -29,20 +29,32 @@ import UIKit
 class GoOnlineVC: UIViewController {
 
 //*************************************************
-// MARK: - Properties
-//*************************************************
-
-//*************************************************
-// MARK: - Constructors
-//*************************************************
-
-//*************************************************
 // MARK: - Protected Methods
 //*************************************************
+	
+	private func updateAndContinue() {
+		self.loadingIndicatorCustom(isShow: true)
+		
+		UsersLO.sharedInstance.changeAvailability() { (result) in
+			
+			switch result {
+			case .success:
+				print("\(UsersLO.sharedInstance.current.profile.isAvailable ?? false)")
+			case .error(let error):
+				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
+			}
+			
+			self.loadingIndicatorCustom(isShow: false)
+		}
+	}
 
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
+	
+	@IBAction func goOnlineAction(_ sender: IBDesigableButton) {
+		self.updateAndContinue()
+	}
 
 //*************************************************
 // MARK: - Overridden Public Methods
