@@ -27,7 +27,9 @@ class GoOnlineVC: UIViewController {
 			
 			switch result {
 			case .success:
-				print("\(UsersLO.sharedInstance.current.profile.isAvailable ?? false)")
+				DispatchQueue.main.async {
+					self.performSegue(withIdentifier: "showDashboardSegue", sender: nil)
+				}
 			case .error(let error):
 				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
 			}

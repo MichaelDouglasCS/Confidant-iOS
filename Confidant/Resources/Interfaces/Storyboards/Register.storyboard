@@ -122,7 +122,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_WHATS_YOUR_PROFILE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fe-4b-Nn4" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                <rect key="frame" x="55.5" y="45" width="264" height="16.5"/>
+                                <rect key="frame" x="56" y="45" width="264" height="16.5"/>
                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.3529411764705882" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -422,7 +422,8 @@
                         <outlet property="nicknameTextField" destination="2sj-uI-Vid" id="i0q-2T-GQR"/>
                         <outlet property="profilePicture" destination="82z-Og-Zxm" id="9hF-bN-5qf"/>
                         <outlet property="profilePictureView" destination="PN9-OS-bYt" id="Vok-ca-pZ4"/>
-                        <segue destination="FPN-hF-c5r" kind="show" identifier="showTopicsSegue" id="xom-Vt-0E0"/>
+                        <segue destination="FPN-hF-c5r" kind="show" identifier="showKnowledgesSegue" id="xom-Vt-0E0"/>
+                        <segue destination="fLJ-tt-UuK" kind="presentation" identifier="showDashboardSegue" modalTransitionStyle="flipHorizontal" id="VMI-GN-PR0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZ0-S6-Cjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -726,10 +727,21 @@
                             <constraint firstItem="CQA-Cc-zxs" firstAttribute="leading" secondItem="d7m-Bf-7uS" secondAttribute="leading" constant="40" id="ymb-gi-oxq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="DwG-lM-bfN" kind="presentation" identifier="showDashboardSegue" modalTransitionStyle="flipHorizontal" id="muc-zT-0Uo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RNG-kP-R0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3310" y="332"/>
+            <point key="canvasLocation" x="3305" y="81"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="icJ-nn-TUb">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JuK-Am-UbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Dashboard" id="DwG-lM-bfN" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="3821" y="80"/>
         </scene>
         <!--Search KnowledgesVC-->
         <scene sceneID="80a-YF-Mv0">
@@ -842,7 +854,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LDD-PY-HTw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3310" y="-454"/>
+            <point key="canvasLocation" x="3305" y="-600"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="UWB-YX-PnQ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jlF-bn-bjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Dashboard" id="fLJ-tt-UuK" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="1776" y="459"/>
         </scene>
     </scenes>
     <resources>

@@ -27,6 +27,8 @@
 "LB_SEARCH" = "Search";
 "LB_GO_ONLINE" = "GO ONLINE";
 "LB_TO_GO_ONLINE" = "GO ONLINE";
+"LB_PROFILE" = "Profile";
+"LB_CHATS" = "Chats";
 
 //*************************
 // Strings

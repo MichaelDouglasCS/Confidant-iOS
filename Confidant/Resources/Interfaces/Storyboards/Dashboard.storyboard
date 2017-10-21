@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3U2-jz-yAC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IYh-cs-l3J">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,19 +9,66 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
-        <scene sceneID="Eof-wZ-5VR">
+        <!--LB_CHATS-->
+        <scene sceneID="GLr-OI-Skh">
             <objects>
-                <tabBarController id="3U2-jz-yAC" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="zY2-It-e1j">
+                <viewController id="e5w-co-osJ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PJa-ml-Flu"/>
+                        <viewControllerLayoutGuide type="bottom" id="l3C-KL-2UT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fbJ-Tj-lej">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="LB_CHATS" image="icn_chats" selectedImage="icn_chats_selected" id="SYh-ix-SAA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tle-ci-RKD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1890" y="724"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ore-tR-1wA">
+            <objects>
+                <tabBarController id="IYh-cs-l3J" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ruO-L6-JNs" customClass="LocalizedTabBar" customModule="Confidant" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.88235294117647056" green="0.3529411764705882" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
+                    <connections>
+                        <segue destination="e5w-co-osJ" kind="relationship" relationship="viewControllers" id="2i9-5k-zbQ"/>
+                        <segue destination="d4F-Te-R7c" kind="relationship" relationship="viewControllers" id="4UE-Nh-4BZ"/>
+                    </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Du8-9X-o2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BJ9-Dp-64S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-720" y="-48"/>
+            <point key="canvasLocation" x="-1305" y="-39"/>
+        </scene>
+        <!--LB_PROFILE-->
+        <scene sceneID="npe-LL-eXP">
+            <objects>
+                <viewController id="d4F-Te-R7c" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fEu-AB-K67"/>
+                        <viewControllerLayoutGuide type="bottom" id="giG-CI-mSS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="faV-ad-U8R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="LB_PROFILE" image="icn_profile" id="fMy-18-n3k"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f53-05-kQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-553" y="724"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icn_chats" width="25" height="25"/>
+        <image name="icn_chats_selected" width="25" height="25"/>
+        <image name="icn_profile" width="25" height="25"/>
+    </resources>
 </document>

@@ -46,7 +46,7 @@ class KnowledgeVC: UIViewController {
 		self.performSegue(withIdentifier: self.searchSegue, sender: nil)
 	}
 	
-	private func showNextVC() {
+	private func proceedToNextVC() {
 		DispatchQueue.main.async {
 			self.performSegue(withIdentifier: "showGoOnlineSegue", sender: nil)
 		}
@@ -82,7 +82,7 @@ class KnowledgeVC: UIViewController {
 			
 			switch result {
 			case .success:
-				self.showNextVC()
+				self.proceedToNextVC()
 			case .error(let error):
 				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
 			}

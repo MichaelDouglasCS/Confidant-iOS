@@ -99,6 +99,17 @@ class PersonalInfoVC: UIViewController {
 		}
 	}
 	
+	private func proceedToNextVC() {
+		let knowledgesSegue = "showKnowledgesSegue"
+		let dashboardSegue = "showDashboardSegue"
+		let userType = UsersLO.sharedInstance.current.profile.typeOfUser
+		let segue = userType == .confidant ? knowledgesSegue : dashboardSegue
+		
+		DispatchQueue.main.async {
+			self.performSegue(withIdentifier: segue, sender: nil)
+		}
+	}
+	
 	private func updateAndContinue() {
 		let user = UsersLO.sharedInstance.current
 		
@@ -109,9 +120,7 @@ class PersonalInfoVC: UIViewController {
 			
 			switch result {
 			case .success:
-				DispatchQueue.main.async {
-					self.performSegue(withIdentifier: "showTopicsSegue", sender: nil)
-				}
+				self.proceedToNextVC()
 			case .error(let error):
 				self.showInfoAlert(title: String.Local.sorry, message: error.rawValue.localized)
 			}
@@ -129,6 +138,7 @@ class PersonalInfoVC: UIViewController {
 	}
 
 	@IBAction func continueButtonAction(_ sender: IBDesigableButton) {
+		UsersLO.sharedInstance.current.profile.nickname = self.nicknameTextField.text
 		self.updateAndContinue()
 	}
 	
