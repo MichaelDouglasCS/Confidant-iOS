@@ -1,5 +1,5 @@
 //
-//  SearchKnowledgesVC.swift
+//  SearchTopicsVC.swift
 //  Confidant
 //
 //  Created by Michael Douglas on 16/10/17.
@@ -14,8 +14,8 @@ import UIKit
 //
 //**********************************************************************************************************
 
-protocol SearchKnowledgesDelegate : class {
-	func search(_ search: SearchKnowledgesVC, didUpdateKnowledges newKnowledge: KnowledgeBO)
+protocol SearchTopicsDelegate : class {
+	func search(_ search: SearchTopicsVC, didUpdateKnowledges newKnowledge: KnowledgeBO)
 }
 
 //**********************************************************************************************************
@@ -24,8 +24,8 @@ protocol SearchKnowledgesDelegate : class {
 //
 //**********************************************************************************************************
 
-class SearchKnowledgesVC: UIViewController {
-	
+class SearchTopicsVC: UIViewController {
+
 //*************************************************
 // MARK: - Properties
 //*************************************************
@@ -37,14 +37,13 @@ class SearchKnowledgesVC: UIViewController {
 	
 	var knowledgeData: [KnowledgeBO] = []
 	
-	weak var delegate: SearchKnowledgesDelegate?
-	
+	weak var delegate: SearchTopicsDelegate?
+
 //*************************************************
 // MARK: - Protected Methods
 //*************************************************
 	
 	private func setupCollectionView() {
-		self.collectionView.allowsMultipleSelection = true
 		
 		if let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
 			layout.estimatedItemSize = CGSize(width: 70.0, height: 35.0)
@@ -58,7 +57,6 @@ class SearchKnowledgesVC: UIViewController {
 	
 	fileprivate func didReloadData() {
 		UIView.performWithoutAnimation {
-			self.knowledgeFiltered = self.knowledgeFiltered.knowledgeSorted()
 			self.collectionView.reloadSections(IndexSet(integer: 0))
 		}
 	}
@@ -66,21 +64,15 @@ class SearchKnowledgesVC: UIViewController {
 //*************************************************
 // MARK: - Overridden Public Methods
 //*************************************************
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		self.setupCollectionView()
-		UIApplication.shared.statusBarStyle = .lightContent
-    }
+	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		self.setupLayout()
-	}
-	
-	override func viewWillDisappear(_ animated: Bool) {
-		super.viewWillDisappear(animated)
-		UIApplication.shared.statusBarStyle = .default
 	}
 }
 
@@ -90,7 +82,7 @@ class SearchKnowledgesVC: UIViewController {
 //
 //**********************************************************************************************************
 
-extension SearchKnowledgesVC: UISearchBarDelegate {
+extension SearchTopicsVC: UISearchBarDelegate {
 	
 	fileprivate func enableCancelButton (searchBar : UISearchBar) {
 		
@@ -110,17 +102,13 @@ extension SearchKnowledgesVC: UISearchBarDelegate {
 	}
 	
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		var filtered = self.knowledgeData.filter({ (knowledge) in
+		let filtered = self.knowledgeData.filter({ (knowledge) in
 			let topic = knowledge.topic as NSString?
 			let range = topic?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
 			
 			return range?.location != NSNotFound
 		})
-		
-		if filtered.isEmpty && !searchText.isEmpty {
-			filtered.append(KnowledgeBO(topic: searchText))
-		}
-		
+
 		self.knowledgeFiltered = filtered
 		self.didReloadData()
 	}
@@ -131,6 +119,7 @@ extension SearchKnowledgesVC: UISearchBarDelegate {
 	}
 	
 	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+		self.dismissKeyboard()
 		self.dismiss(animated: true, completion: nil)
 	}
 }
@@ -141,7 +130,7 @@ extension SearchKnowledgesVC: UISearchBarDelegate {
 //
 //**********************************************************************************************************
 
-extension SearchKnowledgesVC: UICollectionViewDataSource {
+extension SearchTopicsVC: UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return self.knowledgeFiltered.count
@@ -167,7 +156,7 @@ extension SearchKnowledgesVC: UICollectionViewDataSource {
 //
 //**********************************************************************************************************
 
-extension SearchKnowledgesVC: UICollectionViewDelegate {
+extension SearchTopicsVC: UICollectionViewDelegate {
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		self.dismissKeyboard()

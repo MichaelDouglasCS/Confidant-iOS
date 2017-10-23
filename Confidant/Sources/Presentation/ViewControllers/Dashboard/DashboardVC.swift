@@ -70,5 +70,7 @@ class DashboardVC: UITabBarController {
     override func viewDidLoad() {
 		super.viewDidLoad()
 		self.setupTabBarItems()
+		
+		UIApplication.shared.statusBarStyle = .lightContent
     }
 }

@@ -220,6 +220,7 @@ extension UIViewController {
     
     func makeTapGestureEndEditing() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapOutside))
+		tap.delegate = self
         self.view.addGestureRecognizer(tap)
     }
     

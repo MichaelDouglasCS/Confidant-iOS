@@ -29,6 +29,9 @@
 "LB_TO_GO_ONLINE" = "GO ONLINE";
 "LB_PROFILE" = "Profile";
 "LB_CHATS" = "Chats";
+"LB_WHAT_HAPPENED" = "What Happened ?";
+"LB_FIND" = "SEARCH";
+"LB_SELECT_ONLY_ONE" = "Select only one";
 
 //*************************
 // Strings
@@ -85,3 +88,4 @@
 "MSG_PICTURE_NOT_UPDATED" = "Could not update your profile picture. Please try again later.";
 "MSG_ALMOST_DONE" = "We are almost done! :-)";
 "MSG_LET_PEOPLE_KNOW" = "Let people know when you are available to help them!";
+"MSG_WHAT_TALK_ABOUT" = "What do you want to talk about ?";

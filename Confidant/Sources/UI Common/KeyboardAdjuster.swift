@@ -30,7 +30,7 @@ protocol KeyboardSizeAdjuster {
 //
 //**********************************************************************************************************
 
-extension UIViewController {
+extension UIViewController: UIGestureRecognizerDelegate {
 	
 	func keyboardWillChange(notification: Notification) {
 		if let userInfo = notification.userInfo,
@@ -47,6 +47,7 @@ extension UIViewController {
 		
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
 		                                                         action: #selector(self.dismissKeyboard))
+		tap.delegate = self
 		self.view.addGestureRecognizer(tap)
 	}
 	

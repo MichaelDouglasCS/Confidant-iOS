@@ -57,6 +57,7 @@
 		617B489B1F9D8BA300E39411 /* Confidant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 617B489A1F9D8BA300E39411 /* Confidant.storyboard */; };
 		617B489D1F9D8BB000E39411 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 617B489C1F9D8BB000E39411 /* Profile.storyboard */; };
 		617B489F1F9D8BBB00E39411 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 617B489E1F9D8BBB00E39411 /* User.storyboard */; };
+		617B48A21F9D9F3F00E39411 /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617B48A11F9D9F3F00E39411 /* UserVC.swift */; };
 		6183376C1F3ECFC0008380AF /* UsersLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6183376B1F3ECFC0008380AF /* UsersLO.swift */; };
 		61A2BFE31E686DD900414A4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A2BFE11E686DD900414A4C /* LaunchScreen.storyboard */; };
 		61A2BFE41E686DD900414A4C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A2BFE21E686DD900414A4C /* Login.storyboard */; };
@@ -71,6 +72,7 @@
 		61D0FAEE1F85DB57009399C0 /* MediaLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D0FAED1F85DB57009399C0 /* MediaLO.swift */; };
 		61D0FAF21F85DD04009399C0 /* MediaBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D0FAF11F85DD04009399C0 /* MediaBO.swift */; };
 		61D271901F842D6D0071F1BA /* FacebookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2718F1F842D6D0071F1BA /* FacebookVC.swift */; };
+		61D7C12E1F9E3C5400A28959 /* SearchTopicsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D7C12D1F9E3C5400A28959 /* SearchTopicsVC.swift */; };
 		61D7C85E1F98469500F467A7 /* GoOnlineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D7C85D1F98469500F467A7 /* GoOnlineVC.swift */; };
 		61F127891EA6FFA200F14A17 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61F1278B1EA6FFA200F14A17 /* Localizable.strings */; };
 		61F127981EA7015F00F14A17 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1278D1EA7015E00F14A17 /* Alerts.swift */; };
@@ -179,6 +181,7 @@
 		617B489A1F9D8BA300E39411 /* Confidant.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Confidant.storyboard; sourceTree = "<group>"; };
 		617B489C1F9D8BB000E39411 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		617B489E1F9D8BBB00E39411 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		617B48A11F9D9F3F00E39411 /* UserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
 		6183376B1F3ECFC0008380AF /* UsersLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersLO.swift; sourceTree = "<group>"; };
 		61A2BFE11E686DD900414A4C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61A2BFE21E686DD900414A4C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -193,6 +196,7 @@
 		61D0FAED1F85DB57009399C0 /* MediaLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLO.swift; sourceTree = "<group>"; };
 		61D0FAF11F85DD04009399C0 /* MediaBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaBO.swift; sourceTree = "<group>"; };
 		61D2718F1F842D6D0071F1BA /* FacebookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookVC.swift; sourceTree = "<group>"; };
+		61D7C12D1F9E3C5400A28959 /* SearchTopicsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTopicsVC.swift; sourceTree = "<group>"; };
 		61D7C85D1F98469500F467A7 /* GoOnlineVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoOnlineVC.swift; sourceTree = "<group>"; };
 		61F1278A1EA6FFA200F14A17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		61F1278C1EA6FFE600F14A17 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -427,6 +431,15 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
+		617B48A01F9D9F2400E39411 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				61D7C12D1F9E3C5400A28959 /* SearchTopicsVC.swift */,
+				617B48A11F9D9F3F00E39411 /* UserVC.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		6184856E1E68624000854092 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,6 +498,7 @@
 		618485751E6862C700854092 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				617B48A01F9D9F2400E39411 /* User */,
 				617B48951F9D579500E39411 /* Dashboard */,
 				61D2718E1F842CC90071F1BA /* Common */,
 				61F5CE8A1E68F9EE001261C1 /* Login */,
@@ -1051,6 +1065,8 @@
 				616FB2A71F82D798003F1445 /* PersonalInfoVC.swift in Sources */,
 				61B4EC3D1F81A3C200FA5296 /* PersistenceModels.swift in Sources */,
 				61F127A21EA7015F00F14A17 /* XIBDesignable.swift in Sources */,
+				617B48A21F9D9F3F00E39411 /* UserVC.swift in Sources */,
+				61D7C12E1F9E3C5400A28959 /* SearchTopicsVC.swift in Sources */,
 				61D271901F842D6D0071F1BA /* FacebookVC.swift in Sources */,
 				61796F551F8F3A0B00B89312 /* KnowledgeLO.swift in Sources */,
 				61BE69481ED3413E0036EDBB /* ModelBO.swift in Sources */,
