@@ -52,6 +52,11 @@
 		61796F531F8F383C00B89312 /* KnowledgeBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61796F521F8F383C00B89312 /* KnowledgeBO.swift */; };
 		61796F551F8F3A0B00B89312 /* KnowledgeLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61796F541F8F3A0B00B89312 /* KnowledgeLO.swift */; };
 		61796F571F8FBF0500B89312 /* KnowledgeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61796F561F8FBF0500B89312 /* KnowledgeVC.swift */; };
+		617B48971F9D585800E39411 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617B48961F9D585800E39411 /* DashboardVC.swift */; };
+		617B48991F9D8B9200E39411 /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 617B48981F9D8B9200E39411 /* Chats.storyboard */; };
+		617B489B1F9D8BA300E39411 /* Confidant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 617B489A1F9D8BA300E39411 /* Confidant.storyboard */; };
+		617B489D1F9D8BB000E39411 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 617B489C1F9D8BB000E39411 /* Profile.storyboard */; };
+		617B489F1F9D8BBB00E39411 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 617B489E1F9D8BBB00E39411 /* User.storyboard */; };
 		6183376C1F3ECFC0008380AF /* UsersLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6183376B1F3ECFC0008380AF /* UsersLO.swift */; };
 		61A2BFE31E686DD900414A4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A2BFE11E686DD900414A4C /* LaunchScreen.storyboard */; };
 		61A2BFE41E686DD900414A4C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A2BFE21E686DD900414A4C /* Login.storyboard */; };
@@ -169,6 +174,11 @@
 		61796F521F8F383C00B89312 /* KnowledgeBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnowledgeBO.swift; sourceTree = "<group>"; };
 		61796F541F8F3A0B00B89312 /* KnowledgeLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnowledgeLO.swift; sourceTree = "<group>"; };
 		61796F561F8FBF0500B89312 /* KnowledgeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnowledgeVC.swift; sourceTree = "<group>"; };
+		617B48961F9D585800E39411 /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		617B48981F9D8B9200E39411 /* Chats.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
+		617B489A1F9D8BA300E39411 /* Confidant.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Confidant.storyboard; sourceTree = "<group>"; };
+		617B489C1F9D8BB000E39411 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		617B489E1F9D8BBB00E39411 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		6183376B1F3ECFC0008380AF /* UsersLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersLO.swift; sourceTree = "<group>"; };
 		61A2BFE11E686DD900414A4C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61A2BFE21E686DD900414A4C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -304,10 +314,14 @@
 		61232BBB1E8622E400DC64BC /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				617B48981F9D8B9200E39411 /* Chats.storyboard */,
+				617B489A1F9D8BA300E39411 /* Confidant.storyboard */,
 				61203F2D1E83802600E4B257 /* Dashboard.storyboard */,
 				61A2BFE11E686DD900414A4C /* LaunchScreen.storyboard */,
 				61A2BFE21E686DD900414A4C /* Login.storyboard */,
+				617B489C1F9D8BB000E39411 /* Profile.storyboard */,
 				61FB81BD1F7DE7700045D38B /* Register.storyboard */,
+				617B489E1F9D8BBB00E39411 /* User.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -405,6 +419,14 @@
 			path = Knowledge;
 			sourceTree = "<group>";
 		};
+		617B48951F9D579500E39411 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				617B48961F9D585800E39411 /* DashboardVC.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
 		6184856E1E68624000854092 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,6 +485,7 @@
 		618485751E6862C700854092 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				617B48951F9D579500E39411 /* Dashboard */,
 				61D2718E1F842CC90071F1BA /* Common */,
 				61F5CE8A1E68F9EE001261C1 /* Login */,
 				6158AD741F7F277E00BB5EE3 /* Register */,
@@ -785,6 +808,7 @@
 				61790EE41E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF in Resources */,
 				61790EF81E6A0A520095482F /* GOTHAM-THIN.TTF in Resources */,
 				61790EEC1E6A0A520095482F /* GOTHAM-BOOKITALIC_0.OTF in Resources */,
+				617B489B1F9D8BA300E39411 /* Confidant.storyboard in Resources */,
 				61203F2E1E83802600E4B257 /* Dashboard.storyboard in Resources */,
 				61A2BFE41E686DD900414A4C /* Login.storyboard in Resources */,
 				61CC4EC71E80DE6A00ED4DB6 /* Assets.xcassets in Resources */,
@@ -799,12 +823,15 @@
 				61790EEA1E6A0A520095482F /* GOTHAM-BOLDITALIC.TTF in Resources */,
 				61A2BFE31E686DD900414A4C /* LaunchScreen.storyboard in Resources */,
 				61790EEE1E6A0A520095482F /* GOTHAM-LIGHT_0.OTF in Resources */,
+				617B489D1F9D8BB000E39411 /* Profile.storyboard in Resources */,
 				61790EF21E6A0A520095482F /* GOTHAM-LIGHTITALIC.TTF in Resources */,
+				617B48991F9D8B9200E39411 /* Chats.storyboard in Resources */,
 				61FB81BE1F7DE7700045D38B /* Register.storyboard in Resources */,
 				61790EF41E6A0A520095482F /* GOTHAM-MEDIUM.TTF in Resources */,
 				61790EF01E6A0A520095482F /* GOTHAM-LIGHT.TTF in Resources */,
 				61790EFE1E6A0A520095482F /* GOTHAM-ULTRAITALIC.TTF in Resources */,
 				61790EFA1E6A0A520095482F /* GOTHAM-THINITALIC.TTF in Resources */,
+				617B489F1F9D8BBB00E39411 /* User.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1051,6 +1078,7 @@
 				61F127BA1EA7034D00F14A17 /* LocalizedSearchBar.swift in Sources */,
 				61F1279B1EA7015F00F14A17 /* DateKit.swift in Sources */,
 				61F127B51EA7034D00F14A17 /* Loading.swift in Sources */,
+				617B48971F9D585800E39411 /* DashboardVC.swift in Sources */,
 				61494DFA1E685AB400D4DF13 /* AppDelegate.swift in Sources */,
 				61F127981EA7015F00F14A17 /* Alerts.swift in Sources */,
 				61F1279D1EA7015F00F14A17 /* KeyboardToolbar.swift in Sources */,

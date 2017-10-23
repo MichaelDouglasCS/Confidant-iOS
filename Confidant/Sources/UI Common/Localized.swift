@@ -61,6 +61,8 @@ extension String {
 		static var choosePhoto: String { return "ST_CHOOSE_PHOTO".localized }
 		static var deletePhoto: String { return "ST_DELETE_PHOTO".localized }
 		static var cancel: String { return "LB_CANCEL".localized }
+		static var chats: String { return "LB_CHATS".localized }
+		static var profile: String { return "LB_PROFILE".localized }
 		
 		//*************************
 		// Messages
