@@ -52,10 +52,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="uRU-RV-cPz">
-                                <rect key="frame" x="52" y="249.5" width="271" height="169"/>
+                                <rect key="frame" x="52" y="259.5" width="271" height="149.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="MSG_MAKE_PROFILE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4h2-Pu-r3M" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="2" y="0.0" width="267" height="89"/>
+                                        <rect key="frame" x="6" y="0.0" width="259.5" height="69.5"/>
                                         <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="36"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -66,7 +66,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGI-di-pOt" userLabel="Continue" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="63" y="124" width="145" height="45"/>
+                                        <rect key="frame" x="63" y="104.5" width="145" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="dJM-cN-V8m"/>
                                             <constraint firstAttribute="width" constant="145" id="rKj-Qt-5bJ"/>
@@ -122,13 +122,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_WHATS_YOUR_PROFILE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fe-4b-Nn4" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                <rect key="frame" x="70" y="45" width="235.5" height="21"/>
+                                <rect key="frame" x="56" y="45" width="264" height="16.5"/>
                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.3529411764705882" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="09W-cm-kpF">
-                                <rect key="frame" x="0.0" y="98" width="187" height="158.5"/>
+                                <rect key="frame" x="0.0" y="98" width="187" height="151.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_eyecry" translatesAutoresizingMaskIntoConstraints="NO" id="2FG-nR-BYu">
                                         <rect key="frame" x="41.5" y="0.0" width="104" height="104"/>
@@ -138,7 +138,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_USER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugK-IV-EnV" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="38.5" y="129" width="110.5" height="29.5"/>
+                                        <rect key="frame" x="34.5" y="129" width="118.5" height="22.5"/>
                                         <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="25"/>
                                         <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -146,7 +146,7 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVc-SK-Mst">
-                                <rect key="frame" x="9" y="287" width="169" height="200"/>
+                                <rect key="frame" x="9" y="280" width="169" height="207"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. </string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="14"/>
@@ -165,14 +165,14 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgE-D9-HVU">
-                                <rect key="frame" x="187" y="91" width="1" height="511"/>
+                                <rect key="frame" x="187" y="86.5" width="1" height="515.5"/>
                                 <color key="backgroundColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="avx-uS-4S2"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="li3-ZF-Xdo">
-                                <rect key="frame" x="188" y="98" width="187" height="158.5"/>
+                                <rect key="frame" x="188" y="98" width="187" height="151.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_handheart" translatesAutoresizingMaskIntoConstraints="NO" id="ooL-k5-QE0">
                                         <rect key="frame" x="41.5" y="0.0" width="104" height="104"/>
@@ -182,7 +182,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_CONFIDANT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uJ-qw-3qI" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="0.5" y="129" width="186" height="29.5"/>
+                                        <rect key="frame" x="0.0" y="129" width="187" height="22.5"/>
                                         <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="25"/>
                                         <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -190,7 +190,7 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Em-CM-hfb">
-                                <rect key="frame" x="197" y="287" width="169" height="200"/>
+                                <rect key="frame" x="197" y="280" width="169" height="207"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. </string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="14"/>
@@ -299,16 +299,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_PERSONAL_INFORMATION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKS-qQ-SWH" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                <rect key="frame" x="59.5" y="45" width="257" height="21"/>
+                                <rect key="frame" x="45" y="45" width="286.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                 <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="wrg-k6-e5P">
-                                <rect key="frame" x="24" y="105.5" width="327" height="128"/>
+                                <rect key="frame" x="24" y="101" width="327" height="125"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PN9-OS-bYt">
-                                        <rect key="frame" x="0.0" y="0.0" width="104" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="104" height="125"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_anchor_gray" translatesAutoresizingMaskIntoConstraints="NO" id="82z-Og-Zxm" customClass="IBDesigableImageView" customModule="Confidant" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
@@ -323,7 +323,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="LB_ADD_PICTURE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYN-Tm-J9j" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="114" width="104" height="14"/>
+                                                <rect key="frame" x="0.0" y="114" width="104" height="11"/>
                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="12"/>
                                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -331,7 +331,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MSG_ENTER_NICKNAME_PICTURE" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wA6-Eo-uL3" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="115" y="0.0" width="212" height="128"/>
+                                        <rect key="frame" x="115" y="0.0" width="212" height="125"/>
                                         <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
                                         <color key="textColor" red="0.57227553934010156" green="0.57227553934010156" blue="0.57227553934010156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -344,7 +344,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZGM-S6-XSS" userLabel="NicknameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
-                                <rect key="frame" x="24" y="253.5" width="327" height="40"/>
+                                <rect key="frame" x="24" y="246" width="327" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_NICKNAME" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="2sj-uI-Vid" userLabel="NicknameTextField" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
                                         <rect key="frame" x="5" y="5" width="317" height="30"/>
@@ -377,7 +377,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Kh-dC-Nz8" userLabel="Continue" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
-                                <rect key="frame" x="107" y="313.5" width="161" height="45"/>
+                                <rect key="frame" x="107" y="306" width="161" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="161" id="6rK-aL-mWC"/>
                                     <constraint firstAttribute="height" constant="45" id="ZIv-zd-A3t"/>
@@ -457,7 +457,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_WHAT_TOPICS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNe-D9-bWw" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
-                                <rect key="frame" x="50" y="45" width="276" height="21"/>
+                                <rect key="frame" x="50" y="45" width="276" height="16.5"/>
                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                 <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -468,13 +468,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_SELECT_ONE_OR_MORE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKp-yf-M9e" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                <rect key="frame" x="113.5" y="81" width="148" height="13"/>
+                                <rect key="frame" x="106.5" y="76.5" width="162" height="10"/>
                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="11"/>
                                 <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" placeholder="LB_SEARCH" translatesAutoresizingMaskIntoConstraints="NO" id="sYn-ql-vJt" customClass="RoundedSearchBar" customModule="Confidant" customModuleProvider="target">
-                                <rect key="frame" x="24" y="109" width="327" height="44"/>
+                                <rect key="frame" x="24" y="101.5" width="327" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -492,10 +492,10 @@
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DpQ-E8-nni">
-                                <rect key="frame" x="0.0" y="167.5" width="375" height="414.5"/>
+                                <rect key="frame" x="0.0" y="160" width="375" height="422"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TA4-gd-Snq">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="414.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="422"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="15" id="php-Jd-gXu">
@@ -563,7 +563,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPE-eb-fbS" userLabel="Separator">
-                                <rect key="frame" x="0.0" y="167.5" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="160" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="sp9-aV-L3Z"/>
@@ -671,7 +671,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="MSG_ALMOST_DONE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQA-Cc-zxs" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
-                                <rect key="frame" x="40" y="104" width="295" height="97"/>
+                                <rect key="frame" x="40" y="104" width="295" height="77.5"/>
                                 <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="35"/>
                                 <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -682,7 +682,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="MSG_LET_PEOPLE_KNOW" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zB-ss-MAt" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
-                                <rect key="frame" x="40" y="356" width="295" height="27"/>
+                                <rect key="frame" x="40" y="344" width="295" height="51"/>
                                 <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="23"/>
                                 <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

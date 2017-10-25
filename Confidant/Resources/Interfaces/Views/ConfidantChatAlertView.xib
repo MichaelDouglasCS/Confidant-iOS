@@ -45,7 +45,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="324" height="60"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MSG_SOMEONE_NEEDS_HELP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRl-le-9VT" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="46" y="21" width="234" height="19"/>
+                                    <rect key="frame" x="36.5" y="21.5" width="251.5" height="18.5"/>
                                     <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -59,20 +59,20 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MSG_DO_YOU_WISH_TALK" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwU-NG-rXe" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                            <rect key="frame" x="66" y="80" width="192" height="17.5"/>
+                            <rect key="frame" x="55" y="80" width="214" height="13.5"/>
                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                             <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_anchor_gray" translatesAutoresizingMaskIntoConstraints="NO" id="brr-Q4-uoR" customClass="CircularImage" customModule="Confidant" customModuleProvider="target">
-                            <rect key="frame" x="98" y="117.5" width="128" height="128"/>
+                            <rect key="frame" x="102" y="113.5" width="120" height="120"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="128" id="9PH-Q3-eMn"/>
-                                <constraint firstAttribute="width" constant="128" id="hos-Qf-EKj"/>
+                                <constraint firstAttribute="height" constant="120" id="9PH-Q3-eMn"/>
+                                <constraint firstAttribute="width" constant="120" id="hos-Qf-EKj"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                    <real key="value" value="1"/>
+                                    <real key="value" value="0.0"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                     <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,24 +80,24 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fCO-wk-4Y5">
-                            <rect key="frame" x="20" y="260.5" width="284" height="205.5"/>
+                            <rect key="frame" x="20" y="248.5" width="284" height="217.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Michael Douglas" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ot-f6-kvh" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="284" height="19"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="284" height="14.5"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="16"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_ABOUT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZC-3H-Yi0" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="29" width="284" height="5"/>
+                                    <rect key="frame" x="0.0" y="24.5" width="284" height="13.5"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jec-AB-PZm">
-                                    <rect key="frame" x="0.0" y="44" width="284" height="161.5"/>
+                                    <rect key="frame" x="0.0" y="48" width="284" height="169.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </string>
-                                    <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="13"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                             </subviews>

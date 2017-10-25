@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SocketIO
 import SwiftyJSON
 
 //**********************************************************************************************************
@@ -37,6 +38,8 @@ class DashboardVC: UITabBarController {
 		case userVC = 1
 		case confidantVC = 2
 	}
+	
+	private var confidantAlertChatCallback: SocketAckEmitter?
 
 //*************************************************
 // MARK: - Constructors
@@ -60,11 +63,12 @@ class DashboardVC: UITabBarController {
 		}
 	}
 	
-	private func showConfidantAlertChat(by: ProfileBO?) {
+	private func showConfidantAlertChat(by model: ProfileBO?) {
 		let alert = ConfidantChatAlertView(frame: self.view.frame, fromNib: true)
 		
-		self.view.addSubview(alert)
+		alert.updateLayout(for: model)
 		alert.delegate = self
+		self.view.addSubview(alert)
 		alert.showingAnimate()
 	}
 	
@@ -81,16 +85,13 @@ class DashboardVC: UITabBarController {
 	}
 	
 	private func addNotificationsListener() {
-		let currentUser = UsersLO.sharedInstance.current
 		
-		if let confidantID = currentUser.id, currentUser.profile.typeOfUser == .confidant {
-
-			SocketLO.sharedInstance.socket.on("match: \(confidantID)") { (data, ack) in
-				let json = JSON(data.first as Any)
-				let profile = ProfileBO(JSON: json.dictionaryObject ?? [:])
-				
-				self.showConfidantAlertChat(by: profile)
-			}
+		SocketLO.sharedInstance.socket.on("match") { (data, ack) in
+			let json = JSON(data.first as Any)
+			let profile = ProfileBO(JSON: json.dictionaryObject ?? [:])
+			
+			self.showConfidantAlertChat(by: profile)
+			self.confidantAlertChatCallback = ack
 		}
 	}
 	
@@ -98,8 +99,10 @@ class DashboardVC: UITabBarController {
 		
 		switch isYes {
 		case true:
+			self.confidantAlertChatCallback?.with([true])
 			self.removeConfidantAlertChat()
 		case false:
+			self.confidantAlertChatCallback?.with([false])
 			self.removeConfidantAlertChat()
 		}
 	}

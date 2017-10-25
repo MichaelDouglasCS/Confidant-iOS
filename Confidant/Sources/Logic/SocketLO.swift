@@ -8,6 +8,7 @@
 
 import Foundation
 import SocketIO
+import SwiftyJSON
 
 //**********************************************************************************************************
 //
@@ -47,16 +48,26 @@ public final class SocketLO {
 // MARK: - Protected Methods
 //*************************************************
 
+	private func updateSocket() {
+		
+		if let id = UsersLO.sharedInstance.current.id {
+			self.socket.on("updateSocket") { (data, ack) in
+				ack.with([id])
+			}
+		}
+	}
+	
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
 	
 	public func establishConnection() {
-		socket.connect()
+		self.socket.connect()
+		self.updateSocket()
 	}
 	
 	public func closeConnection() {
-		socket.disconnect()
+		self.socket.disconnect()
 	}
 	
 //*************************************************

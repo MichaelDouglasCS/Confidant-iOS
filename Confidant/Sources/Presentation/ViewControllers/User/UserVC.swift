@@ -88,6 +88,10 @@ class UserVC: UIViewController {
 	
 	@IBAction func findAction(_ sender: IBDesigableButton) {
 		
+		SocketLO.sharedInstance.socket.emitWithAck("startConversation", with: [])
+			.timingOut(after: 0) { (response) in
+			print(response)
+		}
 	}
 
 //*************************************************
