@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C58D63AEE2482C41A073B9E /* Pods_Confidant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB2E5182389EBB8F3EADDB5F /* Pods_Confidant.framework */; };
+		51754E5D65CB5EAB89148E95 /* Pods_ConfidantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7193D6E99A81CDF6DFC92632 /* Pods_ConfidantTests.framework */; };
+		610318ED1FA015F20094011D /* ConfidantChatAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 610318EC1FA015F20094011D /* ConfidantChatAlertView.xib */; };
+		610318F01FA016A00094011D /* ConfidantChatAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610318EF1FA016A00094011D /* ConfidantChatAlertView.swift */; };
+		610B3CFF1F9FD0D80044B8D7 /* SocketLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610B3CFE1F9FD0D80044B8D7 /* SocketLO.swift */; };
 		6110E1821E6F72340005A419 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6110E1811E6F72340005A419 /* LogInVC.swift */; };
 		611C16471F905421000A3F01 /* KnowledgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C16461F905421000A3F01 /* KnowledgeCell.swift */; };
 		611C16491F905529000A3F01 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C16481F905529000A3F01 /* Cells.swift */; };
@@ -102,8 +105,8 @@
 		61F5CE8C1E68FA1C001261C1 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F5CE8B1E68FA1C001261C1 /* WelcomeVC.swift */; };
 		61F6D2711E733DC800754866 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F6D2701E733DC800754866 /* SignUpVC.swift */; };
 		61FB81BE1F7DE7700045D38B /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61FB81BD1F7DE7700045D38B /* Register.storyboard */; };
-		697D6373140ABD17F2EE4D51 /* Pods_ConfidantUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDE32CD198281D2A31348A53 /* Pods_ConfidantUITests.framework */; };
-		9432A463D2189C7EED4F1002 /* Pods_ConfidantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85B0F210DE5ED53E405535C /* Pods_ConfidantTests.framework */; };
+		84B09CC7817EB3C060B1C543 /* Pods_ConfidantUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DAC832CD26E71EC74B647D /* Pods_ConfidantUITests.framework */; };
+		CE725A6FBE67090ACFEEB2FE /* Pods_Confidant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71AD5D406C57688A72F0CD81 /* Pods_Confidant.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,8 +127,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0FD9941377684DC28AEE8AB9 /* Pods-ConfidantUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConfidantUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConfidantUITests/Pods-ConfidantUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		51DFBE2D6B6AB84AF0A4BB95 /* Pods-ConfidantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConfidantTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConfidantTests/Pods-ConfidantTests.release.xcconfig"; sourceTree = "<group>"; };
+		0251E6B14C2D49900260D5EC /* Pods-ConfidantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConfidantTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConfidantTests/Pods-ConfidantTests.release.xcconfig"; sourceTree = "<group>"; };
+		27DAC832CD26E71EC74B647D /* Pods_ConfidantUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConfidantUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		283B1556AA91A64C308D0D9E /* Pods-ConfidantUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConfidantUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConfidantUITests/Pods-ConfidantUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		610318EC1FA015F20094011D /* ConfidantChatAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfidantChatAlertView.xib; sourceTree = "<group>"; };
+		610318EF1FA016A00094011D /* ConfidantChatAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfidantChatAlertView.swift; sourceTree = "<group>"; };
+		610B3CFE1F9FD0D80044B8D7 /* SocketLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketLO.swift; sourceTree = "<group>"; };
 		6110E1811E6F72340005A419 /* LogInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		611C16461F905421000A3F01 /* KnowledgeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnowledgeCell.swift; sourceTree = "<group>"; };
 		611C16481F905529000A3F01 /* Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
@@ -227,13 +234,12 @@
 		61F5CE8B1E68FA1C001261C1 /* WelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		61F6D2701E733DC800754866 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		61FB81BD1F7DE7700045D38B /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
-		70A51AE22026F70308673FAE /* Pods-Confidant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Confidant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Confidant/Pods-Confidant.release.xcconfig"; sourceTree = "<group>"; };
-		7D80987BC5B597B4171962D4 /* Pods-Confidant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Confidant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Confidant/Pods-Confidant.debug.xcconfig"; sourceTree = "<group>"; };
-		B85B0F210DE5ED53E405535C /* Pods_ConfidantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConfidantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB2E5182389EBB8F3EADDB5F /* Pods_Confidant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Confidant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDE32CD198281D2A31348A53 /* Pods_ConfidantUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConfidantUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD97E1C90FC513F69B93AE4F /* Pods-ConfidantUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConfidantUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConfidantUITests/Pods-ConfidantUITests.release.xcconfig"; sourceTree = "<group>"; };
-		F7DFF466004D378723F868D5 /* Pods-ConfidantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConfidantTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConfidantTests/Pods-ConfidantTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6CB9843A3363DE0ECCB670BF /* Pods-ConfidantUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConfidantUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConfidantUITests/Pods-ConfidantUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7193D6E99A81CDF6DFC92632 /* Pods_ConfidantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConfidantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71AD5D406C57688A72F0CD81 /* Pods_Confidant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Confidant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6FAA53D2DA596ED55B27A82 /* Pods-Confidant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Confidant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Confidant/Pods-Confidant.debug.xcconfig"; sourceTree = "<group>"; };
+		DB2C3AC6F3C6D0B0E257C868 /* Pods-Confidant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Confidant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Confidant/Pods-Confidant.release.xcconfig"; sourceTree = "<group>"; };
+		F1C85B98E6B44B215B1594F9 /* Pods-ConfidantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConfidantTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConfidantTests/Pods-ConfidantTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +247,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C58D63AEE2482C41A073B9E /* Pods_Confidant.framework in Frameworks */,
+				CE725A6FBE67090ACFEEB2FE /* Pods_Confidant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +255,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9432A463D2189C7EED4F1002 /* Pods_ConfidantTests.framework in Frameworks */,
+				51754E5D65CB5EAB89148E95 /* Pods_ConfidantTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,21 +263,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				697D6373140ABD17F2EE4D51 /* Pods_ConfidantUITests.framework in Frameworks */,
+				84B09CC7817EB3C060B1C543 /* Pods_ConfidantUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		60AD3714AC7DE04174E700E6 /* Frameworks */ = {
+		3586D9D699DF3E616507FAED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CB2E5182389EBB8F3EADDB5F /* Pods_Confidant.framework */,
-				B85B0F210DE5ED53E405535C /* Pods_ConfidantTests.framework */,
-				CDE32CD198281D2A31348A53 /* Pods_ConfidantUITests.framework */,
+				71AD5D406C57688A72F0CD81 /* Pods_Confidant.framework */,
+				7193D6E99A81CDF6DFC92632 /* Pods_ConfidantTests.framework */,
+				27DAC832CD26E71EC74B647D /* Pods_ConfidantUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		610318E91FA0113C0094011D /* Confidant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Confidant;
+			sourceTree = "<group>";
+		};
+		610318EE1FA016580094011D /* Confidant */ = {
+			isa = PBXGroup;
+			children = (
+				610318EF1FA016A00094011D /* ConfidantChatAlertView.swift */,
+			);
+			name = Confidant;
 			sourceTree = "<group>";
 		};
 		611828F01F39589D00400AB4 /* UI Common */ = {
@@ -337,8 +358,8 @@
 				61494E0D1E685AB400D4DF13 /* ConfidantTests */,
 				61494E181E685AB400D4DF13 /* ConfidantUITests */,
 				61494DF71E685AB400D4DF13 /* Products */,
-				61CC88F6AE6EA5759355D252 /* Pods */,
-				60AD3714AC7DE04174E700E6 /* Frameworks */,
+				BFE278C13CBEF0667C74347E /* Pods */,
+				3586D9D699DF3E616507FAED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -498,11 +519,12 @@
 		618485751E6862C700854092 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				617B48A01F9D9F2400E39411 /* User */,
-				617B48951F9D579500E39411 /* Dashboard */,
+				610318E91FA0113C0094011D /* Confidant */,
 				61D2718E1F842CC90071F1BA /* Common */,
+				617B48951F9D579500E39411 /* Dashboard */,
 				61F5CE8A1E68F9EE001261C1 /* Login */,
 				6158AD741F7F277E00BB5EE3 /* Register */,
+				617B48A01F9D9F2400E39411 /* User */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -534,6 +556,7 @@
 				6155F2211ECBAF29000445D1 /* ChartColumnView.swift */,
 				6155F2231ECBAF29000445D1 /* ChartLineView.swift */,
 				61F127A41EA7034D00F14A17 /* CircularImage.swift */,
+				610318EE1FA016580094011D /* Confidant */,
 				6155F2271ECBAF29000445D1 /* DisclosureView.swift */,
 				61F127A51EA7034D00F14A17 /* IBDesignableClass.swift */,
 				61F127A61EA7034D00F14A17 /* LinedView.swift */,
@@ -594,6 +617,7 @@
 		61B24EAF1EA51B58005088A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				610318EC1FA015F20094011D /* ConfidantChatAlertView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -628,6 +652,7 @@
 				61796F541F8F3A0B00B89312 /* KnowledgeLO.swift */,
 				61D0FAED1F85DB57009399C0 /* MediaLO.swift */,
 				618485791E6862FE00854092 /* Services */,
+				610B3CFE1F9FD0D80044B8D7 /* SocketLO.swift */,
 				6183376B1F3ECFC0008380AF /* UsersLO.swift */,
 			);
 			path = Logic;
@@ -648,19 +673,6 @@
 				611C16451F9053F0000A3F01 /* Register */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		61CC88F6AE6EA5759355D252 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7D80987BC5B597B4171962D4 /* Pods-Confidant.debug.xcconfig */,
-				70A51AE22026F70308673FAE /* Pods-Confidant.release.xcconfig */,
-				F7DFF466004D378723F868D5 /* Pods-ConfidantTests.debug.xcconfig */,
-				51DFBE2D6B6AB84AF0A4BB95 /* Pods-ConfidantTests.release.xcconfig */,
-				0FD9941377684DC28AEE8AB9 /* Pods-ConfidantUITests.debug.xcconfig */,
-				DD97E1C90FC513F69B93AE4F /* Pods-ConfidantUITests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		61D0FAF01F85DCED009399C0 /* Media */ = {
@@ -699,6 +711,19 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		BFE278C13CBEF0667C74347E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B6FAA53D2DA596ED55B27A82 /* Pods-Confidant.debug.xcconfig */,
+				DB2C3AC6F3C6D0B0E257C868 /* Pods-Confidant.release.xcconfig */,
+				F1C85B98E6B44B215B1594F9 /* Pods-ConfidantTests.debug.xcconfig */,
+				0251E6B14C2D49900260D5EC /* Pods-ConfidantTests.release.xcconfig */,
+				283B1556AA91A64C308D0D9E /* Pods-ConfidantUITests.debug.xcconfig */,
+				6CB9843A3363DE0ECCB670BF /* Pods-ConfidantUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -706,12 +731,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61494E1E1E685AB400D4DF13 /* Build configuration list for PBXNativeTarget "Confidant" */;
 			buildPhases = (
-				0EC3E497363FB5CF50AA7219 /* [CP] Check Pods Manifest.lock */,
+				26E487D42E419FDE8AD7CF63 /* [CP] Check Pods Manifest.lock */,
 				61494DF21E685AB400D4DF13 /* Sources */,
 				61494DF31E685AB400D4DF13 /* Frameworks */,
 				61494DF41E685AB400D4DF13 /* Resources */,
-				5FE60EC15E953926F5B3FC32 /* [CP] Embed Pods Frameworks */,
-				1E30D688F723EE18A83DAEB9 /* [CP] Copy Pods Resources */,
+				F9D8729839D867D7FD542760 /* [CP] Embed Pods Frameworks */,
+				88A839BE17AD06619F24451B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -726,12 +751,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61494E211E685AB400D4DF13 /* Build configuration list for PBXNativeTarget "ConfidantTests" */;
 			buildPhases = (
-				F76623773DEBAD2EFD664424 /* [CP] Check Pods Manifest.lock */,
+				DD41BD49CB33A9FC94DBF2FB /* [CP] Check Pods Manifest.lock */,
 				61494E061E685AB400D4DF13 /* Sources */,
 				61494E071E685AB400D4DF13 /* Frameworks */,
 				61494E081E685AB400D4DF13 /* Resources */,
-				AD709781F2ED250CA2BE1A0D /* [CP] Embed Pods Frameworks */,
-				01D77FB8B96C1DB389E15159 /* [CP] Copy Pods Resources */,
+				01CBA4E1DBC499F2CC601635 /* [CP] Embed Pods Frameworks */,
+				BADF8BBE058E655FB49FF6CE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -747,12 +772,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61494E241E685AB400D4DF13 /* Build configuration list for PBXNativeTarget "ConfidantUITests" */;
 			buildPhases = (
-				C0967F3BA1DE5E145C08154D /* [CP] Check Pods Manifest.lock */,
+				A94D5D3B03FA49B02553BABD /* [CP] Check Pods Manifest.lock */,
 				61494E111E685AB400D4DF13 /* Sources */,
 				61494E121E685AB400D4DF13 /* Frameworks */,
 				61494E131E685AB400D4DF13 /* Resources */,
-				79BB278DADDBE98DEE996F6F /* [CP] Embed Pods Frameworks */,
-				191EC5960EE0EF3A2E27576C /* [CP] Copy Pods Resources */,
+				7B36C79111C50E3A5CE09DE1 /* [CP] Embed Pods Frameworks */,
+				2594F83790892B429BB5208E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -824,6 +849,7 @@
 				61790EEC1E6A0A520095482F /* GOTHAM-BOOKITALIC_0.OTF in Resources */,
 				617B489B1F9D8BA300E39411 /* Confidant.storyboard in Resources */,
 				61203F2E1E83802600E4B257 /* Dashboard.storyboard in Resources */,
+				610318ED1FA015F20094011D /* ConfidantChatAlertView.xib in Resources */,
 				61A2BFE41E686DD900414A4C /* Login.storyboard in Resources */,
 				61CC4EC71E80DE6A00ED4DB6 /* Assets.xcassets in Resources */,
 				61790EE81E6A0A520095482F /* GOTHAM-BOLD.TTF in Resources */,
@@ -866,7 +892,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01D77FB8B96C1DB389E15159 /* [CP] Copy Pods Resources */ = {
+		01CBA4E1DBC499F2CC601635 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConfidantTests/Pods-ConfidantTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2594F83790892B429BB5208E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -878,10 +919,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConfidantTests/Pods-ConfidantTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConfidantUITests/Pods-ConfidantUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0EC3E497363FB5CF50AA7219 /* [CP] Check Pods Manifest.lock */ = {
+		26E487D42E419FDE8AD7CF63 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -899,69 +940,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		191EC5960EE0EF3A2E27576C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConfidantUITests/Pods-ConfidantUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1E30D688F723EE18A83DAEB9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Confidant/Pods-Confidant-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5FE60EC15E953926F5B3FC32 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Confidant/Pods-Confidant-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Confidant/Pods-Confidant-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		79BB278DADDBE98DEE996F6F /* [CP] Embed Pods Frameworks */ = {
+		7B36C79111C50E3A5CE09DE1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -976,22 +955,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConfidantUITests/Pods-ConfidantUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AD709781F2ED250CA2BE1A0D /* [CP] Embed Pods Frameworks */ = {
+		88A839BE17AD06619F24451B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConfidantTests/Pods-ConfidantTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Confidant/Pods-Confidant-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C0967F3BA1DE5E145C08154D /* [CP] Check Pods Manifest.lock */ = {
+		A94D5D3B03FA49B02553BABD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1009,7 +988,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F76623773DEBAD2EFD664424 /* [CP] Check Pods Manifest.lock */ = {
+		BADF8BBE058E655FB49FF6CE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConfidantTests/Pods-ConfidantTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD41BD49CB33A9FC94DBF2FB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1025,6 +1019,42 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9D8729839D867D7FD542760 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Confidant/Pods-Confidant-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/StarscreamSocketIO/StarscreamSocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StarscreamSocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Confidant/Pods-Confidant-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1071,8 +1101,10 @@
 				61796F551F8F3A0B00B89312 /* KnowledgeLO.swift in Sources */,
 				61BE69481ED3413E0036EDBB /* ModelBO.swift in Sources */,
 				6155F2431ECBAF29000445D1 /* LocalizedBarButton.swift in Sources */,
+				610B3CFF1F9FD0D80044B8D7 /* SocketLO.swift in Sources */,
 				6155F24C1ECBAF29000445D1 /* UIBoxGroup.swift in Sources */,
 				61F570991E7DAC5E00712518 /* ServerRequest.swift in Sources */,
+				610318F01FA016A00094011D /* ConfidantChatAlertView.swift in Sources */,
 				613A8B471E6F1159000DD11D /* UIViewKit.swift in Sources */,
 				61F127B41EA7034D00F14A17 /* LinedView.swift in Sources */,
 				6158AD761F7F283300BB5EE3 /* ProfileTypeVC.swift in Sources */,
@@ -1243,7 +1275,7 @@
 		};
 		61494E1F1E685AB400D4DF13 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D80987BC5B597B4171962D4 /* Pods-Confidant.debug.xcconfig */;
+			baseConfigurationReference = B6FAA53D2DA596ED55B27A82 /* Pods-Confidant.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1262,7 +1294,7 @@
 		};
 		61494E201E685AB400D4DF13 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 70A51AE22026F70308673FAE /* Pods-Confidant.release.xcconfig */;
+			baseConfigurationReference = DB2C3AC6F3C6D0B0E257C868 /* Pods-Confidant.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1281,7 +1313,7 @@
 		};
 		61494E221E685AB400D4DF13 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F7DFF466004D378723F868D5 /* Pods-ConfidantTests.debug.xcconfig */;
+			baseConfigurationReference = F1C85B98E6B44B215B1594F9 /* Pods-ConfidantTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1297,7 +1329,7 @@
 		};
 		61494E231E685AB400D4DF13 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51DFBE2D6B6AB84AF0A4BB95 /* Pods-ConfidantTests.release.xcconfig */;
+			baseConfigurationReference = 0251E6B14C2D49900260D5EC /* Pods-ConfidantTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1313,7 +1345,7 @@
 		};
 		61494E251E685AB400D4DF13 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FD9941377684DC28AEE8AB9 /* Pods-ConfidantUITests.debug.xcconfig */;
+			baseConfigurationReference = 283B1556AA91A64C308D0D9E /* Pods-ConfidantUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 4Q582659G6;
@@ -1328,7 +1360,7 @@
 		};
 		61494E261E685AB400D4DF13 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD97E1C90FC513F69B93AE4F /* Pods-ConfidantUITests.release.xcconfig */;
+			baseConfigurationReference = 6CB9843A3363DE0ECCB670BF /* Pods-ConfidantUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 4Q582659G6;

@@ -13,6 +13,7 @@ target 'Confidant' do
   pod 'AlamofireImage', '~> 3.3'
   pod 'RealmSwift'
   pod 'RSKImageCropper'
+  pod 'Socket.IO-Client-Swift', '~> 11.1.3'
 
   target 'ConfidantTests' do
     inherit! :search_paths

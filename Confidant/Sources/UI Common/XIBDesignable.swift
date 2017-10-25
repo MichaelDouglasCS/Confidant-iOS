@@ -1,10 +1,10 @@
 /*
- *	XibDesignable.swift
- *	Confidant
- *
- *	Created by Michael Douglas on 09/11/16.
- *	Copyright 2017 Watermelon. All rights reserved.
- */
+*	XibDesignable.swift
+*	MApLE
+*
+*	Created by Diney on 09/11/16.
+*	Copyright 2017 IBM. All rights reserved.
+*/
 
 import UIKit
 
@@ -20,14 +20,14 @@ import UIKit
 //
 //**********************************************************************************************************
 
-public protocol XIBDesignableProtocol: NSObjectProtocol {
+public protocol XIBDesignableProtocol : NSObjectProtocol {
 	
 	var ibView: UIView { get }
 	func loadIBView() -> UIView
 	func ibName() -> String
 }
 
-extension XIBDesignableProtocol where Self: UIView {
+extension XIBDesignableProtocol where Self : UIView {
 	
 	fileprivate func setupIB() {
 		let view = self.loadIBView()
@@ -37,7 +37,7 @@ extension XIBDesignableProtocol where Self: UIView {
 		self.ibView.addSubview(view)
 	}
 	
-	public var ibView: UIView {
+	public var ibView : UIView {
 		return self
 	}
 	
@@ -59,7 +59,7 @@ extension XIBDesignableProtocol where Self: UIView {
 //**********************************************************************************************************
 
 @IBDesignable
-open class XIBDesignable: UIView, XIBDesignableProtocol {
+open class XIBDesignable : UIView, XIBDesignableProtocol {
 	
 	convenience public init(frame: CGRect, fromNib: Bool) {
 		self.init(frame: frame)
@@ -71,10 +71,10 @@ open class XIBDesignable: UIView, XIBDesignableProtocol {
 		self.layoutIfNeeded()
 	}
 	
-//**************************************************
-// MARK: - Overridden Methods
-//**************************************************
-
+	//**************************************************
+	// MARK: - Overridden Methods
+	//**************************************************
+	
 	override open func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
 		self.setupIB()
@@ -102,15 +102,15 @@ extension UITableView {
 			return self.dequeueReusableCell(withIdentifier: id)
 		}
 	}
-    
-//    func cellFrom(class classCell: AnyClass, withIdentifier id: String) -> UITableViewCell? {
-//        if let view = self.dequeueReusableCell(withIdentifier: id) {
-//            return view
-//        } else {
-//            self.register(classCell, forCellReuseIdentifier: id)
-//            return self.dequeueReusableCell(withIdentifier: id)
-//        }
-//    }
+	
+	//	func cellFrom(class classCell: AnyClass, withIdentifier id: String) -> UITableViewCell? {
+	//		if let view = self.dequeueReusableCell(withIdentifier: id) {
+	//			return view
+	//		} else {
+	//			self.register(classCell, forCellReuseIdentifier: id)
+	//			return self.dequeueReusableCell(withIdentifier: id)
+	//		}
+	//	}
 	
 	func headerFromXIB(withIdentifier id: String) -> UITableViewHeaderFooterView? {
 		if let view = self.dequeueReusableHeaderFooterView(withIdentifier: id) {

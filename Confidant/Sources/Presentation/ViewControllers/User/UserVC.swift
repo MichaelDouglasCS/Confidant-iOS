@@ -87,6 +87,7 @@ class UserVC: UIViewController {
 //*************************************************
 	
 	@IBAction func findAction(_ sender: IBDesigableButton) {
+		
 	}
 
 //*************************************************
@@ -97,7 +98,6 @@ class UserVC: UIViewController {
         super.viewDidLoad()
 		self.setupCollectionView()
 		self.loadData()
-		
     }
 	
 	override func viewWillAppear(_ animated: Bool) {

@@ -10,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="GOTHAM-LIGHT.TTF">
-            <string>GothamLight</string>
+        <array key="GOTHAM-LIGHT_0.OTF">
+            <string>Gotham-Light</string>
         </array>
         <array key="GOTHAM-MEDIUM.TTF">
             <string>GothamMedium</string>
@@ -76,10 +76,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="5QO-cr-hUw">
-                                                <rect key="frame" x="65" y="15" width="245" height="58"/>
+                                                <rect key="frame" x="65" y="15" width="245" height="49"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MSG_WHAT_TALK_ABOUT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKg-ws-PIS" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="245" height="33"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="245" height="21"/>
                                                         <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                                         <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -90,7 +90,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_SELECT_ONLY_ONE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfL-c1-gHR" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="48" width="245" height="10"/>
+                                                        <rect key="frame" x="0.0" y="36" width="245" height="13"/>
                                                         <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="11"/>
                                                         <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -98,7 +98,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ytz-y3-1Nv" customClass="UIBox" customModule="Confidant" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="88" width="345" height="192"/>
+                                                <rect key="frame" x="15" y="79" width="345" height="192"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="10B-Az-U64">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="192"/>
@@ -181,21 +181,21 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pID-6x-9gY">
-                                                <rect key="frame" x="15" y="295" width="345" height="144"/>
+                                                <rect key="frame" x="15" y="286" width="345" height="147"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_WHAT_HAPPENED" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXA-es-OBw" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="11"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="14"/>
                                                         <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="12"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efR-zf-dQd" customClass="UIBox" customModule="Confidant" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="21" width="345" height="123"/>
+                                                        <rect key="frame" x="0.0" y="24" width="345" height="123"/>
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="1m8-Md-2be">
                                                                 <rect key="frame" x="5" y="5" width="335" height="113"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="11"/>
+                                                                <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="WFj-K5-qXa" id="lbs-sr-Kv7"/>
