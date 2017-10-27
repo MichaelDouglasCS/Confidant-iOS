@@ -36,7 +36,21 @@ public final class SocketLO {
 	
 	static public let sharedInstance: SocketLO = SocketLO()
 	
-	let socket: SocketIOClient = SocketIOClient(socketURL: URL(string: "http://localhost:3001")!)
+	lazy var socket: SocketIOClient = {
+		typealias domain = ServerRequest.Domain
+		var url = URL(string: "")
+		
+		switch domain.mobile {
+		case domain.local:
+			url = URL(string: "http://localhost:3000")
+		case domain.develop:
+			url = URL(string: "https://confidant-api.herokuapp.com")
+		default:
+			break
+		}
+		
+		return SocketIOClient(socketURL: url!)
+	}()
 	
 //*************************************************
 // MARK: - Constructors
@@ -68,6 +82,13 @@ public final class SocketLO {
 	
 	public func closeConnection() {
 		self.socket.disconnect()
+	}
+	
+	public func updateSocketUser() {
+		
+		if let id = UsersLO.sharedInstance.current.id {
+			self.socket.emit("updateSocketUser", [id])
+		}
 	}
 	
 //*************************************************

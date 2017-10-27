@@ -110,6 +110,7 @@ public final class UsersLO {
 			Persistence.dataBaseName = id
 			Persistence.save(model: RealmUserModel(userID: id, data: try? JSON(newUser.toJSON()).rawData()))
 			Persistence.save(model: RealmUserModel(userID: id), at: UsersLO.db)
+			SocketLO.sharedInstance.updateSocketUser()
 		}
 		
 		// Current user is always set, even when the new one is empty.

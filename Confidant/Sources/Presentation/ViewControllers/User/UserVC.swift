@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 //**********************************************************************************************************
 //
@@ -88,9 +89,16 @@ class UserVC: UIViewController {
 	
 	@IBAction func findAction(_ sender: IBDesigableButton) {
 		
-		SocketLO.sharedInstance.socket.emitWithAck("startConversation", with: [])
-			.timingOut(after: 0) { (response) in
-			print(response)
+		if let id = UsersLO.sharedInstance.current.id,
+			let selectedKnowledge = self.selectedKnowledge {
+			
+			var chat = ["userID": "\(id)", "knowledgeID": "\(selectedKnowledge.id ?? "")"]
+			
+			
+			SocketLO.sharedInstance.socket.emitWithAck("startConversation", with: [chat])
+				.timingOut(after: 0) { (response) in
+					print(JSON(response))
+			}
 		}
 	}
 

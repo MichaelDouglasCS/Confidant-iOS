@@ -12,18 +12,6 @@ import SwiftyJSON
 
 //**********************************************************************************************************
 //
-// MARK: - Constants -
-//
-//**********************************************************************************************************
-
-//**********************************************************************************************************
-//
-// MARK: - Definitions -
-//
-//**********************************************************************************************************
-
-//**********************************************************************************************************
-//
 // MARK: - Class -
 //
 //**********************************************************************************************************
@@ -42,17 +30,12 @@ class DashboardVC: UITabBarController {
 	private var confidantAlertChatCallback: SocketAckEmitter?
 
 //*************************************************
-// MARK: - Constructors
-//*************************************************
-
-//*************************************************
 // MARK: - Protected Methods
 //*************************************************
 	
 	private func setupTabBarItems() {
 		
 		if let typeOfUser = UsersLO.sharedInstance.current.profile.typeOfUser {
-			
 			switch typeOfUser {
 			case .user:
 				self.viewControllers?.remove(at: DashboardVC.TabBarVC.confidantVC.rawValue)
@@ -96,15 +79,8 @@ class DashboardVC: UITabBarController {
 	}
 	
 	fileprivate func handleConfidantSelection(_ isYes: Bool) {
-		
-		switch isYes {
-		case true:
-			self.confidantAlertChatCallback?.with([true])
-			self.removeConfidantAlertChat()
-		case false:
-			self.confidantAlertChatCallback?.with([false])
-			self.removeConfidantAlertChat()
-		}
+		self.confidantAlertChatCallback?.with([isYes])
+		self.removeConfidantAlertChat()
 	}
 
 //*************************************************
