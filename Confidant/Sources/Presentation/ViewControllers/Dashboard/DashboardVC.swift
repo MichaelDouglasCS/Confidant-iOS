@@ -46,7 +46,7 @@ class DashboardVC: UITabBarController {
 		}
 	}
 	
-	private func showConfidantAlertChat(by model: ProfileBO?) {
+	private func showConfidantAlert(by model: ChatBO?) {
 		let alert = ConfidantChatAlertView(frame: self.view.frame, fromNib: true)
 		
 		alert.updateLayout(for: model)
@@ -71,15 +71,15 @@ class DashboardVC: UITabBarController {
 		
 		SocketLO.sharedInstance.socket.on("match") { (data, ack) in
 			let json = JSON(data.first as Any)
-			let profile = ProfileBO(JSON: json.dictionaryObject ?? [:])
+			let chat = ChatBO(JSON: json.dictionaryObject ?? [:])
 			
-			self.showConfidantAlertChat(by: profile)
+			self.showConfidantAlert(by: chat)
 			self.confidantAlertChatCallback = ack
 		}
 	}
 	
-	fileprivate func handleConfidantSelection(_ isYes: Bool) {
-		self.confidantAlertChatCallback?.with([isYes])
+	fileprivate func handleConfidantSelection(_ chat: ChatBO?) {
+		self.confidantAlertChatCallback?.with([chat?.toJSON()])
 		self.removeConfidantAlertChat()
 	}
 
@@ -107,7 +107,7 @@ class DashboardVC: UITabBarController {
 
 extension DashboardVC: ConfidantChatAlertDelegate {
 	
-	func chatAlert(_ chatAlert: ConfidantChatAlertView, didSelectAnswer isYes: Bool) {
-		self.handleConfidantSelection(isYes)
+	func chatAlert(_ chatAlert: ConfidantChatAlertView, didSelectAnswer chat: ChatBO?) {
+		self.handleConfidantSelection(chat)
 	}
 }

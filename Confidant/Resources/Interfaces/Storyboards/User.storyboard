@@ -24,7 +24,7 @@
                 <navigationController navigationBarHidden="YES" id="7pv-ZR-jkg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="icn_confidant" selectedImage="icn_confidant_selected" id="6Sz-2W-eEx"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rOF-Mk-5Nb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rOF-Mk-5Nb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -286,9 +286,9 @@
                         <outlet property="bottomConstraint" destination="Aa9-eL-9pH" id="dnj-Dt-pBY"/>
                         <outlet property="collectionView" destination="10B-Az-U64" id="fjW-b5-r1F"/>
                         <outlet property="findButton" destination="yUM-sw-2tP" id="8cu-1N-39V"/>
+                        <outlet property="reasonTextView" destination="1m8-Md-2be" id="JHX-32-egf"/>
                         <outlet property="scrollView" destination="nMa-3f-TqA" id="p6j-d5-xht"/>
                         <outlet property="searchBar" destination="oLi-fy-qY3" id="Vdm-tK-EqA"/>
-                        <outlet property="textView" destination="1m8-Md-2be" id="ZGu-TZ-anb"/>
                         <segue destination="Ihy-i6-3LZ" kind="presentation" identifier="showSearchSegue" modalTransitionStyle="crossDissolve" id="8XQ-t4-5Hj"/>
                     </connections>
                 </viewController>

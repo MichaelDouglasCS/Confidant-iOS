@@ -1,8 +1,8 @@
 //
-//  ProfileBO.swift
+//  ChatBO.swift
 //  Confidant
 //
-//  Created by Michael Douglas on 22/05/17.
+//  Created by Michael Douglas on 27/10/17.
 //  Copyright © 2017 Watermelon. All rights reserved.
 //
 
@@ -15,26 +15,20 @@ import ObjectMapper
 //
 //**********************************************************************************************************
 
-public class ProfileBO: Mappable {
+public class ChatBO: Mappable {
 
-	public enum TypeOfUser: String {
-		case user = "User"
-		case confidant = "Confidant"
-	}
-	
 //*************************************************
 // MARK: - Properties
 //*************************************************
 	
-	public var name: String?
-	public var nickname: String?
-	public var picture: MediaBO?
-	public var birthdate: String?
-	public var gender: String?
-	public var typeOfUser: ProfileBO.TypeOfUser?
-	public var knowledges: [KnowledgeBO]?
-	public var isAvailable: Bool?
-	public var chats: [ChatBO]?
+	public var id: String?
+	public var createdDate: TimeInterval?
+	public var updatedDate: TimeInterval?
+	public var userProfile: ChatProfileBO?
+	public var confidantProfile: ChatProfileBO?
+	public var reason: String?
+	public var knowledge: KnowledgeBO?
+	public var messages: [MessageBO]?
 
 //*************************************************
 // MARK: - Constructors
@@ -49,14 +43,13 @@ public class ProfileBO: Mappable {
 //*************************************************
 	
 	public func mapping(map: Map) {
-		self.name <- map["name"]
-		self.nickname <- map["nickname"]
-		self.picture <- map["picture"]
-		self.birthdate <- map["birthdate"]
-		self.gender <- map["gender"]
-		self.typeOfUser <- map["typeOfUser"]
-		self.knowledges <- map["knowledges"]
-		self.isAvailable <- map["isAvailable"]
-		self.chats <- map["chats"]
+		self.id <- map["id"]
+		self.createdDate <- map["createdDate"]
+		self.updatedDate <- map["updatedDate"]
+		self.userProfile <- map["userProfile"]
+		self.confidantProfile <- map["confidantProfile"]
+		self.reason <- map["reason"]
+		self.knowledge <- map["knowledge"]
+		self.messages <- map["messages"]
 	}
 }

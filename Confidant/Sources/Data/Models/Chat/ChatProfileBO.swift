@@ -1,8 +1,8 @@
 //
-//  ProfileBO.swift
+//  ChatProfileBO.swift
 //  Confidant
 //
-//  Created by Michael Douglas on 22/05/17.
+//  Created by Michael Douglas on 28/10/17.
 //  Copyright © 2017 Watermelon. All rights reserved.
 //
 
@@ -15,48 +15,40 @@ import ObjectMapper
 //
 //**********************************************************************************************************
 
-public class ProfileBO: Mappable {
+public class ChatProfileBO: Mappable {
 
-	public enum TypeOfUser: String {
-		case user = "User"
-		case confidant = "Confidant"
-	}
-	
 //*************************************************
 // MARK: - Properties
 //*************************************************
-	
-	public var name: String?
+
+	public var id: String?
 	public var nickname: String?
 	public var picture: MediaBO?
-	public var birthdate: String?
-	public var gender: String?
-	public var typeOfUser: ProfileBO.TypeOfUser?
-	public var knowledges: [KnowledgeBO]?
-	public var isAvailable: Bool?
-	public var chats: [ChatBO]?
-
+	
 //*************************************************
 // MARK: - Constructors
 //*************************************************
-	
+
 	public required init() { }
 	
 	public required init?(map: Map) { }
+	
+	public convenience init(id: String?,
+	                        nickname: String?,
+	                        picture: MediaBO?) {
+		self.init()
+		self.id = id
+		self.nickname = nickname
+		self.picture = picture
+	}
 
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
 	
 	public func mapping(map: Map) {
-		self.name <- map["name"]
+		self.id	<- map["id"]
 		self.nickname <- map["nickname"]
 		self.picture <- map["picture"]
-		self.birthdate <- map["birthdate"]
-		self.gender <- map["gender"]
-		self.typeOfUser <- map["typeOfUser"]
-		self.knowledges <- map["knowledges"]
-		self.isAvailable <- map["isAvailable"]
-		self.chats <- map["chats"]
 	}
 }

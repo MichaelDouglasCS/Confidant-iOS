@@ -21,7 +21,7 @@ import UIKit
 //**********************************************************************************************************
 
 protocol ConfidantChatAlertDelegate : class {
-	func chatAlert(_ chatAlert: ConfidantChatAlertView, didSelectAnswer isYes: Bool)
+	func chatAlert(_ chatAlert: ConfidantChatAlertView, didSelectAnswer chat: ChatBO?)
 }
 
 //**********************************************************************************************************
@@ -35,6 +35,8 @@ class ConfidantChatAlertView: XIBDesignable {
 //*************************************************
 // MARK: - Properties
 //*************************************************
+	
+	private var chat: ChatBO?
 	
 	@IBOutlet weak var backgroundView: UIView!
 	@IBOutlet weak var popOverView: UIBox!
@@ -60,13 +62,13 @@ class ConfidantChatAlertView: XIBDesignable {
 // MARK: - Exposed Methods
 //*************************************************
 
-	func updateLayout(for model: ProfileBO?) {
+	func updateLayout(for model: ChatBO?) {
+		self.chat = model
 		
 		if let model = model {
-			
 			self.userImageView.loadingIndicatorView(isShow: true, at: nil)
 
-			MediaLO.downloadImage(from: model.picture?.fileURL ?? "") { (image, result) in
+			MediaLO.downloadImage(from: model.userProfile?.picture?.fileURL ?? "") { (image, result) in
 				
 				switch result {
 				case .success:
@@ -77,17 +79,22 @@ class ConfidantChatAlertView: XIBDesignable {
 				self.userImageView.loadingIndicatorView(isShow: false, at: nil)
 			}
 			
-			self.userNickname.text = model.nickname
-			//self.userReason.text = model.reason
+			self.userNickname.text = model.userProfile?.nickname
+			self.userReason.text = model.reason
 		}
 	}
 
 	@IBAction func noAction(_ sender: LocalizedButton) {
-		self.delegate?.chatAlert(self, didSelectAnswer: false)
+		self.delegate?.chatAlert(self, didSelectAnswer: nil)
 	}
 	
 	@IBAction func yesAction(_ sender: LocalizedButton) {
-		self.delegate?.chatAlert(self, didSelectAnswer: true)
+		let user = UsersLO.sharedInstance.current
+		self.chat?.confidantProfile = ChatProfileBO(id: user.id,
+		                                            nickname: user.profile.nickname,
+		                                            picture: user.profile.picture)
+		
+		self.delegate?.chatAlert(self, didSelectAnswer: self.chat)
 	}
 	
 	func showingAnimate(completion: ((Bool) -> Void)? = nil) {

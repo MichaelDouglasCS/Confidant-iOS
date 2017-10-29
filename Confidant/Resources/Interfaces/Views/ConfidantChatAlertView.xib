@@ -82,7 +82,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fCO-wk-4Y5">
                             <rect key="frame" x="20" y="248.5" width="284" height="217.5"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Michael Douglas" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ot-f6-kvh" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ot-f6-kvh" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="284" height="14.5"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="16"/>
                                     <nil key="highlightedColor"/>
@@ -93,13 +93,32 @@
                                     <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jec-AB-PZm">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dz-Qv-YZu" customClass="UIBox" customModule="Confidant" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="48" width="284" height="169.5"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Reason Text" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jec-AB-PZm">
+                                            <rect key="frame" x="-0.5" y="0.0" width="284" height="169.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="13"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </string>
-                                    <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="13"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                </textView>
+                                    <constraints>
+                                        <constraint firstItem="jec-AB-PZm" firstAttribute="top" secondItem="3dz-Qv-YZu" secondAttribute="top" id="9Q4-bf-YAr"/>
+                                        <constraint firstAttribute="bottom" secondItem="jec-AB-PZm" secondAttribute="bottom" id="dcp-ci-7KX"/>
+                                        <constraint firstAttribute="trailing" secondItem="jec-AB-PZm" secondAttribute="trailing" id="nEs-ru-iJ7"/>
+                                        <constraint firstItem="jec-AB-PZm" firstAttribute="leading" secondItem="3dz-Qv-YZu" secondAttribute="leading" id="qPr-Nr-pSe"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hbl-sl-bb5">

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 //**********************************************************************************************************
 //
@@ -27,7 +26,7 @@ class UserVC: UIViewController {
 	
 	@IBOutlet weak var searchBar: LocalizedSearchBar!
 	@IBOutlet weak var collectionView: UICollectionView!
-	@IBOutlet weak var textView: UITextView!
+	@IBOutlet weak var reasonTextView: UITextView!
 	@IBOutlet weak var findButton: IBDesigableButton!
 	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -88,16 +87,23 @@ class UserVC: UIViewController {
 //*************************************************
 	
 	@IBAction func findAction(_ sender: IBDesigableButton) {
+		let user = UsersLO.sharedInstance.current
+		let chat = ChatBO()
 		
-		if let id = UsersLO.sharedInstance.current.id,
-			let selectedKnowledge = self.selectedKnowledge {
+		chat.createdDate = Date().timeIntervalSince1970
+		chat.updatedDate = Date().timeIntervalSince1970
+		chat.userProfile = ChatProfileBO(id: user.id,
+		                                 nickname: user.profile.nickname,
+		                                 picture: user.profile.picture)
+		chat.reason = self.reasonTextView.text
+		chat.knowledge = self.selectedKnowledge
+		
+		ChatLO.startConversation(with: chat) { (isStart) in
 			
-			var chat = ["userID": "\(id)", "knowledgeID": "\(selectedKnowledge.id ?? "")"]
-			
-			
-			SocketLO.sharedInstance.socket.emitWithAck("startConversation", with: [chat])
-				.timingOut(after: 0) { (response) in
-					print(JSON(response))
+			if isStart {
+				
+			} else {
+				self.showInfoAlert(title: String.Local.sorry, message: "No Confidant Available")
 			}
 		}
 	}
@@ -234,7 +240,7 @@ extension UserVC: KeyboardSizeAdjuster {
 		self.bottomConstraint.constant = distance
 		
 		if distance != 0 {
-			self.scrollView.scrollToOffset(for: self.textView)
+			self.scrollView.scrollToOffset(for: self.reasonTextView)
 		}
 		
 		self.view.layoutIfNeeded()
