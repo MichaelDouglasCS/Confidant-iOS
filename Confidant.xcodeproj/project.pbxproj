@@ -38,6 +38,8 @@
 		615F3E861F945B7100E88A3C /* SearchKnowledgesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615F3E851F945B7000E88A3C /* SearchKnowledgesVC.swift */; };
 		616FB2A71F82D798003F1445 /* PersonalInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FB2A61F82D798003F1445 /* PersonalInfoVC.swift */; };
 		61705D931F843E0B000044B0 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61705D921F843E0B000044B0 /* CameraController.swift */; };
+		617306911FA68B17000BF0EE /* UserSearchingAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 617306901FA68B17000BF0EE /* UserSearchingAlertView.xib */; };
+		617306941FA6AA24000BF0EE /* UserSearchingAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617306931FA6AA24000BF0EE /* UserSearchingAlertView.swift */; };
 		61790EE21E6A0A520095482F /* GOTHAM-BLACK.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC01E6A0A520095482F /* GOTHAM-BLACK.TTF */; };
 		61790EE41E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC21E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF */; };
 		61790EE61E6A0A520095482F /* GOTHAM-BOLD_0.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC41E6A0A520095482F /* GOTHAM-BOLD_0.OTF */; };
@@ -170,6 +172,8 @@
 		615F3E851F945B7000E88A3C /* SearchKnowledgesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchKnowledgesVC.swift; sourceTree = "<group>"; };
 		616FB2A61F82D798003F1445 /* PersonalInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoVC.swift; sourceTree = "<group>"; };
 		61705D921F843E0B000044B0 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		617306901FA68B17000BF0EE /* UserSearchingAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserSearchingAlertView.xib; sourceTree = "<group>"; };
+		617306931FA6AA24000BF0EE /* UserSearchingAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchingAlertView.swift; sourceTree = "<group>"; };
 		61790EC01E6A0A520095482F /* GOTHAM-BLACK.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BLACK.TTF"; sourceTree = "<group>"; };
 		61790EC21E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BLACKITALIC.TTF"; sourceTree = "<group>"; };
 		61790EC41E6A0A520095482F /* GOTHAM-BOLD_0.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BOLD_0.OTF"; sourceTree = "<group>"; };
@@ -430,6 +434,14 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		617306921FA6A9F6000BF0EE /* User */ = {
+			isa = PBXGroup;
+			children = (
+				617306931FA6AA24000BF0EE /* UserSearchingAlertView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		61790F041E6A0A660095482F /* Gotham */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +609,7 @@
 				611C164B1F9059DA000A3F01 /* TopicButton.swift */,
 				61F127AF1EA7034D00F14A17 /* UIBox.swift */,
 				6155F2341ECBAF29000445D1 /* UIBoxGroup.swift */,
+				617306921FA6A9F6000BF0EE /* User */,
 				61F127B01EA7034D00F14A17 /* VerticalButton.swift */,
 			);
 			path = Views;
@@ -637,6 +650,7 @@
 			isa = PBXGroup;
 			children = (
 				610318EC1FA015F20094011D /* ConfidantChatAlertView.xib */,
+				617306901FA68B17000BF0EE /* UserSearchingAlertView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -885,6 +899,7 @@
 				61790EEE1E6A0A520095482F /* GOTHAM-LIGHT_0.OTF in Resources */,
 				617B489D1F9D8BB000E39411 /* Profile.storyboard in Resources */,
 				61790EF21E6A0A520095482F /* GOTHAM-LIGHTITALIC.TTF in Resources */,
+				617306911FA68B17000BF0EE /* UserSearchingAlertView.xib in Resources */,
 				617B48991F9D8B9200E39411 /* Chats.storyboard in Resources */,
 				61FB81BE1F7DE7700045D38B /* Register.storyboard in Resources */,
 				61790EF41E6A0A520095482F /* GOTHAM-MEDIUM.TTF in Resources */,
@@ -1097,6 +1112,7 @@
 				6155F24B1ECBAF29000445D1 /* TiledView.swift in Sources */,
 				61F1279F1EA7015F00F14A17 /* Localized.swift in Sources */,
 				614BBBC81FA3F86400DE97EC /* ChatBO.swift in Sources */,
+				617306941FA6AA24000BF0EE /* UserSearchingAlertView.swift in Sources */,
 				61F127B81EA7034D00F14A17 /* LocalizedLabel.swift in Sources */,
 				6155F23F1ECBAF29000445D1 /* DisclosureView.swift in Sources */,
 				611C164C1F9059DA000A3F01 /* TopicButton.swift in Sources */,

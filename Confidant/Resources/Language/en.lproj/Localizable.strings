@@ -35,6 +35,7 @@
 "LB_ABOUT" = "About:";
 "LB_YES" = "YES";
 "LB_NO" = "NO";
+"LB_WAIT_A_LITTLE_BIT" = "Wait a little bit!";
 
 //*************************
 // Strings
@@ -94,3 +95,4 @@
 "MSG_WHAT_TALK_ABOUT" = "What do you want to talk about ?";
 "MSG_SOMEONE_NEEDS_HELP" = "Someone needs your help! :-)";
 "MSG_DO_YOU_WISH_TALK" = "Do you wish talk to";
+"MSG_LOOKING_FOR_CONFIDANT" = "We are looking for a Confident for you! :-)";

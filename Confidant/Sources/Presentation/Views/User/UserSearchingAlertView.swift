@@ -1,8 +1,8 @@
 //
-//  ConfidantChatAlertView.swift
+//  UserSearchingAlertView.swift
 //  Confidant
 //
-//  Created by Michael Douglas on 24/10/17.
+//  Created by Michael Douglas on 29/10/17.
 //  Copyright © 2017 Watermelon. All rights reserved.
 //
 
@@ -20,8 +20,8 @@ import UIKit
 //
 //**********************************************************************************************************
 
-protocol ConfidantChatAlertDelegate : class {
-	func chatAlert(_ chatAlert: ConfidantChatAlertView, didSelectAnswer chat: ChatBO?)
+protocol UserSearchingAlertDelegate: class {
+	func didSelectCancel(_ searchingAlert: UserSearchingAlertView)
 }
 
 //**********************************************************************************************************
@@ -30,22 +30,18 @@ protocol ConfidantChatAlertDelegate : class {
 //
 //**********************************************************************************************************
 
-class ConfidantChatAlertView: XIBDesignable {
-
+class UserSearchingAlertView: XIBDesignable {
+	
 //*************************************************
 // MARK: - Properties
 //*************************************************
 	
-	private var chat: ChatBO?
-	
 	@IBOutlet weak var backgroundView: UIView!
 	@IBOutlet weak var popOverView: UIBox!
-	@IBOutlet weak var userImageView: CircularImage!
-	@IBOutlet weak var userNickname: LocalizedLabel!
-	@IBOutlet weak var userReason: UITextView!
+	@IBOutlet weak var loadingView: UIImageView!
 	
-	weak var delegate: ConfidantChatAlertDelegate?
-	
+	weak var delegate: UserSearchingAlertDelegate?
+
 //*************************************************
 // MARK: - Constructors
 //*************************************************
@@ -53,52 +49,26 @@ class ConfidantChatAlertView: XIBDesignable {
 //*************************************************
 // MARK: - Protected Methods
 //*************************************************
-
+	
 	private func setupView() {
+		var loading = [UIImage]()
 		
+		for i in 0...40 {
+			let image = UIImage(named: "loading_\(i)")
+			if let imageLoad = image {
+				loading.append(imageLoad)
+			}
+		}
+
+		self.loadingView.image = UIImage.animatedImage(with: loading, duration: 1.5)
 	}
 	
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
-
-	func updateLayout(for model: ChatBO?) {
-		self.chat = model
-		
-		if let model = model {
-			self.userImageView.loadingIndicatorView(isShow: true, at: nil)
-
-			MediaLO.downloadImage(from: model.userProfile?.picture?.fileURL ?? "") { (image, result) in
-				
-				switch result {
-				case .success:
-					self.userImageView.image = image
-				default:
-					break
-				}
-				self.userImageView.loadingIndicatorView(isShow: false, at: nil)
-			}
-			
-			self.userNickname.text = model.userProfile?.nickname
-			self.userReason.text = model.reason
-		}
-	}
-
-	@IBAction func noAction(_ sender: LocalizedButton) {
-		self.delegate?.chatAlert(self, didSelectAnswer: nil)
-	}
 	
-	@IBAction func yesAction(_ sender: LocalizedButton) {
-		let user = UsersLO.sharedInstance.current
-		self.chat?.confidantProfile = ChatProfileBO(id: user.id,
-		                                            nickname: user.profile.nickname,
-		                                            picture: user.profile.picture)
-		
-		if let chat = self.chat {
-			user.profile.chats?.append(chat)
-		}
-		
-		self.delegate?.chatAlert(self, didSelectAnswer: self.chat)
+	@IBAction func cancelAction(_ sender: LocalizedButton) {
+		self.delegate?.didSelectCancel(self)
 	}
 	
 	func showingAnimate(completion: ((Bool) -> Void)? = nil) {
@@ -142,7 +112,7 @@ class ConfidantChatAlertView: XIBDesignable {
 //*************************************************
 // MARK: - Overridden Public Methods
 //*************************************************
-
+	
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		self.setupView()
@@ -158,3 +128,4 @@ class ConfidantChatAlertView: XIBDesignable {
 		self.setupView()
 	}
 }
+

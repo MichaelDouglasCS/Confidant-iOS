@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GOTHAM-BOLD_0.OTF">
+            <string>Gotham-Bold</string>
+        </array>
+        <array key="GOTHAM-LIGHT.TTF">
+            <string>GothamLight</string>
+        </array>
+        <array key="GOTHAM-MEDIUM.TTF">
+            <string>GothamMedium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserSearchingAlertView" customModule="Confidant" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundView" destination="VyY-2F-qUM" id="he2-dK-BVo"/>
+                <outlet property="loadingView" destination="fLu-ib-oFF" id="KdD-Wh-7t0"/>
+                <outlet property="popOverView" destination="g23-z6-sBI" id="cCP-Np-ntl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="rsL-cf-42d">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VyY-2F-qUM" userLabel="BackgroundView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g23-z6-sBI" customClass="UIBox" customModule="Confidant" customModuleProvider="target">
+                    <rect key="frame" x="25.5" y="65.5" width="324" height="536"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WfH-Kx-UW7" userLabel="HeaderView">
+                            <rect key="frame" x="0.0" y="0.0" width="324" height="60"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_WAIT_A_LITTLE_BIT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tg-YC-bY5" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                    <rect key="frame" x="75" y="21.5" width="175" height="19"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="16"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.2901960784" green="0.84705882349999995" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="6tg-YC-bY5" firstAttribute="centerY" secondItem="WfH-Kx-UW7" secondAttribute="centerY" id="9c8-JO-AEi"/>
+                                <constraint firstItem="6tg-YC-bY5" firstAttribute="centerX" secondItem="WfH-Kx-UW7" secondAttribute="centerX" id="HlB-mx-IuP"/>
+                                <constraint firstAttribute="height" constant="60" id="Kta-vD-NtU"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MSG_LOOKING_FOR_CONFIDANT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUQ-oL-Tmo" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
+                            <rect key="frame" x="15" y="86" width="294" height="69"/>
+                            <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="23"/>
+                            <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="lineSpace">
+                                    <real key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading_0" translatesAutoresizingMaskIntoConstraints="NO" id="fLu-ib-oFF">
+                            <rect key="frame" x="125" y="251" width="74" height="74"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="74" id="Kjg-4i-L5c"/>
+                                <constraint firstAttribute="height" constant="74" id="pN0-NN-kSd"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwy-Ta-7GO" customClass="LocalizedButton" customModule="Confidant" customModuleProvider="target">
+                            <rect key="frame" x="-0.5" y="486" width="324" height="50"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="sfI-ey-FTc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="17"/>
+                            <state key="normal" title="LB_CANCEL">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="6cS-O0-3TP"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="kUQ-oL-Tmo" firstAttribute="leading" secondItem="g23-z6-sBI" secondAttribute="leading" constant="15" id="DKb-Qo-5d3"/>
+                        <constraint firstItem="WfH-Kx-UW7" firstAttribute="top" secondItem="g23-z6-sBI" secondAttribute="top" id="E5V-2y-eFJ"/>
+                        <constraint firstItem="kUQ-oL-Tmo" firstAttribute="top" secondItem="WfH-Kx-UW7" secondAttribute="bottom" constant="26" id="EPl-1f-nad"/>
+                        <constraint firstItem="kUQ-oL-Tmo" firstAttribute="centerX" secondItem="g23-z6-sBI" secondAttribute="centerX" id="HWl-1h-uK9"/>
+                        <constraint firstAttribute="trailing" secondItem="kUQ-oL-Tmo" secondAttribute="trailing" constant="15" id="Jmp-aq-nvA"/>
+                        <constraint firstItem="fLu-ib-oFF" firstAttribute="centerX" secondItem="g23-z6-sBI" secondAttribute="centerX" id="Jzc-qp-BHy"/>
+                        <constraint firstAttribute="trailing" secondItem="WfH-Kx-UW7" secondAttribute="trailing" id="KUy-TP-i2S"/>
+                        <constraint firstItem="fwy-Ta-7GO" firstAttribute="leading" secondItem="g23-z6-sBI" secondAttribute="leading" id="dqm-yS-tYp"/>
+                        <constraint firstItem="fLu-ib-oFF" firstAttribute="centerY" secondItem="g23-z6-sBI" secondAttribute="centerY" constant="20" id="qGs-28-2ES"/>
+                        <constraint firstAttribute="bottom" secondItem="fwy-Ta-7GO" secondAttribute="bottom" id="tzD-iO-e9Z"/>
+                        <constraint firstItem="WfH-Kx-UW7" firstAttribute="leading" secondItem="g23-z6-sBI" secondAttribute="leading" id="vg5-90-Owx"/>
+                        <constraint firstAttribute="trailing" secondItem="fwy-Ta-7GO" secondAttribute="trailing" id="ypO-Q6-3eR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="VyY-2F-qUM" firstAttribute="leading" secondItem="rsL-cf-42d" secondAttribute="leading" id="KNU-Fb-bBI"/>
+                <constraint firstAttribute="trailing" secondItem="VyY-2F-qUM" secondAttribute="trailing" id="SeV-dQ-x2Z"/>
+                <constraint firstItem="g23-z6-sBI" firstAttribute="top" secondItem="rsL-cf-42d" secondAttribute="top" constant="65" id="YZR-7f-5VI"/>
+                <constraint firstAttribute="bottom" secondItem="VyY-2F-qUM" secondAttribute="bottom" id="YjX-Vc-GR1"/>
+                <constraint firstAttribute="trailing" secondItem="g23-z6-sBI" secondAttribute="trailing" constant="25" id="asC-e4-eyg"/>
+                <constraint firstAttribute="bottom" secondItem="g23-z6-sBI" secondAttribute="bottom" constant="65" id="guX-ep-C6c"/>
+                <constraint firstItem="VyY-2F-qUM" firstAttribute="top" secondItem="rsL-cf-42d" secondAttribute="top" id="mpj-ZK-5Ul"/>
+                <constraint firstItem="g23-z6-sBI" firstAttribute="leading" secondItem="rsL-cf-42d" secondAttribute="leading" constant="25" id="pT5-0i-Yaw"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="loading_0" width="198" height="198"/>
+    </resources>
+</document>

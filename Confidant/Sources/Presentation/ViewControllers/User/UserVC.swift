@@ -60,6 +60,26 @@ class UserVC: UIViewController {
 		}
 	}
 	
+	private func showLoadingAlert() {
+		let alert = UserSearchingAlertView(frame: self.view.frame, fromNib: true)
+		
+		alert.delegate = self
+		self.tabBarController?.view.addSubview(alert)
+		alert.showingAnimate()
+	}
+	
+	fileprivate func removeLoadingAlert() {
+		self.tabBarController?.view.subviews.forEach({ (subView) in
+			
+			if let view = subView as? UserSearchingAlertView {
+				
+				view.hiddenAnimate(completion: { _ in
+					view.removeFromSuperview()
+				})
+			}
+		})
+	}
+	
 	private func loadData() {
 		self.collectionView.loadingIndicatorView(isShow: true, isLarge: true)
 		
@@ -87,6 +107,8 @@ class UserVC: UIViewController {
 //*************************************************
 	
 	@IBAction func findAction(_ sender: IBDesigableButton) {
+		self.showLoadingAlert()
+		
 		let user = UsersLO.sharedInstance.current
 		let chat = ChatBO()
 		
@@ -99,6 +121,8 @@ class UserVC: UIViewController {
 		chat.knowledge = self.selectedKnowledge
 		
 		ChatLO.startConversation(with: chat) { (isStart) in
+			
+			self.removeLoadingAlert()
 			
 			if isStart {
 				
@@ -223,6 +247,19 @@ extension UserVC: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
 		self.selectedKnowledge = nil
 		self.isFindEnabled()
+	}
+}
+
+//**********************************************************************************************************
+//
+// MARK: - Extension - UserSearchingAlertDelegate
+//
+//**********************************************************************************************************
+
+extension UserVC: UserSearchingAlertDelegate {
+	
+	func didSelectCancel(_ searchingAlert: UserSearchingAlertView) {
+		self.removeLoadingAlert()
 	}
 }
 
