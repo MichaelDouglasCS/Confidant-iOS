@@ -40,6 +40,7 @@
 		61705D931F843E0B000044B0 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61705D921F843E0B000044B0 /* CameraController.swift */; };
 		617306911FA68B17000BF0EE /* UserSearchingAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 617306901FA68B17000BF0EE /* UserSearchingAlertView.xib */; };
 		617306941FA6AA24000BF0EE /* UserSearchingAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617306931FA6AA24000BF0EE /* UserSearchingAlertView.swift */; };
+		617306961FA6D4E3000BF0EE /* ConfidantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617306951FA6D4E3000BF0EE /* ConfidantVC.swift */; };
 		61790EE21E6A0A520095482F /* GOTHAM-BLACK.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC01E6A0A520095482F /* GOTHAM-BLACK.TTF */; };
 		61790EE41E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC21E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF */; };
 		61790EE61E6A0A520095482F /* GOTHAM-BOLD_0.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC41E6A0A520095482F /* GOTHAM-BOLD_0.OTF */; };
@@ -174,6 +175,7 @@
 		61705D921F843E0B000044B0 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		617306901FA68B17000BF0EE /* UserSearchingAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserSearchingAlertView.xib; sourceTree = "<group>"; };
 		617306931FA6AA24000BF0EE /* UserSearchingAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchingAlertView.swift; sourceTree = "<group>"; };
+		617306951FA6D4E3000BF0EE /* ConfidantVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfidantVC.swift; sourceTree = "<group>"; };
 		61790EC01E6A0A520095482F /* GOTHAM-BLACK.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BLACK.TTF"; sourceTree = "<group>"; };
 		61790EC21E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BLACKITALIC.TTF"; sourceTree = "<group>"; };
 		61790EC41E6A0A520095482F /* GOTHAM-BOLD_0.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BOLD_0.OTF"; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 		610318E91FA0113C0094011D /* Confidant */ = {
 			isa = PBXGroup;
 			children = (
+				617306951FA6D4E3000BF0EE /* ConfidantVC.swift */,
 			);
 			path = Confidant;
 			sourceTree = "<group>";
@@ -1151,6 +1154,7 @@
 				61D0FAEE1F85DB57009399C0 /* MediaLO.swift in Sources */,
 				61F127B11EA7034D00F14A17 /* BlurredView.swift in Sources */,
 				6155F2461ECBAF29000445D1 /* LocalizedTabBar.swift in Sources */,
+				617306961FA6D4E3000BF0EE /* ConfidantVC.swift in Sources */,
 				61F127BE1EA7034D00F14A17 /* VerticalButton.swift in Sources */,
 				61F5CE8C1E68FA1C001261C1 /* WelcomeVC.swift in Sources */,
 				61B4EC3E1F81A3C200FA5296 /* PersistenceStore.swift in Sources */,

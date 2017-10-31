@@ -43,7 +43,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="324" height="60"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_WAIT_A_LITTLE_BIT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tg-YC-bY5" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="75" y="21.5" width="175" height="19"/>
+                                    <rect key="frame" x="61.5" y="20.5" width="201.5" height="19"/>
                                     <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MSG_LOOKING_FOR_CONFIDANT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUQ-oL-Tmo" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
-                            <rect key="frame" x="15" y="86" width="294" height="69"/>
+                            <rect key="frame" x="15" y="86" width="294" height="56"/>
                             <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="23"/>
                             <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>

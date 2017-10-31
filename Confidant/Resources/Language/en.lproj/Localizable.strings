@@ -36,6 +36,7 @@
 "LB_YES" = "YES";
 "LB_NO" = "NO";
 "LB_WAIT_A_LITTLE_BIT" = "Wait a little bit!";
+"LB_CONFIDANT" = "CONFIDANT";
 
 //*************************
 // Strings
