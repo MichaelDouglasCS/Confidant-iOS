@@ -39,10 +39,10 @@ class DashboardVC: UITabBarController {
 			switch typeOfUser {
 			case .user:
 				self.viewControllers?.remove(at: DashboardVC.TabBarVC.confidantVC.rawValue)
-				self.selectedIndex = DashboardVC.TabBarVC.userVC.rawValue
 			case .confidant:
 				self.viewControllers?.remove(at: DashboardVC.TabBarVC.userVC.rawValue)
 			}
+			self.selectedIndex = 1
 		}
 	}
 	

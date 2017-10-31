@@ -225,6 +225,7 @@ extension ConfidantVC: SearchKnowledgesDelegate {
 		}
 		
 		self.didReloadData()
+		self.updateKnowledges()
 	}
 }
 
