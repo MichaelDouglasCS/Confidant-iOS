@@ -81,6 +81,10 @@ class DashboardVC: UITabBarController {
 	fileprivate func handleConfidantSelection(_ chat: ChatBO?) {
 		self.confidantAlertChatCallback?.with([chat?.toJSON()])
 		self.removeConfidantAlertChat()
+		
+		if chat != nil {
+			self.selectedIndex = 0
+		}
 	}
 
 //*************************************************

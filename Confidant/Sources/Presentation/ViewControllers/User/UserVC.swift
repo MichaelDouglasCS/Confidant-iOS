@@ -125,7 +125,7 @@ class UserVC: UIViewController {
 			self.removeLoadingAlert()
 			
 			if isStart {
-				
+				self.tabBarController?.selectedIndex = 0
 			} else {
 				self.showInfoAlert(title: String.Local.sorry, message: "No Confidant Available")
 			}

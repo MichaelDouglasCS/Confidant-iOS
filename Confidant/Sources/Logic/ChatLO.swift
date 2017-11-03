@@ -11,6 +11,16 @@ import SwiftyJSON
 
 //**********************************************************************************************************
 //
+// MARK: - Definitions -
+//
+//**********************************************************************************************************
+
+extension NSNotification.Name {
+	public static let chatsDidUpdate = NSNotification.Name(rawValue: "ChatsDidUpdate")
+}
+
+//**********************************************************************************************************
+//
 // MARK: - Class -
 //
 //**********************************************************************************************************
@@ -31,6 +41,7 @@ public final class ChatLO {
 					
 					if chat.confidantProfile != nil {
 						UsersLO.sharedInstance.current.profile.chats?.append(chat)
+						NotificationCenter.default.post(name: .chatsDidUpdate, object: nil)
 						completionHandler(true);
 					} else {
 						completionHandler(false);

@@ -41,6 +41,8 @@
 		617306911FA68B17000BF0EE /* UserSearchingAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 617306901FA68B17000BF0EE /* UserSearchingAlertView.xib */; };
 		617306941FA6AA24000BF0EE /* UserSearchingAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617306931FA6AA24000BF0EE /* UserSearchingAlertView.swift */; };
 		617306961FA6D4E3000BF0EE /* ConfidantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617306951FA6D4E3000BF0EE /* ConfidantVC.swift */; };
+		617775C31FA9698C00006A33 /* ChatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617775C21FA9698C00006A33 /* ChatsVC.swift */; };
+		617775C61FA982A100006A33 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617775C51FA982A100006A33 /* ChatCell.swift */; };
 		61790EE21E6A0A520095482F /* GOTHAM-BLACK.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC01E6A0A520095482F /* GOTHAM-BLACK.TTF */; };
 		61790EE41E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC21E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF */; };
 		61790EE61E6A0A520095482F /* GOTHAM-BOLD_0.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 61790EC41E6A0A520095482F /* GOTHAM-BOLD_0.OTF */; };
@@ -176,6 +178,8 @@
 		617306901FA68B17000BF0EE /* UserSearchingAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserSearchingAlertView.xib; sourceTree = "<group>"; };
 		617306931FA6AA24000BF0EE /* UserSearchingAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchingAlertView.swift; sourceTree = "<group>"; };
 		617306951FA6D4E3000BF0EE /* ConfidantVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfidantVC.swift; sourceTree = "<group>"; };
+		617775C21FA9698C00006A33 /* ChatsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsVC.swift; sourceTree = "<group>"; };
+		617775C51FA982A100006A33 /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		61790EC01E6A0A520095482F /* GOTHAM-BLACK.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BLACK.TTF"; sourceTree = "<group>"; };
 		61790EC21E6A0A520095482F /* GOTHAM-BLACKITALIC.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BLACKITALIC.TTF"; sourceTree = "<group>"; };
 		61790EC41E6A0A520095482F /* GOTHAM-BOLD_0.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BOLD_0.OTF"; sourceTree = "<group>"; };
@@ -445,6 +449,22 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		617775C11FA964F500006A33 /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				617775C21FA9698C00006A33 /* ChatsVC.swift */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
+		617775C41FA9826B00006A33 /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				617775C51FA982A100006A33 /* ChatCell.swift */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
 		61790F041E6A0A660095482F /* Gotham */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,8 +572,9 @@
 		618485751E6862C700854092 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				610318E91FA0113C0094011D /* Confidant */,
+				617775C11FA964F500006A33 /* Chats */,
 				61D2718E1F842CC90071F1BA /* Common */,
+				610318E91FA0113C0094011D /* Confidant */,
 				617B48951F9D579500E39411 /* Dashboard */,
 				61F5CE8A1E68F9EE001261C1 /* Login */,
 				6158AD741F7F277E00BB5EE3 /* Register */,
@@ -707,6 +728,7 @@
 			isa = PBXGroup;
 			children = (
 				611C16481F905529000A3F01 /* Cells.swift */,
+				617775C41FA9826B00006A33 /* Chats */,
 				611C16451F9053F0000A3F01 /* Register */,
 			);
 			path = Cells;
@@ -1140,6 +1162,7 @@
 				61D271901F842D6D0071F1BA /* FacebookVC.swift in Sources */,
 				61796F551F8F3A0B00B89312 /* KnowledgeLO.swift in Sources */,
 				61BE69481ED3413E0036EDBB /* ModelBO.swift in Sources */,
+				617775C31FA9698C00006A33 /* ChatsVC.swift in Sources */,
 				6155F2431ECBAF29000445D1 /* LocalizedBarButton.swift in Sources */,
 				610B3CFF1F9FD0D80044B8D7 /* SocketLO.swift in Sources */,
 				614BBBCA1FA4069400DE97EC /* MessageBO.swift in Sources */,
@@ -1157,6 +1180,7 @@
 				617306961FA6D4E3000BF0EE /* ConfidantVC.swift in Sources */,
 				61F127BE1EA7034D00F14A17 /* VerticalButton.swift in Sources */,
 				61F5CE8C1E68FA1C001261C1 /* WelcomeVC.swift in Sources */,
+				617775C61FA982A100006A33 /* ChatCell.swift in Sources */,
 				61B4EC3E1F81A3C200FA5296 /* PersistenceStore.swift in Sources */,
 				61F127BD1EA7034D00F14A17 /* UIBox.swift in Sources */,
 				61F127B91EA7034D00F14A17 /* LocalizedNavigationItem.swift in Sources */,

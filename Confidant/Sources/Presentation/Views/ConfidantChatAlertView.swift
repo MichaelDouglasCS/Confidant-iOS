@@ -96,6 +96,7 @@ class ConfidantChatAlertView: XIBDesignable {
 		
 		if let chat = self.chat {
 			user.profile.chats?.append(chat)
+			NotificationCenter.default.post(name: .chatsDidUpdate, object: nil)
 		}
 		
 		self.delegate?.chatAlert(self, didSelectAnswer: self.chat)
