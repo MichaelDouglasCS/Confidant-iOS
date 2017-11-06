@@ -64,16 +64,19 @@ class ChatsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.setupTableView()
-		self.makeTapGestureEndEditing()
-    }
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
 		
 		NotificationCenter.default.addObserver(self,
 		                                       selector: #selector(self.refreshData),
 		                                       name: .chatsDidUpdate,
 		                                       object: nil)
+    }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		if let selectedRowIndex = self.tableView.indexPathForSelectedRow {
+			self.tableView.deselectRow(at: selectedRowIndex, animated: true)
+		}
 	}
 	
 	deinit {
@@ -116,6 +119,6 @@ extension ChatsVC: UITableViewDataSource {
 extension ChatsVC: UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
+		ChatLO.sharedInstance.current = UsersLO.sharedInstance.current.profile.chats?[indexPath.row]
 	}
 }

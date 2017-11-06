@@ -1,14 +1,12 @@
 //
-//  SocketLO.swift
+//  ChatVC.swift
 //  Confidant
 //
-//  Created by Michael Douglas on 23/10/17.
+//  Created by Michael Douglas on 03/11/17.
 //  Copyright © 2017 Watermelon. All rights reserved.
 //
 
-import Foundation
-import SocketIO
-import SwiftyJSON
+import UIKit
 
 //**********************************************************************************************************
 //
@@ -28,77 +26,59 @@ import SwiftyJSON
 //
 //**********************************************************************************************************
 
-public final class SocketLO {
-	
+class ChatVC: UIViewController {
+
 //*************************************************
 // MARK: - Properties
 //*************************************************
 	
-	static public let sharedInstance: SocketLO = SocketLO()
-	
-	public lazy var socket: SocketIOClient = {
-		typealias domain = ServerRequest.Domain
-		var url = URL(string: "")
-		
-		switch domain.mobile {
-		case domain.local:
-			url = URL(string: "http://localhost:3000")
-		case domain.develop:
-			url = URL(string: "https://confidant-api.herokuapp.com")
-		default:
-			break
-		}
-		
-		return SocketIOClient(socketURL: url!)
-	}()
-	
+	@IBOutlet weak var pictureView: CircularImage!
+	@IBOutlet weak var nameLabel: LocalizedLabel!
+	@IBOutlet weak var statusLabel: LocalizedLabel!
+
 //*************************************************
 // MARK: - Constructors
 //*************************************************
-	
-	private init() { }
-	
+
 //*************************************************
 // MARK: - Protected Methods
 //*************************************************
-
-	private func updateSocket() {
+	
+	private func setupLayout() {
+		let user = UsersLO.sharedInstance.current
+		let chat = ChatLO.sharedInstance.current
 		
-		if let id = UsersLO.sharedInstance.current.id {
-			self.socket.on("updateSocket") { (data, ack) in
-				ack.with([id])
+		if let typeOfUser = user.profile.typeOfUser {
+			switch typeOfUser {
+			case .user:
+				self.pictureView.image = chat?.confidantProfile?.picture?.localImage
+				self.nameLabel.text = chat?.confidantProfile?.nickname
+				self.statusLabel.text = "Online"
+			case .confidant:
+				self.pictureView.image = chat?.userProfile?.picture?.localImage
+				self.nameLabel.text = chat?.userProfile?.nickname
+				self.statusLabel.text = "Online"
 			}
 		}
 	}
-	
+
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
 	
-	public func establishConnection() {
-		self.socket.connect()
-		self.updateSocket()
+	@IBAction func backAction(_ sender: UIBarButtonItem) {
+		self.navigationController?.popViewController(animated: true)
 	}
 	
-	public func closeConnection() {
-		self.socket.disconnect()
+	@IBAction func finishAction(_ sender: LocalizedBarButton) {
 	}
-	
-	public func updateSocketUser() {
-		
-		if let id = UsersLO.sharedInstance.current.id {
-			self.socket.emit("updateSocketUser", [id])
-		}
-	}
-	
+
 //*************************************************
 // MARK: - Overridden Public Methods
 //*************************************************
-	
-}
 
-//**********************************************************************************************************
-//
-// MARK: - Extension -
-//
-//**********************************************************************************************************
+    override func viewDidLoad() {
+        super.viewDidLoad()
+		self.setupLayout()
+    }
+}

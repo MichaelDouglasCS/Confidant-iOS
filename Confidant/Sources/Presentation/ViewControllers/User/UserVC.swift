@@ -120,7 +120,7 @@ class UserVC: UIViewController {
 		chat.reason = self.reasonTextView.text
 		chat.knowledge = self.selectedKnowledge
 		
-		ChatLO.startConversation(with: chat) { (isStart) in
+		ChatLO.sharedInstance.startConversation(with: chat) { (isStart) in
 			
 			self.removeLoadingAlert()
 			

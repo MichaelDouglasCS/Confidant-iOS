@@ -67,9 +67,9 @@ class ChatCell: UITableViewCell {
 	func updateLayout(for model: ChatBO?) {
 		
 		if let model = model {
-			let typeOfUser = UsersLO.sharedInstance.current.profile.typeOfUser
+			let user = UsersLO.sharedInstance.current
 			
-			if typeOfUser == .user {
+			if user.profile.typeOfUser == .user {
 				self.nameLabel.text = model.confidantProfile?.nickname
 				
 				if let image = model.confidantProfile?.picture?.localImage {
@@ -81,6 +81,10 @@ class ChatCell: UITableViewCell {
 						
 						switch result {
 						case .success:
+							if let index = user.profile.chats?.index(where: { $0.id == model.id }) {
+								user.profile.chats?[index].confidantProfile?.picture = model.confidantProfile?.picture
+							}
+							
 							self.profilePictureView.image = model.confidantProfile?.picture?.localImage
 						default:
 							break
@@ -100,6 +104,10 @@ class ChatCell: UITableViewCell {
 						
 						switch result {
 						case .success:
+							if let index = user.profile.chats?.index(where: { $0.id == model.id }) {
+								user.profile.chats?[index].userProfile?.picture = model.userProfile?.picture
+							}
+
 							self.profilePictureView.image = model.userProfile?.picture?.localImage
 						default:
 							break
@@ -109,18 +117,8 @@ class ChatCell: UITableViewCell {
 				}
 			}
 			
-			self.timeLabel.text = Date(timeIntervalSince1970: model.updatedDate ?? 0).string()
+			self.timeLabel.text = Date(timeIntervalSince1970: model.updatedDate ?? 0).localizedFromNow
 			self.contentLabel.text = model.messages?.last?.content
 		}
 	}
-
-//*************************************************
-// MARK: - Overridden Public Methods
-//*************************************************
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 }

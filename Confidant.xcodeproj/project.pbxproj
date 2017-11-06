@@ -71,6 +71,7 @@
 		617B48A21F9D9F3F00E39411 /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617B48A11F9D9F3F00E39411 /* UserVC.swift */; };
 		6183376C1F3ECFC0008380AF /* UsersLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6183376B1F3ECFC0008380AF /* UsersLO.swift */; };
 		6191F8C21FA560DB007DEF6B /* ChatLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191F8C11FA560DB007DEF6B /* ChatLO.swift */; };
+		619412761FAC24F1003CAA34 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619412751FAC24F0003CAA34 /* ChatVC.swift */; };
 		61A2BFE31E686DD900414A4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A2BFE11E686DD900414A4C /* LaunchScreen.storyboard */; };
 		61A2BFE41E686DD900414A4C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A2BFE21E686DD900414A4C /* Login.storyboard */; };
 		61A35AF51E7DCB1F0010A01D /* UserBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A35AF41E7DCB1F0010A01D /* UserBO.swift */; };
@@ -208,6 +209,7 @@
 		617B48A11F9D9F3F00E39411 /* UserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
 		6183376B1F3ECFC0008380AF /* UsersLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersLO.swift; sourceTree = "<group>"; };
 		6191F8C11FA560DB007DEF6B /* ChatLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLO.swift; sourceTree = "<group>"; };
+		619412751FAC24F0003CAA34 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		61A2BFE11E686DD900414A4C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61A2BFE21E686DD900414A4C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		61A35AF41E7DCB1F0010A01D /* UserBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBO.swift; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 			isa = PBXGroup;
 			children = (
 				617775C21FA9698C00006A33 /* ChatsVC.swift */,
+				619412751FAC24F0003CAA34 /* ChatVC.swift */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -1164,6 +1167,7 @@
 				61BE69481ED3413E0036EDBB /* ModelBO.swift in Sources */,
 				617775C31FA9698C00006A33 /* ChatsVC.swift in Sources */,
 				6155F2431ECBAF29000445D1 /* LocalizedBarButton.swift in Sources */,
+				619412761FAC24F1003CAA34 /* ChatVC.swift in Sources */,
 				610B3CFF1F9FD0D80044B8D7 /* SocketLO.swift in Sources */,
 				614BBBCA1FA4069400DE97EC /* MessageBO.swift in Sources */,
 				6155F24C1ECBAF29000445D1 /* UIBoxGroup.swift in Sources */,

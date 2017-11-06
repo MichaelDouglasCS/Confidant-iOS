@@ -264,14 +264,13 @@ extension Date {
 		let string: String
 		let today = Date()
 		let yesterday = Date.yesterday
-		let dateString = self.stringLocal(date: .medium)
 		
 		if self.isSameDay(as: today) {
-			string = "\(String.Local.today) - \(dateString)"
+			string = "\(self.stringLocal(time: .short))"
 		} else if self.isSameDay(as: yesterday) {
-			string = "\(String.Local.yesterday) - \(dateString)"
+			string = "\(String.Local.yesterday)"
 		} else {
-			string = self.stringLocal(date: .medium)
+			string = self.stringLocal(template: "EEEE")
 		}
 		
 		return string

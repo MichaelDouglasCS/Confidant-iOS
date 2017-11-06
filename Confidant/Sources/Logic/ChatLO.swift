@@ -26,12 +26,20 @@ extension NSNotification.Name {
 //**********************************************************************************************************
 
 public final class ChatLO {
+	
+//**************************************************
+// MARK: - Properties
+//**************************************************
+	
+	public var current: ChatBO?
+	
+	static public let sharedInstance: ChatLO = ChatLO()
 
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
 	
-	public class func startConversation(with chat: ChatBO, completionHandler: @escaping ((Bool) -> Void)) {
+	public func startConversation(with chat: ChatBO, completionHandler: @escaping ((Bool) -> Void)) {
 		
 		SocketLO.sharedInstance.socket.emitWithAck("startConversation", with: [chat.toJSON()])
 			.timingOut(after: 0) { (response) in
