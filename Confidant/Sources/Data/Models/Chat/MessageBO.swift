@@ -37,6 +37,17 @@ public class MessageBO: Mappable {
 	public required init() { }
 	
 	public required init?(map: Map) { }
+	
+	public convenience init(timestamp: TimeInterval?,
+	                        recipientID: String?,
+	                        senderID: String?,
+	                        content: String?) {
+		self.init()
+		self.timestamp = timestamp
+		self.recipientID = recipientID
+		self.senderID = senderID
+		self.content = content
+	}
 
 //*************************************************
 // MARK: - Exposed Methods
