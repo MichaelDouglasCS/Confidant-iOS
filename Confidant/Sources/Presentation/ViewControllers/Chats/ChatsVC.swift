@@ -50,7 +50,7 @@ class ChatsVC: UIViewController {
 	}
 	
 	@objc private func refreshData() {
-		self.tableView.reloadSections(IndexSet(integer: 0), with: .top)
+		self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
 	}
 
 //*************************************************

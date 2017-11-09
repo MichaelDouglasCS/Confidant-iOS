@@ -39,6 +39,12 @@ class ChatVC: UIViewController {
 	@IBOutlet weak var textField: UITextField!
 	@IBOutlet weak var sendButton: LocalizedButton!
 	@IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+	
+	fileprivate var isSendEnabled: Bool = false {
+		didSet {
+			self.sendButton.isEnabled = self.isSendEnabled
+		}
+	}
 
 //*************************************************
 // MARK: - Constructors
@@ -73,11 +79,12 @@ class ChatVC: UIViewController {
 	}
 	
 	@objc private func refreshData() {
-		self.tableView.reloadSections(IndexSet(integer: 0), with: .bottom)
+		self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
 	}
 	
 	private func sendMessage() {
 		ChatLO.sharedInstance.sendMessage(with: self.textField.text)
+		self.textField.text?.removeAll()
 	}
 
 //*************************************************
@@ -106,12 +113,16 @@ class ChatVC: UIViewController {
 		
 		NotificationCenter.default.addObserver(self,
 		                                       selector: #selector(self.refreshData),
-		                                       name: .messagesDidUpdate,
+		                                       name: .chatsDidUpdate,
 		                                       object: nil)
     }
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
+		self.removeObservers()
+	}
+	
+	deinit {
 		self.removeObservers()
 	}
 }
@@ -152,6 +163,22 @@ extension ChatVC: UITableViewDataSource {
 		}
 		
 		return cell
+	}
+}
+
+//**********************************************************************************************************
+//
+// MARK: - Extension - UITextFieldDelegate
+//
+//**********************************************************************************************************
+
+extension ChatVC: UITextFieldDelegate {
+	
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+		
+		self.isSendEnabled = !textFill.isEmpty
+		return true
 	}
 }
 

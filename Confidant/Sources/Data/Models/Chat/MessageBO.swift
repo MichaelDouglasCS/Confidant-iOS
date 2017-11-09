@@ -22,6 +22,7 @@ public class MessageBO: Mappable {
 //*************************************************
 	
 	public var id: String?
+	public var chatID: String?
 	public var timestamp: TimeInterval?
 	public var recipientID: String?
 	public var senderID: String?
@@ -38,11 +39,15 @@ public class MessageBO: Mappable {
 	
 	public required init?(map: Map) { }
 	
-	public convenience init(timestamp: TimeInterval?,
+	public convenience init(id: String?,
+	                        chatID: String?,
+	                        timestamp: TimeInterval?,
 	                        recipientID: String?,
 	                        senderID: String?,
 	                        content: String?) {
 		self.init()
+		self.id = id
+		self.chatID = chatID
 		self.timestamp = timestamp
 		self.recipientID = recipientID
 		self.senderID = senderID
@@ -55,6 +60,7 @@ public class MessageBO: Mappable {
 
 	public func mapping(map: Map) {
 		self.id <- map["id"]
+		self.chatID <- map["chatID"]
 		self.timestamp <- map["timestamp"]
 		self.recipientID <- map["recipientID"]
 		self.senderID <- map["senderID"]

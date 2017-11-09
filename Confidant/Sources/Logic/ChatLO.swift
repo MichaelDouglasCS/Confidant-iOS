@@ -17,7 +17,6 @@ import SwiftyJSON
 
 extension NSNotification.Name {
 	public static let chatsDidUpdate = NSNotification.Name(rawValue: "ChatsDidUpdate")
-	public static let messagesDidUpdate = NSNotification.Name(rawValue: "MessagesDidUpdate")
 }
 
 //**********************************************************************************************************
@@ -53,8 +52,21 @@ public final class ChatLO {
 			let message = MessageBO(JSON: json.dictionaryObject ?? [:])
 			
 			if let message = message {
-				ChatLO.sharedInstance.current?.messages?.append(message)
-				NotificationCenter.default.post(name: .messagesDidUpdate, object: nil)
+				let user = UsersLO.sharedInstance.current
+				let chat = ChatLO.sharedInstance.current
+				
+				if message.chatID == chat?.id {
+					chat?.messages?.append(message)
+					chat?.updatedDate = Date().timeIntervalSince1970
+				} else {
+					
+					if let chat = user.profile.chats?.filter({ message.chatID == $0.id }).last {
+						chat.messages?.append(message)
+						chat.updatedDate = Date().timeIntervalSince1970
+					}
+				}
+				
+				NotificationCenter.default.post(name: .chatsDidUpdate, object: nil)
 			}
 		}
 	}
@@ -64,6 +76,7 @@ public final class ChatLO {
 //*************************************************
 	
 	public func startConversation(with chat: ChatBO, completionHandler: @escaping ((Bool) -> Void)) {
+		chat.id = UUID().uuidString
 		
 		SocketLO.sharedInstance.socket.emitWithAck("startConversation", chat.toJSON())
 			.timingOut(after: 0) { (response) in
@@ -89,14 +102,18 @@ public final class ChatLO {
 		let chat = ChatLO.sharedInstance.current
 		let recipientID = userID == chat?.userProfile?.id ? chat?.confidantProfile?.id : chat?.userProfile?.id
 		
-		let message = MessageBO(timestamp: Date().timeIntervalSince1970,
+		let message = MessageBO(id: UUID().uuidString,
+		                        chatID: chat?.id,
+		                        timestamp: Date().timeIntervalSince1970,
 		                        recipientID: recipientID,
 		                        senderID: userID,
 		                        content: content)
 
 		SocketLO.sharedInstance.socket.emit("sendMessage", message.toJSON())
-		ChatLO.sharedInstance.current?.messages?.append(message)
-		NotificationCenter.default.post(name: .messagesDidUpdate, object: nil)
+		
+		chat?.messages?.append(message)
+		chat?.updatedDate = Date().timeIntervalSince1970
+		NotificationCenter.default.post(name: .chatsDidUpdate, object: nil)
 	}
 
 //*************************************************
