@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7pv-ZR-jkg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17B48" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7pv-ZR-jkg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,7 +24,7 @@
                 <navigationController navigationBarHidden="YES" id="7pv-ZR-jkg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="icn_confidant" selectedImage="icn_confidant_selected" id="6Sz-2W-eEx"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rOF-Mk-5Nb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rOF-Mk-5Nb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -52,7 +52,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" placeholder="LB_SEARCH" translatesAutoresizingMaskIntoConstraints="NO" id="oLi-fy-qY3" customClass="LocalizedSearchBar" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                        <rect key="frame" x="38" y="20" width="337" height="44"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="barTintColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
@@ -60,12 +60,25 @@
                                             <outlet property="delegate" destination="WFj-K5-qXa" id="6OK-HN-ODt"/>
                                         </connections>
                                     </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daN-aD-Dqp">
+                                        <rect key="frame" x="10" y="31" width="25" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="90I-1a-Y1L"/>
+                                            <constraint firstAttribute="height" constant="22" id="Hwi-Cd-X3T"/>
+                                        </constraints>
+                                        <state key="normal" image="icn_refresh"/>
+                                        <connections>
+                                            <action selector="refreshKnowledge:" destination="WFj-K5-qXa" eventType="touchUpInside" id="EFH-ZE-XG8"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="oLi-fy-qY3" firstAttribute="leading" secondItem="7EO-gF-jTR" secondAttribute="leading" id="8zx-6A-YIF"/>
+                                    <constraint firstItem="oLi-fy-qY3" firstAttribute="leading" secondItem="7EO-gF-jTR" secondAttribute="leading" constant="38" id="8zx-6A-YIF"/>
+                                    <constraint firstItem="daN-aD-Dqp" firstAttribute="leading" secondItem="7EO-gF-jTR" secondAttribute="leading" constant="10" id="QWw-yr-vCx"/>
                                     <constraint firstAttribute="height" constant="64" id="THJ-q0-Oyf"/>
                                     <constraint firstAttribute="trailing" secondItem="oLi-fy-qY3" secondAttribute="trailing" id="dHO-gn-XUw"/>
+                                    <constraint firstItem="daN-aD-Dqp" firstAttribute="centerY" secondItem="oLi-fy-qY3" secondAttribute="centerY" id="eLU-6C-lcu"/>
                                     <constraint firstAttribute="bottom" secondItem="oLi-fy-qY3" secondAttribute="bottom" id="qEy-sm-VIo"/>
                                 </constraints>
                             </view>
@@ -294,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZuV-vf-zLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="148" y="125"/>
+            <point key="canvasLocation" x="148" y="124.58770614692655"/>
         </scene>
         <!--Search TopicsVC-->
         <scene sceneID="Xou-bd-KeY">
@@ -414,5 +427,6 @@
         <image name="bg_pink" width="187" height="50"/>
         <image name="icn_confidant" width="59" height="59"/>
         <image name="icn_confidant_selected" width="59" height="59"/>
+        <image name="icn_refresh" width="23" height="21"/>
     </resources>
 </document>

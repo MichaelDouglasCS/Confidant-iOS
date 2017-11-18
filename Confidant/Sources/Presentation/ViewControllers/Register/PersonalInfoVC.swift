@@ -95,6 +95,8 @@ class PersonalInfoVC: UIViewController {
 				self.profilePicture.image = UIImage(named: "icn_anchor_gray")
 				self.isContinueEnabled = self.nicknameTextField.hasText
 				self.profilePicture.loadingIndicatorView(isShow: false, at: nil)
+				
+				UsersLO.sharedInstance.current.profile.picture = nil
 			}
 		}
 	}

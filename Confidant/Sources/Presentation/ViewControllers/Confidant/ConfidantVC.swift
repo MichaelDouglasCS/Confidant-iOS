@@ -156,6 +156,10 @@ class ConfidantVC: UIViewController {
 			self.switchAvailability.loadingIndicatorView(isShow: false)
 		}
 	}
+	
+	@IBAction func refreshKnowledges(_ sender: UIBarButtonItem) {
+		self.loadData()
+	}
 
 //*************************************************
 // MARK: - Overridden Public Methods

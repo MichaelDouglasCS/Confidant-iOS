@@ -36,7 +36,7 @@
 "LB_YES" = "SIM";
 "LB_NO" = "NÂO";
 "LB_WAIT_A_LITTLE_BIT" = "Aguarde um momento!";
-"LB_CONFIDANT" = "CONFIDANT";
+"LB_CONFIDANT_TITLE" = "CONFIDANT";
 "LB_FINISH" = "Finalizar";
 
 //*************************
@@ -99,3 +99,5 @@
 "MSG_SOMEONE_NEEDS_HELP" = "Algueme precisa da sua ajuda! :-)";
 "MSG_DO_YOU_WISH_TALK" = "Você gostaria de falar com";
 "MSG_LOOKING_FOR_CONFIDANT" = "Estamos à procura de um Confiante para você! :-)";
+"MSG_USER_KIND" = "Busque por um confidente a partir do que está sentindo e tenha uma conversa livre, anônima e sem julgamentos";
+"MSG_CONFIDANT_KIND" = "Coloque seus conhecimentos em pratica enquanto ajuda quem precisa de você!";

@@ -131,6 +131,10 @@ class UserVC: UIViewController {
 			}
 		}
 	}
+	
+	@IBAction func refreshKnowledge(_ sender: UIButton) {
+		self.loadData()
+	}
 
 //*************************************************
 // MARK: - Overridden Public Methods

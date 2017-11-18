@@ -145,7 +145,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Busque por um confidente a partir do que está sentindo e tenha uma conversa livre, anônima e sem julgamentos" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVc-SK-Mst">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="MSG_USER_KIND" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVc-SK-Mst" customClass="IBDesigableTextView" customModule="Confidant" customModuleProvider="target">
                                 <rect key="frame" x="9" y="280" width="169" height="207"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="14"/>
@@ -188,7 +188,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Coloque seus conhecimentos em pratica enquanto ajuda quem precisa de você!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Em-CM-hfb">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="MSG_CONFIDANT_KIND" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Em-CM-hfb" customClass="IBDesigableTextView" customModule="Confidant" customModuleProvider="target">
                                 <rect key="frame" x="197" y="280" width="169" height="207"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="14"/>
