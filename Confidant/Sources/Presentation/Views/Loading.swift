@@ -51,6 +51,32 @@ extension UIViewController {
 		}
 	}
 	
+	func loadingIndicatorCustomTabBar(isShow show: Bool) {
+		
+		DispatchQueue.main.async {
+			if show {
+				var loading = [UIImage]()
+				for i in 0...40 {
+					let image = UIImage(named: "loading_\(i)")
+					if let imageLoad = image {
+						loading.append(imageLoad)
+					}
+				}
+				let window = self.tabBarController?.view
+				let opaqueWindow = UIView(frame: window?.frame ?? .zero)
+				opaqueWindow.backgroundColor = UIColor(white: 0, alpha: 0.5)
+				opaqueWindow.tag = kLoadingViewTag
+				let loadingAnimation = UIImageView(frame: CGRect(x: 0, y: 0, width: 65, height: 65))
+				loadingAnimation.image = UIImage.animatedImage(with: loading, duration: 1.5)
+				loadingAnimation.center = CGPoint(x: opaqueWindow.frame.size.width / 2, y: opaqueWindow.frame.size.height / 2)
+				opaqueWindow.addSubview(loadingAnimation)
+				window?.addSubview(opaqueWindow)
+			} else {
+				let window = self.tabBarController?.view
+				window?.viewWithTag(kLoadingViewTag)?.removeFromSuperview()
+			}
+		}
+	}
 }
 
 //**************************************************************************************************

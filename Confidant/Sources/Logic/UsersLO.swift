@@ -117,6 +117,17 @@ public final class UsersLO {
 		// That means the current user is no longer valid.
 		self.current = newUser
 	}
+	
+	fileprivate func save() {
+		
+		// Only for users with valid ID
+		if let id = self.current.id, !id.isEmpty {
+			// Saving the current user in its personal data base
+			Persistence.dataBaseName = id
+			Persistence.save(model: RealmUserModel(userID: id, data: try? JSON(self.current.toJSON()).rawData()))
+			Persistence.save(model: RealmUserModel(userID: id), at: UsersLO.db)
+		}
+	}
 
 //*************************************************
 // MARK: - Exposed Methods
@@ -141,6 +152,7 @@ public final class UsersLO {
 	public func update(user: UserBO, completionHandler: @escaping LogicResult) {
 
 		ServerRequest.User.update.execute(params: user.toJSON()) { (_, result) in
+			self.save()
 			completionHandler(result)
 		}
 	}
@@ -217,6 +229,7 @@ extension UsersLO {
 							self.current.profile.picture = media
 							self.current.profile.picture?.base64 = picture.base64EncodedString(format: .jpg,
 							                                                                   quality: 0.5)
+							self.save()
 							completionHandler(result)
 			}
 		} else {
@@ -249,6 +262,7 @@ extension UsersLO {
 		
 		ServerRequest.User.changeAvailability.execute(aPath: url?.absoluteString) { (json, result) in
 			self.current.profile.isAvailable = json.bool
+			self.save()
 			completionHandler(result)
 		}
 	}

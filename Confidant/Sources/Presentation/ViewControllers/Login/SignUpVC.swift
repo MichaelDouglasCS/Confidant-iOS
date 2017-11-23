@@ -206,7 +206,7 @@ extension SignUpVC: UITextFieldDelegate {
 			let formatter = DateFormatter()
 			
 			formatter.dateStyle = .long
-			self.birthdateTextField.text = formatter.string(from: datePickerView?.date ?? Date())
+			self.birthdateTextField.text = datePickerView?.date.stringLocal(date: .short)
 			self.isSignUpEnabled = (!self.emailTextField.text!.isEmpty && !self.nameTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && !self.birthdateTextField.text!.isEmpty && !self.genderTextField.text!.isEmpty)
 		case self.genderTextField:
 			let genderPickerView = self.genderTextField.inputView as! UIPickerView
@@ -306,7 +306,7 @@ extension SignUpVC {
 	@objc private func datePickerDidChange(datePicker: UIDatePicker) {
 		let formatter = DateFormatter()
 		formatter.dateStyle = .long
-		self.birthdateTextField.text = formatter.string(from: datePicker.date)
+		self.birthdateTextField.text = datePicker.date.stringLocal(date: .short)
 	}
 }
 
