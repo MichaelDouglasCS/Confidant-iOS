@@ -59,7 +59,7 @@ class SignUpVC: UIViewController {
 	private func showTermsAlert(completion: @escaping (Bool) -> Void) {
 		typealias local = String.Local
 		let termsAction = UIAlertAction(title: local.termsAndConditions, style: .default) { _ in
-			print("Open Terms And Conditions")
+			self.performSegue(withIdentifier: "showTermsSegue", sender: nil)
 		}
 		let agreeAction = UIAlertAction(title: local.agree, style: .default) { _ in
 			self.showPrivacyPolicyAlert() { (result) in completion(result) }
@@ -76,7 +76,7 @@ class SignUpVC: UIViewController {
 	private func showPrivacyPolicyAlert(completion: @escaping (Bool) -> Void) {
 		typealias local = String.Local
 		let privacyPolicyAction = UIAlertAction(title: local.privacyPolicy, style: .default) { _ in
-			print("Open Privacy Policy")
+			self.performSegue(withIdentifier: "showPrivacyPolicy", sender: nil)
 		}
 		let agreeAction = UIAlertAction(title: local.agree, style: .default) { _ in
 			completion(true)

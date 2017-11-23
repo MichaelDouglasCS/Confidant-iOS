@@ -511,6 +511,8 @@
                         <outlet property="signUpButton" destination="FIT-ql-UbD" id="fQy-Ib-4Sh"/>
                         <outlet property="termsAndConditionsTextView" destination="sdy-8P-96b" id="Woh-K7-o4K"/>
                         <segue destination="6Xs-oU-Oaj" kind="presentation" identifier="showRegisterSegue" modalTransitionStyle="flipHorizontal" id="B2n-UP-Xtr"/>
+                        <segue destination="Ysk-SK-5F5" kind="show" identifier="showTermsSegue" id="3JX-LO-3DY"/>
+                        <segue destination="3ah-li-nUI" kind="show" identifier="showPrivacyPolicy" id="Rbt-i0-o0k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FmY-cg-Ug9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -800,6 +802,122 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8yv-aU-C2I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-492" y="427"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hWd-Sz-aC9">
+            <objects>
+                <viewController id="Ysk-SK-5F5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z36-g4-7LE"/>
+                        <viewControllerLayoutGuide type="bottom" id="GMx-u7-poX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="li1-My-wpy">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Qhf-tZ-ndV">
+                                <rect key="frame" x="15" y="0.0" width="345" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">-O presente aplicativo foi desenvolvido para pessoas que passam por descontroles emocionais sejam ligadas a pessoas dispostas a ajudar como ouvintes, um verdadeiro ombro amigo, e que fique ressaltada, de maneira NÃO CLÍNICA E APROFUNDADA, de modo que este 
+
+-O presente aplicativo não se responsabiliza pelo teor das conversas, bem como não oferece qualquer forma de armazenamento para possível colaboração com a justiça, sendo as partes envolvidas as únicas que terão acesso ao que foi compartilhado com o "ombro amigo".
+
+-Ao se cadastrar no aplicativo, os adeptos devem se declarar maiores de 18 anos e plenamente capazes, de modo que respondem pelos próprios atos e poderão vir a responder por possíveis infrações penais cometidas.
+
+-O aplicativo se reserva no direito de averiguar as denuncias feitas e promover o banimento de usuários denunciados, de acordo com a invasão de privacidade e desvirtuação de finalidade do aplicativo, como por exemplo a promoção de conteúdo sexual, ilícitos civis e criminais 9melhorar)
+
+-Ao se utilizar deste aplicativo, os usuários se declaram de acordo com estes termos, que podem ser alterados sem prévio aviso e estarão sempre disponíveis ao usuário interessado. Aceitam ainda que este aplicativo não tem qualquer finalidade medicinal e não substitui o acompanhamento médico devido, mas sim, unicamente promove o intercâmbio de ideias saudáveis e construtivas, através de mensagens positivas e que busquem tirar o usuário de um momento conturbado e passageiro.</mutableString>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GMx-u7-poX" firstAttribute="top" secondItem="Qhf-tZ-ndV" secondAttribute="bottom" id="18Z-JI-vPl"/>
+                            <constraint firstAttribute="trailing" secondItem="Qhf-tZ-ndV" secondAttribute="trailing" constant="15" id="WuI-nV-RqE"/>
+                            <constraint firstItem="Qhf-tZ-ndV" firstAttribute="top" secondItem="Z36-g4-7LE" secondAttribute="bottom" id="bpd-20-lgf"/>
+                            <constraint firstItem="Qhf-tZ-ndV" firstAttribute="leading" secondItem="li1-My-wpy" secondAttribute="leading" constant="15" id="wzJ-BX-mDO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="W3E-Nf-Fz0" customClass="LocalizedNavigationItem" customModule="Confidant" customModuleProvider="target">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="jXX-gn-6n6">
+                            <rect key="frame" x="112.5" y="5.5" width="150" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ST_TERMS_CONDITIONS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9W-yZ-zfM" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                    <rect key="frame" x="-21" y="9.5" width="191.5" height="13.5"/>
+                                    <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="d9W-yZ-zfM" firstAttribute="centerY" secondItem="jXX-gn-6n6" secondAttribute="centerY" id="4PT-sa-z67"/>
+                                <constraint firstItem="d9W-yZ-zfM" firstAttribute="centerX" secondItem="jXX-gn-6n6" secondAttribute="centerX" id="Ghd-rh-rTC"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sjo-Xt-DXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2095" y="-281"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9uW-VI-c7g">
+            <objects>
+                <viewController id="3ah-li-nUI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zRt-KL-lIN"/>
+                        <viewControllerLayoutGuide type="bottom" id="yQM-kU-MMk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MoT-78-mLm">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Ylx-KF-WOV">
+                                <rect key="frame" x="15" y="0.0" width="345" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">-A intenção de seus desenvolvedores é que, aquele que precisar de alguém para conversar e se distrair o faça de maneira rápida e COMPLETAMENTE ANÔNIMA. 
+
+-Ambas as partes da conversa somente terão acesso, via aplicativo, ao Nickname e imagens que serão escolhidos pelos usuários, e orientamos no sentido de que tais dados não possibilitem a identificação pessoal, com o fornecimento de dados pessoais, como exemplo
+
+-O aplicativo aconselha veementemente que nenhuma das partes informe à outra dados pessoais, e, caso ocorra o pedido de tais dados, o aplicativo fornece o botão de denúncia.</mutableString>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ylx-KF-WOV" firstAttribute="leading" secondItem="MoT-78-mLm" secondAttribute="leading" constant="15" id="09d-uj-pZo"/>
+                            <constraint firstItem="yQM-kU-MMk" firstAttribute="top" secondItem="Ylx-KF-WOV" secondAttribute="bottom" id="IMy-RV-o3X"/>
+                            <constraint firstItem="Ylx-KF-WOV" firstAttribute="top" secondItem="zRt-KL-lIN" secondAttribute="bottom" id="bNR-R3-3fd"/>
+                            <constraint firstAttribute="trailing" secondItem="Ylx-KF-WOV" secondAttribute="trailing" constant="15" id="nPt-z0-qYL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ndk-ZP-mvM">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="nEf-SL-2LA">
+                            <rect key="frame" x="112.5" y="5.5" width="150" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ST_PRIVACY_POLICY" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNL-4W-2s1" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                    <rect key="frame" x="-9" y="9.5" width="166.5" height="13.5"/>
+                                    <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="TNL-4W-2s1" firstAttribute="centerY" secondItem="nEf-SL-2LA" secondAttribute="centerY" id="660-BC-nYI"/>
+                                <constraint firstItem="TNL-4W-2s1" firstAttribute="centerX" secondItem="nEf-SL-2LA" secondAttribute="centerX" id="7no-gH-9xS"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="juH-0B-vTh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2842" y="-281"/>
         </scene>
     </scenes>
     <resources>
