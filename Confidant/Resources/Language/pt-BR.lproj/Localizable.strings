@@ -10,14 +10,14 @@
 "LB_NAME" = "Nome";
 "LB_NICKNAME" = "Apelido";
 "LB_PASSWORD" = "Senha";
-"LB_BIRTHDATE" = "Data Nascimento";
+"LB_BIRTHDATE" = "Data de Nascimento";
 "LB_GENDER" = "Genero";
 "LB_OR" = "ou";
 "LB_OR_WITH_EMAIL" = "ou com e-mail";
 "LB_FORGOT_YOUR_PASSWORD" = "Esqueceu sua senha?";
 "LB_CONTINUE" = "CONTINUAR";
 "LB_USER" = "Usuario";
-"LB_CONFIDANT" = "Confidant";
+"LB_CONFIDANT" = "Confidente";
 "LB_WHATS_YOUR_PROFILE" = "Qual o seu perfil ?";
 "LB_PERSONAL_INFORMATION" = "Informação Pessoal";
 "LB_ADD_PICTURE" = "Adicionar Foto";
@@ -25,10 +25,12 @@
 "LB_WHAT_TOPICS" = "Em que topicos você é um Confidant?";
 "LB_SELECT_ONE_OR_MORE" = "Selecione um ou mais";
 "LB_SEARCH" = "Buscar";
-"LB_GO_ONLINE" = "FICAR ONLINE";
+"LB_GO_ONLINE" = "FIQUE ONLINE";
 "LB_TO_GO_ONLINE" = "FICAR ONLINE";
 "LB_PROFILE" = "Perfil";
-"LB_CHATS" = "Mensagens";
+"LB_PROFILE_TITLE" = "PERFIL";
+"LB_CHATS" = "Conversas";
+"LB_CHATS_TITLE" = "CONVERSAS";
 "LB_WHAT_HAPPENED" = "O que aconteceu ?";
 "LB_FIND" = "BUSCAR";
 "LB_SELECT_ONLY_ONE" = "Selecione um ou mais";
@@ -36,8 +38,12 @@
 "LB_YES" = "SIM";
 "LB_NO" = "NÂO";
 "LB_WAIT_A_LITTLE_BIT" = "Aguarde um momento!";
-"LB_CONFIDANT_TITLE" = "CONFIDANT";
+"LB_CONFIDANT_TITLE" = "CONFIDENTE";
 "LB_FINISH" = "Finalizar";
+"LB_LOGOUT" = "Sair";
+"LB_PLEASE_FILL_THE_FIELD" = "Por favor, preencha o campo";
+"LB_UPDATE" = "ATUALIZAR";
+"LB_YOUR_DATA" = "Seus dados";
 
 //*************************
 // Strings

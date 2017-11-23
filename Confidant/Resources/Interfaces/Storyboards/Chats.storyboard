@@ -21,7 +21,7 @@
             <objects>
                 <navigationController id="YTT-z9-VSl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="LB_CHATS" image="icn_chats" selectedImage="icn_chats_selected" id="oZX-Gi-BBj"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="0fo-73-hhW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="0fo-73-hhW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -163,8 +163,8 @@
                             <rect key="frame" x="112.5" y="5.5" width="150" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_CHATS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iya-Mt-lPN" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="34" y="9.5" width="83" height="13.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_CHATS_TITLE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iya-Mt-lPN" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                    <rect key="frame" x="7.5" y="9.5" width="135.5" height="13.5"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -428,9 +428,6 @@
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="LB_FINISH" style="plain" id="bfI-Or-EZE" customClass="LocalizedBarButton" customModule="Confidant" customModuleProvider="target">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="finishAction:" destination="OMO-KJ-hmL" id="9qy-L2-pmw"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>

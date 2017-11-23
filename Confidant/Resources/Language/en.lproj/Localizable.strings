@@ -28,7 +28,9 @@
 "LB_GO_ONLINE" = "GO ONLINE";
 "LB_TO_GO_ONLINE" = "GO ONLINE";
 "LB_PROFILE" = "Profile";
+"LB_PROFILE_TITLE" = "PROFILE";
 "LB_CHATS" = "Chats";
+"LB_CHATS_TITLE" = "CHATS";
 "LB_WHAT_HAPPENED" = "What Happened ?";
 "LB_FIND" = "SEARCH";
 "LB_SELECT_ONLY_ONE" = "Select only one";
@@ -38,6 +40,10 @@
 "LB_WAIT_A_LITTLE_BIT" = "Wait a little bit!";
 "LB_CONFIDANT_TITLE" = "CONFIDANT";
 "LB_FINISH" = "Finish";
+"LB_LOGOUT" = "Logout";
+"LB_PLEASE_FILL_THE_FIELD" = "Please, fill the field";
+"LB_UPDATE" = "UPDATE";
+"LB_YOUR_DATA" = "Your data";
 
 //*************************
 // Strings

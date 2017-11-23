@@ -1,53 +1,337 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17B48" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NTL-ZR-kw6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17B48" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="usG-dY-r27">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="GOTHAM-LIGHT_0.OTF">
+            <string>Gotham-Light</string>
+        </array>
+        <array key="GOTHAM-MEDIUM.TTF">
+            <string>GothamMedium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--LB_PROFILE-->
-        <scene sceneID="eon-Kv-J9K">
+        <scene sceneID="p2G-Id-dwF">
             <objects>
-                <navigationController id="NTL-ZR-kw6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="LB_PROFILE" image="icn_profile" id="hA4-3p-Tac"/>
+                <navigationController id="usG-dY-r27" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="LB_PROFILE" image="icn_profile" selectedImage="icn_profile" id="fGE-vf-UCy"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kr6-wk-vYP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="oqP-UD-kuu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="nKQ-E1-Idv" kind="relationship" relationship="rootViewController" id="EdA-cj-COq"/>
+                        <segue destination="WS9-iD-NUd" kind="relationship" relationship="rootViewController" id="5yu-VT-Vrc"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pc6-Hb-zTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OmH-Aw-Fgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-574" y="125"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="rwo-A9-EjY">
+        <scene sceneID="x1B-o7-zVK">
             <objects>
-                <viewController id="nKQ-E1-Idv" sceneMemberID="viewController">
+                <viewController id="WS9-iD-NUd" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ocr-Iy-mrj"/>
-                        <viewControllerLayoutGuide type="bottom" id="SpU-Ra-3aT"/>
+                        <viewControllerLayoutGuide type="top" id="aWX-xA-bOZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y5L-dE-BY4"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MGg-Ge-8V7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="view" contentMode="scaleToFill" id="McZ-0u-T7Z">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnP-8A-zPh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUo-Bk-KjR">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ecq-k8-CP8">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="166"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_anchor_gray" translatesAutoresizingMaskIntoConstraints="NO" id="Inm-77-ir7" customClass="CircularImage" customModule="Confidant" customModuleProvider="target">
+                                                        <rect key="frame" x="126.5" y="22" width="122" height="122"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="122" id="Kt2-Nb-dSf"/>
+                                                            <constraint firstAttribute="height" constant="122" id="aJd-dK-TGh"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="166" id="E0n-40-ID5"/>
+                                                    <constraint firstItem="Inm-77-ir7" firstAttribute="centerY" secondItem="Ecq-k8-CP8" secondAttribute="centerY" id="Gnj-q8-T81"/>
+                                                    <constraint firstItem="Inm-77-ir7" firstAttribute="centerX" secondItem="Ecq-k8-CP8" secondAttribute="centerX" id="vc9-Ex-hv8"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_YOUR_DATA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ciz-Rw-8kc" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                                <rect key="frame" x="14" y="180" width="129" height="14"/>
+                                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
+                                                <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IpY-Fd-AcU">
+                                                <rect key="frame" x="0.0" y="199" width="375" height="250"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Fa-k2-rBj">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rur-8g-8k9" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                                                <rect key="frame" x="15" y="19" width="66" height="12"/>
+                                                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_PLEASE_FILL_THE_FIELD" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ld0-hZ-LeV" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
+                                                                <rect key="frame" x="110" y="5" width="250" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" priority="750" constant="250" id="LYq-lj-EtD"/>
+                                                                </constraints>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="13"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Rur-8g-8k9" firstAttribute="leading" secondItem="4Fa-k2-rBj" secondAttribute="leading" constant="15" id="1Mo-Up-8dg"/>
+                                                            <constraint firstItem="Ld0-hZ-LeV" firstAttribute="centerY" secondItem="4Fa-k2-rBj" secondAttribute="centerY" id="96m-ky-i2J"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Ld0-hZ-LeV" secondAttribute="bottom" constant="5" id="NhD-29-ArO"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Ld0-hZ-LeV" secondAttribute="trailing" constant="15" id="SGb-l3-hek"/>
+                                                            <constraint firstItem="Rur-8g-8k9" firstAttribute="centerY" secondItem="4Fa-k2-rBj" secondAttribute="centerY" id="Ue3-5L-atd"/>
+                                                            <constraint firstAttribute="height" constant="50" id="Yub-I5-8Yg"/>
+                                                            <constraint firstItem="Ld0-hZ-LeV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rur-8g-8k9" secondAttribute="trailing" id="kJV-f3-lJg"/>
+                                                            <constraint firstItem="Ld0-hZ-LeV" firstAttribute="top" secondItem="4Fa-k2-rBj" secondAttribute="top" constant="5" id="leo-Mb-gnx"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9EI-Hq-IsS">
+                                                        <rect key="frame" x="0.0" y="50" width="375" height="50"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_NICKNAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3C-M7-noG" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                                                <rect key="frame" x="15" y="19" width="99.5" height="12"/>
+                                                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_PLEASE_FILL_THE_FIELD" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="hei-Sz-ykf" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
+                                                                <rect key="frame" x="114.5" y="5" width="245.5" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" priority="750" constant="250" id="6FC-n6-TPh"/>
+                                                                </constraints>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="13"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="hei-Sz-ykf" firstAttribute="top" secondItem="9EI-Hq-IsS" secondAttribute="top" constant="5" id="0ND-Xq-3IC"/>
+                                                            <constraint firstItem="hei-Sz-ykf" firstAttribute="centerY" secondItem="9EI-Hq-IsS" secondAttribute="centerY" id="Apg-5u-7Lu"/>
+                                                            <constraint firstAttribute="trailing" secondItem="hei-Sz-ykf" secondAttribute="trailing" constant="15" id="Kgl-kn-gQG"/>
+                                                            <constraint firstAttribute="bottom" secondItem="hei-Sz-ykf" secondAttribute="bottom" constant="5" id="NjC-3i-RdC"/>
+                                                            <constraint firstAttribute="height" constant="50" id="Qk8-BH-Ri8"/>
+                                                            <constraint firstItem="y3C-M7-noG" firstAttribute="centerY" secondItem="9EI-Hq-IsS" secondAttribute="centerY" id="Ref-t7-viP"/>
+                                                            <constraint firstItem="y3C-M7-noG" firstAttribute="leading" secondItem="9EI-Hq-IsS" secondAttribute="leading" constant="15" id="Yyw-aQ-vXX"/>
+                                                            <constraint firstItem="hei-Sz-ykf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="y3C-M7-noG" secondAttribute="trailing" id="dCS-0l-Zht"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d84-YO-jM3">
+                                                        <rect key="frame" x="0.0" y="100" width="375" height="50"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_EMAIL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rv-NT-Bf6" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                                                <rect key="frame" x="15" y="19" width="68" height="12"/>
+                                                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_PLEASE_FILL_THE_FIELD" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="XqH-em-1M0" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
+                                                                <rect key="frame" x="110" y="5" width="250" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" priority="750" constant="250" id="S9E-y1-WLP"/>
+                                                                </constraints>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="13"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="XqH-em-1M0" firstAttribute="centerY" secondItem="d84-YO-jM3" secondAttribute="centerY" id="6e5-fB-fVJ"/>
+                                                            <constraint firstItem="XqH-em-1M0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7rv-NT-Bf6" secondAttribute="trailing" id="Ob9-3G-CS4"/>
+                                                            <constraint firstAttribute="height" constant="50" id="av9-dg-mio"/>
+                                                            <constraint firstAttribute="bottom" secondItem="XqH-em-1M0" secondAttribute="bottom" constant="5" id="eaM-MQ-XG9"/>
+                                                            <constraint firstItem="7rv-NT-Bf6" firstAttribute="centerY" secondItem="d84-YO-jM3" secondAttribute="centerY" id="fnJ-a7-uTU"/>
+                                                            <constraint firstItem="XqH-em-1M0" firstAttribute="top" secondItem="d84-YO-jM3" secondAttribute="top" constant="5" id="hS2-vu-4Lh"/>
+                                                            <constraint firstItem="7rv-NT-Bf6" firstAttribute="leading" secondItem="d84-YO-jM3" secondAttribute="leading" constant="15" id="oS1-z1-VGl"/>
+                                                            <constraint firstAttribute="trailing" secondItem="XqH-em-1M0" secondAttribute="trailing" constant="15" id="qqy-dS-s1u"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ta-pv-VGv">
+                                                        <rect key="frame" x="0.0" y="150" width="375" height="50"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_BIRTHDATE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nf3-Rw-seE" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                                                <rect key="frame" x="15" y="19" width="104.5" height="12"/>
+                                                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_PLEASE_FILL_THE_FIELD" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vLV-Dv-wYL" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
+                                                                <rect key="frame" x="119.5" y="5" width="240.5" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" priority="750" constant="250" id="KYw-1v-jzF"/>
+                                                                </constraints>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="13"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="vLV-Dv-wYL" firstAttribute="centerY" secondItem="0Ta-pv-VGv" secondAttribute="centerY" id="ILW-bf-Cwb"/>
+                                                            <constraint firstItem="vLV-Dv-wYL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nf3-Rw-seE" secondAttribute="trailing" id="PgD-ub-jjU"/>
+                                                            <constraint firstItem="nf3-Rw-seE" firstAttribute="leading" secondItem="0Ta-pv-VGv" secondAttribute="leading" constant="15" id="Sau-Yr-bNM"/>
+                                                            <constraint firstAttribute="trailing" secondItem="vLV-Dv-wYL" secondAttribute="trailing" constant="15" id="XQd-Jo-OLT"/>
+                                                            <constraint firstItem="nf3-Rw-seE" firstAttribute="centerY" secondItem="0Ta-pv-VGv" secondAttribute="centerY" id="caf-jg-bUK"/>
+                                                            <constraint firstItem="vLV-Dv-wYL" firstAttribute="top" secondItem="0Ta-pv-VGv" secondAttribute="top" constant="5" id="dmV-1o-Xkb"/>
+                                                            <constraint firstAttribute="bottom" secondItem="vLV-Dv-wYL" secondAttribute="bottom" constant="5" id="slr-DT-wFd"/>
+                                                            <constraint firstAttribute="height" constant="50" id="v4E-er-Wud"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQ7-R3-Gp6">
+                                                        <rect key="frame" x="0.0" y="200" width="375" height="50"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_GENDER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgH-Ll-3zf" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                                                <rect key="frame" x="15" y="19" width="83" height="12"/>
+                                                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LB_PLEASE_FILL_THE_FIELD" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="c9n-BD-GRG" customClass="LocalizedTextField" customModule="Confidant" customModuleProvider="target">
+                                                                <rect key="frame" x="110" y="5" width="250" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" priority="750" constant="250" id="Ksn-F3-a9a"/>
+                                                                </constraints>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="13"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="c9n-BD-GRG" secondAttribute="bottom" constant="5" id="3E6-uw-S7u"/>
+                                                            <constraint firstItem="c9n-BD-GRG" firstAttribute="top" secondItem="TQ7-R3-Gp6" secondAttribute="top" constant="5" id="6NJ-Tp-QKb"/>
+                                                            <constraint firstItem="c9n-BD-GRG" firstAttribute="centerY" secondItem="TQ7-R3-Gp6" secondAttribute="centerY" id="7Ib-1X-dsT"/>
+                                                            <constraint firstItem="kgH-Ll-3zf" firstAttribute="centerY" secondItem="TQ7-R3-Gp6" secondAttribute="centerY" id="Ot3-sU-dDx"/>
+                                                            <constraint firstAttribute="trailing" secondItem="c9n-BD-GRG" secondAttribute="trailing" constant="15" id="Rto-Sv-kwf"/>
+                                                            <constraint firstItem="kgH-Ll-3zf" firstAttribute="leading" secondItem="TQ7-R3-Gp6" secondAttribute="leading" constant="15" id="S0s-xE-eac"/>
+                                                            <constraint firstItem="c9n-BD-GRG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kgH-Ll-3zf" secondAttribute="trailing" id="eAM-5R-PzH"/>
+                                                            <constraint firstAttribute="height" constant="50" id="sza-vj-KyB"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAS-dy-WcE" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
+                                                <rect key="frame" x="90" y="474" width="195" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="2Dq-jF-yeI"/>
+                                                    <constraint firstAttribute="width" constant="195" id="OBk-Vp-U5D"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="13"/>
+                                                <state key="normal" title="LB_UPDATE" backgroundImage="bg_pink">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="23"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="uAS-dy-WcE" secondAttribute="bottom" priority="750" constant="35" id="G3E-qF-6ew"/>
+                                            <constraint firstAttribute="trailing" secondItem="IpY-Fd-AcU" secondAttribute="trailing" id="Lpj-CE-tWH"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ecq-k8-CP8" secondAttribute="trailing" id="Ta3-Lc-P4k"/>
+                                            <constraint firstItem="Ciz-Rw-8kc" firstAttribute="leading" secondItem="lUo-Bk-KjR" secondAttribute="leading" constant="14" id="VsM-XA-gfQ"/>
+                                            <constraint firstItem="uAS-dy-WcE" firstAttribute="top" secondItem="IpY-Fd-AcU" secondAttribute="bottom" constant="25" id="fsK-aF-Z0Q"/>
+                                            <constraint firstItem="Ecq-k8-CP8" firstAttribute="leading" secondItem="lUo-Bk-KjR" secondAttribute="leading" id="gLi-8l-Io5"/>
+                                            <constraint firstItem="Ecq-k8-CP8" firstAttribute="top" secondItem="lUo-Bk-KjR" secondAttribute="top" id="gjF-OS-Vek"/>
+                                            <constraint firstItem="IpY-Fd-AcU" firstAttribute="top" secondItem="Ciz-Rw-8kc" secondAttribute="bottom" constant="5" id="gyI-ap-aYP"/>
+                                            <constraint firstItem="IpY-Fd-AcU" firstAttribute="leading" secondItem="lUo-Bk-KjR" secondAttribute="leading" id="qBe-Zg-mfe"/>
+                                            <constraint firstItem="Ciz-Rw-8kc" firstAttribute="top" secondItem="Ecq-k8-CP8" secondAttribute="bottom" constant="14" id="uUm-XJ-Xuq"/>
+                                            <constraint firstItem="uAS-dy-WcE" firstAttribute="centerX" secondItem="lUo-Bk-KjR" secondAttribute="centerX" id="y4k-kn-Aew"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="lUo-Bk-KjR" secondAttribute="trailing" id="3hr-6D-Y0v"/>
+                                    <constraint firstItem="lUo-Bk-KjR" firstAttribute="centerY" secondItem="tnP-8A-zPh" secondAttribute="centerY" id="5IS-2j-G8b"/>
+                                    <constraint firstItem="lUo-Bk-KjR" firstAttribute="centerX" secondItem="tnP-8A-zPh" secondAttribute="centerX" id="ILU-nX-slz"/>
+                                    <constraint firstItem="lUo-Bk-KjR" firstAttribute="top" secondItem="tnP-8A-zPh" secondAttribute="top" id="LUj-F6-eJV"/>
+                                    <constraint firstAttribute="bottom" secondItem="lUo-Bk-KjR" secondAttribute="bottom" id="Sd2-w4-eNY"/>
+                                    <constraint firstItem="lUo-Bk-KjR" firstAttribute="leading" secondItem="tnP-8A-zPh" secondAttribute="leading" id="p6p-3p-pp8"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tnP-8A-zPh" firstAttribute="top" secondItem="aWX-xA-bOZ" secondAttribute="bottom" id="77y-2v-2rp"/>
+                            <constraint firstItem="tnP-8A-zPh" firstAttribute="leading" secondItem="McZ-0u-T7Z" secondAttribute="leading" id="Sid-aH-UbA"/>
+                            <constraint firstAttribute="trailing" secondItem="tnP-8A-zPh" secondAttribute="trailing" id="TEm-l1-XPi"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="tnP-8A-zPh" secondAttribute="bottom" constant="49" id="ova-VB-Vim"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="KRl-bW-PpQ"/>
+                    <navigationItem key="navigationItem" id="y1j-0z-Xaw">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="LB_LOGOUT" style="done" id="7oZ-tD-r8V" customClass="LocalizedBarButton" customModule="Confidant" customModuleProvider="target">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="KX8-XW-RZa">
+                            <rect key="frame" x="121" y="5.5" width="150" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_PROFILE_TITLE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7b-N2-nEO" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                    <rect key="frame" x="0.5" y="9.5" width="149.5" height="13.5"/>
+                                    <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Q7b-N2-nEO" firstAttribute="centerY" secondItem="KX8-XW-RZa" secondAttribute="centerY" id="4wL-Dw-ZNr"/>
+                                <constraint firstItem="Q7b-N2-nEO" firstAttribute="centerX" secondItem="KX8-XW-RZa" secondAttribute="centerX" id="guG-2V-Fhj"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bZi-a9-tXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BCd-WA-039" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="154" y="125"/>
+            <point key="canvasLocation" x="164" y="125"/>
         </scene>
     </scenes>
     <resources>
+        <image name="bg_pink" width="187" height="50"/>
+        <image name="icn_anchor_gray" width="104" height="104"/>
         <image name="icn_profile" width="25" height="25"/>
     </resources>
 </document>

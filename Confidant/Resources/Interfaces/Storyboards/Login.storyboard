@@ -678,7 +678,7 @@
                                                                     <constraint firstAttribute="width" constant="195" id="yBM-vn-p8U"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="15"/>
-                                                                <state key="normal" title="LOG IN" backgroundImage="bg_pink">
+                                                                <state key="normal" title="LB_LOGIN" backgroundImage="bg_pink">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
@@ -773,7 +773,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QU8-uW-fYb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="icn_back" backIndicatorTransitionMaskImage="icn_back" id="FOt-cQ-22d">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" backIndicatorImage="icn_back" backIndicatorTransitionMaskImage="icn_back" id="FOt-cQ-22d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

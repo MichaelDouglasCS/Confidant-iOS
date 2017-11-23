@@ -99,7 +99,6 @@ class ChatVC: UIViewController {
 		self.sendMessage()
 	}
 	
-
 //*************************************************
 // MARK: - Overridden Public Methods
 //*************************************************

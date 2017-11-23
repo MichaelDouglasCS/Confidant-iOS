@@ -24,7 +24,7 @@
                 <navigationController navigationBarHidden="YES" id="7pv-ZR-jkg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="icn_confidant" selectedImage="icn_confidant_selected" id="6Sz-2W-eEx"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rOF-Mk-5Nb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rOF-Mk-5Nb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
