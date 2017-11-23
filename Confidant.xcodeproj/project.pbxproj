@@ -84,6 +84,8 @@
 		61BC77081FB275DD00E608DE /* MessageBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BC77071FB275DD00E608DE /* MessageBaseCell.swift */; };
 		61BE69461ED3409F0036EDBB /* ProfileBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BE69451ED3409F0036EDBB /* ProfileBO.swift */; };
 		61BE69481ED3413E0036EDBB /* ModelBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BE69471ED3413E0036EDBB /* ModelBO.swift */; };
+		61C370EB1FC753B200005B6D /* FinishChatAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61C370EA1FC753B200005B6D /* FinishChatAlertView.xib */; };
+		61C370EE1FC757E400005B6D /* FinishChatAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C370ED1FC757E400005B6D /* FinishChatAlertView.swift */; };
 		61CC4EC71E80DE6A00ED4DB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61CC4EC61E80DE6A00ED4DB6 /* Assets.xcassets */; };
 		61CDB4371E87038E00E792F6 /* UITextFieldKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CDB4361E87038E00E792F6 /* UITextFieldKit.swift */; };
 		61D0FAEE1F85DB57009399C0 /* MediaLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D0FAED1F85DB57009399C0 /* MediaLO.swift */; };
@@ -226,6 +228,8 @@
 		61BC77071FB275DD00E608DE /* MessageBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBaseCell.swift; sourceTree = "<group>"; };
 		61BE69451ED3409F0036EDBB /* ProfileBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileBO.swift; path = Confidant/Sources/Data/Models/Profile/ProfileBO.swift; sourceTree = SOURCE_ROOT; };
 		61BE69471ED3413E0036EDBB /* ModelBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelBO.swift; sourceTree = "<group>"; };
+		61C370EA1FC753B200005B6D /* FinishChatAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishChatAlertView.xib; sourceTree = "<group>"; };
+		61C370ED1FC757E400005B6D /* FinishChatAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishChatAlertView.swift; sourceTree = "<group>"; };
 		61CC4EC61E80DE6A00ED4DB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61CDB4361E87038E00E792F6 /* UITextFieldKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldKit.swift; sourceTree = "<group>"; };
 		61D0FAED1F85DB57009399C0 /* MediaLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLO.swift; sourceTree = "<group>"; };
@@ -630,6 +634,7 @@
 		618AF4CD1E84E1EE008A6A22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				61C370EC1FC7577000005B6D /* Chats */,
 				61F127A31EA7034D00F14A17 /* BlurredView.swift */,
 				6155F2211ECBAF29000445D1 /* ChartColumnView.swift */,
 				6155F2231ECBAF29000445D1 /* ChartLineView.swift */,
@@ -697,6 +702,7 @@
 			isa = PBXGroup;
 			children = (
 				610318EC1FA015F20094011D /* ConfidantChatAlertView.xib */,
+				61C370EA1FC753B200005B6D /* FinishChatAlertView.xib */,
 				617306901FA68B17000BF0EE /* UserSearchingAlertView.xib */,
 			);
 			path = Views;
@@ -755,6 +761,14 @@
 				611C16451F9053F0000A3F01 /* Register */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		61C370EC1FC7577000005B6D /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				61C370ED1FC757E400005B6D /* FinishChatAlertView.swift */,
+			);
+			path = Chats;
 			sourceTree = "<group>";
 		};
 		61D0FAF01F85DCED009399C0 /* Media */ = {
@@ -952,6 +966,7 @@
 				61FB81BE1F7DE7700045D38B /* Register.storyboard in Resources */,
 				61790EF41E6A0A520095482F /* GOTHAM-MEDIUM.TTF in Resources */,
 				61790EF01E6A0A520095482F /* GOTHAM-LIGHT.TTF in Resources */,
+				61C370EB1FC753B200005B6D /* FinishChatAlertView.xib in Resources */,
 				61790EFE1E6A0A520095482F /* GOTHAM-ULTRAITALIC.TTF in Resources */,
 				61790EFA1E6A0A520095482F /* GOTHAM-THINITALIC.TTF in Resources */,
 				617B489F1F9D8BBB00E39411 /* User.storyboard in Resources */,
@@ -1207,6 +1222,7 @@
 				617306961FA6D4E3000BF0EE /* ConfidantVC.swift in Sources */,
 				61F127BE1EA7034D00F14A17 /* VerticalButton.swift in Sources */,
 				61F5CE8C1E68FA1C001261C1 /* WelcomeVC.swift in Sources */,
+				61C370EE1FC757E400005B6D /* FinishChatAlertView.swift in Sources */,
 				617775C61FA982A100006A33 /* ChatCell.swift in Sources */,
 				61B4EC3E1F81A3C200FA5296 /* PersistenceStore.swift in Sources */,
 				61F127BD1EA7034D00F14A17 /* UIBox.swift in Sources */,

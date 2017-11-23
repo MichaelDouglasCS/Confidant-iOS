@@ -55,7 +55,7 @@ class DashboardVC: UITabBarController {
 		alert.showingAnimate()
 	}
 	
-	private func removeConfidantAlertChat() {
+	private func showConfidantAlert() {
 		self.view.subviews.forEach({ (subView) in
 			
 			if let view = subView as? ConfidantChatAlertView {
@@ -80,7 +80,7 @@ class DashboardVC: UITabBarController {
 	
 	fileprivate func handleConfidantSelection(_ chat: ChatBO?) {
 		self.confidantAlertChatCallback?.with([chat?.toJSON()])
-		self.removeConfidantAlertChat()
+		self.showConfidantAlert()
 		
 		if chat != nil {
 			self.selectedIndex = 0

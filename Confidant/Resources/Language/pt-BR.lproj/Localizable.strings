@@ -44,6 +44,8 @@
 "LB_PLEASE_FILL_THE_FIELD" = "Por favor, preencha o campo";
 "LB_UPDATE" = "ATUALIZAR";
 "LB_YOUR_DATA" = "Seus dados";
+"LB_SEND" = "ENVIAR";
+"LB_CANCEL_UPPERCASE" = "CANCELAR";
 
 //*************************
 // Strings
@@ -107,3 +109,6 @@
 "MSG_LOOKING_FOR_CONFIDANT" = "Estamos à procura de um Confiante para você! :-)";
 "MSG_USER_KIND" = "Busque por um confidente a partir do que está sentindo e tenha uma conversa livre, anônima e sem julgamentos";
 "MSG_CONFIDANT_KIND" = "Coloque seus conhecimentos em pratica enquanto ajuda quem precisa de você!";
+"MSG_WHAT_YOU_THINK_OF_CONVERSATION" = "O que você achou da conversa ?";
+"MSG_RATE_YOUR_CONFIDANT" = "Avalie seu Confidente";
+"MSG_RATE_WHO_YOU_HELPED" = "Avalie quem você ajudou";

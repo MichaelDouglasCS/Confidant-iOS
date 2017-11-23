@@ -164,7 +164,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_CHATS_TITLE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iya-Mt-lPN" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="15" y="7.5" width="121" height="17.5"/>
+                                    <rect key="frame" x="8" y="9.5" width="135.5" height="13.5"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -402,13 +402,13 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gx-aJ-7FA" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                            <rect key="frame" x="38" y="25" width="62" height="13"/>
+                                            <rect key="frame" x="38" y="21" width="69" height="10"/>
                                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="11"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKY-dz-cBL" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                            <rect key="frame" x="38" y="5" width="81" height="17.5"/>
+                                            <rect key="frame" x="38" y="5" width="90" height="13.5"/>
                                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -428,6 +428,9 @@
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="LB_FINISH" style="plain" id="bfI-Or-EZE" customClass="LocalizedBarButton" customModule="Confidant" customModuleProvider="target">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="finishAction:" destination="OMO-KJ-hmL" id="vsf-u4-2nY"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>

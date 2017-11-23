@@ -87,6 +87,30 @@ class ChatVC: UIViewController {
 		self.textField.text?.removeAll()
 	}
 
+	private func showFinishAlert() {
+		let alert = FinishChatAlertView(frame: (self.navigationController?.view.frame)!, fromNib: true)
+		
+		alert.delegate = self
+		self.navigationController?.view.addSubview(alert)
+		alert.showingAnimate()
+	}
+	
+	fileprivate func removeFinishAlert(completion: (() -> ())? = nil) {
+		self.navigationController?.view.subviews.forEach({ (subView) in
+			
+			if let view = subView as? FinishChatAlertView {
+				
+				view.hiddenAnimate(completion: { _ in
+					view.removeFromSuperview()
+					
+					if let completion = completion {
+						completion()
+					}
+				})
+			}
+		})
+	}
+	
 //*************************************************
 // MARK: - Exposed Methods
 //*************************************************
@@ -97,6 +121,10 @@ class ChatVC: UIViewController {
 	
 	@IBAction func sendAction(_ sender: LocalizedButton) {
 		self.sendMessage()
+	}
+	
+	@IBAction func finishAction(_ sender: LocalizedBarButton) {
+		self.showFinishAlert()
 	}
 	
 //*************************************************
@@ -199,3 +227,22 @@ extension ChatVC: KeyboardSizeAdjuster {
 	}
 }
 
+//**********************************************************************************************************
+//
+// MARK: - Extension - FinishChatAlertView
+//
+//**********************************************************************************************************
+
+extension ChatVC: FinishChatAlertViewDelegate {
+	
+	func finishChatAlert(_ chatAlert: FinishChatAlertView, didFinishChat chat: ChatBO?) {
+		
+		if chat != nil {
+			self.removeFinishAlert() { _ in
+				self.navigationController?.popViewController(animated: true)
+			}
+		} else {
+			self.removeFinishAlert()
+		}
+	}
+}
