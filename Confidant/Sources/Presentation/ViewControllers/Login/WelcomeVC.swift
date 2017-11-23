@@ -93,6 +93,26 @@ class WelcomeVC: UIViewController {
         self.timer.invalidate()
         self.startTimer()
     }
+	
+	private func logged() {
+		DispatchQueue.main.async {
+			self.performSegue(withIdentifier: "showDashboardSegue", sender: nil)
+		}
+	}
+	
+	private func useLocalUser() {
+		let user = UsersLO.sharedInstance.current
+		
+		if user.isLoggedIn {
+			self.logged()
+		}
+	}
+	
+//*************************************************
+// MARK: - Exposed Methods
+//*************************************************
+	
+	@IBAction func unwindToLogin(segue: UIStoryboardSegue) { }
 
 //*************************************************
 // MARK: - Overridden Public Methods
@@ -110,6 +130,7 @@ class WelcomeVC: UIViewController {
         super.viewWillAppear(animated)
 		UIApplication.shared.statusBarStyle = .lightContent
 		self.navigationController?.setNavigationBarHidden(true, animated: true)
+		self.useLocalUser()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -86,6 +86,11 @@ class DashboardVC: UITabBarController {
 			self.selectedIndex = 0
 		}
 	}
+	
+	@objc fileprivate func popToRootLogin() {
+		UsersLO.sharedInstance.logout()
+		self.performSegue(withIdentifier: "showLoginSegue", sender: self)
+	}
 
 //*************************************************
 // MARK: - Exposed Methods
@@ -101,6 +106,20 @@ class DashboardVC: UITabBarController {
 		self.addNotificationsListener()
 		UIApplication.shared.statusBarStyle = .lightContent
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		NotificationCenter.default.addObserver(self,
+		                                       selector: #selector(self.popToRootLogin),
+		                                       name: .userDidLogout,
+		                                       object: nil)
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		NotificationCenter.default.removeObserver(self)
+	}
 }
 
 //**********************************************************************************************************

@@ -19,6 +19,7 @@ import Alamofire
 extension Notification.Name {
 	static let userDidLoginSuccess = Notification.Name(rawValue: "UserDidLoginSuccess")
 	static let userDidLoginError = Notification.Name(rawValue: "UserDidLoginError")
+	static let userDidLogout = Notification.Name(rawValue: "UserDidLogout")
 }
 
 public class RealmUserModel : RealmModel {
@@ -243,7 +244,7 @@ extension UsersLO {
 			
 			self.current.profile.picture?.base64 = image?.base64EncodedString(format: .jpg,
 			                                                                  quality: 0.5)
-			
+			self.save()
 			completionHandler(result)
 		}
 	}

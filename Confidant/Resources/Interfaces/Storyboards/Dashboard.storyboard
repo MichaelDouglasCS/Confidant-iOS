@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IYh-cs-l3J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17B48" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MRW-oE-lwB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,11 +9,27 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="MBM-HT-HcY">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="MRW-oE-lwB" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XZv-SR-aNj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="IYh-cs-l3J" kind="relationship" relationship="rootViewController" id="YCJ-NS-kP3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jim-SG-cRy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2196" y="-54"/>
+        </scene>
         <!--DashboardVC-->
         <scene sceneID="ore-tR-1wA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BJ9-Dp-64S" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="IYh-cs-l3J" customClass="DashboardVC" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="vqN-FZ-hlo"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ruO-L6-JNs" customClass="LocalizedTabBar" customModule="Confidant" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -24,8 +40,11 @@
                         <segue destination="Rwg-Z3-pvG" kind="relationship" relationship="viewControllers" id="SiH-GR-hBo"/>
                         <segue destination="V0C-dQ-a0x" kind="relationship" relationship="viewControllers" id="SZD-kq-0jQ"/>
                         <segue destination="ZZb-Yf-EhQ" kind="relationship" relationship="viewControllers" id="gBQ-Mt-Opr"/>
+                        <segue destination="F2t-ej-DEM" kind="unwind" identifier="showLoginSegue" unwindAction="unwindToLoginWithSegue:" id="21k-dG-apa"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BJ9-Dp-64S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="F2t-ej-DEM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1473" y="-54"/>
         </scene>

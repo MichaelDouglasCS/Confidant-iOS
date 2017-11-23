@@ -49,3 +49,16 @@ public class UserBO: Mappable {
 		self.profile <- map["profile"]
 	}
 }
+
+//**********************************************************************************************************
+//
+// MARK: - Extension - UserBO
+//
+//**********************************************************************************************************
+
+extension UserBO {
+	
+	public var isLoggedIn: Bool {
+		return !(self.token?.isEmpty ?? true)
+	}
+}

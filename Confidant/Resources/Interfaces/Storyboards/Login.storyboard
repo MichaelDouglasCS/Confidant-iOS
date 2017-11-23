@@ -39,7 +39,7 @@
                                 <gestureRecognizers/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="V2e-NF-8VW">
-                                <rect key="frame" x="42.5" y="50" width="290" height="95"/>
+                                <rect key="frame" x="33" y="50" width="309" height="95"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="olQ-0s-RzU">
                                         <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
@@ -48,7 +48,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confidant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="lFS-ef-fOf" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="103" y="0.0" width="187" height="95"/>
+                                        <rect key="frame" x="103" y="0.0" width="206" height="95"/>
                                         <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -128,11 +128,20 @@
                     <connections>
                         <outlet property="pageControl" destination="QPx-JJ-pRK" id="uIb-JW-KpP"/>
                         <outlet property="scrollView" destination="P76-oI-xE8" id="Lfn-qQ-tsx"/>
+                        <segue destination="cJc-Ag-SKt" kind="presentation" identifier="showDashboardSegue" animates="NO" modalTransitionStyle="flipHorizontal" id="y57-1Y-XLP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="386" y="426"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="Sf8-7Z-4oJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Dashboard" id="cJc-Ag-SKt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ltD-5l-J8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="385" y="856"/>
         </scene>
         <!--SignInViewController-->
         <scene sceneID="wBK-8x-eU4">
@@ -153,10 +162,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cNX-dC-Eoh">
-                                                <rect key="frame" x="24" y="15" width="327" height="484"/>
+                                                <rect key="frame" x="24" y="15" width="327" height="481"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="k0n-cB-Zn5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="79"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="76"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3T-9K-MKi" userLabel="SignUpButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="28.5" y="0.0" width="270" height="45"/>
@@ -176,7 +185,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_OR_WITH_EMAIL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Lb-7zC" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="106" y="65" width="115.5" height="14"/>
+                                                                <rect key="frame" x="98.5" y="65" width="130" height="11"/>
                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -184,7 +193,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-OW-eyv">
-                                                        <rect key="frame" x="0.0" y="99" width="327" height="260"/>
+                                                        <rect key="frame" x="0.0" y="96" width="327" height="260"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-E8-nS4" userLabel="EmailView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
@@ -409,7 +418,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hUo-UI-cPU">
-                                                        <rect key="frame" x="0.0" y="379" width="327" height="105"/>
+                                                        <rect key="frame" x="0.0" y="376" width="327" height="105"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIT-ql-UbD" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="66" y="0.0" width="195" height="45"/>
@@ -479,7 +488,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_SIGNUP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cW-hQ-ws2" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="41.5" y="8.5" width="82.5" height="17.5"/>
+                                    <rect key="frame" x="38.5" y="10.5" width="88.5" height="13.5"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -543,10 +552,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uhy-ZU-WQ1">
-                                                <rect key="frame" x="24" y="15" width="327" height="288"/>
+                                                <rect key="frame" x="24" y="15" width="327" height="285"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zCe-k1-hnx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="79"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="76"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyH-s9-Ewm" userLabel="LoginFacebookButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="29" y="0.0" width="269" height="45"/>
@@ -568,7 +577,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NP3-mv-fo4" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="144.5" y="65" width="38.5" height="14"/>
+                                                                <rect key="frame" x="142.5" y="65" width="42.5" height="11"/>
                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -576,7 +585,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Q95-0R-f8L">
-                                                        <rect key="frame" x="0.0" y="99" width="327" height="95"/>
+                                                        <rect key="frame" x="0.0" y="96" width="327" height="95"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgt-wu-RAT" userLabel="UsernameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
@@ -669,7 +678,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6gi-Rl-ChJ">
-                                                        <rect key="frame" x="0.0" y="214" width="327" height="74"/>
+                                                        <rect key="frame" x="0.0" y="211" width="327" height="74"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln8-Xc-m6n" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="66" y="0.0" width="195" height="45"/>
@@ -691,7 +700,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-aK-ogj" userLabel="Forgot your password?" customClass="LocalizedButton" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="87" y="45" width="153" height="29"/>
+                                                                <rect key="frame" x="78.5" y="45" width="170" height="29"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="29" id="mkA-uI-I44"/>
                                                                 </constraints>
@@ -743,7 +752,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_LOGIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpV-a9-LT8" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="47" y="8.5" width="72" height="17.5"/>
+                                    <rect key="frame" x="43" y="10.5" width="80" height="13.5"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>

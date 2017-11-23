@@ -147,6 +147,7 @@ class ProfileVC: UIViewController {
 //*************************************************
 	
 	@IBAction func logoutAction(_ sender: LocalizedBarButton) {
+		NotificationCenter.default.post(name: .userDidLogout, object: nil)
 	}
 	
 	@IBAction func updateAction(_ sender: IBDesigableButton) {
