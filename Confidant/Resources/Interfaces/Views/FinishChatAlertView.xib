@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17B48" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GOTHAM-BOLD_0.OTF">
+            <string>Gotham-Bold</string>
+        </array>
+        <array key="GOTHAM-MEDIUM.TTF">
+            <string>GothamMedium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FinishChatAlertView" customModule="Confidant" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundView" destination="pz0-WY-ZQq" id="7ts-PZ-khQ"/>
+                <outlet property="popOverView" destination="zpY-cV-FYM" id="a8s-ji-PkZ"/>
+                <outlet property="rateTextLabel" destination="YvC-a6-6gS" id="YRI-W0-xbY"/>
+                <outlet property="starFive" destination="z2i-cP-VC6" id="ofw-kj-Ge9"/>
+                <outlet property="starFour" destination="Ajg-B5-417" id="K6d-cF-Y4u"/>
+                <outlet property="starOne" destination="Vvc-Mb-C1C" id="ogr-Nn-XWl"/>
+                <outlet property="starThree" destination="M7C-Oq-SnV" id="Kd6-vS-qS6"/>
+                <outlet property="starTwo" destination="ax6-FZ-EVa" id="eOd-MX-3bB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="OrH-s5-0Ta">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pz0-WY-ZQq" userLabel="BackgroundView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpY-cV-FYM" customClass="UIBox" customModule="Confidant" customModuleProvider="target">
+                    <rect key="frame" x="25.5" y="185" width="324" height="297"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cE-TT-pOv" userLabel="HeaderView">
+                            <rect key="frame" x="0.0" y="0.0" width="324" height="60"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MSG_WHAT_YOU_THINK_OF_CONVERSATION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZf-pb-dYV" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                                    <rect key="frame" x="4" y="12.5" width="316" height="36.5"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="16"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.2901960784" green="0.84705882349999995" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="dZf-pb-dYV" firstAttribute="centerX" secondItem="0cE-TT-pOv" secondAttribute="centerX" id="MHk-f6-Byo"/>
+                                <constraint firstAttribute="trailing" secondItem="dZf-pb-dYV" secondAttribute="trailing" constant="4" id="P5b-OE-xm4"/>
+                                <constraint firstAttribute="height" constant="60" id="SVZ-SB-hJn"/>
+                                <constraint firstItem="dZf-pb-dYV" firstAttribute="leading" secondItem="0cE-TT-pOv" secondAttribute="leading" constant="4" id="bGs-td-kG0"/>
+                                <constraint firstItem="dZf-pb-dYV" firstAttribute="centerY" secondItem="0cE-TT-pOv" secondAttribute="centerY" id="cFu-tc-pdV"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate someone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvC-a6-6gS" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
+                            <rect key="frame" x="108" y="80" width="108.5" height="13.5"/>
+                            <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
+                            <color key="textColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1Zq-n9-CJd">
+                            <rect key="frame" x="49.5" y="141" width="225" height="31"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvc-Mb-C1C">
+                                    <rect key="frame" x="0.0" y="0.0" width="33" height="31"/>
+                                    <state key="normal" image="icn_unselected_star"/>
+                                    <state key="selected" image="icn_selected_star"/>
+                                    <connections>
+                                        <action selector="rateAction:" destination="-1" eventType="touchUpInside" id="E2w-bh-aiI"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ax6-FZ-EVa">
+                                    <rect key="frame" x="48" y="0.0" width="33" height="31"/>
+                                    <state key="normal" image="icn_unselected_star"/>
+                                    <state key="selected" image="icn_selected_star"/>
+                                    <connections>
+                                        <action selector="rateAction:" destination="-1" eventType="touchUpInside" id="G7I-jX-xsx"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7C-Oq-SnV">
+                                    <rect key="frame" x="96" y="0.0" width="33" height="31"/>
+                                    <state key="normal" image="icn_unselected_star"/>
+                                    <state key="selected" image="icn_selected_star"/>
+                                    <connections>
+                                        <action selector="rateAction:" destination="-1" eventType="touchUpInside" id="QRe-4B-x3m"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ajg-B5-417">
+                                    <rect key="frame" x="144" y="0.0" width="33" height="31"/>
+                                    <state key="normal" image="icn_unselected_star"/>
+                                    <state key="selected" image="icn_selected_star"/>
+                                    <connections>
+                                        <action selector="rateAction:" destination="-1" eventType="touchUpInside" id="xok-oi-dNb"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2i-cP-VC6">
+                                    <rect key="frame" x="192" y="0.0" width="33" height="31"/>
+                                    <state key="normal" image="icn_unselected_star"/>
+                                    <state key="selected" image="icn_selected_star"/>
+                                    <connections>
+                                        <action selector="rateAction:" destination="-1" eventType="touchUpInside" id="7uH-xQ-vHI"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6NM-yR-8EQ">
+                            <rect key="frame" x="0.0" y="247" width="324" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmb-cF-wVs" customClass="LocalizedButton" customModule="Confidant" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="162" height="50"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="17"/>
+                                    <state key="normal" title="LB_CANCEL_UPPERCASE">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="ZWV-Rr-rBj"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwd-OE-AVT" customClass="LocalizedButton" customModule="Confidant" customModuleProvider="target">
+                                    <rect key="frame" x="162" y="0.0" width="162" height="50"/>
+                                    <color key="backgroundColor" red="0.2901960784" green="0.84705882349999995" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="17"/>
+                                    <state key="normal" title="LB_SEND">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="yesAction:" destination="-1" eventType="touchUpInside" id="23q-7q-51c"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="P5J-kw-ViY"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="1Zq-n9-CJd" firstAttribute="centerX" secondItem="zpY-cV-FYM" secondAttribute="centerX" id="4Mt-B6-o28"/>
+                        <constraint firstItem="6NM-yR-8EQ" firstAttribute="top" secondItem="1Zq-n9-CJd" secondAttribute="bottom" constant="75" id="5De-MR-ypO"/>
+                        <constraint firstItem="0cE-TT-pOv" firstAttribute="top" secondItem="zpY-cV-FYM" secondAttribute="top" id="BhY-rw-r16"/>
+                        <constraint firstItem="YvC-a6-6gS" firstAttribute="centerX" secondItem="zpY-cV-FYM" secondAttribute="centerX" id="Fcn-Qt-hnN"/>
+                        <constraint firstAttribute="trailing" secondItem="6NM-yR-8EQ" secondAttribute="trailing" id="I71-FC-arB"/>
+                        <constraint firstItem="0cE-TT-pOv" firstAttribute="leading" secondItem="zpY-cV-FYM" secondAttribute="leading" id="ObX-Hq-J7g"/>
+                        <constraint firstAttribute="trailing" secondItem="0cE-TT-pOv" secondAttribute="trailing" id="PLZ-cW-uYd"/>
+                        <constraint firstItem="YvC-a6-6gS" firstAttribute="top" secondItem="0cE-TT-pOv" secondAttribute="bottom" constant="20" id="QVg-g4-DhH"/>
+                        <constraint firstAttribute="height" constant="297" id="fKW-6x-eX9"/>
+                        <constraint firstAttribute="bottom" secondItem="6NM-yR-8EQ" secondAttribute="bottom" id="iZC-tw-a43"/>
+                        <constraint firstItem="6NM-yR-8EQ" firstAttribute="leading" secondItem="zpY-cV-FYM" secondAttribute="leading" id="n67-NI-GDS"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="pz0-WY-ZQq" firstAttribute="leading" secondItem="OrH-s5-0Ta" secondAttribute="leading" id="9sk-nQ-rAk"/>
+                <constraint firstItem="pz0-WY-ZQq" firstAttribute="top" secondItem="OrH-s5-0Ta" secondAttribute="top" id="ABF-Wj-pSV"/>
+                <constraint firstAttribute="bottom" secondItem="pz0-WY-ZQq" secondAttribute="bottom" id="MG6-qy-bba"/>
+                <constraint firstItem="zpY-cV-FYM" firstAttribute="top" secondItem="OrH-s5-0Ta" secondAttribute="top" constant="185" id="OOQ-vA-PWI"/>
+                <constraint firstAttribute="bottom" secondItem="zpY-cV-FYM" secondAttribute="bottom" constant="185" id="fHw-a6-Mgs"/>
+                <constraint firstAttribute="trailing" secondItem="zpY-cV-FYM" secondAttribute="trailing" constant="25" id="mTK-1a-xBM"/>
+                <constraint firstItem="zpY-cV-FYM" firstAttribute="leading" secondItem="OrH-s5-0Ta" secondAttribute="leading" constant="25" id="vhX-df-lj1"/>
+                <constraint firstAttribute="trailing" secondItem="pz0-WY-ZQq" secondAttribute="trailing" id="wSL-Z6-EMA"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icn_selected_star" width="33" height="33"/>
+        <image name="icn_unselected_star" width="33" height="31"/>
+    </resources>
+</document>

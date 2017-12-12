@@ -1,0 +1,114 @@
+//*************************
+// Labels
+//*************************
+
+"LB_LOGIN" = "LOG IN";
+"LB_LOGIN_FACEBOOK" = "LOG IN WITH FACEBOOK";
+"LB_SIGNUP" = "SIGN UP";
+"LB_SIGNUP_FACEBOOK" = "SIGN UP WITH FACEBOOK";
+"LB_EMAIL" = "Email";
+"LB_NAME" = "Name";
+"LB_NICKNAME" = "Nickname";
+"LB_PASSWORD" = "Password";
+"LB_BIRTHDATE" = "Birthdate";
+"LB_GENDER" = "Gender";
+"LB_OR" = "or";
+"LB_OR_WITH_EMAIL" = "or with e-mail";
+"LB_FORGOT_YOUR_PASSWORD" = "Forgot your password?";
+"LB_CONTINUE" = "CONTINUE";
+"LB_USER" = "User";
+"LB_CONFIDANT" = "Confidant";
+"LB_WHATS_YOUR_PROFILE" = "What is your profile ?";
+"LB_PERSONAL_INFORMATION" = "Personal Information";
+"LB_ADD_PICTURE" = "Add Picture";
+"LB_CANCEL" = "Cancel";
+"LB_WHAT_TOPICS" = "What topics are you a Confidant?";
+"LB_SELECT_ONE_OR_MORE" = "Select one or more";
+"LB_SEARCH" = "Search";
+"LB_GO_ONLINE" = "GO ONLINE";
+"LB_TO_GO_ONLINE" = "GO ONLINE";
+"LB_PROFILE" = "Profile";
+"LB_PROFILE_TITLE" = "PROFILE";
+"LB_CHATS" = "Chats";
+"LB_CHATS_TITLE" = "CHATS";
+"LB_WHAT_HAPPENED" = "What Happened ?";
+"LB_FIND" = "SEARCH";
+"LB_SELECT_ONLY_ONE" = "Select only one";
+"LB_ABOUT" = "About:";
+"LB_YES" = "YES";
+"LB_NO" = "NO";
+"LB_WAIT_A_LITTLE_BIT" = "Wait a little bit!";
+"LB_CONFIDANT_TITLE" = "CONFIDANT";
+"LB_FINISH" = "Finish";
+"LB_LOGOUT" = "Logout";
+"LB_PLEASE_FILL_THE_FIELD" = "Please, fill the field";
+"LB_UPDATE" = "UPDATE";
+"LB_YOUR_DATA" = "Your data";
+"LB_SEND" = "SEND";
+"LB_CANCEL_UPPERCASE" = "CANCEL";
+
+//*************************
+// Strings
+//*************************
+
+"ST_OK" = "OK";
+"ST_HELLO" = "Hello";
+"ST_TODAY" = "Today";
+"ST_WELCOME" = "Welcome";
+"ST_ANONYMOUSLY" = "Anonymously";
+"ST_RANDOMLY" = "Randomly";
+"ST_VOLUNTARY" = "Voluntary";
+"ST_SCORE" = "Score";
+"ST_FEMALE" = "Female";
+"ST_MALE" = "Male";
+"ST_TERMS" = "Terms";
+"ST_TERMS_CONDITIONS_USE" = "Terms and Conditions of Use";
+"ST_TERMS_CONDITIONS" = "Terms and Conditions";
+"ST_DECLINE" = "Decline";
+"ST_AGREE" = "Agree";
+"ST_PRIVACY_POLICY" = "Privacy Policy";
+"ST_SORRY" = "Sorry";
+"ST_PICTURE_SOURCE" = "What would be the picture's source?";
+"ST_TAKE_PHOTO" = "Take Photo";
+"ST_CHOOSE_PHOTO" = "Choose Photo";
+"ST_DELETE_PHOTO" = "Delete photo";
+"ST_YESTERDAY" = "Yesterday";
+
+//*************************
+// Messages
+//*************************
+
+"MSG_FINGER_PRINT" = "Please place your finger over the Home Button sensor to authenticate the current user";
+"MSG_INVALID_FINGER_PRINT" = "It was not possible to authenticate through the sensor, please enter the password manually";
+"MSG_TERMS_AND_CONDITIONS" = "By signing up, you agree to Confidant’s Terms and Conditions of Use and Privacy Policy.";
+"MSG_WELCOME" = "Feel free for help someone or keep someone help you, find your Confidant";
+"MSG_ANONYMOUSLY" = "Don't care about your identity, we assure your securence and anonymity";
+"MSG_RANDOMLY" = "Let us find someone to help you, according to your interests";
+"MSG_VOLUNTARY" = "How about you being a volunteer?";
+"MSG_SCORE" = "Be punctuated by people that you help, become the first and share it with everyone";
+"MSG_SERVER_ERROR" = "Server Error";
+"MSG_FACEBOOK_ERROR" = "Sorry! Occurred an error on Facebook, please, try again.";
+"MSG_TOKEN_NOT_INFORMED" = "Access forbidden, no token informed.";
+"MSG_INVALID_TOKEN" = "Informed token is invalid.";
+"MSG_INVALID_LOGIN" = "Are you sure entered the right username and password?";
+"MSG_INVALID_EMAIL" = "Please, fill the field with a valid email.";
+"MSG_EMAIL_ALREADY_EXISTS" = "The email is already in use.";
+"MSG_TOO_MANY_REQUESTS" = "Too many requests";
+"MSG_USER_NOT_FOUND" = "User not found";
+"MSG_NETWORK_ERROR" = "Network Error";
+"MSG_TERMS_CONDITIONS" = "By proceeding you agree to Confidant's Terms and Conditions of Use.";
+"MSG_PRIVACY_POLICY" = "By proceeding you agree to Confidant's Privacy Policy.";
+"MSG_MAKE_PROFILE" = "Let’s make you a profile.";
+"MSG_ENTER_NICKNAME_PICTURE" = "Enter your Nickname and add an optional profile picture.";
+"MSG_PICTURE_NOT_UPDATED" = "Could not update your profile picture. Please try again later.";
+"MSG_ALMOST_DONE" = "We are almost done! :-)";
+"MSG_LET_PEOPLE_KNOW" = "Let people know when you are available to help them!";
+"MSG_WHAT_TALK_ABOUT" = "What do you want to talk about ?";
+"MSG_SOMEONE_NEEDS_HELP" = "Someone needs your help! :-)";
+"MSG_DO_YOU_WISH_TALK" = "Do you wish talk to";
+"MSG_LOOKING_FOR_CONFIDANT" = "We are looking for a Confident for you! :-)";
+"MSG_USER_KIND" = "Find a confidant about what you are feeling and have a free, anonymous, non-judgmental conversation";
+"MSG_CONFIDANT_KIND" = "Put your knowledge in practice while helping those who need you!";
+"MSG_WHAT_YOU_THINK_OF_CONVERSATION" = "What did you think of the conversation ?";
+"MSG_RATE_YOUR_CONFIDANT" = "Rate your Confidant";
+"MSG_RATE_WHO_YOU_HELPED" = "Rate who you helped";

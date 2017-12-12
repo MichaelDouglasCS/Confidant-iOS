@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Confidant</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Confidant</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>confidant</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) requires access to the Camera.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) requires access to the photo library.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>GOTHAM-BLACK.TTF</string>
+		<string>GOTHAM-BLACKITALIC.TTF</string>
+		<string>GOTHAM-BOLD_0.OTF</string>
+		<string>GOTHAM-BOLD.TTF</string>
+		<string>GOTHAM-BOLDITALIC.TTF</string>
+		<string>GOTHAM-BOOKITALIC_0.OTF</string>
+		<string>GOTHAM-LIGHT_0.OTF</string>
+		<string>GOTHAM-LIGHT.TTF</string>
+		<string>GOTHAM-LIGHTITALIC.TTF</string>
+		<string>GOTHAM-MEDIUM.TTF</string>
+		<string>GOTHAM-MEDIUMITALIC.TTF</string>
+		<string>GOTHAM-THIN.TTF</string>
+		<string>GOTHAM-THINITALIC.TTF</string>
+		<string>GOTHAM-ULTRA.TTF</string>
+		<string>GOTHAM-ULTRAITALIC.TTF</string>
+		<string>GOTHAM-XLIGHT.TTF</string>
+		<string>GOTHAM-XLIGHTITALIC.TTF</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Login</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+</dict>
+</plist>

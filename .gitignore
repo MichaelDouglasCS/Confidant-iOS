@@ -1,0 +1,16 @@
+####
+# CocoaPods
+Pods/
+Podfile.lock
+
+xcuserdata/
+
+## Other
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+*.xcworkspace/contents.xcworkspacedata
+
+.DS_Store
+
