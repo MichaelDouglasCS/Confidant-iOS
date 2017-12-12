@@ -1,29 +1,55 @@
-# README #
+# Confidant-iOS
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Confidant is an application used as my undergraduate thesis, that works as a social network of support, being a way to connect via chat people who need support with people who are available to help anonymously, reliably, thus making a pleasant experience leaving the user more receptive to seek a professional help in the future.
 
-### What is this repository for? ###
+## Getting Started
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### How do I get set up? ###
+### Prerequisites
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+What things you need to install the software.
 
-### Contribution guidelines ###
+```
+1 - Xcode 8
+2 - Swift 3
+3 - CocoaPods
+```
 
-* Writing tests
-* Code review
-* Other guidelines
+### Installing
 
-### Who do I talk to? ###
+Firs of all, you need install the Xcode 9, you can find it in the App Store.
 
-* Repo owner or admin
-* Other community or team contact
+```
+https://developer.apple.com/xcode/
+```
+
+After you must install the CocoaPods.
+
+CocoaPods is built with Ruby and it will be installable with the default Ruby available on macOS. You can use a Ruby Version manager, however we recommend that you use the standard Ruby available on macOS unless you know what you're doing.
+
+Using the default Ruby install will require you to use sudo when installing gems. (This is only an issue for the duration of the gem installation, though.)
+
+```
+$ sudo gem install cocoapods
+```
+
+Lastly you need open the Terminal, go to Project root folder, and run this code:
+
+```
+$ pod install
+```
+
+Now you have all elements to run this project
+
+## Running the tests
+
+To execute the Tests, you need to press:
+
+```
+ command + U
+```
+
+## Authors
+
+* **Michael Douglas** -
