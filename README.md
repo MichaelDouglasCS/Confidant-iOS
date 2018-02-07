@@ -26,7 +26,7 @@ What things you need to install the software.
 
 ### Installing
 
-Firs of all, you need install the Xcode 9, you can find it in the App Store.
+Firs of all, you need install the Xcode 8, you can find it in the App Store.
 
 ```
 https://developer.apple.com/xcode/
