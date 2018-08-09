@@ -2,7 +2,7 @@
 
 Confidant is an application used as my undergraduate thesis, that works as a social network of support, being a way to connect via chat people who need support with people who are available to help anonymously, reliably, thus making a pleasant experience leaving the user more receptive to seek a professional help in the future ❤️.
 
-<img src="Confidant/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5%402x.png" width="200">
+<p align="center"><img src="Confidant/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5%402x.png" width="200"></p>
 
 <img src="ConfidantScreenShots/Welcome%20Screen.png" width="200"> <img src="ConfidantScreenShots/Log%20In%20Screen.png" width="200"> <img src="ConfidantScreenShots/Sign%20Up%20Screen.png" width="200"> <img src="ConfidantScreenShots/Qual%20o%20seu%20Perfil.png" width="200"> 
 
