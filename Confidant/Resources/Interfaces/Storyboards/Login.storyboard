@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17B48" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QU8-uW-fYb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QU8-uW-fYb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,29 +25,25 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="WelcomeVC" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_welcome" translatesAutoresizingMaskIntoConstraints="NO" id="vlE-fh-E07" userLabel="BackgroundImageView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="bg_welcome" translatesAutoresizingMaskIntoConstraints="NO" id="vlE-fh-E07" userLabel="BackgroundImageView">
+                                <rect key="frame" x="0.0" y="-20" width="375" height="623"/>
                                 <gestureRecognizers/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="V2e-NF-8VW">
-                                <rect key="frame" x="33" y="50" width="309" height="95"/>
+                                <rect key="frame" x="33" y="50" width="309" height="91"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="olQ-0s-RzU">
-                                        <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="91" height="91"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="olQ-0s-RzU" secondAttribute="height" multiplier="1:1" id="1U6-Iu-tkk"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confidant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="lFS-ef-fOf" customClass="IBDesigableLabel" customModule="Confidant" customModuleProvider="target">
-                                        <rect key="frame" x="103" y="0.0" width="206" height="95"/>
+                                        <rect key="frame" x="99" y="0.0" width="210" height="91"/>
                                         <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -66,7 +61,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="pnE-n1-8p4">
                                 <rect key="frame" x="0.0" y="435" width="375" height="168"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P76-oI-xE8" userLabel="MessageScrollView">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P76-oI-xE8" userLabel="MessageScrollView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="68" id="3tq-TD-0CE"/>
@@ -111,18 +106,19 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="vlE-fh-E07" secondAttribute="bottom" id="5Wc-rH-SyT"/>
-                            <constraint firstItem="V2e-NF-8VW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8W5-ku-3dH"/>
-                            <constraint firstAttribute="topMargin" secondItem="vlE-fh-E07" secondAttribute="top" id="CBk-8y-KmX"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="V2e-NF-8VW" secondAttribute="trailing" constant="33" id="H4x-7D-RLo"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pnE-n1-8p4" secondAttribute="bottom" id="cBE-m0-AYh"/>
-                            <constraint firstItem="V2e-NF-8VW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="gMA-mm-brk"/>
-                            <constraint firstAttribute="trailing" secondItem="pnE-n1-8p4" secondAttribute="trailing" id="hdB-SW-M1O"/>
-                            <constraint firstItem="V2e-NF-8VW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="33" id="jza-Fd-n2r"/>
-                            <constraint firstItem="pnE-n1-8p4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pDm-Jy-8IQ"/>
-                            <constraint firstAttribute="trailing" secondItem="vlE-fh-E07" secondAttribute="trailing" id="toJ-YZ-U9K"/>
-                            <constraint firstItem="vlE-fh-E07" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="w6n-8t-gOc"/>
+                            <constraint firstItem="V2e-NF-8VW" firstAttribute="centerX" secondItem="Acs-GL-QdK" secondAttribute="centerX" id="8W5-ku-3dH"/>
+                            <constraint firstItem="vlE-fh-E07" firstAttribute="top" secondItem="Acs-GL-QdK" secondAttribute="top" constant="-20" id="ACk-9j-Nht"/>
+                            <constraint firstItem="Acs-GL-QdK" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="V2e-NF-8VW" secondAttribute="trailing" constant="33" id="H4x-7D-RLo"/>
+                            <constraint firstItem="Acs-GL-QdK" firstAttribute="bottom" secondItem="pnE-n1-8p4" secondAttribute="bottom" id="cBE-m0-AYh"/>
+                            <constraint firstItem="V2e-NF-8VW" firstAttribute="top" secondItem="Acs-GL-QdK" secondAttribute="top" constant="50" id="gMA-mm-brk"/>
+                            <constraint firstItem="Acs-GL-QdK" firstAttribute="trailing" secondItem="pnE-n1-8p4" secondAttribute="trailing" id="hdB-SW-M1O"/>
+                            <constraint firstItem="V2e-NF-8VW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Acs-GL-QdK" secondAttribute="leading" constant="33" id="jza-Fd-n2r"/>
+                            <constraint firstItem="pnE-n1-8p4" firstAttribute="leading" secondItem="Acs-GL-QdK" secondAttribute="leading" id="pDm-Jy-8IQ"/>
+                            <constraint firstItem="Acs-GL-QdK" firstAttribute="trailing" secondItem="vlE-fh-E07" secondAttribute="trailing" id="toJ-YZ-U9K"/>
+                            <constraint firstItem="vlE-fh-E07" firstAttribute="leading" secondItem="Acs-GL-QdK" secondAttribute="leading" id="w6n-8t-gOc"/>
                             <constraint firstItem="pnE-n1-8p4" firstAttribute="top" secondItem="V2e-NF-8VW" secondAttribute="bottom" priority="750" constant="350" id="wYy-Nt-XfQ"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Acs-GL-QdK"/>
                     </view>
                     <navigationItem key="navigationItem" id="DnS-MR-goq"/>
                     <connections>
@@ -147,12 +143,8 @@
         <scene sceneID="wBK-8x-eU4">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="13q-1x-OyM" userLabel="SignInViewController" customClass="SignUpVC" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fkY-NM-19l"/>
-                        <viewControllerLayoutGuide type="bottom" id="jMt-T1-JaQ"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gdj-1r-Aqt">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vz7-AZ-5gq" userLabel="scrollView">
@@ -162,10 +154,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cNX-dC-Eoh">
-                                                <rect key="frame" x="24" y="15" width="327" height="481"/>
+                                                <rect key="frame" x="24" y="15" width="327" height="484"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="k0n-cB-Zn5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="76"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="79"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3T-9K-MKi" userLabel="SignUpButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="28.5" y="0.0" width="270" height="45"/>
@@ -185,7 +177,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_OR_WITH_EMAIL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Lb-7zC" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="98.5" y="65" width="130" height="11"/>
+                                                                <rect key="frame" x="106" y="65" width="115.5" height="14"/>
                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -193,7 +185,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-OW-eyv">
-                                                        <rect key="frame" x="0.0" y="96" width="327" height="260"/>
+                                                        <rect key="frame" x="0.0" y="99" width="327" height="260"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-E8-nS4" userLabel="EmailView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
@@ -418,7 +410,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hUo-UI-cPU">
-                                                        <rect key="frame" x="0.0" y="376" width="327" height="105"/>
+                                                        <rect key="frame" x="0.0" y="379" width="327" height="105"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIT-ql-UbD" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="66" y="0.0" width="195" height="45"/>
@@ -476,11 +468,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="top" secondItem="fkY-NM-19l" secondAttribute="bottom" id="UBf-VC-iPh"/>
-                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="leading" secondItem="gdj-1r-Aqt" secondAttribute="leading" id="WtR-4R-zBD"/>
-                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="bottom" secondItem="jMt-T1-JaQ" secondAttribute="top" id="jdA-LK-msc"/>
-                            <constraint firstAttribute="trailing" secondItem="vz7-AZ-5gq" secondAttribute="trailing" id="pUy-dz-V7N"/>
+                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="top" secondItem="Xr3-H1-LAU" secondAttribute="top" id="UBf-VC-iPh"/>
+                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="leading" secondItem="Xr3-H1-LAU" secondAttribute="leading" id="WtR-4R-zBD"/>
+                            <constraint firstItem="vz7-AZ-5gq" firstAttribute="bottom" secondItem="Xr3-H1-LAU" secondAttribute="bottom" id="jdA-LK-msc"/>
+                            <constraint firstItem="Xr3-H1-LAU" firstAttribute="trailing" secondItem="vz7-AZ-5gq" secondAttribute="trailing" id="pUy-dz-V7N"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Xr3-H1-LAU"/>
                     </view>
                     <navigationItem key="navigationItem" id="UNS-Tc-3Uf">
                         <view key="titleView" contentMode="scaleToFill" id="eN3-k0-jRC">
@@ -488,7 +481,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_SIGNUP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cW-hQ-ws2" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="38.5" y="10.5" width="88.5" height="13.5"/>
+                                    <rect key="frame" x="41.5" y="8" width="82.5" height="17.5"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -539,12 +532,8 @@
         <scene sceneID="hP4-R5-Z91">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="Z3h-2O-sy4" userLabel="LogInVC" customClass="LogInVC" customModule="Confidant" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xq4-lH-hgQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="hnK-Sc-Vaw"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ag6-ez-dBn">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmL-JK-fhZ">
@@ -554,10 +543,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uhy-ZU-WQ1">
-                                                <rect key="frame" x="24" y="15" width="327" height="285"/>
+                                                <rect key="frame" x="24" y="15" width="327" height="288"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zCe-k1-hnx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="76"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="79"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyH-s9-Ewm" userLabel="LoginFacebookButton" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="29" y="0.0" width="269" height="45"/>
@@ -579,7 +568,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NP3-mv-fo4" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="142.5" y="65" width="42.5" height="11"/>
+                                                                <rect key="frame" x="144.5" y="65" width="38.5" height="14"/>
                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -587,7 +576,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Q95-0R-f8L">
-                                                        <rect key="frame" x="0.0" y="96" width="327" height="95"/>
+                                                        <rect key="frame" x="0.0" y="99" width="327" height="95"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgt-wu-RAT" userLabel="UsernameView" customClass="IBDesigableView" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
@@ -680,7 +669,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6gi-Rl-ChJ">
-                                                        <rect key="frame" x="0.0" y="211" width="327" height="74"/>
+                                                        <rect key="frame" x="0.0" y="214" width="327" height="74"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln8-Xc-m6n" userLabel="Login" customClass="IBDesigableButton" customModule="Confidant" customModuleProvider="target">
                                                                 <rect key="frame" x="66" y="0.0" width="195" height="45"/>
@@ -702,7 +691,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-aK-ogj" userLabel="Forgot your password?" customClass="LocalizedButton" customModule="Confidant" customModuleProvider="target">
-                                                                <rect key="frame" x="78.5" y="45" width="170" height="29"/>
+                                                                <rect key="frame" x="87" y="45" width="153" height="29"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="29" id="mkA-uI-I44"/>
                                                                 </constraints>
@@ -741,11 +730,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OmL-JK-fhZ" firstAttribute="bottom" secondItem="hnK-Sc-Vaw" secondAttribute="top" id="3aB-vI-rPF"/>
-                            <constraint firstItem="OmL-JK-fhZ" firstAttribute="leading" secondItem="Ag6-ez-dBn" secondAttribute="leading" id="YAO-mQ-XHC"/>
-                            <constraint firstAttribute="trailing" secondItem="OmL-JK-fhZ" secondAttribute="trailing" id="hBb-q0-GY2"/>
-                            <constraint firstItem="OmL-JK-fhZ" firstAttribute="top" secondItem="xq4-lH-hgQ" secondAttribute="bottom" id="qx5-GL-Lve"/>
+                            <constraint firstItem="OmL-JK-fhZ" firstAttribute="bottom" secondItem="O3l-wo-qc8" secondAttribute="bottom" id="3aB-vI-rPF"/>
+                            <constraint firstItem="OmL-JK-fhZ" firstAttribute="leading" secondItem="O3l-wo-qc8" secondAttribute="leading" id="YAO-mQ-XHC"/>
+                            <constraint firstItem="O3l-wo-qc8" firstAttribute="trailing" secondItem="OmL-JK-fhZ" secondAttribute="trailing" id="hBb-q0-GY2"/>
+                            <constraint firstItem="OmL-JK-fhZ" firstAttribute="top" secondItem="O3l-wo-qc8" secondAttribute="top" id="qx5-GL-Lve"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="O3l-wo-qc8"/>
                     </view>
                     <navigationItem key="navigationItem" id="eV3-Y4-Hm8">
                         <nil key="title"/>
@@ -754,7 +744,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB_LOGIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpV-a9-LT8" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="43" y="10.5" width="80" height="13.5"/>
+                                    <rect key="frame" x="46.5" y="8" width="72" height="17.5"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -785,7 +775,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QU8-uW-fYb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" backIndicatorImage="icn_back" backIndicatorTransitionMaskImage="icn_back" id="FOt-cQ-22d">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.88235294119999996" green="0.35294117650000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -807,18 +797,14 @@
         <scene sceneID="hWd-Sz-aC9">
             <objects>
                 <viewController id="Ysk-SK-5F5" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Z36-g4-7LE"/>
-                        <viewControllerLayoutGuide type="bottom" id="GMx-u7-poX"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="li1-My-wpy">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Qhf-tZ-ndV">
                                 <rect key="frame" x="15" y="0.0" width="345" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">-O presente aplicativo foi desenvolvido para pessoas que passam por descontroles emocionais sejam ligadas a pessoas dispostas a ajudar como ouvintes, um verdadeiro ombro amigo, e que fique ressaltada, de maneira NÃO CLÍNICA E APROFUNDADA, de modo que este 
+                                <string key="text">-O presente aplicativo foi desenvolvido para pessoas que passam por descontroles emocionais sejam ligadas a pessoas dispostas a ajudar como ouvintes, um verdadeiro ombro amigo, e que fique ressaltada, de maneira NÃO CLÍNICA E APROFUNDADA, de modo que este 
 
 -O presente aplicativo não se responsabiliza pelo teor das conversas, bem como não oferece qualquer forma de armazenamento para possível colaboração com a justiça, sendo as partes envolvidas as únicas que terão acesso ao que foi compartilhado com o "ombro amigo".
 
@@ -826,18 +812,19 @@
 
 -O aplicativo se reserva no direito de averiguar as denuncias feitas e promover o banimento de usuários denunciados, de acordo com a invasão de privacidade e desvirtuação de finalidade do aplicativo, como por exemplo a promoção de conteúdo sexual, ilícitos civis e criminais 9melhorar)
 
--Ao se utilizar deste aplicativo, os usuários se declaram de acordo com estes termos, que podem ser alterados sem prévio aviso e estarão sempre disponíveis ao usuário interessado. Aceitam ainda que este aplicativo não tem qualquer finalidade medicinal e não substitui o acompanhamento médico devido, mas sim, unicamente promove o intercâmbio de ideias saudáveis e construtivas, através de mensagens positivas e que busquem tirar o usuário de um momento conturbado e passageiro.</mutableString>
+-Ao se utilizar deste aplicativo, os usuários se declaram de acordo com estes termos, que podem ser alterados sem prévio aviso e estarão sempre disponíveis ao usuário interessado. Aceitam ainda que este aplicativo não tem qualquer finalidade medicinal e não substitui o acompanhamento médico devido, mas sim, unicamente promove o intercâmbio de ideias saudáveis e construtivas, através de mensagens positivas e que busquem tirar o usuário de um momento conturbado e passageiro.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GMx-u7-poX" firstAttribute="top" secondItem="Qhf-tZ-ndV" secondAttribute="bottom" id="18Z-JI-vPl"/>
-                            <constraint firstAttribute="trailing" secondItem="Qhf-tZ-ndV" secondAttribute="trailing" constant="15" id="WuI-nV-RqE"/>
-                            <constraint firstItem="Qhf-tZ-ndV" firstAttribute="top" secondItem="Z36-g4-7LE" secondAttribute="bottom" id="bpd-20-lgf"/>
-                            <constraint firstItem="Qhf-tZ-ndV" firstAttribute="leading" secondItem="li1-My-wpy" secondAttribute="leading" constant="15" id="wzJ-BX-mDO"/>
+                            <constraint firstItem="HES-De-N3P" firstAttribute="bottom" secondItem="Qhf-tZ-ndV" secondAttribute="bottom" id="18Z-JI-vPl"/>
+                            <constraint firstItem="HES-De-N3P" firstAttribute="trailing" secondItem="Qhf-tZ-ndV" secondAttribute="trailing" constant="15" id="WuI-nV-RqE"/>
+                            <constraint firstItem="Qhf-tZ-ndV" firstAttribute="top" secondItem="HES-De-N3P" secondAttribute="top" id="bpd-20-lgf"/>
+                            <constraint firstItem="Qhf-tZ-ndV" firstAttribute="leading" secondItem="HES-De-N3P" secondAttribute="leading" constant="15" id="wzJ-BX-mDO"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="HES-De-N3P"/>
                     </view>
                     <navigationItem key="navigationItem" id="W3E-Nf-Fz0" customClass="LocalizedNavigationItem" customModule="Confidant" customModuleProvider="target">
                         <nil key="title"/>
@@ -846,7 +833,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ST_TERMS_CONDITIONS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9W-yZ-zfM" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="-21" y="9.5" width="191.5" height="13.5"/>
+                                    <rect key="frame" x="-13.5" y="8" width="177" height="17.5"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -867,33 +854,30 @@
         <scene sceneID="9uW-VI-c7g">
             <objects>
                 <viewController id="3ah-li-nUI" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zRt-KL-lIN"/>
-                        <viewControllerLayoutGuide type="bottom" id="yQM-kU-MMk"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MoT-78-mLm">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Ylx-KF-WOV">
                                 <rect key="frame" x="15" y="0.0" width="345" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">-A intenção de seus desenvolvedores é que, aquele que precisar de alguém para conversar e se distrair o faça de maneira rápida e COMPLETAMENTE ANÔNIMA. 
+                                <string key="text">-A intenção de seus desenvolvedores é que, aquele que precisar de alguém para conversar e se distrair o faça de maneira rápida e COMPLETAMENTE ANÔNIMA. 
 
 -Ambas as partes da conversa somente terão acesso, via aplicativo, ao Nickname e imagens que serão escolhidos pelos usuários, e orientamos no sentido de que tais dados não possibilitem a identificação pessoal, com o fornecimento de dados pessoais, como exemplo
 
--O aplicativo aconselha veementemente que nenhuma das partes informe à outra dados pessoais, e, caso ocorra o pedido de tais dados, o aplicativo fornece o botão de denúncia.</mutableString>
+-O aplicativo aconselha veementemente que nenhuma das partes informe à outra dados pessoais, e, caso ocorra o pedido de tais dados, o aplicativo fornece o botão de denúncia.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ylx-KF-WOV" firstAttribute="leading" secondItem="MoT-78-mLm" secondAttribute="leading" constant="15" id="09d-uj-pZo"/>
-                            <constraint firstItem="yQM-kU-MMk" firstAttribute="top" secondItem="Ylx-KF-WOV" secondAttribute="bottom" id="IMy-RV-o3X"/>
-                            <constraint firstItem="Ylx-KF-WOV" firstAttribute="top" secondItem="zRt-KL-lIN" secondAttribute="bottom" id="bNR-R3-3fd"/>
-                            <constraint firstAttribute="trailing" secondItem="Ylx-KF-WOV" secondAttribute="trailing" constant="15" id="nPt-z0-qYL"/>
+                            <constraint firstItem="Ylx-KF-WOV" firstAttribute="leading" secondItem="Rd3-9n-Xx8" secondAttribute="leading" constant="15" id="09d-uj-pZo"/>
+                            <constraint firstItem="Rd3-9n-Xx8" firstAttribute="bottom" secondItem="Ylx-KF-WOV" secondAttribute="bottom" id="IMy-RV-o3X"/>
+                            <constraint firstItem="Ylx-KF-WOV" firstAttribute="top" secondItem="Rd3-9n-Xx8" secondAttribute="top" id="bNR-R3-3fd"/>
+                            <constraint firstItem="Rd3-9n-Xx8" firstAttribute="trailing" secondItem="Ylx-KF-WOV" secondAttribute="trailing" constant="15" id="nPt-z0-qYL"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Rd3-9n-Xx8"/>
                     </view>
                     <navigationItem key="navigationItem" id="ndk-ZP-mvM">
                         <nil key="title"/>
@@ -902,7 +886,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ST_PRIVACY_POLICY" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNL-4W-2s1" customClass="LocalizedLabel" customModule="Confidant" customModuleProvider="target">
-                                    <rect key="frame" x="-9" y="9.5" width="166.5" height="13.5"/>
+                                    <rect key="frame" x="0.0" y="8" width="150" height="17.5"/>
                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>

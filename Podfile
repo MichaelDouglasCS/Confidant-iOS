@@ -6,14 +6,14 @@ target 'Confidant' do
   use_frameworks!
 
   # Pods for Confidant
-  pod 'SwiftyJSON'
-  pod 'ObjectMapper', '~> 2.2'
-  pod 'CryptoSwift', :git => "https://github.com/krzyzanowskim/CryptoSwift", :branch => "swift3"
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'ObjectMapper', '~> 3.4'
+  pod 'CryptoSwift'
   pod 'Alamofire'
-  pod 'AlamofireImage', '~> 3.3'
+  pod 'AlamofireImage'
   pod 'RealmSwift'
   pod 'RSKImageCropper'
-  pod 'Socket.IO-Client-Swift', '~> 11.1.3'
+  pod 'Socket.IO-Client-Swift'
 
   target 'ConfidantTests' do
     inherit! :search_paths

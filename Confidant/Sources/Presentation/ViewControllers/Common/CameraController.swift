@@ -185,16 +185,14 @@ extension CameraController : RSKImageCropViewControllerDelegate {
 			self.strongSelf = nil
 		}
 	}
-	
-	func imageCropViewController(_ controller: RSKImageCropViewController,
-	                             didCropImage croppedImage: UIImage,
-	                             usingCropRect cropRect: CGRect) {
-		controller.dismiss(animated: true)
-		self.dismiss(animated: true)
-		
-		DispatchQueue.main.async {
-			self.completion?(croppedImage)
-			self.strongSelf = nil
-		}
-	}
+    
+    func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {
+        controller.dismiss(animated: true)
+        self.dismiss(animated: true)
+        
+        DispatchQueue.main.async {
+            self.completion?(croppedImage)
+            self.strongSelf = nil
+        }
+    }
 }

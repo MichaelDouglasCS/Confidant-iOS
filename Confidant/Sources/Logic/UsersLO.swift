@@ -79,7 +79,11 @@ public final class UsersLO {
 			Persistence.dataBaseName = id
 			
 			if let user = Persistence.load(collection: modelClass)?.first {
-				return UserBO(JSON: JSON(data: user.data).dictionaryObject ?? [:])
+                do {
+                    return UserBO(JSON: try JSON(data: user.data).dictionaryObject ?? [:])
+                } catch {
+                    return nil
+                }
 			}
 		}
 		
@@ -172,7 +176,13 @@ public final class UsersLO {
 				                                                withTemplate: "")
 				
 				if let data = jsonString.data(using: .utf8) {
-					let json = JSON(data: data)
+                    let json: JSON
+                    
+                    do {
+                        json = try JSON(data: data)
+                    } catch {
+                        json = [:]
+                    }
 					
 					if json.exists() {
 						self.cacheAndSetCurrent(json: json)

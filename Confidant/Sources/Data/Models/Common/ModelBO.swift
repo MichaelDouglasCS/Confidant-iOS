@@ -46,13 +46,29 @@ public class ModelBO: NSObject, NSCoding {
 	
 	required convenience public init(raw: Data) {
 		self.init()
-		self.decodeJSON(json: JSON(data: raw))
+        var json: JSON
+        
+        do {
+            json = try JSON(data: raw)
+        } catch {
+            json = [:]
+        }
+        
+		self.decodeJSON(json: json)
 	}
 	
 	required convenience public init?(coder aDecoder: NSCoder) {
 		self.init()
+        var json: JSON
+        
 		if let data = aDecoder.decodeData() {
-			self.decodeJSON(json: JSON(data: data))
+            do {
+                json = try JSON(data: data)
+            } catch {
+                json = [:]
+            }
+            
+			self.decodeJSON(json: json)
 		}
 	}
 
